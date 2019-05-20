@@ -47,7 +47,6 @@ end
 
 if minetest.get_modpath("tubelib") then
     minetest.clear_craft({output="tubelib:pusher"})
-    minetest.clear_craft({output="tubelib:pusher 2"})
     minetest.register_craft({
         output = "tubelib:pusher 2",
         recipe = {
@@ -61,7 +60,6 @@ end
 
 if minetest.get_modpath("cottages") then
     minetest.clear_craft({output="cottages:glass_pane"})
-    minetest.clear_craft({output="cottages:glass_pane 4"})
     minetest.register_craft({
         output = "cottages:glass_pane 4",
         recipe = {
@@ -131,3 +129,14 @@ if minetest.get_modpath("xdecor") then
     end
 end
 
+if minetest.get_modpath("moreblocks") then
+    minetest.clear_craft({output="moreblocks:wood_tile_center"})
+    minetest.register_craft({
+        output = "moreblocks:wood_tile_center 5",
+        recipe = {
+            {"group:wood", "",                     "group:wood"},
+            {"",           "moreblocks:wood_tile", ""},
+            {"group:wood", "",                     "group:wood"},
+        },
+    })
+end
