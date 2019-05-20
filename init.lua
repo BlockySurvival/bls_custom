@@ -44,20 +44,3 @@ if minetest.get_modpath("travelnet") and minetest.get_modpath("titanium") then
         },
     })
 end
-
-if minetest.get_modpath("currency") then
-    earn_income = function(player)
-        if not player or player.is_fake_player then return end
-        local name = player:get_player_name()
-        if players_income[name] == nil then
-            players_income[name] = 0
-        end
-        if players_income[name] > 0 then
-            local count = players_income[name]
-            local inv = player:get_inventory()
-            inv:add_item("main", {name="currency:minegeld_5", count=count})
-            players_income[name] = 0
-            minetest.log("info", "[Currency] "..S("added basic income for @1 to inventory", name))
-        end
-    end
-end
