@@ -44,3 +44,17 @@ if minetest.get_modpath("travelnet") and minetest.get_modpath("titanium") then
         },
     })
 end
+
+if minetest.get_modpath("tubelib") then
+    minetest.clear_craft({output="tubelib:pusher"})
+    minetest.clear_craft({output="tubelib:pusher 2"})
+    minetest.register_craft({
+        output = "tubelib:pusher 2",
+        recipe = {
+            {"group:wood",    "group:wool",           "group:wood"},
+            {"tubelib:tubeS", "default:mese_crystal", "tubelib:tubeS"},
+            {"group:wood",    "group:wool",           "group:wood"},
+        },
+    })
+
+end
