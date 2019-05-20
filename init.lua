@@ -58,3 +58,16 @@ if minetest.get_modpath("tubelib") then
     })
 
 end
+
+if minetest.get_modpath("cottages") then
+    minetest.clear_craft({output="cottages:glass_pane"})
+    minetest.clear_craft({output="cottages:glass_pane 4"})
+    minetest.register_craft({
+        output = "cottages:glass_pane 4",
+        recipe = {
+            {"", "",              ""},
+            {"", "default:glass", ""},
+            {"", "",              ""},
+        },
+    })
+end
