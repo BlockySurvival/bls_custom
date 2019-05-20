@@ -71,3 +71,63 @@ if minetest.get_modpath("cottages") then
         },
     })
 end
+
+if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") then
+    minetest.clear_craft({output="itemframes:frame"})
+    minetest.register_craft({
+        output = "itemframes:frame",
+        recipe = {
+            {"default:stick", "default:stick", "default:stick"},
+            {"default:stick", "group:wool",    "default:stick"},
+            {"default:stick", "default:stick", "default:stick"},
+        },
+    })
+end
+
+if minetest.get_modpath("xdecor") then
+    minetest.clear_craft({output="xdecor:pressure_stone_off"})
+    minetest.register_craft({
+        output = "xdecor:pressure_stone_off",
+        recipe = {
+            {"group:stone", "", "group:stone"},
+            {"",            "", ""},
+            {"",            "", ""},
+        },
+    })
+    minetest.clear_craft({output="xdecor:pressure_wood_off"})
+    minetest.register_craft({
+        output = "xdecor:pressure_wood_off",
+        recipe = {
+            {"group:wood", "", "group:wood"},
+            {"",           "", ""},
+            {"",           "", ""},
+        },
+    })
+
+    if minetest.get_modpath("farming") then
+        minetest.clear_craft({output="xdecor:tatami"})
+        minetest.register_craft({
+            output = "xdecor:tatami",
+            recipe = {
+                {"farming:wheat", "",              "farming:wheat"},
+                {"",              "farming:wheat", ""},
+                {"",              "",              ""},
+            },
+        })
+    end
+
+    if minetest.get_modpath("moreblocks") then
+        minetest.clear_craft({output="moreblocks:empty_shelf"})
+        minetest.register_craft({
+            output = "moreblocks:empty_shelf",
+            type = "shapeless",
+            recipe = {"xdecor:empty_shelf"}
+        })
+        minetest.register_craft({
+            output = "xdecor:empty_shelf",
+            type = "shapeless",
+            recipe = {"moreblocks:empty_shelf"}
+        })
+    end
+end
+

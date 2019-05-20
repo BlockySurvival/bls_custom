@@ -4,3 +4,8 @@ travelnet?
 titanium?
 tubelib?
 cottages?
+itemframes?
+wool?
+xdecor?
+farming?
+moreblocks?
