@@ -140,3 +140,11 @@ if minetest.get_modpath("moreblocks") then
         },
     })
 end
+
+if minetest.get_modpath("titanium") then
+    if minetest.get_modpath("maptools") then
+        minetest.register_alias_force("titanium:light", "maptools:lightbulb")
+    else
+        minetest.register_alias_force("titanium:light", "air")
+    end
+end
