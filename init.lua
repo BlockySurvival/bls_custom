@@ -129,18 +129,6 @@ if minetest.get_modpath("xdecor") then
     end
 end
 
-if minetest.get_modpath("moreblocks") then
-    minetest.clear_craft({output="moreblocks:wood_tile_center"})
-    minetest.register_craft({
-        output = "moreblocks:wood_tile_center 5",
-        recipe = {
-            {"group:wood", "",                     "group:wood"},
-            {"",           "moreblocks:wood_tile", ""},
-            {"group:wood", "",                     "group:wood"},
-        },
-    })
-end
-
 if minetest.get_modpath("titanium") then
     if minetest.get_modpath("maptools") then
         minetest.register_alias_force("titanium:light", "maptools:lightbulb")
