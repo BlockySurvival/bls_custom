@@ -148,3 +148,24 @@ if minetest.get_modpath("titanium") then
         minetest.register_alias_force("titanium:light", "air")
     end
 end
+
+if minetest.get_modpath("quartz") then
+    minetest.clear_craft({output="quartz:chiseled"})
+    minetest.register_craft({
+        output = 'quartz:chiseled 4',
+        recipe = {
+            {'quartz:block', 'quartz:block', ''},
+            {'quartz:block', 'quartz:block', ''},
+            {'',             '',             ''},
+        }
+    })
+end
+
+if minetest.get_modpath("extra") and minetest.get_modpath("terumet") and minetest.get_modpath("farming") then
+    terumet.register_alloy_recipe({
+        result="extra:blooming_onion",
+        input={"farming:onion", "extra:cottonseed_oil"},
+        flux=0,
+        time=10,
+    })
+end

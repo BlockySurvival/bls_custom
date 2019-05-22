@@ -1,10 +1,13 @@
 default
 cottages?
+extra?
 farming?
 gravelsieve?
 itemframes?
 maptools?
 moreblocks?
+quartz?
+terumet?
 titanium?
 travelnet?
 tubelib?
