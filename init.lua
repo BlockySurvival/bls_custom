@@ -157,3 +157,8 @@ if minetest.get_modpath("extra") and minetest.get_modpath("terumet") and minetes
         time=10,
     })
 end
+
+
+if minetest.get_modpath("tubelib_addons1") then
+    tubelib_addons1.register_ground_node('default:obsidian')
+end
