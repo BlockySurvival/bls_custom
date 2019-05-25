@@ -56,6 +56,17 @@ if minetest.get_modpath("tubelib") then
         },
     })
 
+    if minetest.get_modpath("titanium") and minetest.get_modpath("basic_materials") then
+        minetest.clear_craft({output="tubelib:forceload"})
+        minetest.register_craft({
+            output = "tubelib:forceload",
+            recipe = {
+                {"group:wood",                            "",                       "group:wood"},
+                {"basic_materials:energy_crystal_simple", "titanium:titanium_tv_1", "basic_materials:energy_crystal_simple"},
+                {"group:wood",                            "tubelib:wlanchip",       "group:wood"},
+            },
+        })
+    end
 end
 
 if minetest.get_modpath("cottages") then
