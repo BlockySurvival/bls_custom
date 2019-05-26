@@ -123,6 +123,8 @@ if minetest.get_modpath("xdecor") then
                 {"",              "",              ""},
             },
         })
+
+        minetest.register_alias_force("xdecor:bowl", "farming:bowl")
     end
 
     if minetest.get_modpath("moreblocks") then
@@ -137,6 +139,8 @@ if minetest.get_modpath("xdecor") then
             type = "shapeless",
             recipe = {"moreblocks:empty_shelf"}
         })
+
+        minetest.register_alias_force("xdecor:stone_tile", "moreblocks:stone_tile")
     end
 end
 
