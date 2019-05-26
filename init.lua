@@ -151,11 +151,11 @@ end
 if minetest.get_modpath("quartz") then
     minetest.clear_craft({output="quartz:chiseled"})
     minetest.register_craft({
-        output = 'quartz:chiseled 4',
+        output = "quartz:chiseled 4",
         recipe = {
-            {'quartz:block', 'quartz:block', ''},
-            {'quartz:block', 'quartz:block', ''},
-            {'',             '',             ''},
+            {"quartz:block", "quartz:block", ""},
+            {"quartz:block", "quartz:block", ""},
+            {"",             "",             ""},
         }
     })
 end
@@ -166,5 +166,17 @@ if minetest.get_modpath("extra") and minetest.get_modpath("terumet") and minetes
         input={"farming:onion", "extra:cottonseed_oil"},
         flux=0,
         time=10,
+    })
+end
+
+if minetest.get_modpath("terumet") then
+    minetest.clear_craft({output="terumet:item_upg_cryst"})
+    minetest.register_craft({
+        output = "terumet:item_upg_cryst",
+        recipe = {
+            {"terumet:item_cryst_dia", "terumet:item_entropy",  "terumet:item_cryst_dia"},
+            {"terumet:item_entropy",   "terumet:item_upg_base", "terumet:item_entropy"},
+            {"terumet:item_cryst_dia", "terumet:item_entropy",  "terumet:item_cryst_dia"},
+        }
     })
 end
