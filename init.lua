@@ -184,3 +184,11 @@ if minetest.get_modpath("terumet") then
         }
     })
 end
+
+if minetest.get_modpath("creative") then
+    local creative_mode_cache = minetest.settings:get_bool("creative_mode")
+
+    function creative.is_enabled_for(name)
+            return creative_mode_cache or minetest.check_player_privs(name, {creative = true})
+    end
+end
