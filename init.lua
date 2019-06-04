@@ -183,6 +183,8 @@ if minetest.get_modpath("terumet") then
             {"terumet:item_cryst_dia", "terumet:item_entropy",  "terumet:item_cryst_dia"},
         }
     })
+
+    minetest.register_alias_force("terumet:block_thermese_hot", "terumet:block_thermese")
 end
 
 if minetest.get_modpath("creative") then
