@@ -194,3 +194,35 @@ if minetest.get_modpath("creative") then
             return creative_mode_cache or minetest.check_player_privs(name, {creative = true})
     end
 end
+
+if minetest.get_modpath("homedecor_lighting") then
+    minetest.register_alias_force("homedecor:plasma_ball_14", "homedecor:plasma_ball_on")
+    minetest.register_alias_force("homedecor:wall_lamp_14", "homedecor:wall_lamp_on")
+end
+
+if minetest.get_modpath("3d_armor") then
+    local admin_armor_list = {
+        ['3d_armor:helmet_admin']=true,
+        ['3d_armor:chestplate_admin']=true,
+        ['3d_armor:leggings_admin']=true,
+        ['3d_armor:boots_admin']=true,
+        ['shields:shield_admin']=true,
+        ['bls_admin_flair:shield_bls']=true,
+    }
+    local armor_punch = armor.punch
+    armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabilities)
+        -- when wearing admin armor, don't damage other armor :\
+        local name, armor_inv = self:get_valid_player(player, "[punch]")
+        if not name then
+                return
+        end
+        local list = armor_inv:get_list("armor")
+        for _, stack in pairs(list) do
+            local name = stack:get_name()
+            if admin_armor_list[name] then
+                return
+            end
+        end
+        return armor_punch(self, player, hitter, time_from_last_punch, tool_capabilities)
+    end
+end
