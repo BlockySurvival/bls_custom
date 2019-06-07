@@ -19,8 +19,23 @@ if minetest.get_modpath("gravelsieve") then
     })
 
     minetest.register_alias_force("gravelsieve:sieved_gravel", "default:sand")
-    minetest.register_alias_force("gravelsieve:compressed_gravel", "default:cobble")
+    -- minetest.register_alias_force("gravelsieve:compressed_gravel", "default:cobble")
     minetest.clear_craft({output="gravelsieve:compressed_gravel"})
+    minetest.clear_craft({recipe="gravelsieve:compressed_gravel", type="cooking"})
+    minetest.register_craft({
+        output = "gravelsieve:compressed_gravel",
+        recipe = {
+            {"default:gravel", "default:gravel", "default:gravel"},
+            {"default:gravel", "default:gravel", "default:gravel"},
+            {"default:gravel", "default:gravel", "default:gravel"},
+        },
+    })
+    minetest.register_craft({
+        output = "default:gravel 9",
+        recipe = {
+            {"gravelsieve:compressed_gravel"},
+        },
+    })
 end
 
 if minetest.get_modpath("travelnet") and minetest.get_modpath("titanium") then
