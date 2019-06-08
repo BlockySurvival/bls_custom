@@ -19,7 +19,6 @@ if minetest.get_modpath("gravelsieve") then
     })
 
     minetest.register_alias_force("gravelsieve:sieved_gravel", "default:sand")
-    -- minetest.register_alias_force("gravelsieve:compressed_gravel", "default:cobble")
     minetest.clear_craft({output="gravelsieve:compressed_gravel"})
     minetest.clear_craft({recipe="gravelsieve:compressed_gravel", type="cooking"})
     minetest.register_craft({
@@ -188,14 +187,14 @@ if minetest.get_modpath("extra") and minetest.get_modpath("terumet") and minetes
     })
 end
 
-if minetest.get_modpath("terumet") then
-    minetest.clear_craft({output="terumet:item_upg_cryst"})
+if minetest.get_modpath("terumet") and minetest.get_modpath("tubelib_addons1") then
+    minetest.clear_craft({output="terumet:item_upg_tubelib"})
     minetest.register_craft({
-        output = "terumet:item_upg_cryst",
+        output = "terumet:item_upg_tubelib",
         recipe = {
-            {"terumet:item_cryst_dia", "terumet:item_entropy",  "terumet:item_cryst_dia"},
-            {"terumet:item_entropy",   "terumet:item_upg_base", "terumet:item_entropy"},
-            {"terumet:item_cryst_dia", "terumet:item_entropy",  "terumet:item_cryst_dia"},
+            {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
+            {"tubelib_addons1:chest",  "terumet:item_upg_base",  "tubelib_addons1:chest"},
+            {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
         }
     })
 
