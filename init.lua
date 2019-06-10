@@ -230,3 +230,12 @@ if minetest.get_modpath("3d_armor") then
         return armor_punch(self, player, hitter, time_from_last_punch, tool_capabilities)
     end
 end
+
+if minetest.get_modpath('tnt') then
+    minetest.clear_craft({output="tnt:gunpowder"})
+    minetest.register_craft({
+        output = "tnt:gunpowder",
+        type = "shapeless",
+        recipe = {"default:gravel", ""}
+    })
+end
