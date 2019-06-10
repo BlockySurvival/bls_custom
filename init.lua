@@ -87,11 +87,7 @@ if minetest.get_modpath("cottages") then
     minetest.clear_craft({output="cottages:glass_pane"})
     minetest.register_craft({
         output = "cottages:glass_pane 4",
-        recipe = {
-            {"", "",              ""},
-            {"", "default:glass", ""},
-            {"", "",              ""},
-        },
+        recipe = {{'default:glass'}}
     })
 end
 
@@ -155,6 +151,12 @@ if minetest.get_modpath("xdecor") then
         })
 
         minetest.register_alias_force("xdecor:stone_tile", "moreblocks:stone_tile")
+
+        minetest.clear_craft({recipe={"default:cactus", "default:brick"}, type="shapeless"})
+        minetest.register_craft({
+                output = "moreblocks:cactus_brick",
+                recipe = {{"default:cactus", "default:brick"}}
+        })
     end
 end
 
@@ -164,18 +166,6 @@ if minetest.get_modpath("titanium") then
     else
         minetest.register_alias_force("titanium:light", "air")
     end
-end
-
-if minetest.get_modpath("quartz") then
-    minetest.clear_craft({output="quartz:chiseled"})
-    minetest.register_craft({
-        output = "quartz:chiseled 4",
-        recipe = {
-            {"quartz:block", "quartz:block", ""},
-            {"quartz:block", "quartz:block", ""},
-            {"",             "",             ""},
-        }
-    })
 end
 
 if minetest.get_modpath("extra") and minetest.get_modpath("terumet") and minetest.get_modpath("farming") then
