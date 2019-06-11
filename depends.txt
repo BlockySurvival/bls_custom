@@ -3,6 +3,7 @@ basic_materials?
 bonemeal?
 cottages?
 creative?
+doors?
 extra?
 farming?
 gravelsieve?
@@ -13,6 +14,7 @@ quartz?
 terumet?
 titanium?
 travelnet?
+tnt?
 tubelib?
 tubelib_addons1?
 wool?

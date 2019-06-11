@@ -1,3 +1,30 @@
+--
+-- bls_overrides
+--
+
+-- Prevent lava being placed over -5m
+if minetest.get_modpath('bucket') then
+    local on_place = minetest.registered_items['bucket:bucket_lava'].on_place
+    minetest.override_item('bucket:bucket_lava', {
+        on_place = function(itemstack, user, pointed_thing)
+            local player_name = user:get_player_name()
+            if pointed_thing.above.y > -5 and not
+                    minetest.check_player_privs(player_name, {lava = true}) then
+                minetest.chat_send_player(player_name,
+                    "You cannot place lava over -5m.", true)
+                return itemstack
+            end
+            return on_place(itemstack, user, pointed_thing)
+        end
+    })
+end
+
+-- Load doors.lua if minetest_game 5.0.0 or later is installed
+if minetest.get_modpath('doors') and doors.door_toggle then
+    dofile(minetest.get_modpath('bls_overrides') .. '/doors.lua')
+end
+
+-- Change the gravelsieve crafting recipes.
 if minetest.get_modpath("gravelsieve") then
     minetest.clear_craft({output="gravelsieve:sieve"})
     minetest.register_craft({
@@ -231,11 +258,30 @@ if minetest.get_modpath("3d_armor") then
     end
 end
 
-if minetest.get_modpath('tnt') and minetest.get_modpath('bonemeal') then
-    minetest.clear_craft({output="tnt:gunpowder"})
-    minetest.register_craft({
-        output = "tnt:gunpowder",
-        type = "shapeless",
-        recipe = {"default:gravel", "default:coal", "bonemeal:fertiliser"}
-    })
+-- Hacks for the TNT mod
+if minetest.get_modpath('tnt') then
+    local boom = tnt.boom
+    function tnt.boom(pos, def, ...)
+        -- It's impossible to override entity_physics directly, so render it
+        --  useless instead.
+        if def and def.disable_entity_effects then
+            local f = minetest.get_objects_inside_radius
+            minetest.get_objects_inside_radius = function(pos, radius)
+                return {}
+            end
+            local res = boom(pos, def, ...)
+            minetest.get_objects_inside_radius = f
+            return res
+        else
+            return boom(pos, def, ...)
+        end
+    end
+    if minetest.get_modpath('bonemeal') then
+        minetest.clear_craft({output="tnt:gunpowder"})
+        minetest.register_craft({
+            output = "tnt:gunpowder",
+            type = "shapeless",
+            recipe = {"default:gravel", "default:coal", "bonemeal:fertiliser"}
+        })
+    end
 end
