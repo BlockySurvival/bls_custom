@@ -1,6 +1,7 @@
 default
 basic_materials?
 bonemeal?
+bucket?
 cottages?
 creative?
 doors?
