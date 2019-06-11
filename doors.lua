@@ -92,6 +92,7 @@ function doors.door_toggle(pos, node, clicker)
             minetest.record_protection_violation(pos, name)
             return false
         end
+        clicker = nil
     end
 
     return door_toggle(pos, node, clicker)
