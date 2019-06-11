@@ -5,7 +5,6 @@
 local protected_doors = {}
 local def_overrides = {
     can_dig = function(pos, digger)
-        print('custom can_dig')
         local name = digger:get_player_name()
         if minetest.is_protected(pos, name) then
             minetest.record_protection_violation(pos, name)
