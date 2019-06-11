@@ -231,11 +231,11 @@ if minetest.get_modpath("3d_armor") then
     end
 end
 
-if minetest.get_modpath('tnt') then
+if minetest.get_modpath('tnt') and minetest.get_modpath('bonemeal') then
     minetest.clear_craft({output="tnt:gunpowder"})
     minetest.register_craft({
         output = "tnt:gunpowder",
         type = "shapeless",
-        recipe = {"default:gravel", ""}
+        recipe = {"default:gravel", "default:coal", "bonemeal:fertiliser"}
     })
 end
