@@ -2,6 +2,7 @@ default
 basic_materials?
 bonemeal?
 bucket?
+caverealms?
 cottages?
 creative?
 doors?

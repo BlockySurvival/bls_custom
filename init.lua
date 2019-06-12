@@ -285,3 +285,13 @@ if minetest.get_modpath('tnt') then
         })
     end
 end
+
+if minetest.get_modpath('caverealms') then
+    -- groups={..., slippery=5}
+    minetest.override_item('caverealms:thin_ice', {
+        groups={cracky=3, slippery=5},
+    })
+    minetest.override_item('caverealms:hanging_thin_ice', {
+        groups={cracky=3, slippery=5},
+    })
+end
