@@ -295,3 +295,24 @@ if minetest.get_modpath('caverealms') then
         groups={cracky=3, slippery=5},
     })
 end
+
+minetest.register_craft({
+    output = "default:dirt_with_snow",
+    type = "shapeless",
+    recipe = {"default:dirt", "default:snow"}
+})
+minetest.register_craft({
+    output = "default:dirt_with_rainforest_litter",
+    type = "shapeless",
+    recipe = {"default:dirt", "default:jungleleaves"}
+})
+minetest.register_craft({
+    output = "default:dirt_with_dry_grass",
+    type = "shapeless",
+    recipe = {"default:dirt", "default:dry_grass_1"}
+})
+minetest.register_craft({
+    output = "default:dirt_with_coniferous_litter",
+    type = "shapeless",
+    recipe = {"default:dirt", "default:pine_needles"}
+})
