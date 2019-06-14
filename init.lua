@@ -316,3 +316,18 @@ minetest.register_craft({
     type = "shapeless",
     recipe = {"default:dirt", "default:pine_needles"}
 })
+minetest.register_craft({
+    output = "default:permafrost",
+    type = "shapeless",
+    recipe = {"default:dirt", "default:ice"}
+})
+minetest.register_craft({
+    output = "default:permafrost_with_moss",
+    type = "shapeless",
+    recipe = {"default:permafrost", "default:junglegrass"}
+})
+minetest.register_craft({
+    output = "default:permafrost_with_stones",
+    type = "shapeless",
+    recipe = {"default:permafrost", "default:gravel"}
+})
