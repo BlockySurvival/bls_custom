@@ -3,6 +3,7 @@ basic_materials?
 bonemeal?
 bucket?
 caverealms?
+cblocks?
 cottages?
 creative?
 doors?

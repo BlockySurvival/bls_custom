@@ -5,6 +5,56 @@ local get_modpath = minetest.get_modpath
 local clear_craft = minetest.clear_craft
 local register_craft = minetest.register_craft
 
+if get_modpath('cblocks') then
+    -- make colored blocks cheaper
+    local colours = {
+        black='dye:black',
+        blue='dye:blue',
+        brown='dye:brown',
+        cyan='dye:cyan',
+        dark_green='dye:dark_green',
+        dark_grey='dye:dark_grey',
+        green='dye:green',
+        grey='dye:grey',
+        magenta='dye:magenta',
+        orange='dye:orange',
+        pink='dye:pink',
+        red='dye:red',
+        violet='dye:violet',
+        white='dye:white',
+        yellow='dye:yellow'
+    }
+    for color, dye in pairs(colours) do
+        clear_craft({output=("cblocks:wood_%s"):format(color)})
+        register_craft({
+            output = ("cblocks:wood_%s 8"):format(color),
+            recipe = {
+                {"group:wood", "group:wood", "group:wood"},
+                {"group:wood", dye,          "group:wood"},
+                {"group:wood", "group:wood", "group:wood"},
+            }
+        })
+        clear_craft({output=("cblocks:stonebrick_%s"):format(color)})
+        register_craft({
+            output = ("cblocks:stonebrick_%s 8"):format(color),
+            recipe = {
+                {"default:stonebrick", "default:stonebrick", "default:stonebrick"},
+                {"default:stonebrick", dye,                  "default:stonebrick"},
+                {"default:stonebrick", "default:stonebrick", "default:stonebrick"},
+            }
+        })
+        clear_craft({output=("cblocks:glass_%s"):format(color)})
+        register_craft({
+            output = ("cblocks:glass_%s 8"):format(color),
+            recipe = {
+                {"default:glass", "default:glass", "default:glass"},
+                {"default:glass", dye,             "default:glass"},
+                {"default:glass", "default:glass", "default:glass"},
+            }
+        })
+    end
+end
+
 if get_modpath("cottages") and get_modpath("xdecor") then
     -- recipe conflict with xdecor wood framed glass
     clear_craft({output="cottages:glass_pane"})
@@ -218,6 +268,38 @@ if get_modpath("tubelib") then
                 {"basic_materials:energy_crystal_simple", "titanium:titanium_tv_1", "basic_materials:energy_crystal_simple"},
                 {"group:wood",                            "tubelib:wlanchip",       "group:wood"},
             },
+        })
+    end
+end
+
+if get_modpath('wool') then
+    -- make colored wool cheaper
+    local colours = {
+        black='dye:black',
+        blue='dye:blue',
+        brown='dye:brown',
+        cyan='dye:cyan',
+        dark_green='dye:dark_green',
+        dark_grey='dye:dark_grey',
+        green='dye:green',
+        grey='dye:grey',
+        magenta='dye:magenta',
+        orange='dye:orange',
+        pink='dye:pink',
+        red='dye:red',
+        violet='dye:violet',
+        white='dye:white',
+        yellow='dye:yellow'
+    }
+    for color, dye in pairs(colours) do
+        clear_craft({output=("wool:%s"):format(color)})
+        register_craft({
+            output = ("wool:%s 8"):format(color),
+            recipe = {
+                {"group:wool", "group:wool", "group:wool"},
+                {"group:wool", dye,          "group:wool"},
+                {"group:wool", "group:wool", "group:wool"},
+            }
         })
     end
 end
