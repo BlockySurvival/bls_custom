@@ -21,7 +21,7 @@ if get_modpath('homedecor_doors_and_gates') and get_modpath('doors') then
     register_alias_force('homedecor:door_wood_glass_oak_left', 'doors:homedecor_french_oak')
     register_alias_force('doors:wood_glass_white', 'doors:homedecor_french_white')
     register_alias_force('homedecor:door_wood_glass_white_left', 'doors:homedecor_french_white')
-    register_alias_force('doorscloset_mahogany:', 'doors:homedecor_closet_mahogany')
+    register_alias_force('doors:closet_mahogany', 'doors:homedecor_closet_mahogany')
     register_alias_force('homedecor:door_closet_mahogany_left', 'doors:homedecor_closet_mahogany')
     register_alias_force('doors:closet_oak', 'doors:homedecor_closet_oak')
     register_alias_force('homedecor:door_closet_oak_left', 'doors:homedecor_closet_oak')

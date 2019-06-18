@@ -31,3 +31,20 @@ if get_modpath('caverealms') then
         groups={cracky=3, slippery=5},
     })
 end
+
+if get_modpath('maptools') then
+    -- let admin pick up coreglass stuff
+    -- TODO: push this upstream
+    override_item('maptools:pick_admin', {
+        max_drop_level=4,
+        groupcaps = {
+            unbreakable = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            fleshy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            choppy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            bendy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            cracky = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            crumbly = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            snappy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+        },
+    })
+end
