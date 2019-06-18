@@ -19,5 +19,6 @@ travelnet?
 tnt?
 tubelib?
 tubelib_addons1?
+walking_light?
 wool?
 xdecor?
