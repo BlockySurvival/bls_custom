@@ -103,14 +103,33 @@ if get_modpath('default') then
     })
 end
 
-if get_modpath("extra") and get_modpath("terumet") and get_modpath("farming") then
-    -- add a recipe for the blooming onion that doesn't require techpack
-    terumet.register_alloy_recipe({
-        result="extra:blooming_onion",
-        input={"farming:onion", "extra:cottonseed_oil"},
-        flux=0,
-        time=10,
-    })
+if get_modpath("extra") then
+    if get_modpath("terumet") then
+        if get_modpath('farming') then
+            -- add a recipe for the blooming onion that doesn't require techpack
+            terumet.register_alloy_recipe({
+                result="extra:blooming_onion",
+                input={"farming:onion", "extra:cottonseed_oil"},
+                flux=0,
+                time=10,
+            })
+        end
+
+        if get_modpath('mobs_fish') then
+            terumet.register_alloy_recipe({
+                result="extra:fish_sticks",
+                input={"mobs_fish:clownfish", "extra:cottonseed_oil"},
+                flux=0,
+                time=10,
+            })
+            terumet.register_alloy_recipe({
+                result="extra:fish_sticks",
+                input={"mobs_fish:tropical", "extra:cottonseed_oil"},
+                flux=0,
+                time=10,
+            })
+        end
+    end
 end
 
 if get_modpath("gravelsieve") then
