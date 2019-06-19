@@ -321,6 +321,16 @@ if get_modpath('wool') then
             }
         })
     end
+
+    if get_modpath('farming') then
+        register_craft({
+            output = "wool:white",
+            recipe = {
+                {"farming:cotton", "farming:cotton"},
+                {"farming:cotton", "farming:cotton"},
+            }
+        })
+    end
 end
 
 if get_modpath("xdecor") then
