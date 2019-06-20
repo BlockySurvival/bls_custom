@@ -4,6 +4,10 @@
 local get_modpath = minetest.get_modpath
 local register_alias_force = minetest.register_alias_force
 
+if get_modpath('farming') then
+    register_alias_force('default:blueberries', 'farming:blueberries')
+end
+
 if get_modpath("gravelsieve") then
     -- sieved gravel is annoying. just have sand.
     register_alias_force("gravelsieve:sieved_gravel", "default:sand")
@@ -31,6 +35,8 @@ if get_modpath('homedecor_doors_and_gates') and get_modpath('doors') then
     register_alias_force('homedecor:door_woodglass_left', 'doors:homedecor_woodglass')
     register_alias_force('doors:exterior_fancy', 'doors:homedecor_exterior_fancy')
     register_alias_force('homedecor:door_exterior_fancy_left', 'doors:homedecor_exterior_fancy')
+    register_alias_force('doors:wrought_iron', 'doors:homedecor_wrought_iron')
+    register_alias_force('homedecor:door_wrought_iron_left', 'doors:homedecor_wrought_iron')
 end
 
 if get_modpath("homedecor_lighting") then
@@ -38,8 +44,6 @@ if get_modpath("homedecor_lighting") then
     register_alias_force("homedecor:plasma_ball_14", "homedecor:plasma_ball_on")
     register_alias_force("homedecor:wall_lamp_14", "homedecor:wall_lamp_on")
 end
-
-
 
 if get_modpath('terumet') then
     -- hot thermese was removed; revert to regular thermese

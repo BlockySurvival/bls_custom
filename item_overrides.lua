@@ -1,5 +1,5 @@
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
--- ORGANIZE LOGIC BY THE TARGET ITEM
+-- ORGANIZE LOGIC BY THE OVERRIDDEN ITEM
 
 local chat_send_player = minetest.chat_send_player
 local check_player_privs = minetest.check_player_privs
