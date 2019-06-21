@@ -5,14 +5,15 @@ local get_modpath = minetest.get_modpath
 local override_item = minetest.override_item
 local registered_items = minetest.registered_items
 
-local function set_food_group(name)
+local function set_food_group(name, value)
     local def = registered_items[name]
     if not def then
         minetest.log('error', ('[bls_overrides]: could not override %s'):format(name))
         return
     end
+    value = value or 1
     local groups = table.copy(def.groups or {})
-    groups.food = 1
+    groups.food = value
     override_item(name, {groups=groups})
 end
 
@@ -29,6 +30,36 @@ local function set_eat(name, food_value, ...)
         groups.food = food_value
         override_item(name, {groups=groups, on_use=minetest.item_eat(food_value, ...)})
     end
+end
+
+local function set_eat_or_poison(name, food_value, damage_value, chance, replace_with_item)
+    local def = registered_items[name]
+    if not def then
+        minetest.log('error', ('[bls_overrides]: could not override %s'):format(name))
+        return
+    end
+    local groups = table.copy(def.groups or {})
+    groups.food = food_value
+    if not damage_value then
+        damage_value = 0
+    elseif damage_value > 0 then
+        damage_value = -damage_value
+    end
+    if not chance then
+        chance = 3
+    end
+    override_item(name, {
+        groups=groups,
+        on_use=function(itemstack, user, pointed_thing)
+            if user then
+                if math.random(1, chance) == 1 then
+                    return minetest.do_item_eat(damage_value, replace_with_item, itemstack, user, pointed_thing)
+                else
+                    return minetest.do_item_eat(food_value, replace_with_item, itemstack, user, pointed_thing)
+                end
+            end
+        end
+    })
 end
 
 local bowl = 'farming:bowl'
@@ -60,7 +91,7 @@ if get_modpath('extra') then
     set_eat('extra:hamburger', 4)
     set_eat('extra:cheeseburger', 6)
     set_eat('extra:corn_dog', 2)
-    set_eat('extra:meatloaf_raw', 1)
+    set_eat_or_poison('extra:meatloaf_raw', 3, -1)
     set_eat('extra:meatloaf', 3)
     set_eat('extra:flour_tortilla', 1)
     set_eat('extra:taco', 2)
@@ -77,7 +108,7 @@ if get_modpath('extra') then
     set_eat('extra:pepperoni_pizza', 3)
     set_eat('extra:deluxe_pizza', 5)
     set_eat('extra:pineapple_pizza', 3)
-    set_eat('extra:cornbread', 1)
+    set_eat('extra:cornbread', 2)
 end
 
 if get_modpath('farming') then
@@ -108,7 +139,7 @@ if get_modpath('farming') then
     set_eat('farming:pineapple_ring', 1)
     set_eat('farming:pineapple_juice', 3, glass)
     -- set_eat('farming:potato', 1) -- nevermind, fancy special logic
-    set_food_group('farming:potato')
+    set_food_group('farming:potato', 1)
     set_eat('farming:baked_potato', 2)
     set_eat('farming:potato_salad', 2, bowl)
     set_eat('farming:pumpkin_slice', 1)
@@ -142,15 +173,15 @@ if get_modpath('main') then
 end
 
 if get_modpath('mobs') then
-    set_eat('mobs:meat_raw', 2)
+    set_eat_or_poison('mobs:meat_raw', 2, -1)
     set_eat('mobs:meat', 4)
 end
 
 if get_modpath('mobs_animal') then
-    set_eat('mobs:pork_raw', 2)
+    set_eat_or_poison('mobs:pork_raw', 2, -2)
     set_eat('mobs:pork_cooked', 4)
     set_eat('mobs:rat_cooked', 4)
-    set_eat('mobs:mutton_raw', 2)
+    set_eat_or_poison('mobs:mutton_raw', 2, -1)
     set_eat('mobs:mutton_cooked', 4)
     set_eat('mobs:honey', 1)
     set_eat('mobs:bucket_milk', 4, bucket)
@@ -158,9 +189,9 @@ if get_modpath('mobs_animal') then
     set_eat('mobs:butter', 1)
     set_eat('mobs:cheese', 2)
     set_eat('mobs:chicken_egg_fried', 2)
-    set_eat('mobs:chicken_raw', 2)
+    set_eat_or_poison('mobs:chicken_raw', 2, -3)
     set_eat('mobs:chicken_cooked', 4)
-    set_eat('mobs:rabbit_raw', 2)
+    set_eat_or_poison('mobs:rabbit_raw', 2, -1)
     set_eat('mobs:rabbit_cooked', 4)
 end
 
