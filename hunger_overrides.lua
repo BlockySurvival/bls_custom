@@ -216,6 +216,7 @@ end
 
 if get_modpath('xdecor') then
     set_eat('xdecor:honey', 1)
+    set_food_group('xdecor:bowl_soup', 20)
 end
 
 -- THIS MUST GO LAST HERE
