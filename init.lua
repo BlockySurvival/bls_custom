@@ -1,6 +1,11 @@
---
--- bls_overrides
---
+bls_overrides = {}
+local modname = minetest.get_current_modname()
+bls_overrides.modname = modname
+bls_overrides.modpath = minetest.get_modpath(modname)
+
+function bls_overrides.log(level, message, ...)
+    minetest.log(level, ('[%s] %s'):format(modname, message:format(...)))
+end
 
 if minetest.get_modpath('doors') and doors.door_toggle then
     -- Load doors.lua if minetest_game 5.0.0 or later is installed
