@@ -233,7 +233,7 @@ if get_modpath('terumet') then
                     on_use=base_def.on_use
                 })
             else
-                bls_overrides.log('error', 'could not base food for vacuumed food %', item_id)
+                bls_overrides.log('error', 'could not find base food for vacuumed food %', item_id)
             end
         end
     end
