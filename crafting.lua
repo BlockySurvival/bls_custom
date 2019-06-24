@@ -228,17 +228,37 @@ if get_modpath("moreblocks") and get_modpath('xdecor') then
     })
 end
 
-if get_modpath("terumet") and get_modpath("tubelib_addons1") then
-    -- make tubelib upgrade recipe a little more sensical
-    clear_craft({output="terumet:item_upg_tubelib"})
-    register_craft({
-        output = "terumet:item_upg_tubelib",
-        recipe = {
-            {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
-            {"tubelib_addons1:chest",  "terumet:item_upg_base",  "tubelib_addons1:chest"},
-            {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
-        }
-    })
+if get_modpath("terumet") then
+    if get_modpath("tubelib_addons1") then
+        -- make tubelib upgrade recipe a little more sensical
+        clear_craft({output="terumet:item_upg_tubelib"})
+        register_craft({
+            output = "terumet:item_upg_tubelib",
+            recipe = {
+                {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
+                {"tubelib_addons1:chest",  "terumet:item_upg_base",  "tubelib_addons1:chest"},
+                {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
+            }
+        })
+    end
+    if get_modpath('extra') and get_modpath('bucket') and get_modpath('farming') then
+        clear_craft({recipe={'farming:flour', 'bucket:bucket_water'}, type='shapeless'})
+        local def = minetest.registered_items['farming:rice_flour']
+        if def then
+            local groups = table.copy(def.groups or {})
+            groups.food_flour = 1
+            minetest.override_item('farming:rice_flour', {groups=groups})
+        end
+
+        register_craft({
+            output='extra:pasta 5',
+            recipe={{'group:food_flour', 'bucket:bucket_water'}}
+        })
+        register_craft({
+            output='terumet:item_glue 8',
+            recipe={{'bucket:bucket_water', 'group:food_flour'}}
+        })
+    end
 end
 
 if get_modpath('tnt') and get_modpath('bonemeal') then
