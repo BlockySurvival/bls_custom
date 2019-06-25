@@ -136,19 +136,22 @@ if get_modpath("extra") then
         register_craft({
             output = "extra:onion_slice 8",
             type = "shapeless",
-            recipe = {'farming:onion', 'farming:cutting_board'}
+            recipe = {'farming:onion', 'farming:cutting_board'},
+            replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
         clear_craft({output="extra:potato_slice"})
         register_craft({
             output = "extra:potato_slice 8",
             type = "shapeless",
-            recipe = {'farming:potato', 'farming:cutting_board'}
+            recipe = {'farming:potato', 'farming:cutting_board'},
+            replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
         clear_craft({output="extra:tomato_slice"})
         register_craft({
             output = "extra:tomato_slice 8",
             type = "shapeless",
-            recipe = {'farming:tomato', 'farming:cutting_board'}
+            recipe = {'farming:tomato', 'farming:cutting_board'},
+            replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
     end
 end
