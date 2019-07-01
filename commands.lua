@@ -140,9 +140,9 @@ function bls_overrides.register_chatcommand(def)
     if def.pcall then
         local func = def.func
         function def.func(...)
-            local good, msg, msg2 = func(...)
+            local good, msg, msg2 = pcall(func, ...)
             if not good then
-                return false, tostring(msg)
+                return false, tostring(msg or 'Unknown error!')
             elseif msg2 then
                 return msg, msg2
             else
