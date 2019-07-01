@@ -71,3 +71,80 @@ local function snoop_areas(name, tell)
         minetest.chat_send_player(tell, (' %s %s'):format(k, v))
     end
 end
+
+-- Register function call-based chatcommands
+local commands = {}
+local function run_chatcommand(cmd, name, params)
+    local def = commands[cmd]
+    local args = {}
+    for id, param in ipairs(def.params) do
+        local c
+        if param ~= 'sender' then
+            if not params then return false, 'Not enough parameters!' end
+            if params:find(' ') then
+                c, params = params:match('([^ ]+) (.+)')
+            else
+                c, params = params, false
+            end
+        end
+
+        if param == 'str' then
+            args[id] = c
+        elseif param == 'pos' then
+            args[id] = minetest.string_to_pos(c)
+            if not args[id] then
+                return false, 'Invalid position specified for ' ..
+                    'parameter ' .. tostring(id) .. '.'
+            end
+        elseif param == 'sender' then
+            args[id] = name
+        else
+            return false, 'Invalid parameter type in the command!'
+        end
+    end
+
+    local good, msg = pcall(def.func, (table.unpack or unpack)(args))
+    if not good or msg then
+        return good, tostring(msg)
+    end
+end
+
+function bls_overrides.register_chatcommand(def)
+    assert(type(def.name) == 'string')
+
+    if type(def.params) == 'string' then
+        local params = def.params
+        def.params = {}
+        for param in params:gmatch('%w+') do
+            def.params[#def.params + 1] = param
+        end
+    end
+    assert(type(def.params) == 'table')
+
+    local params2 = {}
+    for _, v in ipairs(def.params) do
+        if v ~= 'sender' then
+            params2[#params2 + 1] = v
+        end
+    end
+
+    commands[def.name] = def
+    minetest.register_chatcommand(def.name, {
+        description = def.description or 'bls_overrides',
+        params = '<' .. table.concat(params2, '> <') .. '>',
+        privs = {server=true},
+        func = function(name, param)
+            return run_chatcommand(def.name, name, param)
+        end
+    })
+
+    if minetest.get_current_modname() == bls_overrides.modname then
+        bls_overrides[def.name] = def.func
+    end
+end
+
+bls_overrides.register_chatcommand({
+    name = 'snoop_areas',
+    params = 'str sender',
+    func = snoop_areas,
+})
