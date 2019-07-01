@@ -133,7 +133,11 @@ function bls_overrides.register_chatcommand(def)
 
     if def.sender_last then
         local func = def.func
-        function def.func(name, ...) return func(..., name) end
+        function def.func(name, ...)
+            local args = {...}
+            args[#args + 1] = name
+            return func((table.unpack or unpack)(args))
+        end
         def.sender_last = nil
     end
 
@@ -145,6 +149,8 @@ function bls_overrides.register_chatcommand(def)
                 return false, tostring(msg or 'Unknown error!')
             elseif msg2 then
                 return msg, msg2
+            elseif type(msg) == 'table' then
+                return true, dump(msg)
             else
                 return true, tostring(msg or 'Done!')
             end
@@ -178,4 +184,13 @@ bls_overrides.register_chatcommand({
     func = function(name)
         return true, 'Pong'
     end
+})
+
+bls_overrides.register_chatcommand({
+    name = 'find_invs',
+    description = 'Find inventories between pos1 and pos2.',
+    params = ':name :pos1:pos :pos2:pos',
+    sender_last = true,
+    pcall = true,
+    func = find_invs,
 })
