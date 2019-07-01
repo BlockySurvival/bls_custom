@@ -7,11 +7,13 @@ cblocks?
 cottages?
 creative?
 doors?
+dye?
 extra?
 farming?
 gravelsieve?
 homedecor_gastronomy,
 itemframes?
+lurkcoin?
 main?
 maptools?
 mobs?
