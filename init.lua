@@ -13,7 +13,9 @@ if minetest.get_modpath('doors') and doors.door_toggle then
 end
 
 dofile(minetest.get_modpath('bls_overrides') .. '/aliases.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/commands.lua')
+if minetest.global_exists('ChatCmdBuilder') then
+    dofile(minetest.get_modpath('bls_overrides') .. '/commands.lua')
+end
 dofile(minetest.get_modpath('bls_overrides') .. '/crafting.lua')
 dofile(minetest.get_modpath('bls_overrides') .. '/item_overrides.lua')
 dofile(minetest.get_modpath('bls_overrides') .. '/hunger_overrides.lua')

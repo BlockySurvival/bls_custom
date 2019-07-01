@@ -72,79 +72,110 @@ local function snoop_areas(name, tell)
     end
 end
 
--- Register function call-based chatcommands
+-- Chatcommands
+
 local commands = {}
-local function run_chatcommand(cmd, name, params)
-    local def = commands[cmd]
-    local args = {}
-    for id, param in ipairs(def.params) do
-        local c
-        if param ~= 'sender' then
-            if not params then return false, 'Not enough parameters!' end
-            if params:find(' ') then
-                c, params = params:match('([^ ]+) (.+)')
+local created = false
+local function create_commands()
+    if minetest.registered_chatcommands['hax'] then
+        minetest.unregister_chatcommand('hax')
+    end
+
+    ChatCmdBuilder.new('hax', function(cmd)
+        for name, def in pairs(commands) do
+            if def.params == '' then
+                cmd:sub(name, def.func)
             else
-                c, params = params, false
+                cmd:sub(name .. ' ' .. def.params, def.func)
             end
         end
 
-        if param == 'str' then
-            args[id] = c
-        elseif param == 'pos' then
-            args[id] = minetest.string_to_pos(c)
-            if not args[id] then
-                return false, 'Invalid position specified for ' ..
-                    'parameter ' .. tostring(id) .. '.'
+        -- Get the commands list
+        local help_msg = minetest.colorize('#00ffff', 'Available commands: ')
+        do
+            cmds = {}
+            for k, v in pairs(commands) do
+                cmds[#cmds + 1] = k
             end
-        elseif param == 'sender' then
-            args[id] = name
-        else
-            return false, 'Invalid parameter type in the command!'
+            table.sort(cmds)
+            help_msg = help_msg .. table.concat(cmds, ', ')
         end
-    end
 
-    local good, msg = pcall(def.func, (table.unpack or unpack)(args))
-    if not good or msg then
-        return good, tostring(msg)
-    end
+        cmd:sub('help', function(name)
+            return true, help_msg
+        end)
+
+        cmd:sub('help :command', function(name, command)
+            if not commands[command] then
+                return false, 'Command not available: ' .. command
+            end
+            local def = commands[command]
+            local msg = minetest.colorize('#00ffff', '/hax ' .. def.name) ..
+                ' ' .. def.params
+            if def.description then
+                msg = msg .. ': ' .. def.description
+            end
+            return true, msg
+        end)
+    end, {
+        description = 'Do /hax help or /hax help <subcommand>.',
+        privs = {server=true},
+    })
+
+    created = true
 end
 
 function bls_overrides.register_chatcommand(def)
-    assert(type(def.name) == 'string')
+    assert(type(def.name) == 'string' and def.name:sub(1, 1) ~= ':')
+    def.params = def.params or ''
+    assert(type(def.params) == 'string')
+    assert(def.func)
 
-    if type(def.params) == 'string' then
-        local params = def.params
-        def.params = {}
-        for param in params:gmatch('%w+') do
-            def.params[#def.params + 1] = param
-        end
+    if def.sender_last then
+        local func = def.func
+        function def.func(name, ...) return func(..., name) end
+        def.sender_last = nil
     end
-    assert(type(def.params) == 'table')
 
-    local params2 = {}
-    for _, v in ipairs(def.params) do
-        if v ~= 'sender' then
-            params2[#params2 + 1] = v
+    if def.pcall then
+        local func = def.func
+        function def.func(...)
+            local good, msg, msg2 = func(...)
+            if not good then
+                return false, tostring(msg)
+            elseif msg2 then
+                return msg, msg2
+            else
+                return true, tostring(msg)
+            end
         end
+        def.pcall = nil
     end
 
     commands[def.name] = def
-    minetest.register_chatcommand(def.name, {
-        description = def.description or 'bls_overrides',
-        params = '<' .. table.concat(params2, '> <') .. '>',
-        privs = {server=true},
-        func = function(name, param)
-            return run_chatcommand(def.name, name, param)
-        end
-    })
-
     if minetest.get_current_modname() == bls_overrides.modname then
         bls_overrides[def.name] = def.func
     end
+
+    if created then create_commands() end
 end
 
+-- Only create /hax after mods are loaded.
+minetest.register_on_mods_loaded(create_commands)
+
+-- Create chatcommands
 bls_overrides.register_chatcommand({
     name = 'snoop_areas',
-    params = 'str sender',
+    description = 'Find items in chests a player owns.',
+    params = ':name:username',
+    sender_last = true,
+    pcall = true,
     func = snoop_areas,
+})
+
+bls_overrides.register_chatcommand({
+    name = 'ping',
+    func = function(name)
+        return true, 'Pong'
+    end
 })

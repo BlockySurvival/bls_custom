@@ -4,6 +4,7 @@ bonemeal?
 bucket?
 caverealms?
 cblocks?
+ChatCmdBuilder?
 cottages?
 creative?
 doors?
@@ -11,8 +12,9 @@ dye?
 extra?
 farming?
 gravelsieve?
-homedecor_gastronomy,
+homedecor_gastronomy?
 itemframes?
+lib_chatcmdbuilder?
 lurkcoin?
 main?
 maptools?
