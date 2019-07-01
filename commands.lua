@@ -146,7 +146,7 @@ function bls_overrides.register_chatcommand(def)
             elseif msg2 then
                 return msg, msg2
             else
-                return true, tostring(msg)
+                return true, tostring(msg or 'Done!')
             end
         end
         def.pcall = nil
