@@ -9,7 +9,7 @@ if get_modpath('lurkcoin') and get_modpath('default') and get_modpath('dye') the
             'lurkcoin_atm_side.png', 'lurkcoin_atm_side.png^lurkcoin_atm_top.png'},
         paramtype2 = 'facedir',
     })
-    register_craft({
+    minetest.register_craft({
         output = "lurkcoin:dummy_atm",
         type = "shapeless",
             recipe = {'default:steelblock', 'dye:blue'},
