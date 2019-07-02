@@ -21,6 +21,7 @@ mobs_animal?
 moreblocks?
 moreplants?
 moretrees?
+other_worlds?
 quartz?
 terumet?
 titanium?
