@@ -25,6 +25,7 @@ moreplants?
 moretrees?
 other_worlds?
 quartz?
+ropes?
 terumet?
 titanium?
 travelnet?

@@ -6,7 +6,7 @@ local clear_craft = minetest.clear_craft
 local register_craft = minetest.register_craft
 
 if get_modpath('cblocks') then
-    -- make colored blocks cheaper
+    -- make colored blocks cheaper, dye-wise
     local colours = {
         black='dye:black',
         blue='dye:blue',
@@ -132,6 +132,7 @@ if get_modpath("extra") then
     end
 
     if get_modpath('farming') then
+        -- slices should require the cutting board
         clear_craft({output="extra:onion_slice"})
         register_craft({
             output = "extra:onion_slice 8",
@@ -231,6 +232,27 @@ if get_modpath("moreblocks") and get_modpath('xdecor') then
     })
 end
 
+if get_modpath('ropes') and get_modpath('default') and get_modpath('basic_materials') then
+    -- avoid conflict w/ steel leggings from 3d armor
+    clear_craft({output='ropes:ladder_steel'})
+    register_craft({
+        output='ropes:ladder_steel',
+        recipe={
+            {'basic_materials:steel_bar', '',                     'basic_materials:steel_bar'},
+            {'',                          'default:ladder_steel', '' },
+            {'basic_materials:steel_bar', '',                     'basic_materials:steel_bar'},
+        }
+    })
+    -- just being consistent w/ the above recipe
+    clear_craft({output='ropes:ladder_wood'})
+    register_craft({
+        output='ropes:ladder_wood',
+            {'default:stick', '',                    'default:stick'},
+            {'',              'default:ladder_wood', '' },
+            {'default:stick', '',                    'default:stick'},
+    })
+end
+
 if get_modpath("terumet") then
     if get_modpath("tubelib_addons1") then
         -- make tubelib upgrade recipe a little more sensical
@@ -245,6 +267,7 @@ if get_modpath("terumet") then
         })
     end
     if get_modpath('extra') and get_modpath('bucket') and get_modpath('farming') then
+        -- fix conflict between pasta and item glue
         clear_craft({recipe={'farming:flour', 'bucket:bucket_water'}, type='shapeless'})
         local def = minetest.registered_items['farming:rice_flour']
         if def then
@@ -310,7 +333,7 @@ if get_modpath("travelnet") and get_modpath("titanium") then
 end
 
 if get_modpath("tubelib") then
-    -- don't require dark green wool to craft the pusher
+    -- allow any wool (instead of only dark green) in pusher recipe
     clear_craft({output="tubelib:pusher"})
     register_craft({
         output = "tubelib:pusher 2",
@@ -336,7 +359,7 @@ if get_modpath("tubelib") then
 end
 
 if get_modpath('wool') then
-    -- make colored wool cheaper
+    -- make colored wool cheaper (dye-wise)
     local colours = {
         black='dye:black',
         blue='dye:blue',

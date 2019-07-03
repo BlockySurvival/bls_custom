@@ -30,6 +30,7 @@ local function register(recipe_item)
         return
     end
     if get_modpath('moreblocks') and stairsplus then
+        -- TODO: figure out a check to see if these are already registered?
         stairsplus:register_all(modname, subname, recipe_item, def)
     end
     if get_modpath('facade') then
@@ -39,19 +40,20 @@ local function register(recipe_item)
             -- facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
         end
     end
-    if get_modpath('letters') then
-        if def.drawtype == 'normal' and not registered_nodes[('%s:%s_letter_au'):format(modname, subname)] then
-            local tiles
-            if type(def.tiles) == 'string' then
-                tiles = def.tiles
-            elseif type(def.tiles) == 'table' and #def.tiles > 0 then
-                tiles = most_common_in_table(def.tiles)
-            end
-            if tiles then
-                letters.register_letters(modname, subname, recipe_item, def.description, tiles)
-            end
-        end
-    end
+    -- adding a bunch of new letters lags the server out
+--    if get_modpath('letters') then
+--        if def.drawtype == 'normal' and not registered_nodes[('%s:%s_letter_au'):format(modname, subname)] then
+--            local tiles
+--            if type(def.tiles) == 'string' then
+--                tiles = def.tiles
+--            elseif type(def.tiles) == 'table' and #def.tiles > 0 then
+--                tiles = most_common_in_table(def.tiles)
+--            end
+--            if tiles then
+--                letters.register_letters(modname, subname, recipe_item, def.description, tiles)
+--            end
+--        end
+--    end
 end
 
 local COLORS = {
