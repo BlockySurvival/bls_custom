@@ -247,9 +247,11 @@ if get_modpath('ropes') and get_modpath('default') and get_modpath('basic_materi
     clear_craft({output='ropes:ladder_wood'})
     register_craft({
         output='ropes:ladder_wood',
+        recipe={
             {'default:stick', '',                    'default:stick'},
             {'',              'default:ladder_wood', '' },
             {'default:stick', '',                    'default:stick'},
+        }
     })
 end
 
