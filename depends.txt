@@ -9,10 +9,12 @@ creative?
 doors?
 dye?
 extra?
+facade?
 farming?
 gravelsieve?
 homedecor_gastronomy,
 itemframes?
+letters?
 lurkcoin?
 main?
 maptools?

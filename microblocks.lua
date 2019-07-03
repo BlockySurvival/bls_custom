@@ -1,19 +1,56 @@
 local get_modpath = minetest.get_modpath
 local registered_nodes = minetest.registered_nodes
 
-local function register(name)
-    local mod, item = name:match('^([^:]+):([^:]+)$')
-    if not (mod or item) then
-        bls_overrides.log('warning', 'microblocks: %s is not a valid name', name)
+local function most_common_in_table(t)
+    local counts = {}
+    for _, item in ipairs(t) do
+        counts[item] = (counts[item] or 0) + 1
+    end
+    local most_common
+    local count = 0
+    for item, item_count in pairs(counts) do
+        if item_count > count then
+            most_common = item
+            count = item_count
+        end
+    end
+    return most_common
+end
+
+
+local function register(recipe_item)
+    local modname, subname = recipe_item:match('^([^:]+):([^:]+)$')
+    if not (modname or subname) then
+        bls_overrides.log('warning', 'microblocks: %s is not a valid name', recipe_item)
         return
     end
-    local def = registered_nodes[name]
+    local def = registered_nodes[recipe_item]
     if not def then
-        bls_overrides.log('warning', 'microblocks: No def for %s', name)
+        bls_overrides.log('warning', 'microblocks: No def for %s', recipe_item)
         return
     end
     if get_modpath('moreblocks') and stairsplus then
-        stairsplus:register_all(mod, item, name, def)
+        stairsplus:register_all(modname, subname, recipe_item, def)
+    end
+    if get_modpath('facade') then
+        if def.drawtype == 'normal' and not registered_nodes[('facade:%s_bannerstone'):format(subname)] then
+            -- facade mod needs an update to prefix the modname w/ ':'
+            -- facade mod needs an update to make facades in group not_in_creative_inventory
+            -- facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
+        end
+    end
+    if get_modpath('letters') then
+        if def.drawtype == 'normal' and not registered_nodes[('%s:%s_letter_au'):format(modname, subname)] then
+            local tiles
+            if type(def.tiles) == 'string' then
+                tiles = def.tiles
+            elseif type(def.tiles) == 'table' and #def.tiles > 0 then
+                tiles = most_common_in_table(def.tiles)
+            end
+            if tiles then
+                letters.register_letters(modname, subname, recipe_item, def.description, tiles)
+            end
+        end
     end
 end
 
