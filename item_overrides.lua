@@ -47,4 +47,15 @@ if get_modpath('maptools') then
             snappy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
         },
     })
+
+    -- Prevent super apples from being placed.
+    override_item('maptools:superapple', {
+        on_place = function(itemstack, placer, pointed_thing)
+            local name = placer:get_player_name()
+            minetest.chat_send_player(name, "[maptools] You can't place this!")
+            return itemstack
+        end,
+
+        node_placement_prediction = 'air',
+    })
 end
