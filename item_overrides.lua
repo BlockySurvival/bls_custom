@@ -56,6 +56,6 @@ if get_modpath('maptools') then
             return itemstack
         end,
 
-        node_placement_prediction = 'air',
+        node_placement_prediction = '',
     })
 end
