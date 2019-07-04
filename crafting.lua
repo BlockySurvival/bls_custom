@@ -262,9 +262,9 @@ if get_modpath("terumet") then
         register_craft({
             output = "terumet:item_upg_tubelib",
             recipe = {
-                {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
-                {"tubelib_addons1:chest",  "terumet:item_upg_base",  "tubelib_addons1:chest"},
-                {"terumet:item_coil_tcop", "terumet:item_coil_tcop", "terumet:item_coil_tcop"},
+                {"",              "group:glue",            ""},
+                {"tubelib:tubeS", "terumet:item_upg_base", "tubelib:tubeS"},
+                {"",              "terumet:item_thermese", ""},
             }
         })
     end
