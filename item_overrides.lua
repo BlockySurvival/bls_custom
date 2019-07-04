@@ -48,6 +48,16 @@ if get_modpath('maptools') then
         },
     })
 
+    -- Temporarily disable pushers
+    for pusher_num = 1, 10 do
+        minetest.override_item('maptools:pusher_' .. pusher_num, {
+            groups = {
+                unbreakable = 1,
+                not_in_creative_inventory = maptools.creative,
+            },
+        })
+    end
+
     -- Prevent super apples from being placed.
     override_item('maptools:superapple', {
         on_place = function(itemstack, placer, pointed_thing)
