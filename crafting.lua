@@ -101,6 +101,13 @@ if get_modpath('default') then
         type = "shapeless",
         recipe = {"default:permafrost", "default:gravel"}
     })
+    -- smelt tree into coal (but don't make this a net-gain in heat)
+    register_craft({
+        type='cooking',
+        output='default:coal_lump',
+        recipe='default:tree',
+        cooktime=80,
+    })
 end
 
 if get_modpath("extra") then
