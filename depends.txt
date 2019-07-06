@@ -6,6 +6,8 @@ caverealms?
 cblocks?
 cottages?
 creative?
+digilines?
+digistuff?
 doors?
 dye?
 extra?
@@ -18,6 +20,8 @@ letters?
 lurkcoin?
 main?
 maptools?
+mesecons_luacontroller?
+mesecons_noteblock?
 mobs?
 mobs_animal?
 moreblocks?

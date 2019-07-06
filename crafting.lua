@@ -110,6 +110,17 @@ if get_modpath('default') then
     })
 end
 
+if get_modpath('digistuff') and get_modpath('digilines') and get_modpath('mesecons_luacontroller') and get_modpath('mesecons_noteblock') then
+    register_craft({
+        output = "digistuff:noteblock",
+        recipe = {
+            {"mesecons_noteblock:noteblock"},
+            {"mesecons_luacontroller:luacontroller0000"},
+            {"digilines:wire_std_00000000"},
+        },
+    })
+end
+
 if get_modpath("extra") then
     if get_modpath("terumet") then
         if get_modpath('farming') then
@@ -236,6 +247,13 @@ if get_modpath("moreblocks") and get_modpath('xdecor') then
     register_craft({
             output = "moreblocks:cactus_brick",
             recipe = {{"default:cactus", "default:brick"}}
+    })
+
+    -- moreblocks:grey_bricks and xdecor:moonbrick
+    clear_craft({recipe={"default:stone", "default:brick"}, type="shapeless"})
+    register_craft({
+            output = "moreblocks:grey_bricks 2",
+            recipe = {{"default:stone", "default:brick"}}
     })
 end
 
