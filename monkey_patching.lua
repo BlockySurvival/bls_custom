@@ -13,7 +13,7 @@ if global_exists("armor") then
         ['3d_armor:leggings_admin']=true,
         ['3d_armor:boots_admin']=true,
         ['shields:shield_admin']=true,
-        ['bls_admin_flair:shield_bls']=true,
+        ['bls:shield_bls']=true,
     }
     local armor_punch = armor.punch
     armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabilities)
