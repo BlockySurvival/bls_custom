@@ -27,6 +27,10 @@ stairsplus:register_alias_force_all('main', 'marble_pillar', 'bls', 'marble_pill
 register_alias_force("main:marble_pillar_base", "bls:marble_pillar_base")
 stairsplus:register_alias_force_all('main', 'marble_pillar_base', 'bls', 'marble_pillar_base')
 
+register_alias_force("bls_overrides:door_steel_protected", "bls:door_steel_protected")
+register_alias_force("bls_overrides:door_steel_protected_a", "bls:door_steel_protected_a")
+register_alias_force("bls_overrides:door_steel_protected_b", "bls:door_steel_protected_b")
+
 register_alias_force("bls_admin_flair:shield_bls", "bls:shield_bls")
 register_alias_force("bls_admin_flair:shield_staff", "bls:shield_staff")
 
