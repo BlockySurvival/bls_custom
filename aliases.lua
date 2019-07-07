@@ -4,6 +4,25 @@
 local get_modpath = minetest.get_modpath
 local register_alias_force = minetest.register_alias_force
 
+-- deal with items that have now been moved into this mod
+register_alias_force("core:honey_bottle", "bls:honey_bottle")
+register_alias_force("main:honey_bottle", "bls:honey_bottle")
+register_alias_force("core:fake_stone", "bls:fake_stone")
+register_alias_force("main:fake_stone", "bls:fake_stone")
+register_alias_force("core:marble", "bls:marble")
+register_alias_force("main:marble", "bls:marble")
+register_alias_force("core:marble_block", "bls:marble_block")
+register_alias_force("main:marble_block", "bls:marble_block")
+
+register_alias_force("main:marble_mini_brick", "bls:marble_mini_brick")
+register_alias_force("main:marble_base", "bls:marble_base")
+register_alias_force("main:marble_column", "bls:marble_column")
+register_alias_force("main:marble_pillar", "bls:marble_pillar")
+register_alias_force("main:marble_pillar_base", "bls:marble_pillar_base")
+
+register_alias_force("bls_admin_flair:shield_bls", "bls:shield_bls")
+register_alias_force("bls_admin_flair:shield_staff", "bls:shield_staff")
+
 if get_modpath('farming') then
     register_alias_force('default:blueberries', 'farming:blueberries')
 end
@@ -65,9 +84,5 @@ if get_modpath('xdecor') then
     if get_modpath('farming') then
         register_alias_force("xdecor:bowl", "farming:bowl")
     end
-    -- TODO: why is this?
---    if get_modpath('moreblocks') then
---        register_alias_force("xdecor:stone_tile", "moreblocks:stone_tile")
---    end
 end
 

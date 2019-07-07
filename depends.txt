@@ -1,4 +1,9 @@
+3d_armor
 default
+lib_chatcmdbuilder
+shields
+
+bakedclay?
 basic_materials?
 bonemeal?
 bucket?
@@ -14,14 +19,14 @@ extra?
 facade?
 farming?
 gravelsieve?
-homedecor_gastronomy,
+homedecor_gastronomy?
 itemframes?
 letters?
 lurkcoin?
-main?
 maptools?
 mesecons_luacontroller?
 mesecons_noteblock?
+mesecons_pistons?
 mobs?
 mobs_animal?
 moreblocks?
@@ -30,6 +35,7 @@ moretrees?
 other_worlds?
 quartz?
 ropes?
+technic_chests?
 terumet?
 titanium?
 travelnet?

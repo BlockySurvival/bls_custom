@@ -1,5 +1,5 @@
 --
--- bls_overrides - Doors
+-- bls - Doors
 --
 
 local protected_doors = {}
@@ -38,7 +38,7 @@ local def_overrides = {
 -- Register protected doors
 local function register_protected_door(name, def)
     if not name:find(':') then
-        name = 'bls_overrides:' .. name
+        name = 'bls:' .. name
     end
     protected_doors[name .. '_a'] = true
     protected_doors[name .. '_b'] = true

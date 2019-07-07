@@ -8,7 +8,7 @@ local registered_items = minetest.registered_items
 local function set_food_group(name, value)
     local def = registered_items[name]
     if not def then
-        bls_overrides.log('error', 'could not find %s to set food group', name)
+        bls.log('error', 'could not find %s to set food group', name)
         return
     end
     value = value or 1
@@ -23,7 +23,7 @@ local function set_eat(name, food_value, ...)
     else
         local def = registered_items[name]
         if not def then
-            bls_overrides.log('error', 'could not find %s to set eat', name)
+            bls.log('error', 'could not find %s to set eat', name)
             return
         end
         local groups = table.copy(def.groups or {})
@@ -35,7 +35,7 @@ end
 local function set_eat_or_poison(name, food_value, damage_value, chance, replace_with_item)
     local def = registered_items[name]
     if not def then
-        bls_overrides.log('error', 'could not find %s to set eat or poison', name)
+        bls.log('error', 'could not find %s to set eat or poison', name)
         return
     end
     local groups = table.copy(def.groups or {})
@@ -168,9 +168,7 @@ if get_modpath('homedecor_gastronomy') then
     set_eat('homedecor:soda_can', 2)
 end
 
-if get_modpath('main') then
-    set_eat('main:honey_bottle', 8)
-end
+set_eat('bls:honey_bottle', 8)
 
 if get_modpath('mobs') then
     set_eat_or_poison('mobs:meat_raw', 4, -2)
@@ -233,7 +231,7 @@ if get_modpath('terumet') then
                     on_use=base_def.on_use
                 })
             else
-                bls_overrides.log('error', 'could not find base food for vacuumed food %', item_id)
+                bls.log('error', 'could not find base food for vacuumed food %', item_id)
             end
         end
     end

@@ -4,6 +4,7 @@
 local chat_send_player = minetest.chat_send_player
 local check_player_privs = minetest.check_player_privs
 local get_modpath = minetest.get_modpath
+local global_exists = minetest.global_exists
 local override_item = minetest.override_item
 local registered_items = minetest.registered_items
 
@@ -32,7 +33,7 @@ if get_modpath('caverealms') then
     })
 end
 
-if get_modpath('maptools') then
+if global_exists('maptools') then
     -- let admin pick up coreglass stuff
     -- TODO: push this upstream
     override_item('maptools:pick_admin', {
@@ -48,6 +49,18 @@ if get_modpath('maptools') then
         },
     })
 
+    override_item('maptools:pick_admin_with_drops', {
+        max_drop_level=4,
+        groupcaps = {
+            unbreakable = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            fleshy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            choppy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            bendy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            cracky = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            crumbly = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+            snappy = {times = {0,0,0,0}, uses = 0, maxlevel = 4},
+        },
+    })
     -- Temporarily disable pushers
     for pusher_num = 1, 10 do
         minetest.override_item('maptools:pusher_' .. pusher_num, {
@@ -69,3 +82,36 @@ if get_modpath('maptools') then
         node_placement_prediction = '',
     })
 end
+
+
+
+-- Make default:chests regard protection
+local function allowTakeWithProtection(pos, listname, index, stack, player)
+    local name = player:get_player_name()
+    if minetest.is_protected(pos, name) then
+        bls.log('action', "Denied %s taking %s from chest at %s", name, stack:get_name(), minetest.pos_to_string(pos))
+        return 0
+    end
+    return stack:get_count()
+end
+
+local function allowPutWithProtection(pos, listname, index, stack, player)
+    local name = player:get_player_name()
+    if minetest.is_protected(pos, name) then
+        bls.log('action', "Denied %s putting %s in chest at %s", name, stack:get_name(), minetest.pos_to_string(pos))
+        return 0
+    end
+    return stack:get_count()
+end
+
+local function allowMoveWithProtection(pos, from_list, from_index, to_list, to_index, count, player)
+    local name = player:get_player_name()
+    if minetest.is_protected(pos, name) then
+        bls.log('action', "Denied %s moving items in chest at %s", name, minetest.pos_to_string(pos))
+        return 0
+    end
+    return count
+end
+
+minetest.override_item("default:chest", {allow_metadata_inventory_take = allowTakeWithProtection, allow_metadata_inventory_put = allowPutWithProtection, allow_metadata_inventory_move = allowMoveWithProtection})
+minetest.override_item("default:chest_open", {allow_metadata_inventory_take = allowTakeWithProtection, allow_metadata_inventory_put = allowPutWithProtection, allow_metadata_inventory_move = allowMoveWithProtection})

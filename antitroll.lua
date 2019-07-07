@@ -3,7 +3,7 @@
 --
 
 local antitroll = {}
-bls_overrides.antitroll = antitroll
+bls.antitroll = antitroll
 
 -- "Kicks" players
 function antitroll.kick_player(name)

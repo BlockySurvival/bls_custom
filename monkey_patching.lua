@@ -2,9 +2,10 @@
 
 local check_player_privs = minetest.check_player_privs
 local get_modpath = minetest.get_modpath
+local global_exists = minetest.global_exists
 local settings = minetest.settings
 
-if get_modpath("3d_armor") then
+if global_exists("armor") then
     -- don't damage other armor if player is wearing admin armor
     local admin_armor_list = {
         ['3d_armor:helmet_admin']=true,
@@ -31,7 +32,7 @@ if get_modpath("3d_armor") then
     end
 end
 
-if get_modpath('tnt') then
+if global_exists('tnt') then
     -- Hacks for the TNT mod
     local boom = tnt.boom
     function tnt.boom(pos, def, ...)

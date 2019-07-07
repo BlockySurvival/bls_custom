@@ -1,22 +1,26 @@
-bls_overrides = {}
+bls = {}
 local modname = minetest.get_current_modname()
-bls_overrides.modname = modname
-bls_overrides.modpath = minetest.get_modpath(modname)
+bls.modname = modname
+bls.modpath = minetest.get_modpath(modname)
 
-function bls_overrides.log(level, message, ...)
+function bls.log(level, message, ...)
     minetest.log(level, ('[%s] %s'):format(modname, message:format(...)))
 end
 
-if minetest.get_modpath('doors') and doors.door_toggle then
+dofile(bls.modpath .. '/util.lua')
+
+if minetest.global_exists('doors') and doors.door_toggle then
     -- Load doors.lua if minetest_game 5.0.0 or later is installed
-    dofile(minetest.get_modpath('bls_overrides') .. '/doors.lua')
+    dofile(bls.modpath .. '/doors.lua')
 end
 
-dofile(minetest.get_modpath('bls_overrides') .. '/aliases.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/antitroll.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/crafting.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/item_overrides.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/hunger_overrides.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/microblocks.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/monkey_patching.lua')
-dofile(minetest.get_modpath('bls_overrides') .. '/new_nodes.lua')
+dofile(bls.modpath .. '/aliases.lua')
+dofile(bls.modpath .. '/armor.lua')
+dofile(bls.modpath .. '/antitroll.lua')
+dofile(bls.modpath .. '/commands.lua')
+dofile(bls.modpath .. '/crafting.lua')
+dofile(bls.modpath .. '/item_overrides.lua')
+dofile(bls.modpath .. '/hunger_overrides.lua')
+dofile(bls.modpath .. '/microblocks.lua')
+dofile(bls.modpath .. '/monkey_patching.lua')
+dofile(bls.modpath .. '/nodes.lua')

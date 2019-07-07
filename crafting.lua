@@ -2,6 +2,7 @@
 -- ORGANIZE LOGIC BY THE TARGET ITEM
 
 local get_modpath = minetest.get_modpath
+local global_exists = minetest.global_exists
 local clear_craft = minetest.clear_craft
 local register_craft = minetest.register_craft
 
@@ -110,19 +111,50 @@ if get_modpath('default') then
     })
 end
 
-if get_modpath('digistuff') and get_modpath('digilines') and get_modpath('mesecons_luacontroller') and get_modpath('mesecons_noteblock') then
+-- TODO digilines:lightsensor
+
+if get_modpath('digistuff') and get_modpath('digilines') and get_modpath('mesecons_luacontroller') then
+    if get_modpath('mesecons_noteblock') then
+        register_craft({
+            output = "digistuff:noteblock",
+            recipe = {
+                {"mesecons_noteblock:noteblock"},
+                {"mesecons_luacontroller:luacontroller0000"},
+                {"digilines:wire_std_00000000"},
+            },
+        })
+    end
+    if get_modpath('mesecons_pistons') then
+        register_craft({
+            output = "digistuff:piston",
+            recipe = {
+                {"mesecons_pistons:piston_normal_off"},
+                {"mesecons_luacontroller:luacontroller0000"},
+                {"digilines:wire_std_00000000"},
+            },
+        })
+    end
+    if get_modpath('quartz') and get_modpath('basic_materials') then
+        register_craft({
+            output = "digistuff:piezo",
+            recipe = {
+                {"quartz:quartz_crystal_piece","basic_materials:steel_strip"},
+                {"digilines:wire_std_00000000","mesecons_luacontroller:luacontroller0000"},
+            },
+        })
+    end
     register_craft({
-        output = "digistuff:noteblock",
+        output = "digistuff:wall_knob",
         recipe = {
-            {"mesecons_noteblock:noteblock"},
-            {"mesecons_luacontroller:luacontroller0000"},
-            {"digilines:wire_std_00000000"},
+            {"","digilines:wire_std_00000000",""},
+            {"digilines:wire_std_00000000",'digistuff:button',"digilines:wire_std_00000000"},
+            {"","digilines:wire_std_00000000",""},
         },
     })
 end
 
 if get_modpath("extra") then
-    if get_modpath("terumet") then
+    if global_exists("terumet") then
         if get_modpath('farming') then
             -- add a recipe for the blooming onion that doesn't require techpack
             terumet.register_alloy_recipe({
@@ -305,11 +337,13 @@ if get_modpath("terumet") then
 
         register_craft({
             output='extra:pasta 5',
-            recipe={{'group:food_flour', 'bucket:bucket_water'}}
+            recipe={{'group:food_flour', 'bucket:bucket_water'}},
+            replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
         })
         register_craft({
             output='terumet:item_glue 8',
-            recipe={{'bucket:bucket_water', 'group:food_flour'}}
+            recipe={{'bucket:bucket_water', 'group:food_flour'}},
+            replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
         })
     end
 end
