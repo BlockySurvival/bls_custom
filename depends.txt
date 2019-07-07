@@ -1,8 +1,8 @@
 3d_armor
 default
 lib_chatcmdbuilder
+moreblocks
 shields
-stairsplus
 
 bakedclay?
 basic_materials?
@@ -30,7 +30,6 @@ mesecons_noteblock?
 mesecons_pistons?
 mobs?
 mobs_animal?
-moreblocks?
 moreplants?
 moretrees?
 other_worlds?
