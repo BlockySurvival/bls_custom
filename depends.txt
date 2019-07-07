@@ -2,6 +2,7 @@
 default
 lib_chatcmdbuilder
 shields
+stairsplus
 
 bakedclay?
 basic_materials?
