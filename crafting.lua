@@ -455,4 +455,12 @@ if get_modpath("xdecor") then
             },
         })
     end
+
+    if get_modpath("wool") then
+        clear_craft({output='xdecor:cushion'})
+        register_craft({
+            output='xdecor:cushion 2',
+            recipe={{'wool:red', 'wool:red'}}
+        })
+    end
 end
