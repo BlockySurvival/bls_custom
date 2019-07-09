@@ -124,7 +124,6 @@ minetest.register_node("bls:marble_pillar", {
     paramtype2 = "facedir",
     sunlight_propagates = true,
     is_ground_content = true,
-    groups = group,
     node_box = {
         type = "fixed",
         fixed = {
@@ -158,7 +157,6 @@ minetest.register_node("bls:marble_pillar_base", {
     paramtype2 = "facedir",
     sunlight_propagates = true,
     is_ground_content = true,
-    groups = group,
     node_box = {
         type = "fixed",
         fixed = {
