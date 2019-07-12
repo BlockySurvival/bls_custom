@@ -208,6 +208,30 @@ if get_modpath("gravelsieve") then
     })
 end
 
+if get_modpath('hangglider') and get_modpath('terumet') and get_modpath('mobs') and get_modpath('farming') and get_modpath('moreblocks') then
+    clear_craft({output='hangglider:hangglider'})
+    register_craft({
+        output='hangglider:hangglider',
+        recipe={
+            {'farming:slab_hemp_block_1', 'farming:slab_hemp_block_1', 'farming:slab_hemp_block_1'},
+            {'terumet:item_rebar',        '',                          'terumet:item_rebar'},
+            {'',                          'mobs:saddle',               ''}
+        }
+    })
+end
+
+if get_modpath('hot_air_balloons') and get_modpath('farming') and get_modpath('terumet') and get_modpath('xdecor') and get_modpath('moreblocks') then
+    clear_craft({output='hot_air_balloons:item'})
+    register_craft({
+        output='hot_air_balloons:item',
+        recipe={
+            {'farming:hemp_block', 'farming:hemp_block',       'farming:hemp_block'},
+            {'farming:hemp_block', 'terumet:mach_htr_furnace', 'farming:hemp_block'},
+            {'moreblocks:rope',    'xdecor:barrel',            'moreblocks:rope'}
+        }
+    })
+end
+
 if get_modpath("itemframes") and get_modpath("wool") and get_modpath('xdecor') then
     -- avoid conflict with xdecor item frame
     clear_craft({output="itemframes:frame"})

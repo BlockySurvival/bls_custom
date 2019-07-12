@@ -20,7 +20,9 @@ extra?
 facade?
 farming?
 gravelsieve?
+hangglider?
 homedecor_gastronomy?
+hot_air_balloons?
 itemframes?
 letters?
 lurkcoin?
