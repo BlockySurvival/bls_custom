@@ -103,6 +103,16 @@ minetest.register_chatcommand("sunlight", {
     end
 })
 
+minetest.register_chatcommand("whatisthis", {
+	params = "",
+	description = "Get itemstring of wielded item",
+	func = function(player_name, param)
+		local player = minetest.get_player_by_name(player_name)
+		minetest.chat_send_player(player_name, player:get_wielded_item():to_string())
+		return
+	end
+})
+
 -- PUNISHMENTS
 local invalid_player = "Invalid player"
 local invalid_punishment = "Invalid punishment"
