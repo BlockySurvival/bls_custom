@@ -14,13 +14,15 @@ if minetest.global_exists('doors') and doors.door_toggle then
     dofile(bls.modpath .. '/doors.lua')
 end
 
+dofile(bls.modpath .. '/nodes.lua')
+
 dofile(bls.modpath .. '/aliases.lua')
 dofile(bls.modpath .. '/armor.lua')
 dofile(bls.modpath .. '/antitroll.lua')
+dofile(bls.modpath .. '/bad_piston_no_biscuit.lua')
 dofile(bls.modpath .. '/commands.lua')
 dofile(bls.modpath .. '/crafting.lua')
 dofile(bls.modpath .. '/item_overrides.lua')
 dofile(bls.modpath .. '/hunger_overrides.lua')
 dofile(bls.modpath .. '/microblocks.lua')
 dofile(bls.modpath .. '/monkey_patching.lua')
-dofile(bls.modpath .. '/nodes.lua')
