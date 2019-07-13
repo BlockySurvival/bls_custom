@@ -33,6 +33,7 @@ hot_air_balloons?
 inbox?
 itemframes?
 letters?
+locked_travelnet?
 lurkcoin?
 mailbox?
 maptools?

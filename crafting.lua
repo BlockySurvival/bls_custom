@@ -114,6 +114,29 @@ end
 -- TODO digilines:lightsensor
 
 if get_modpath("extra") then
+    -- EDGY1'S ADDITION
+    minetest.register_craft({
+        output = "extra:french_fries ",
+        recipe = {
+             {'extra:cottonseed_oil', 'extra:potato_slice', 'extra:potato_slice'},
+             {'extra:potato_slice',   'extra:potato_slice', 'extra:potato_slice'},
+             {'extra:potato_slice',   'extra:potato_slice', 'extra:potato_slice'},
+          },
+       })
+    minetest.register_craft({
+        output = "extra:onion_rings ",
+        recipe = {
+             {'extra:cottonseed_oil', 'extra:onion_slice', 'extra:onion_slice'},
+             {'extra:onion_slice',    'extra:onion_slice', 'extra:onion_slice'},
+             {'extra:onion_slice',    'extra:onion_slice', 'extra:onion_slice'},
+          },
+       })
+    minetest.register_craft({
+       type = "cooking",
+       output = "extra:potato_crisps",
+       recipe = "extra:potato_slice"
+    })
+
     if global_exists("terumet") then
         if get_modpath('farming') then
             -- add a recipe for the blooming onion that doesn't require techpack
