@@ -296,6 +296,14 @@ if get_modpath('ropes') and get_modpath('default') and get_modpath('basic_materi
     })
 end
 
+if get_modpath('soundblocks') then
+    clear_craft({output='soundblocks:ironbellitem'})
+    register_craft({
+        output='soundblocks:ironbellitem',
+        recipe={{'default:stick', 'default:steel_ingot'}}
+    })
+end
+
 if get_modpath("terumet") then
     if get_modpath("tubelib_addons1") then
         -- make tubelib upgrade recipe a little more sensical
