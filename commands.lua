@@ -113,6 +113,23 @@ minetest.register_chatcommand("whatisthis", {
 	end
 })
 
+minetest.register_chatcommand('grant_fake', {
+	params = "<player> <fake_priv>",
+    description = "Give a player a fake privilege",
+    privs = {server=true},
+    func = function(caller, param)
+        local player_name, priv = param:match('^(%S+)%s+(%S+)')
+        if minetest.player_exists(player_name) then
+            local privs = minetest.get_player_privs(player_name)
+            privs[priv] = true
+            minetest.set_player_privs(player_name, privs)
+            return true, ('Privs of %s: %s'):format(player_name, minetest.privs_to_string(privs))
+        else
+            return false, 'No such player'
+        end
+    end
+})
+
 -- PUNISHMENTS
 local invalid_player = "Invalid player"
 local invalid_punishment = "Invalid punishment"
