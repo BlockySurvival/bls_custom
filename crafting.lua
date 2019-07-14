@@ -269,18 +269,18 @@ if get_modpath("itemframes") and get_modpath("wool") and get_modpath('xdecor') t
 end
 
 if get_modpath("moreblocks") and get_modpath('xdecor') then
-    -- avoid conflict with xdecor empty_shelf (craft into each other)
-    clear_craft({output="moreblocks:empty_shelf"})
-    register_craft({
-        output = "moreblocks:empty_shelf",
-        type = "shapeless",
-        recipe = {"xdecor:empty_shelf"}
-    })
-    register_craft({
-        output = "xdecor:empty_shelf",
-        type = "shapeless",
-        recipe = {"moreblocks:empty_shelf"}
-    })
+--    -- avoid conflict with xdecor empty_shelf (craft into each other)
+--    clear_craft({output="moreblocks:empty_shelf"})
+--    register_craft({
+--        output = "moreblocks:empty_shelf",
+--        type = "shapeless",
+--        recipe = {"xdecor:empty_shelf"}
+--    })
+--    register_craft({
+--        output = "xdecor:empty_shelf",
+--        type = "shapeless",
+--        recipe = {"moreblocks:empty_shelf"}
+--    })
     -- avoid conflict with xdecor cactus brick
     clear_craft({recipe={"default:cactus", "default:brick"}, type="shapeless"})
     register_craft({
