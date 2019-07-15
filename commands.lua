@@ -119,7 +119,9 @@ minetest.register_chatcommand('grant_fake', {
     privs = {server=true},
     func = function(caller, param)
         local player_name, priv = param:match('^(%S+)%s+(%S+)')
-        if minetest.player_exists(player_name) then
+        if not player_name then
+            return false, 'Invalid arguments'
+        elseif minetest.player_exists(player_name) then
             local privs = minetest.get_player_privs(player_name)
             privs[priv] = true
             minetest.set_player_privs(player_name, privs)
