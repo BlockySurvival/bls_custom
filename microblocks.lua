@@ -26,7 +26,7 @@ local function register(recipe_item)
             -- facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
         end
     end
-    -- letter cutter: adding letters increases lag (and loat time) hugely
+    -- letter cutter: adding letters increases lag (and load time) hugely
 end
 
 local COLORS = {

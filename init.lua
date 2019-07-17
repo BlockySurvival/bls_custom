@@ -2,6 +2,7 @@ bls = {}
 local modname = minetest.get_current_modname()
 bls.modname = modname
 bls.modpath = minetest.get_modpath(modname)
+bls.mod_storage = minetest.get_mod_storage()
 
 function bls.log(level, message, ...)
     minetest.log(level, ('[%s] %s'):format(modname, message:format(...)))
@@ -26,3 +27,5 @@ dofile(bls.modpath .. '/item_overrides.lua')
 dofile(bls.modpath .. '/hunger_overrides.lua')
 dofile(bls.modpath .. '/microblocks.lua')
 dofile(bls.modpath .. '/monkey_patching.lua')
+
+bls.mod_storage = nil

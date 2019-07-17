@@ -1,3 +1,5 @@
+local storage = bls.mod_storage
+
 local function snoop_player_inv(inv, name, tell)
     minetest.chat_send_player(tell, 'contents of "'..name..'"')
     for i=1, inv:get_size(name) do
@@ -111,25 +113,6 @@ minetest.register_chatcommand("whatisthis", {
 		minetest.chat_send_player(player_name, player:get_wielded_item():to_string())
 		return
 	end
-})
-
-minetest.register_chatcommand('grant_fake', {
-	params = "<player> <fake_priv>",
-    description = "Give a player a fake privilege",
-    privs = {server=true},
-    func = function(caller, param)
-        local player_name, priv = param:match('^(%S+)%s+(%S+)')
-        if not player_name then
-            return false, 'Invalid arguments'
-        elseif minetest.player_exists(player_name) then
-            local privs = minetest.get_player_privs(player_name)
-            privs[priv] = true
-            minetest.set_player_privs(player_name, privs)
-            return true, ('Privs of %s: %s'):format(player_name, minetest.privs_to_string(privs))
-        else
-            return false, 'No such player'
-        end
-    end
 })
 
 -- PUNISHMENTS
@@ -279,7 +262,7 @@ local function create_commands()
         -- Get the commands list
         local help_msg = minetest.colorize('#00ffff', 'Available commands: ')
         do
-            cmds = {}
+            local cmds = {}
             for k, v in pairs(commands) do
                 cmds[#cmds + 1] = k
             end
@@ -398,3 +381,73 @@ bls.register_chatcommand({
     pcall = true,
     func = clear_player_invs,
 })
+
+bls.register_chatcommand({
+    name = 'grant_fake',
+    description = 'Give a player a fake privilege',
+    params = ':name:username :priv:word',
+    pcall = true,
+    func = function(caller, name, priv)
+        if minetest.player_exists(name) then
+            local privs = minetest.get_player_privs(name)
+            privs[priv] = true
+            minetest.set_player_privs(name, privs)
+            return true, ('Privs of %s: %s'):format(name, minetest.privs_to_string(privs))
+        else
+            return false, 'No such player'
+        end
+    end,
+})
+
+local function set_title(name, title)
+    local player = minetest.get_player_by_name(name)
+    if not player then return false end
+    if title and title ~= '' then
+        player:set_nametag_attributes({
+            text = minetest.colorize('#FF0000', title)..'\n'..name,
+        })
+    else
+        player:set_nametag_attributes({text = name})
+    end
+    return true
+end
+
+bls.register_chatcommand({
+    name = 'title',
+    description = 'Give a player a "title" above their name',
+    params = ':name:username :title:word',
+    pcall = true,
+    func = function(caller, name, title)
+        if minetest.player_exists(name) then
+            storage:set_string(('%s_title'):format(name), title)
+            set_title(name, title)
+            return true, 'Title set'
+        else
+            return false, 'No such player'
+        end
+    end,
+})
+
+bls.register_chatcommand({
+    name = 'untitle',
+    description = 'Remove a title from a player.',
+    params = ':name:username',
+    pcall = true,
+    func = function(caller, name)
+        if minetest.player_exists(name) then
+            storage:set_string(('%s_title'):format(name), '')
+            set_title(name, '')
+            return true, 'Title set'
+        else
+            return false, 'No such player'
+        end
+    end,
+})
+
+minetest.register_on_joinplayer(function(player)
+    local name = player:get_player_name()
+    local title = storage:get_string(('%s_title'):format(name))
+    if title and title ~= '' then
+        minetest.after(0, set_title, name, title)
+    end
+end)
