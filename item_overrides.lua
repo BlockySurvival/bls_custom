@@ -83,7 +83,11 @@ if global_exists('maptools') then
     })
 end
 
-
+if global_exists('xdecor') then
+    override_item('xdecor:mailbox', {
+        description='Mailbox (xdecor)',
+    })
+end
 
 -- Make default:chests regard protection
 local function allowTakeWithProtection(pos, listname, index, stack, player)
