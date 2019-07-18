@@ -6,6 +6,63 @@ local global_exists = minetest.global_exists
 local clear_craft = minetest.clear_craft
 local register_craft = minetest.register_craft
 
+if get_modpath('bbq') then
+    clear_craft({output='bbq:smoker_blueprint'})
+    register_craft({
+        output='bbq:smoker_blueprint',
+        recipe={
+            {'default:paper', 'default:paper', 'default:paper'},
+            {'default:paper', 'dye:blue',      'default:paper'},
+            {'default:paper', 'default:paper', 'default:paper'},
+        }
+    })
+    clear_craft({output='bbq:woodpile'})
+    register_craft({
+        output='bbq:woodpile 4',
+        recipe={
+            {'default:tree', 'default:tree', 'default:tree'},
+            {'default:tree', 'default:tree', 'default:tree'},
+            {'default:tree', 'default:tree', 'default:tree'},
+        }
+    })
+    clear_craft({output='bbq:woodpile_acacia'})
+    register_craft({
+        output='bbq:woodpile_acacia 4',
+        recipe={
+            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
+            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
+            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
+        }
+    })
+    clear_craft({output='bbq:woodpile_aspen'})
+    register_craft({
+        output='bbq:woodpile_aspen 4',
+        recipe={
+            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
+            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
+            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
+        }
+    })
+    clear_craft({output='bbq:woodpile_junglewood'})
+    register_craft({
+        output='bbq:woodpile_junglewood 4',
+        recipe={
+            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
+            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
+            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
+        }
+    })
+    clear_craft({output='bbq:woodpile_pine'})
+    register_craft({
+        output='bbq:woodpile_pine 4',
+        recipe={
+            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
+            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
+            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
+        }
+    })
+end
+
 if get_modpath('cblocks') then
     -- make colored blocks cheaper, dye-wise
     local colours = {
