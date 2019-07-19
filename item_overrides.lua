@@ -34,33 +34,6 @@ if get_modpath('caverealms') then
 end
 
 if global_exists('maptools') then
-    -- let admin pick up coreglass stuff
-    -- TODO: push this upstream
-    override_item('maptools:pick_admin', {
-        max_drop_level=4,
-        groupcaps = {
-            unbreakable = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            fleshy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            choppy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            bendy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            cracky = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            crumbly = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            snappy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-        },
-    })
-
-    override_item('maptools:pick_admin_with_drops', {
-        max_drop_level=4,
-        groupcaps = {
-            unbreakable = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            fleshy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            choppy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            bendy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            cracky = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            crumbly = {times = {0,0,0}, uses = 0, maxlevel = 4},
-            snappy = {times = {0,0,0}, uses = 0, maxlevel = 4},
-        },
-    })
     -- Temporarily disable pushers because rats in the trampoline
     for pusher_num = 1, 10 do
         minetest.override_item('maptools:pusher_' .. pusher_num, {

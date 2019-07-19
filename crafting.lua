@@ -63,6 +63,29 @@ if get_modpath('bbq') then
     })
 end
 
+if get_modpath('bones') and get_modpath('bonemeal') then
+    if get_modpath('building_blocks') then
+        register_craft({
+            output='bones:bones',
+            recipe={
+                {'bonemeal:bone', 'bonemeal:bone',       'bonemeal:bone'},
+                {'bonemeal:bone', 'building_blocks:Tar', 'bonemeal:bone'},
+                {'bonemeal:bone', 'bonemeal:bone',       'bonemeal:bone'},
+            }
+        })
+    end
+    if get_modpath('terumet') then
+        register_craft({
+            output='bones:bones',
+            recipe={
+                {'bonemeal:bone', 'bonemeal:bone',     'bonemeal:bone'},
+                {'bonemeal:bone', 'terumet:block_tar', 'bonemeal:bone'},
+                {'bonemeal:bone', 'bonemeal:bone',     'bonemeal:bone'},
+            }
+        })
+    end
+end
+
 if get_modpath('cblocks') then
     -- make colored blocks cheaper, dye-wise
     local colours = {
