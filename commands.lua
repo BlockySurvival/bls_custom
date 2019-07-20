@@ -115,6 +115,17 @@ minetest.register_chatcommand("whatisthis", {
 	end
 })
 
+minetest.register_chatcommand("memory", {
+    description = "Get server's Lua memory usage",
+    privs = {server = true},
+    func = function(name, param)
+		minetest.chat_send_player(
+            name,
+            ('Lua is using %uMB'):format(collectgarbage('count') / 1024)
+        )
+    end
+})
+
 -- PUNISHMENTS
 local invalid_player = "Invalid player"
 local invalid_punishment = "Invalid punishment"
