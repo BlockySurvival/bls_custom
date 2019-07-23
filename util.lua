@@ -32,3 +32,17 @@ function bls.util.most_common_in_table(t)
     end
     return most_common
 end
+
+function bls.util.safe(func, rv_on_fail)
+    -- wrap a function w/ logic to avoid crashing the game
+    return function(...)
+        local rvs = {xpcall(func, debug.traceback, ...)}
+        if rvs[1] then
+            table.remove(rvs, 1)
+            return unpack(rvs)
+        else
+            verbana.log('error', 'Caught error: %s', rvs[2])
+            return rv_on_fail
+        end
+    end
+end
