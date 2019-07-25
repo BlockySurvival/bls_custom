@@ -27,6 +27,7 @@ dofile(bls.modpath .. '/fix_privs.lua')
 dofile(bls.modpath .. '/item_overrides.lua')
 dofile(bls.modpath .. '/microblocks.lua')
 dofile(bls.modpath .. '/monkey_patching.lua')
+dofile(bls.modpath .. '/no_guests.lua')
 
 dofile(bls.modpath .. '/hunger_overrides.lua') -- overrides stuff in this mod even...
 
