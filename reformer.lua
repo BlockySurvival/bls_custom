@@ -5,7 +5,7 @@ terumet.register_repairable_item("titanium:sword", 300)
 
 terumet.register_repairable_item("hangglider:hangglider", 500)
 
-terumet.register_repairable_item("farming:scyte_mythril", 30)
+terumet.register_repairable_item("farming:scythe_mythril", 30)
 
 terumet.register_repairable_item("goldtools:goldpick", 30)
 terumet.register_repairable_item("goldtools:goldaxe", 30)
