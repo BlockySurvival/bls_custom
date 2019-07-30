@@ -29,6 +29,7 @@ dofile(bls.modpath .. '/microblocks.lua')
 dofile(bls.modpath .. '/monkey_patching.lua')
 dofile(bls.modpath .. '/no_guests.lua')
 dofile(bls.modpath .. '/receive_fields.lua')
+dofile(bls.modpath .. '/reformer.lua')
 
 dofile(bls.modpath .. '/hunger_overrides.lua') -- overrides stuff in this mod even...
 
