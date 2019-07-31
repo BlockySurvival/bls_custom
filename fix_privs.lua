@@ -1,3 +1,5 @@
+-- this script grants old players new default privileges
+
 local storage = bls.mod_storage
 local YES_VALUE = 'y'
 
