@@ -136,13 +136,27 @@ if get_modpath('cblocks') then
     end
 end
 
-if get_modpath("cottages") and get_modpath("xdecor") then
-    -- recipe conflict with xdecor wood framed glass
-    clear_craft({output="cottages:glass_pane"})
-    register_craft({
-        output = "cottages:glass_pane 4",
-        recipe = {{'default:glass'}}
-    })
+if get_modpath("cottages") then
+    if get_modpath("xdecor") then
+        -- recipe conflict with xdecor wood framed glass
+        clear_craft({output="cottages:glass_pane"})
+        register_craft({
+            output = "cottages:glass_pane 4",
+            recipe = {{'default:glass'}}
+        })
+    end
+    if get_modpath("farming") then
+        -- complicated recipe conflict w/ wheat and straw
+        clear_craft({output="cottages:straw_bale"})
+        register_craft({
+            output = "cottages:straw_bale",
+            recipe = {
+                {'cottages:straw_mat'},
+                {'cottages:straw_mat'},
+                {'cottages:straw_mat'},
+            }
+        })
+    end
 end
 
 if get_modpath('default') then
