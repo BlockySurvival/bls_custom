@@ -154,6 +154,9 @@ if get_modpath('default') then
     local function fix_defualt_corner_stairs(node)
         register_alias_force('stairs:stair_outer_' .. node, 'moreblocks:stair_' .. node .. '_outer')
         register_alias_force('stairs:stair_inner_' .. node, 'moreblocks:stair_' .. node .. '_inner')
+
+        register_alias_force('default:' .. node .. '_outerstair', 'moreblocks:stair_' .. node .. '_outer')
+        register_alias_force('default:' .. node .. '_innerstair', 'moreblocks:stair_' .. node .. '_inner')
     end
     fix_defualt_corner_stairs('acacia_tree')
     fix_defualt_corner_stairs('acacia_wood')
