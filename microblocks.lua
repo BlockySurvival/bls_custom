@@ -2,7 +2,41 @@ local get_modpath = minetest.get_modpath
 local global_exists = minetest.global_exists
 local registered_nodes = minetest.registered_nodes
 
+local function most_common_in_table(t)
+    local counts = {}
+    for _, item in ipairs(t) do
+        counts[item] = (counts[item] or 0) + 1
+    end
+    local most_common
+    local count = 0
+    for item, item_count in pairs(counts) do
+        if item_count > count then
+            most_common = item
+            count = item_count
+        end
+    end
+    return most_common
+end
 
+local function register_letters(recipe_item)
+    local modname, subname = recipe_item:match('^([^:]+):([^:]+)$')
+    local def = registered_nodes[recipe_item]
+    if not def then
+        bls.log('warning', 'microblocks: No def for %s', recipe_item)
+        return
+    end
+    if def.drawtype == 'normal' and not registered_nodes[('%s:%s_letter_au'):format(modname, subname)] then
+        local tiles
+        if type(def.tiles) == 'string' then
+            tiles = def.tiles
+        elseif type(def.tiles) == 'table' and #def.tiles > 0 then
+            tiles = most_common_in_table(def.tiles)
+        end
+        if tiles then
+            letters.register_letters(modname, subname, recipe_item, def.description, tiles)
+        end
+    end
+end
 
 local function register(recipe_item)
     local modname, subname = recipe_item:match('^([^:]+):([^:]+)$')
@@ -33,11 +67,19 @@ local COLORS = {
     'black', 'blue', 'brown', 'cyan', 'dark_green', 'dark_grey', 'green', 'grey',
     'magenta', 'orange', 'pink', 'red', 'violet', 'white', 'yellow'
 }
+
 local function register_colors(name_pattern)
     for _, color in ipairs(COLORS) do
         register(name_pattern:format(color))
     end
 end
+
+if get_modpath('bakedclay') then
+    for _, color in ipairs(COLORS) do
+        register_letters('bakedclay:' .. color)
+    end
+end
+
 
 if get_modpath('other_worlds') then
     register('asteroid:cobble')
