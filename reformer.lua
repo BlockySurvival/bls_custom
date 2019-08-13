@@ -69,3 +69,4 @@ terumet.register_repairable_item('titanium:pick', mrv.titanium * cost.pick)
 terumet.register_repairable_item('titanium:shovel', mrv.titanium * cost.shovel)
 terumet.register_repairable_item('titanium:sword', mrv.titanium * cost.sword)
 
+terumet.register_repairable_item('titanium:sam_titanium', mrv.titanium * 20)
