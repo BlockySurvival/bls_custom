@@ -410,6 +410,22 @@ bls.register_chatcommand({
     end,
 })
 
+bls.register_chatcommand({
+    name = 'blind',
+    description = 'Blind a player',
+    params = ':name:username',
+    pcall = true,
+    func = function(caller, name)
+        local player = minetest.get_player_by_name(name)
+        if player then
+            player:override_day_night_ratio(0)
+            return true, "blinded"
+        else
+            return false, 'No such player'
+        end
+    end,
+})
+
 local function set_title(name, title)
     local player = minetest.get_player_by_name(name)
     if not player then return false end
