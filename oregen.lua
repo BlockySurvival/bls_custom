@@ -1,3 +1,7 @@
+minetest.override_item("default:steel_ingot", {
+	inventory_image = "default_steel_ingot.png",
+})
+
 local uranium_params = {
 	offset = 0,
 	scale = 1,
