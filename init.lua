@@ -28,6 +28,7 @@ dofile(bls.modpath .. '/item_overrides.lua')
 dofile(bls.modpath .. '/microblocks.lua')
 dofile(bls.modpath .. '/monkey_patching.lua')
 dofile(bls.modpath .. '/no_guests.lua')
+dofile(bls.modpath .. '/oregen.lua')
 dofile(bls.modpath .. '/receive_fields.lua')
 dofile(bls.modpath .. '/reformer.lua')
 

@@ -53,8 +53,8 @@ ropes?
 smartline?
 smartrenting?
 smartshop?
-technic?
 technic_chests?
+technic_worldgen?
 techpack_warehouse?
 terumet?
 titanium?
