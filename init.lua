@@ -20,7 +20,9 @@ dofile(bls.modpath .. '/nodes.lua')
 dofile(bls.modpath .. '/aliases.lua')
 dofile(bls.modpath .. '/armor.lua')
 dofile(bls.modpath .. '/antitroll.lua')
-dofile(bls.modpath .. '/bad_piston_no_biscuit.lua')
+if minetest.global_exists('mesecon') and minetest.get_modpath('mesecons_mvps') then
+    dofile(bls.modpath .. '/bad_piston_no_biscuit.lua')
+end
 dofile(bls.modpath .. '/commands.lua')
 dofile(bls.modpath .. '/crafting.lua')
 dofile(bls.modpath .. '/fix_privs.lua')
@@ -30,8 +32,14 @@ dofile(bls.modpath .. '/monkey_patching.lua')
 dofile(bls.modpath .. '/no_guests.lua')
 dofile(bls.modpath .. '/oregen.lua')
 dofile(bls.modpath .. '/receive_fields.lua')
-dofile(bls.modpath .. '/reformer.lua')
+if minetest.global_exists('terumet') then
+    dofile(bls.modpath .. '/reformer.lua')
+end
+if minetest.global_exists('tubelib') then
+    dofile(bls.modpath .. '/tubelib.lua')
+end
 
-dofile(bls.modpath .. '/hunger_overrides.lua') -- overrides stuff in this mod even...
+-- last, because it overrides stuff in this mod even...
+dofile(bls.modpath .. '/hunger_overrides.lua')
 
 bls.mod_storage = nil
