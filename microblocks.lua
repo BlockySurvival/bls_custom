@@ -38,7 +38,7 @@ local function register_letters(recipe_item)
     end
 end
 
-local function register(recipe_item)
+local function register(recipe_item, make_stairs, make_facade, make_letters)
     local modname, subname = recipe_item:match('^([^:]+):([^:]+)$')
     if not (modname or subname) then
         bls.log('warning', 'microblocks: %s is not a valid name', recipe_item)
@@ -49,17 +49,21 @@ local function register(recipe_item)
         bls.log('warning', 'microblocks: No def for %s', recipe_item)
         return
     end
-    if global_exists('stairsplus') then
+    if make_stairs == nil then make_stairs = true end
+    if make_facade == nil then make_facade = true end
+    if make_letters == nil then make_letters = true end
+
+    if global_exists('stairsplus') and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
         stairsplus:register_all(modname, subname, recipe_item, def)
     end
-    if global_exists('facade') then
+
+    if global_exists('facade') and make_facade then
         if def.drawtype == 'normal' and not registered_nodes[('facade:%s_bannerstone'):format(subname)] then
-            -- facade mod needs an update to prefix the modname w/ ':'
-            -- facade mod needs an update to make facades in group not_in_creative_inventory
-            -- facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
+             facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
         end
     end
+
     -- letter cutter: adding letters increases lag (and load time) hugely
 end
 
@@ -68,15 +72,15 @@ local COLORS = {
     'magenta', 'orange', 'pink', 'red', 'violet', 'white', 'yellow'
 }
 
-local function register_colors(name_pattern)
+local function register_colors(name_pattern, make_stairs, make_facade, make_letters)
     for _, color in ipairs(COLORS) do
-        register(name_pattern:format(color))
+        register(name_pattern:format(color), make_stairs, make_facade, make_letters)
     end
 end
 
 if get_modpath('bakedclay') then
     for _, color in ipairs(COLORS) do
-        register_letters('bakedclay:' .. color)
+        register_letters('bakedclay:' .. color, nil, false)
     end
 end
 
@@ -99,7 +103,7 @@ if get_modpath('caverealms') then
     register('caverealms:glow_emerald_ore')
     register('caverealms:glow_mese')
     register('caverealms:glow_obsidian')
-    register('caverealms:glow_obsidian_2')
+    register('caverealms:glow_obsidian_2', nil, false)
     register('caverealms:glow_ore')
     register('caverealms:glow_ruby')
     register('caverealms:glow_ruby_ore')
@@ -116,14 +120,14 @@ if get_modpath('cblocks') then
 end
 
 if get_modpath('cottages') then
-    register('cottages:hay')
+    register('cottages:hay', nil, false)
     register('cottages:loam')
     register('cottages:reet')
-    register('cottages:slate_vertical')
+    register('cottages:slate_vertical', nil, false)
 end
 
 if get_modpath('extra') then
-    register('extra:cobble_condensed')
+    register('extra:cobble_condensed', nil, false)
 end
 
 if get_modpath('farming') then
@@ -152,7 +156,7 @@ if get_modpath('terumet') then
     register('terumet:block_ceramic')
     register('terumet:block_cgls')
     register('terumet:block_coke')
-    register_colors('terumet:block_con_%s')
+    register_colors('terumet:block_con_%s', nil, false)
     register('terumet:block_dust_bio')
     register('terumet:block_entropy')
     register('terumet:block_pwood')
@@ -171,7 +175,7 @@ end
 if get_modpath('titanium') then
     register('titanium:block')
     register('titanium:glass')
-    register('titanium:titanium_plate')
+    register('titanium:titanium_plate', nil, false)
 end
 
 if get_modpath('xdecor') then
