@@ -7,6 +7,37 @@ local function make_formspec(width, height)
     ):format(width, height + 5, width, height, (width - 8) / 2, height + 1)
 end
 
+local _TUBELIB_CALLBACKS = {
+    on_pull_item = function(pos, side, player_name)
+        if not minetest.is_protected(pos, player_name) then
+            local inv = minetest.get_meta(pos):get_inventory()
+            for _, stack in pairs(inv:get_list("main")) do
+                if not stack:is_empty() then
+                    return inv:remove_item("main", stack:get_name())
+                end
+            end
+        end
+        return nil
+    end,
+    on_push_item = function(pos, side, item, player_name)
+        local inv = minetest.get_meta(pos):get_inventory()
+        if inv:room_for_item("main", item) then
+            inv:add_item("main", item)
+            return true
+        end
+        return false
+    end,
+    on_unpull_item = function(pos, side, item, player_name)
+        local inv = minetest.get_meta(pos):get_inventory()
+        if inv:room_for_item("main", item) then
+            inv:add_item("main", item)
+            return true
+        end
+        return false
+    end,
+}
+
+
 local function make_public_chest(name, description, craft_from, width, height)
     local base_def = minetest.registered_nodes[craft_from]
 
@@ -71,6 +102,8 @@ local function make_public_chest(name, description, craft_from, width, height)
     end
 
     minetest.register_node(name, def)
+    tubelib.register_node(name, {}, _TUBELIB_CALLBACKS)
+
     minetest.register_craft({
         output = name,
         type = "shapeless",
