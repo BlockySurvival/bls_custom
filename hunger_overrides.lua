@@ -1,12 +1,8 @@
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
 -- ORGANIZE LOGIC BY THE TARGET ITEM
 
-local get_modpath = minetest.get_modpath
-local override_item = minetest.override_item
-local registered_items = minetest.registered_items
-
 local function set_food_group(name, value)
-    local def = registered_items[name]
+    local def = minetest.registered_items[name]
     if not def then
         bls.log('error', 'could not find %s to set food group', name)
         return
@@ -14,26 +10,26 @@ local function set_food_group(name, value)
     value = value or 1
     local groups = table.copy(def.groups or {})
     groups.food = value
-    override_item(name, {groups=groups})
+    minetest.override_item(name, {groups=groups})
 end
 
 local function set_eat(name, food_value, ...)
     if food_value == 0 then
-        override_item(name, {on_use=function() end})
+        minetest.override_item(name, {on_use=function() end})
     else
-        local def = registered_items[name]
+        local def = minetest.registered_items[name]
         if not def then
             bls.log('error', 'could not find %s to set eat', name)
             return
         end
         local groups = table.copy(def.groups or {})
         groups.food = food_value
-        override_item(name, {groups=groups, on_use=minetest.item_eat(food_value, ...)})
+        minetest.override_item(name, {groups=groups, on_use=minetest.item_eat(food_value, ...)})
     end
 end
 
 local function set_eat_or_poison(name, food_value, damage_value, chance, replace_with_item)
-    local def = registered_items[name]
+    local def = minetest.registered_items[name]
     if not def then
         bls.log('error', 'could not find %s to set eat or poison', name)
         return
@@ -48,7 +44,7 @@ local function set_eat_or_poison(name, food_value, damage_value, chance, replace
     if not chance then
         chance = 3
     end
-    override_item(name, {
+    minetest.override_item(name, {
         groups=groups,
         on_use=function(itemstack, user, pointed_thing)
             if user then
@@ -67,14 +63,14 @@ local glass = 'vessels:drinking_glass'
 local bottle = 'vessels:glass_bottle'
 local bucket = 'bucket:bucket_empty'
 
-if get_modpath('default') then
+if minetest.get_modpath('default') then
     set_eat('default:apple', 2)
     -- blueberries are aliased
     set_eat_or_poison('flowers:mushroom_red', 2, -10)
     set_eat('flowers:mushroom_brown', 2)
 end
 
-if get_modpath('extra') then
+if minetest.get_modpath('extra') then
     set_eat('extra:blooming_onion', 8)
     set_eat('extra:cheeseburger', 12)
     set_eat('extra:cheese_pizza', 6)
@@ -111,7 +107,7 @@ if get_modpath('extra') then
     set_eat('extra:tomato_slice', 0)
 end
 
-if get_modpath('farming') then
+if minetest.get_modpath('farming') then
     set_eat('farming:baked_potato', 4)
     set_eat('farming:beans', 2)
     set_eat('farming:beetroot', 2)
@@ -164,18 +160,18 @@ if get_modpath('farming') then
     set_eat('farming:turkish_delight', 12)
 end
 
-if get_modpath('homedecor_gastronomy') then
+if minetest.get_modpath('homedecor_gastronomy') then
     set_eat('homedecor:soda_can', 2)
 end
 
 set_eat('bls:honey_bottle', 8)
 
-if get_modpath('mobs') then
+if minetest.get_modpath('mobs') then
     set_eat_or_poison('mobs:meat_raw', 4, -2)
     set_eat('mobs:meat', 8)
 end
 
-if get_modpath('mobs_animal') then
+if minetest.get_modpath('mobs_animal') then
     set_eat('mobs:bucket_milk', 8, bucket)
     set_eat('mobs:butter', 2)
     set_eat('mobs:cheese', 4)
@@ -193,13 +189,13 @@ if get_modpath('mobs_animal') then
     set_eat('mobs:rat_cooked', 12)
 end
 
-if get_modpath('moreplants') then
+if minetest.get_modpath('moreplants') then
     set_eat('moreplants:bluemush', 2)
     set_eat('moreplants:curlyfruit', 2)
     set_eat('moreplants:medflower', 2)
 end
 
-if get_modpath('moretrees') then
+if minetest.get_modpath('moretrees') then
     set_eat('moretrees:acorn_muffin', 6)
     set_eat('moretrees:cedar_nuts', 2)
     set_eat('moretrees:coconut_milk', 2)
@@ -212,13 +208,13 @@ if get_modpath('moretrees') then
     set_eat('moretrees:spruce_nuts', 2)
 end
 
-if get_modpath('xdecor') then
+if minetest.get_modpath('xdecor') then
     set_eat('xdecor:honey', 2)
     set_food_group('xdecor:bowl_soup', 20)
 end
 
 -- THIS MUST GO LAST HERE
-if get_modpath('terumet') then
+if minetest.global_exists('terumet') then
     for item_id, def in pairs(minetest.registered_items) do
         local mod, item = item_id:match('terumet:vacf_([^_]+)_(.+)')
         if mod and item then
@@ -226,7 +222,7 @@ if get_modpath('terumet') then
             if base_def then
                 local groups = table.copy(def.groups or {})
                 groups.food = 1
-                override_item(item_id, {
+                minetest.override_item(item_id, {
                     groups=groups,
                     on_use=base_def.on_use
                 })

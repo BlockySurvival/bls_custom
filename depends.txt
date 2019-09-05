@@ -30,6 +30,7 @@ gravelsieve?
 hangglider?
 homedecor?
 homedecor_gastronomy?
+homedecor_office?
 hot_air_balloons?
 inbox?
 itemframes?
