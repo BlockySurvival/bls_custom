@@ -9,12 +9,10 @@ end
 
 local _TUBELIB_CALLBACKS = {
     on_pull_item = function(pos, side, player_name)
-        if not minetest.is_protected(pos, player_name) then
-            local inv = minetest.get_meta(pos):get_inventory()
-            for _, stack in pairs(inv:get_list("main")) do
-                if not stack:is_empty() then
-                    return inv:remove_item("main", stack:get_name())
-                end
+        local inv = minetest.get_meta(pos):get_inventory()
+        for _, stack in pairs(inv:get_list("main")) do
+            if not stack:is_empty() then
+                return inv:remove_item("main", stack:get_name())
             end
         end
         return nil
