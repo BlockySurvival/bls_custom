@@ -10,10 +10,14 @@ end
 
 dofile(bls.modpath .. '/util.lua')
 
-dofile(bls.modpath .. '/nodes.lua')  -- new nodes we define
+dofile(bls.modpath .. '/custom_items/fake_atm.lua')
+dofile(bls.modpath .. '/custom_items/fake_nodes.lua')
+dofile(bls.modpath .. '/custom_items/food.lua')
+dofile(bls.modpath .. '/custom_items/marble.lua')
+dofile(bls.modpath .. '/custom_items/public_chests.lua')
+dofile(bls.modpath .. '/custom_items/staff_armor.lua')
 
 dofile(bls.modpath .. '/aliases.lua')
-dofile(bls.modpath .. '/armor.lua')
 dofile(bls.modpath .. '/commands/antitroll.lua')
 dofile(bls.modpath .. '/commands/hax.lua')
 dofile(bls.modpath .. '/commands/other.lua')
