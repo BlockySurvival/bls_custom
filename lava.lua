@@ -21,7 +21,7 @@ if minetest.get_modpath('bucket') then
                 return itemstack
             end
             local player_name = placer:get_player_name()
-            if can_place_lava(player_name, pointed_thing) then
+            if not can_place_lava(player_name, pointed_thing) then
                 minetest.chat_send_player(player_name, "You cannot place lava over " .. lava_max_elevation, true)
                 return itemstack
             end
@@ -36,7 +36,7 @@ function minetest.item_place(itemstack, placer, pointed_thing, param2)
 		return
 	end
 	local player_name = placer:get_player_name()
-	if can_place_lava(player_name, pointed_thing) then
+	if not can_place_lava(player_name, pointed_thing) then
 		if itemstack:get_name() == "default:lava_source" then
 			minetest.chat_send_player(player_name, "You cannot place lava over " .. lava_max_elevation, true)
 			return itemstack
