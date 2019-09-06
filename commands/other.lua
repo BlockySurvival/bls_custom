@@ -1,3 +1,4 @@
+local mod_storage = bls.mod_storage
 
 minetest.register_chatcommand("sunlight", {
     -- Give players with "settime" priv the ability to override their day-night ratio
@@ -7,8 +8,14 @@ minetest.register_chatcommand("sunlight", {
     func = function(name, param)
         local ratio = tonumber(param)
         minetest.get_player_by_name(name):override_day_night_ratio(ratio)
+        mod_storage:set_float(name .. "_sunlight", ratio)
     end
 })
+
+minetest.register_on_joinplayer(function(player)
+
+end)
+
 
 minetest.register_chatcommand("whatisthis", {
 	params = "",
