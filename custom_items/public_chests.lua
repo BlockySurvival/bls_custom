@@ -115,8 +115,14 @@ local function make_public_chest(name, description, craft_from, width, height)
 end
 
 make_public_chest("bls:chest_public", "Public Chest", "default:chest",8, 4)
-make_public_chest("bls:iron_chest_public", "Iron Public Chest", "technic:iron_chest",9, 5)
-make_public_chest("bls:copper_chest_public", "Copper Public Chest", "technic:copper_chest",12, 5)
-make_public_chest("bls:silver_chest_public", "Silver Public Chest", "technic:silver_chest",12, 6)
-make_public_chest("bls:gold_chest_public", "Gold Public Chest", "technic:gold_chest",15, 6)
-make_public_chest("bls:mithril_chest_public", "Mithril Public Chest", "technic:mithril_chest",15, 6)
+make_public_chest("bls:bookshelf_public", "Public Bookshelf", "default:bookshelf",8, 2)
+
+if minetest.get_modpath("technic_chests") then
+    make_public_chest("bls:iron_chest_public", "Iron Public Chest", "technic:iron_chest",9, 5)
+    make_public_chest("bls:copper_chest_public", "Copper Public Chest", "technic:copper_chest",12, 5)
+    make_public_chest("bls:gold_chest_public", "Gold Public Chest", "technic:gold_chest",15, 6)
+    if minetest.get_modpath("moreores") then
+        make_public_chest("bls:silver_chest_public", "Silver Public Chest", "technic:silver_chest",12, 6)
+        make_public_chest("bls:mithril_chest_public", "Mithril Public Chest", "technic:mithril_chest",15, 6)
+    end
+end
