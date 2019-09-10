@@ -5,15 +5,25 @@ minetest.register_chatcommand("sunlight", {
     params = "<ratio>",
     description = "Override one's day night ratio. (1 = always day, 0 = always night)",
     privs = {settime = true},
-    func = function(name, param)
+    func = function(player_name, param)
         local ratio = tonumber(param)
-        minetest.get_player_by_name(name):override_day_night_ratio(ratio)
-        mod_storage:set_float(name .. "_sunlight", ratio)
+        if not ratio or ratio < 0 or ratio > 1 then
+            return false, "Please enter a number between 0 and 1"
+        end
+        minetest.get_player_by_name(player_name):override_day_night_ratio(ratio)
+        mod_storage:set_string(player_name .. "_sunlight", tostring(ratio))
     end
 })
 
 minetest.register_on_joinplayer(function(player)
-
+    local player_name = player:get_player_name()
+    local ratio = mod_storage:get_string(player_name .. "_sunlight")
+    if ratio == "" then
+        return
+    else
+        ratio = tonumber(ratio)
+    end
+    mod_storage:set_float(player_name .. "_sunlight", ratio)
 end)
 
 
