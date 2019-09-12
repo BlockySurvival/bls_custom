@@ -462,37 +462,46 @@ if minetest.get_modpath('tnt') and minetest.get_modpath('bonemeal') then
     })
 end
 
-if minetest.get_modpath("travelnet") and minetest.get_modpath("titanium") then
-    -- make elevator expensive
-    minetest.clear_craft({output="travelnet:elevator"})
-    minetest.register_craft({
-        output = "travelnet:elevator",
-        recipe = {
-            {"default:glass", "default:steelblock", "default:glass", },
-            {"default:glass", "titanium:block",     "default:glass", },
-            {"default:glass", "default:steelblock", "default:glass", }
-        },
-    })
-
-    -- make travelnet even more expensive
-    minetest.clear_craft({output="travelnet:travelnet"})
-    if minetest.get_modpath('caverealms') then
+if minetest.get_modpath("travelnet") then
+    if minetest.get_modpath("titanium") then
+        -- make elevator expensive
+        minetest.clear_craft({output="travelnet:elevator"})
         minetest.register_craft({
-            output = "travelnet:travelnet",
+            output = "travelnet:elevator",
             recipe = {
-                {"caverealms:glow_mese", "titanium:block", "caverealms:glow_mese", },
-                {"caverealms:glow_mese", "default:mese",   "caverealms:glow_mese", },
-                {"caverealms:glow_mese", "titanium:block", "caverealms:glow_mese", }
+                {"default:glass", "default:steelblock", "default:glass", },
+                {"default:glass", "titanium:block",     "default:glass", },
+                {"default:glass", "default:steelblock", "default:glass", }
             },
         })
-    else
+
+        -- make travelnet even more expensive
+        minetest.clear_craft({output="travelnet:travelnet"})
+        if minetest.get_modpath('caverealms') then
+            minetest.register_craft({
+                output = "travelnet:travelnet",
+                recipe = {
+                    {"caverealms:glow_mese", "titanium:block", "caverealms:glow_mese", },
+                    {"caverealms:glow_mese", "default:mese",   "caverealms:glow_mese", },
+                    {"caverealms:glow_mese", "titanium:block", "caverealms:glow_mese", }
+                },
+            })
+        else
+            minetest.register_craft({
+                output = "travelnet:travelnet",
+                recipe = {
+                    {"default:glass", "titanium:block", "default:glass", },
+                    {"default:mese",  "default:mese",   "default:mese", },
+                    {"default:glass", "titanium:block", "default:glass", }
+                },
+            })
+        end
+    end
+    if minetest.get_modpath("locked_travelnet") then
         minetest.register_craft({
             output = "travelnet:travelnet",
-            recipe = {
-                {"default:glass", "titanium:block", "default:glass", },
-                {"default:mese",  "default:mese",   "default:mese", },
-                {"default:glass", "titanium:block", "default:glass", }
-            },
+            type = "shapeless",
+            recipe = {"locked_travelnet:travelnet"},
         })
     end
 end

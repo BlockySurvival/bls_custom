@@ -1,3 +1,7 @@
+if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor")) then
+    return
+end
+
 armor:register_armor("bls:shield_bls", {
     description = "BlS Shield",
     inventory_image = "bls_inv_shield_bls.png",

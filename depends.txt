@@ -1,11 +1,7 @@
-3d_armor
 default
 lib_chatcmdbuilder
-mesecons
-mesecons_mvps
-moreblocks
-shields
 
+3d_armor?
 3d_armor_stand?
 areasprotector?
 bakedclay?
@@ -39,12 +35,15 @@ locked_travelnet?
 lurkcoin?
 mailbox?
 maptools?
+mesecons?
+mesecons_mvps?
 mesecons_commandblock?
 mesecons_luacontroller?
 mesecons_noteblock?
 mesecons_pistons?
 mobs?
 mobs_animal?
+moreblocks?
 moreores?
 moreplants?
 moretrees?
@@ -52,6 +51,7 @@ nether?
 other_worlds?
 quartz?
 ropes?
+shields?
 smartline?
 smartrenting?
 smartshop?
