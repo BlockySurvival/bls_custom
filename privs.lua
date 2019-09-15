@@ -13,13 +13,3 @@ minetest.register_on_chat_message(function(name, message)
         return true
     end
 end)
---
---local old_format_chat_message = minetest.format_chat_message
---
---function minetest.format_chat_message(name, message)
---    bls.log("action", "caps: format_chat_message")
---    if not minetest.check_player_privs(name, {caps=true}) then
---        message = message:lower()
---    end
---    return old_format_chat_message(name, message) .. " TEST"
---end
