@@ -18,12 +18,10 @@ minetest.register_chatcommand("sunlight", {
 minetest.register_on_joinplayer(function(player)
     local player_name = player:get_player_name()
     local ratio = mod_storage:get_string(player_name .. "_sunlight")
-    if ratio == "" then
-        return
-    else
+    if ratio ~= "" then
         ratio = tonumber(ratio)
+        player:override_day_night_ratio(ratio)
     end
-    mod_storage:set_float(player_name .. "_sunlight", ratio)
 end)
 
 
