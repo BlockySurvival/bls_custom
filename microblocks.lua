@@ -2,6 +2,9 @@ local get_modpath = minetest.get_modpath
 local global_exists = minetest.global_exists
 local registered_nodes = minetest.registered_nodes
 
+local has_stairsplus = global_exists('stairsplus')
+local has_facade = global_exists('facade')
+
 local function most_common_in_table(t)
     local counts = {}
     for _, item in ipairs(t) do
@@ -53,12 +56,12 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
     if make_facade == nil then make_facade = true end
     if make_letters == nil then make_letters = true end
 
-    if global_exists('stairsplus') and make_stairs then
+    if has_stairsplus and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
         stairsplus:register_all(modname, subname, recipe_item, def)
     end
 
-    if global_exists('facade') and make_facade then
+    if has_facade and make_facade then
         if def.drawtype == 'normal' and not registered_nodes[('facade:%s_bannerstone'):format(subname)] then
              facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
         end
