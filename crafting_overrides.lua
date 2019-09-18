@@ -1,104 +1,144 @@
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
 -- ORGANIZE LOGIC BY THE TARGET ITEM
 
-if minetest.get_modpath('bbq') then
-    minetest.clear_craft({output='bbq:smoker_blueprint'})
-    minetest.register_craft({
-        output='bbq:smoker_blueprint',
-        recipe={
-            {'default:paper', 'default:paper', 'default:paper'},
-            {'default:paper', 'dye:blue',      'default:paper'},
-            {'default:paper', 'default:paper', 'default:paper'},
-        }
-    })
-    minetest.clear_craft({output='bbq:woodpile'})
-    minetest.register_craft({
-        output='bbq:woodpile 4',
-        recipe={
-            {'default:tree', 'default:tree', 'default:tree'},
-            {'default:tree', 'default:tree', 'default:tree'},
-            {'default:tree', 'default:tree', 'default:tree'},
-        }
-    })
-    minetest.clear_craft({output='bbq:woodpile_acacia'})
-    minetest.register_craft({
-        output='bbq:woodpile_acacia 4',
-        recipe={
-            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
-            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
-            {'default:acacia_tree', 'default:acacia_tree', 'default:acacia_tree'},
-        }
-    })
-    minetest.clear_craft({output='bbq:woodpile_aspen'})
-    minetest.register_craft({
-        output='bbq:woodpile_aspen 4',
-        recipe={
-            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
-            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
-            {'default:aspen_tree', 'default:aspen_tree', 'default:aspen_tree'},
-        }
-    })
-    minetest.clear_craft({output='bbq:woodpile_junglewood'})
-    minetest.register_craft({
-        output='bbq:woodpile_junglewood 4',
-        recipe={
-            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
-            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
-            {'default:jungletree', 'default:jungletree', 'default:jungletree'},
-        }
-    })
-    minetest.clear_craft({output='bbq:woodpile_pine'})
-    minetest.register_craft({
-        output='bbq:woodpile_pine 4',
-        recipe={
-            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
-            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
-            {'default:pine_tree', 'default:pine_tree', 'default:pine_tree'},
-        }
-    })
-end
-
-if minetest.get_modpath('bones') and minetest.get_modpath('bonemeal') then
-    if minetest.get_modpath('building_blocks') then
+if minetest.get_modpath("basic_materials") then
+    if minetest.get_modpath("technic_worldgen") then
+        minetest.clear_craft({output="basic_materials:gear_steel"})
         minetest.register_craft({
-            output='bones:bones',
+            output="basic_materials:gear_steel",
             recipe={
-                {'bonemeal:bone', 'bonemeal:bone',       'bonemeal:bone'},
-                {'bonemeal:bone', 'building_blocks:Tar', 'bonemeal:bone'},
-                {'bonemeal:bone', 'bonemeal:bone',       'bonemeal:bone'},
+                {"",                           "technic:carbon_steel_ingot",      ""},
+                {"technic:carbon_steel_ingot", "basic_materials:chainlink_steel", "technic:carbon_steel_ingot"},
+                {"",                           "technic:carbon_steel_ingot",      ""},
             }
         })
-    end
-    if minetest.get_modpath('terumet') then
+
+        minetest.clear_craft({output="basic_materials:motor"})
         minetest.register_craft({
-            output='bones:bones',
+            output="basic_materials:motor",
             recipe={
-                {'bonemeal:bone', 'bonemeal:bone',     'bonemeal:bone'},
-                {'bonemeal:bone', 'terumet:block_tar', 'bonemeal:bone'},
-                {'bonemeal:bone', 'bonemeal:bone',     'bonemeal:bone'},
+                {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
+                {"default:copper_ingot",          "technic:cast_iron_ingot",     "technic:carbon_steel_ingot"},
+                {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
+            }
+        })
+
+        minetest.clear_craft({output="basic_materials:steel_bar"})
+        minetest.register_craft({
+            output="basic_materials:steel_bar",
+            recipe={
+                {"", "", "technic:stainless_steel_ingot"},
+                {"", "technic:stainless_steel_ingot", ""},
+                {"technic:stainless_steel_ingot", "", ""},
             }
         })
     end
 end
 
-if minetest.get_modpath('cblocks') then
+if minetest.get_modpath("bike") then
+    if minetest.get_modpath("technic_worldgen") then
+        
+    end
+end
+
+if minetest.get_modpath("bbq") then
+    minetest.clear_craft({output="bbq:smoker_blueprint"})
+    minetest.register_craft({
+        output="bbq:smoker_blueprint",
+        recipe={
+            {"default:paper", "default:paper", "default:paper"},
+            {"default:paper", "dye:blue",      "default:paper"},
+            {"default:paper", "default:paper", "default:paper"},
+        }
+    })
+    minetest.clear_craft({output="bbq:woodpile"})
+    minetest.register_craft({
+        output="bbq:woodpile 4",
+        recipe={
+            {"default:tree", "default:tree", "default:tree"},
+            {"default:tree", "default:tree", "default:tree"},
+            {"default:tree", "default:tree", "default:tree"},
+        }
+    })
+    minetest.clear_craft({output="bbq:woodpile_acacia"})
+    minetest.register_craft({
+        output="bbq:woodpile_acacia 4",
+        recipe={
+            {"default:acacia_tree", "default:acacia_tree", "default:acacia_tree"},
+            {"default:acacia_tree", "default:acacia_tree", "default:acacia_tree"},
+            {"default:acacia_tree", "default:acacia_tree", "default:acacia_tree"},
+        }
+    })
+    minetest.clear_craft({output="bbq:woodpile_aspen"})
+    minetest.register_craft({
+        output="bbq:woodpile_aspen 4",
+        recipe={
+            {"default:aspen_tree", "default:aspen_tree", "default:aspen_tree"},
+            {"default:aspen_tree", "default:aspen_tree", "default:aspen_tree"},
+            {"default:aspen_tree", "default:aspen_tree", "default:aspen_tree"},
+        }
+    })
+    minetest.clear_craft({output="bbq:woodpile_junglewood"})
+    minetest.register_craft({
+        output="bbq:woodpile_junglewood 4",
+        recipe={
+            {"default:jungletree", "default:jungletree", "default:jungletree"},
+            {"default:jungletree", "default:jungletree", "default:jungletree"},
+            {"default:jungletree", "default:jungletree", "default:jungletree"},
+        }
+    })
+    minetest.clear_craft({output="bbq:woodpile_pine"})
+    minetest.register_craft({
+        output="bbq:woodpile_pine 4",
+        recipe={
+            {"default:pine_tree", "default:pine_tree", "default:pine_tree"},
+            {"default:pine_tree", "default:pine_tree", "default:pine_tree"},
+            {"default:pine_tree", "default:pine_tree", "default:pine_tree"},
+        }
+    })
+end
+
+if minetest.get_modpath("bones") and minetest.get_modpath("bonemeal") then
+    if minetest.get_modpath("building_blocks") then
+        minetest.register_craft({
+            output="bones:bones",
+            recipe={
+                {"bonemeal:bone", "bonemeal:bone",       "bonemeal:bone"},
+                {"bonemeal:bone", "building_blocks:Tar", "bonemeal:bone"},
+                {"bonemeal:bone", "bonemeal:bone",       "bonemeal:bone"},
+            }
+        })
+    end
+    if minetest.get_modpath("terumet") then
+        minetest.register_craft({
+            output="bones:bones",
+            recipe={
+                {"bonemeal:bone", "bonemeal:bone",     "bonemeal:bone"},
+                {"bonemeal:bone", "terumet:block_tar", "bonemeal:bone"},
+                {"bonemeal:bone", "bonemeal:bone",     "bonemeal:bone"},
+            }
+        })
+    end
+end
+
+if minetest.get_modpath("cblocks") then
     -- make colored blocks cheaper, dye-wise
     local colours = {
-        black='dye:black',
-        blue='dye:blue',
-        brown='dye:brown',
-        cyan='dye:cyan',
-        dark_green='dye:dark_green',
-        dark_grey='dye:dark_grey',
-        green='dye:green',
-        grey='dye:grey',
-        magenta='dye:magenta',
-        orange='dye:orange',
-        pink='dye:pink',
-        red='dye:red',
-        violet='dye:violet',
-        white='dye:white',
-        yellow='dye:yellow'
+        black="dye:black",
+        blue="dye:blue",
+        brown="dye:brown",
+        cyan="dye:cyan",
+        dark_green="dye:dark_green",
+        dark_grey="dye:dark_grey",
+        green="dye:green",
+        grey="dye:grey",
+        magenta="dye:magenta",
+        orange="dye:orange",
+        pink="dye:pink",
+        red="dye:red",
+        violet="dye:violet",
+        white="dye:white",
+        yellow="dye:yellow"
     }
     for color, dye in pairs(colours) do
         minetest.clear_craft({output=("cblocks:wood_%s"):format(color)})
@@ -137,7 +177,7 @@ if minetest.get_modpath("cottages") then
         minetest.clear_craft({output="cottages:glass_pane"})
         minetest.register_craft({
             output = "cottages:glass_pane 4",
-            recipe = {{'default:glass'}}
+            recipe = {{"default:glass"}}
         })
     end
     if minetest.get_modpath("farming") then
@@ -146,15 +186,15 @@ if minetest.get_modpath("cottages") then
         minetest.register_craft({
             output = "cottages:straw_bale",
             recipe = {
-                {'cottages:straw_mat'},
-                {'cottages:straw_mat'},
-                {'cottages:straw_mat'},
+                {"cottages:straw_mat"},
+                {"cottages:straw_mat"},
+                {"cottages:straw_mat"},
             }
         })
     end
 end
 
-if minetest.get_modpath('default') then
+if minetest.get_modpath("default") then
     -- add some recipes for kinds of dirt
     minetest.register_craft({
         output = "default:dirt_with_snow",
@@ -191,11 +231,11 @@ if minetest.get_modpath('default') then
         type = "shapeless",
         recipe = {"default:permafrost", "default:gravel"}
     })
-    -- smelt tree into coal (but don't make this a net-gain in heat)
+    -- smelt tree into coal (but don"t make this a net-gain in heat)
     minetest.register_craft({
-        type='cooking',
-        output='default:coal_lump',
-        recipe='default:tree',
+        type="cooking",
+        output="default:coal_lump",
+        recipe="default:tree",
         cooktime=80,
     })
 end
@@ -203,21 +243,21 @@ end
 -- TODO digilines:lightsensor
 
 if minetest.get_modpath("extra") then
-    -- EDGY1'S ADDITION
+    -- EDGY1"S ADDITION
     minetest.register_craft({
         output = "extra:french_fries ",
         recipe = {
-             {'extra:cottonseed_oil', 'extra:potato_slice', 'extra:potato_slice'},
-             {'extra:potato_slice',   'extra:potato_slice', 'extra:potato_slice'},
-             {'extra:potato_slice',   'extra:potato_slice', 'extra:potato_slice'},
+             {"extra:cottonseed_oil", "extra:potato_slice", "extra:potato_slice"},
+             {"extra:potato_slice",   "extra:potato_slice", "extra:potato_slice"},
+             {"extra:potato_slice",   "extra:potato_slice", "extra:potato_slice"},
           },
        })
     minetest.register_craft({
         output = "extra:onion_rings ",
         recipe = {
-             {'extra:cottonseed_oil', 'extra:onion_slice', 'extra:onion_slice'},
-             {'extra:onion_slice',    'extra:onion_slice', 'extra:onion_slice'},
-             {'extra:onion_slice',    'extra:onion_slice', 'extra:onion_slice'},
+             {"extra:cottonseed_oil", "extra:onion_slice", "extra:onion_slice"},
+             {"extra:onion_slice",    "extra:onion_slice", "extra:onion_slice"},
+             {"extra:onion_slice",    "extra:onion_slice", "extra:onion_slice"},
           },
        })
     minetest.register_craft({
@@ -227,8 +267,8 @@ if minetest.get_modpath("extra") then
     })
 
     if minetest.global_exists("terumet") then
-        if minetest.get_modpath('farming') then
-            -- add a recipe for the blooming onion that doesn't require techpack
+        if minetest.get_modpath("farming") then
+            -- add a recipe for the blooming onion that doesn"t require techpack
             terumet.register_alloy_recipe({
                 result="extra:blooming_onion",
                 input={"farming:onion", "extra:cottonseed_oil"},
@@ -237,7 +277,7 @@ if minetest.get_modpath("extra") then
             })
         end
 
-        if minetest.get_modpath('mobs_fish') then
+        if minetest.get_modpath("mobs_fish") then
             terumet.register_alloy_recipe({
                 result="extra:fish_sticks",
                 input={"mobs_fish:clownfish", "extra:cottonseed_oil"},
@@ -253,27 +293,27 @@ if minetest.get_modpath("extra") then
         end
     end
 
-    if minetest.get_modpath('farming') then
+    if minetest.get_modpath("farming") then
         -- slices should require the cutting board
         minetest.clear_craft({output="extra:onion_slice"})
         minetest.register_craft({
             output = "extra:onion_slice 8",
             type = "shapeless",
-            recipe = {'farming:onion', 'farming:cutting_board'},
+            recipe = {"farming:onion", "farming:cutting_board"},
             replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
         minetest.clear_craft({output="extra:potato_slice"})
         minetest.register_craft({
             output = "extra:potato_slice 8",
             type = "shapeless",
-            recipe = {'farming:potato', 'farming:cutting_board'},
+            recipe = {"farming:potato", "farming:cutting_board"},
             replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
         minetest.clear_craft({output="extra:tomato_slice"})
         minetest.register_craft({
             output = "extra:tomato_slice 8",
             type = "shapeless",
-            recipe = {'farming:tomato', 'farming:cutting_board'},
+            recipe = {"farming:tomato", "farming:cutting_board"},
             replacements = {{"farming:cutting_board", "farming:cutting_board"}},
         })
     end
@@ -320,31 +360,31 @@ if minetest.get_modpath("gravelsieve") then
     })
 end
 
-if minetest.get_modpath('hangglider') and minetest.get_modpath('terumet') and minetest.get_modpath('mobs') and minetest.get_modpath('farming') and minetest.get_modpath('moreblocks') then
-    minetest.clear_craft({output='hangglider:hangglider'})
+if minetest.get_modpath("hangglider") and minetest.get_modpath("terumet") and minetest.get_modpath("mobs") and minetest.get_modpath("farming") and minetest.get_modpath("moreblocks") then
+    minetest.clear_craft({output="hangglider:hangglider"})
     minetest.register_craft({
-        output='hangglider:hangglider',
+        output="hangglider:hangglider",
         recipe={
-            {'farming:slab_hemp_block_1', 'farming:slab_hemp_block_1', 'farming:slab_hemp_block_1'},
-            {'terumet:item_rebar',        '',                          'terumet:item_rebar'},
-            {'',                          'mobs:saddle',               ''}
+            {"farming:slab_hemp_block_1", "farming:slab_hemp_block_1", "farming:slab_hemp_block_1"},
+            {"terumet:item_rebar",        "",                          "terumet:item_rebar"},
+            {"",                          "mobs:saddle",               ""}
         }
     })
 end
 
-if minetest.get_modpath('hot_air_balloons') and minetest.get_modpath('farming') and minetest.get_modpath('terumet') and minetest.get_modpath('xdecor') and minetest.get_modpath('moreblocks') then
-    minetest.clear_craft({output='hot_air_balloons:item'})
+if minetest.get_modpath("hot_air_balloons") and minetest.get_modpath("farming") and minetest.get_modpath("terumet") and minetest.get_modpath("xdecor") and minetest.get_modpath("moreblocks") then
+    minetest.clear_craft({output="hot_air_balloons:item"})
     minetest.register_craft({
-        output='hot_air_balloons:item',
+        output="hot_air_balloons:item",
         recipe={
-            {'farming:hemp_block', 'farming:hemp_block',       'farming:hemp_block'},
-            {'farming:hemp_block', 'terumet:mach_htr_furnace', 'farming:hemp_block'},
-            {'moreblocks:rope',    'xdecor:barrel',            'moreblocks:rope'}
+            {"farming:hemp_block", "farming:hemp_block",       "farming:hemp_block"},
+            {"farming:hemp_block", "terumet:mach_htr_furnace", "farming:hemp_block"},
+            {"moreblocks:rope",    "xdecor:barrel",            "moreblocks:rope"}
         }
     })
 end
 
-if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minetest.get_modpath('xdecor') then
+if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minetest.get_modpath("xdecor") then
     -- avoid conflict with xdecor item frame
     minetest.clear_craft({output="itemframes:frame"})
     minetest.register_craft({
@@ -357,7 +397,7 @@ if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minet
     })
 end
 
-if minetest.get_modpath("moreblocks") and minetest.get_modpath('xdecor') then
+if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
 --    -- avoid conflict with xdecor empty_shelf (craft into each other)
 --    minetest.clear_craft({output="moreblocks:empty_shelf"})
 --    minetest.register_craft({
@@ -385,34 +425,34 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath('xdecor') then
     })
 end
 
-if minetest.get_modpath('ropes') and minetest.get_modpath('default') and minetest.get_modpath('basic_materials') then
+if minetest.get_modpath("ropes") and minetest.get_modpath("default") and minetest.get_modpath("basic_materials") then
     -- avoid conflict w/ steel leggings from 3d armor
-    minetest.clear_craft({output='ropes:ladder_steel'})
+    minetest.clear_craft({output="ropes:ladder_steel"})
     minetest.register_craft({
-        output='ropes:ladder_steel',
+        output="ropes:ladder_steel",
         recipe={
-            {'basic_materials:steel_bar', '',                     'basic_materials:steel_bar'},
-            {'',                          'default:ladder_steel', '' },
-            {'basic_materials:steel_bar', '',                     'basic_materials:steel_bar'},
+            {"basic_materials:steel_bar", "",                     "basic_materials:steel_bar"},
+            {"",                          "default:ladder_steel", "" },
+            {"basic_materials:steel_bar", "",                     "basic_materials:steel_bar"},
         }
     })
     -- just being consistent w/ the above recipe
-    minetest.clear_craft({output='ropes:ladder_wood'})
+    minetest.clear_craft({output="ropes:ladder_wood"})
     minetest.register_craft({
-        output='ropes:ladder_wood',
+        output="ropes:ladder_wood",
         recipe={
-            {'default:stick', '',                    'default:stick'},
-            {'',              'default:ladder_wood', '' },
-            {'default:stick', '',                    'default:stick'},
+            {"default:stick", "",                    "default:stick"},
+            {"",              "default:ladder_wood", "" },
+            {"default:stick", "",                    "default:stick"},
         }
     })
 end
 
-if minetest.get_modpath('soundblocks') then
-    minetest.clear_craft({output='soundblocks:ironbellitem'})
+if minetest.get_modpath("soundblocks") then
+    minetest.clear_craft({output="soundblocks:ironbellitem"})
     minetest.register_craft({
-        output='soundblocks:ironbellitem',
-        recipe={{'default:stick', 'default:steel_ingot'}}
+        output="soundblocks:ironbellitem",
+        recipe={{"default:stick", "default:steel_ingot"}}
     })
 end
 
@@ -429,30 +469,30 @@ if minetest.get_modpath("terumet") then
             }
         })
     end
-    if minetest.get_modpath('extra') and minetest.get_modpath('bucket') and minetest.get_modpath('farming') then
+    if minetest.get_modpath("extra") and minetest.get_modpath("bucket") and minetest.get_modpath("farming") then
         -- fix conflict between pasta and item glue
-        minetest.clear_craft({recipe={'farming:flour', 'bucket:bucket_water'}, type='shapeless'})
-        local def = minetest.registered_items['farming:rice_flour']
+        minetest.clear_craft({recipe={"farming:flour", "bucket:bucket_water"}, type="shapeless"})
+        local def = minetest.registered_items["farming:rice_flour"]
         if def then
             local groups = table.copy(def.groups or {})
             groups.food_flour = 1
-            minetest.override_item('farming:rice_flour', {groups=groups})
+            minetest.override_item("farming:rice_flour", {groups=groups})
         end
 
         minetest.register_craft({
-            output='extra:pasta 5',
-            recipe={{'group:food_flour', 'bucket:bucket_water'}},
+            output="extra:pasta 5",
+            recipe={{"group:food_flour", "bucket:bucket_water"}},
             replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
         })
         minetest.register_craft({
-            output='terumet:item_glue 8',
-            recipe={{'bucket:bucket_water', 'group:food_flour'}},
+            output="terumet:item_glue 8",
+            recipe={{"bucket:bucket_water", "group:food_flour"}},
             replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
         })
     end
 end
 
-if minetest.get_modpath('tnt') and minetest.get_modpath('bonemeal') then
+if minetest.get_modpath("tnt") and minetest.get_modpath("bonemeal") then
     -- make tnt stuff more expensive
     minetest.clear_craft({output="tnt:gunpowder"})
     minetest.register_craft({
@@ -477,7 +517,7 @@ if minetest.get_modpath("travelnet") then
 
         -- make travelnet even more expensive
         minetest.clear_craft({output="travelnet:travelnet"})
-        if minetest.get_modpath('caverealms') then
+        if minetest.get_modpath("caverealms") then
             minetest.register_craft({
                 output = "travelnet:travelnet",
                 recipe = {
@@ -532,24 +572,24 @@ if minetest.get_modpath("tubelib") then
     end
 end
 
-if minetest.get_modpath('wool') then
+if minetest.get_modpath("wool") then
     -- make colored wool cheaper (dye-wise)
     local colours = {
-        black='dye:black',
-        blue='dye:blue',
-        brown='dye:brown',
-        cyan='dye:cyan',
-        dark_green='dye:dark_green',
-        dark_grey='dye:dark_grey',
-        green='dye:green',
-        grey='dye:grey',
-        magenta='dye:magenta',
-        orange='dye:orange',
-        pink='dye:pink',
-        red='dye:red',
-        violet='dye:violet',
-        white='dye:white',
-        yellow='dye:yellow'
+        black="dye:black",
+        blue="dye:blue",
+        brown="dye:brown",
+        cyan="dye:cyan",
+        dark_green="dye:dark_green",
+        dark_grey="dye:dark_grey",
+        green="dye:green",
+        grey="dye:grey",
+        magenta="dye:magenta",
+        orange="dye:orange",
+        pink="dye:pink",
+        red="dye:red",
+        violet="dye:violet",
+        white="dye:white",
+        yellow="dye:yellow"
     }
     for color, dye in pairs(colours) do
         minetest.clear_craft({output=("wool:%s"):format(color)})
@@ -563,7 +603,7 @@ if minetest.get_modpath('wool') then
         })
     end
 
-    if minetest.get_modpath('farming') then
+    if minetest.get_modpath("farming") then
         minetest.register_craft({
             output = "wool:white",
             recipe = {
@@ -610,10 +650,10 @@ if minetest.get_modpath("xdecor") then
     end
 
     if minetest.get_modpath("wool") then
-        minetest.clear_craft({output='xdecor:cushion'})
+        minetest.clear_craft({output="xdecor:cushion"})
         minetest.register_craft({
-            output='xdecor:cushion 2',
-            recipe={{'wool:red', 'wool:red'}}
+            output="xdecor:cushion 2",
+            recipe={{"wool:red", "wool:red"}}
         })
     end
 end
