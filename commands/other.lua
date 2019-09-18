@@ -21,9 +21,8 @@ minetest.register_on_joinplayer(function(player)
     if ratio == "" then
         return
     else
-        ratio = tonumber(ratio)
+        player:override_day_night_ratio(tonumber(ratio))
     end
-    mod_storage:set_float(player_name .. "_sunlight", ratio)
 end)
 
 
