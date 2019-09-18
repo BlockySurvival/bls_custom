@@ -111,7 +111,7 @@ if minetest.get_modpath('farming') then
     set_eat('farming:baked_potato', 4)
     set_eat('farming:beans', 2)
     set_eat('farming:beetroot', 2)
-    set_eat('farming:beetroot_soup', 12, bowl) -- TODO make this not just a beet concentrate?
+    set_eat('farming:beetroot_soup', 6, bowl) -- TODO make this not just a beet concentrate?
     set_eat('farming:blueberries', 2)
     set_eat('farming:blueberry_pie', 8)
     set_eat('farming:bread', 4)
