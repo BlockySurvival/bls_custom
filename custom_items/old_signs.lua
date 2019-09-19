@@ -63,3 +63,27 @@ register_sign("steel", "Old Steel Sign", {
         sounds = default.node_sound_metal_defaults(),
         groups = {cracky = 2, attached_node = 1}
 })
+
+minetest.register_craft({
+    output = "bls:sign_wall_wood",
+    type = "shapeless",
+    recipe = {"default:sign_wall_wood"}
+})
+
+minetest.register_craft({
+    output = "default:sign_wall_wood",
+    type = "shapeless",
+    recipe = {"bls:sign_wall_wood"}
+})
+
+minetest.register_craft({
+    output = "bls:sign_wall_steel",
+    type = "shapeless",
+    recipe = {"default:sign_wall_steel"}
+})
+
+minetest.register_craft({
+    output = "default:sign_wall_steel",
+    type = "shapeless",
+    recipe = {"bls:sign_wall_steel"}
+})
