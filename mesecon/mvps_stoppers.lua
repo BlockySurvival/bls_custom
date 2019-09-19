@@ -7,6 +7,7 @@ if minetest.global_exists('mesecon') and mesecon.register_mvps_stopper then
         'areasprotector:.*',
         'chesttools:shared_chest',
         'currency:.*',
+        'default:chest.*',
         'doors:.*prison.*',
         'doors:.*steel.*',
         'gravelsieve:.*',
