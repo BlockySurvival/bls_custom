@@ -95,3 +95,4 @@ if minetest.get_modpath('xdecor') and minetest.get_modpath('farming')then
     minetest.register_alias_force("xdecor:bowl", "farming:bowl")
 end
 
+minetest.register_alias_force("trunks:twig_1", "default:stick")

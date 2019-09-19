@@ -40,3 +40,50 @@ if minetest.global_exists('xdecor') then
     })
 end
 
+if minetest.get_modpath("youngtrees") then
+    minetest.override_item("youngtrees:bamboo", {
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity = 2, items = {"youngtrees:bamboo"}},
+                {rarity = 2, items = {"default:stick"}},
+            }
+        }
+    })
+    minetest.override_item("youngtrees:youngtree2_middle", {
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity = 2, items = {"youngtrees:youngtree2_middle"}},
+                {rarity = 2, items = {"default:stick"}},
+            }
+        }
+    })
+    minetest.override_item("youngtrees:youngtree_top", {
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity = 2, items = {"youngtrees:youngtree_top"}},
+                {rarity = 2, items = {"default:stick"}},
+            }
+        }
+    })
+    minetest.override_item("youngtrees:youngtree_middle", {
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity = 2, items = {"youngtrees:youngtree_middle"}},
+                {rarity = 2, items = {"default:stick"}},
+            }
+        }
+    })
+    minetest.override_item("youngtrees:youngtree_bottom", {
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity = 2, items = {"youngtrees:youngtree_bottom"}},
+                {rarity = 2, items = {"default:stick"}},
+            }
+        }
+    })
+end
