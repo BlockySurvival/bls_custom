@@ -589,6 +589,16 @@ if minetest.get_modpath("tubelib") then
             },
         })
 
+        minetest.clear_craft({output="tubelib:end_wrench"})
+        minetest.register_craft({
+            output = "tubelib:end_wrench 4",
+            recipe = {
+                {"", "", "technic:stainless_steel_ingot"},
+                {"", "technic:stainless_steel_ingot", ""},
+                {"technic:stainless_steel_ingot", "", ""},
+            },
+        })
+
         minetest.clear_craft({output="tubelib:blackhole"})
         minetest.register_craft({
             output = "tubelib:blackhole 2",
