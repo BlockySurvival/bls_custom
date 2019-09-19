@@ -5,7 +5,7 @@ if minetest.get_modpath("basic_materials") then
     if minetest.get_modpath("technic_worldgen") then
         minetest.clear_craft({output="basic_materials:gear_steel"})
         minetest.register_craft({
-            output="basic_materials:gear_steel",
+            output="basic_materials:gear_steel 6",
             recipe={
                 {"",                           "technic:carbon_steel_ingot",      ""},
                 {"technic:carbon_steel_ingot", "basic_materials:chainlink_steel", "technic:carbon_steel_ingot"},
@@ -15,29 +15,72 @@ if minetest.get_modpath("basic_materials") then
 
         minetest.clear_craft({output="basic_materials:motor"})
         minetest.register_craft({
-            output="basic_materials:motor",
+            output="basic_materials:motor 2",
             recipe={
                 {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
-                {"default:copper_ingot",          "technic:cast_iron_ingot",     "technic:carbon_steel_ingot"},
+                {"default:bronze_ingot",          "technic:cast_iron_ingot",     "basic_materials:gear_steel"},
                 {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
             }
         })
 
         minetest.clear_craft({output="basic_materials:steel_bar"})
         minetest.register_craft({
-            output="basic_materials:steel_bar",
+            output="basic_materials:steel_bar 6",
             recipe={
-                {"", "", "technic:stainless_steel_ingot"},
-                {"", "technic:stainless_steel_ingot", ""},
-                {"technic:stainless_steel_ingot", "", ""},
+                {"", "", "technic:cast_iron_ingot"},
+                {"", "technic:cast_iron_ingot", ""},
+                {"technic:cast_iron_ingot", "", ""},
+            }
+        })
+
+        minetest.clear_craft({output="basic_materials:steel_strip"})
+        minetest.register_craft({
+            output="basic_materials:steel_strip 12",
+            recipe={
+                {"", "technic:stainless_steel_ingot"},
+                {"technic:stainless_steel_ingot", ""},
+            }
+        })
+
+        minetest.clear_craft({output="basic_materials:steel_wire"})
+        minetest.register_craft({
+            output="basic_materials:steel_wire 2",
+            recipe={
+                {"technic:carbon_steel_ingot",  "basic_materials:empty_spool"},
+                {"basic_materials:empty_spool", ""},
             }
         })
     end
 end
 
 if minetest.get_modpath("bike") then
-    if minetest.get_modpath("technic_worldgen") then
-        
+    if minetest.get_modpath("basic_materials") then
+        minetest.clear_craft({output="bike:handles"})
+        minetest.register_craft({
+            output="bike:handles",
+            recipe={
+                {"basic_materials:steel_bar", "basic_materials:steel_bar", "basic_materials:steel_bar"},
+                {"group:wood",                "",                          "group:wood"},
+            }
+        })
+        minetest.clear_craft({output="bike:wheel"})
+        minetest.register_craft({
+            output="bike:wheel 2",
+            recipe={
+                {"",                    "terumet:item_rubber",       ""},
+                {"terumet:item_rubber", "basic_materials:steel_bar", "terumet:item_rubber"},
+                {"",                    "terumet:item_rubber",       ""},
+            }
+        })
+        minetest.clear_craft({output="bike:bike"})
+        minetest.register_craft({
+            output="bike:bike",
+            recipe={
+                {"bike:handles",              "",                          "mobs:saddle"},
+                {"basic_materials:steel_bar", "basic_materials:steel_bar", "basic_materials:steel_bar"},
+                {"bike:wheel",                "",                          "bike:wheel"},
+            }
+        })
     end
 end
 
@@ -398,18 +441,6 @@ if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minet
 end
 
 if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
---    -- avoid conflict with xdecor empty_shelf (craft into each other)
---    minetest.clear_craft({output="moreblocks:empty_shelf"})
---    minetest.register_craft({
---        output = "moreblocks:empty_shelf",
---        type = "shapeless",
---        recipe = {"xdecor:empty_shelf"}
---    })
---    minetest.register_craft({
---        output = "xdecor:empty_shelf",
---        type = "shapeless",
---        recipe = {"moreblocks:empty_shelf"}
---    })
     -- avoid conflict with xdecor cactus brick
     minetest.clear_craft({recipe={"default:cactus", "default:brick"}, type="shapeless"})
     minetest.register_craft({
@@ -457,7 +488,7 @@ if minetest.get_modpath("soundblocks") then
 end
 
 if minetest.get_modpath("terumet") then
-    if minetest.get_modpath("tubelib_addons1") then
+    if minetest.get_modpath("tubelib") then
         -- make tubelib upgrade recipe a little more sensical
         minetest.clear_craft({output="terumet:item_upg_tubelib"})
         minetest.register_craft({
@@ -547,26 +578,194 @@ if minetest.get_modpath("travelnet") then
 end
 
 if minetest.get_modpath("tubelib") then
-    -- allow any wool (instead of only dark green) in pusher recipe
-    minetest.clear_craft({output="tubelib:pusher"})
-    minetest.register_craft({
-        output = "tubelib:pusher 2",
-        recipe = {
-            {"group:wood",    "group:wool",           "group:wood"},
-            {"tubelib:tubeS", "default:mese_crystal", "tubelib:tubeS"},
-            {"group:wood",    "group:wool",           "group:wood"},
-        },
-    })
-
-    -- make the forceload block super expensive
-    if minetest.get_modpath("titanium") and minetest.get_modpath("basic_materials") then
-        minetest.clear_craft({output="tubelib:forceload"})
+    if minetest.get_modpath("basic_materials") then
+        minetest.clear_craft({output="tubelib:tubeS"})
         minetest.register_craft({
-            output = "tubelib:forceload",
+            output = "tubelib:tubeS 4",
             recipe = {
-                {"group:wood",                            "",                       "group:wood"},
-                {"basic_materials:energy_crystal_simple", "titanium:titanium_tv_1", "basic_materials:energy_crystal_simple"},
-                {"group:wood",                            "tubelib:wlanchip",       "group:wood"},
+                {"basic_materials:brass_ingot", "",           "group:wood"},
+                {"",                            "group:wood", ""},
+                {"group:wood",                  "",           "default:bronze_ingot"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib:blackhole"})
+        minetest.register_craft({
+            output = "tubelib:blackhole 2",
+            recipe = {
+                {"group:wood",    "",                    "group:wood"},
+                {"tubelib:tubeS", "homedecor:trash_can", "default:coal_lump"},
+                {"group:wood",    "",                    "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib:distributor"})
+        minetest.register_craft({
+            output = "tubelib:distributor 2",
+            recipe = {
+                {"group:wood",    "tubelib:tubeS",         "group:wood"},
+                {"tubelib:tubeS", "basic_materials:motor", "tubelib:tubeS"},
+                {"group:wood",    "tubelib:tubeS",         "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib:lamp"})
+        minetest.register_craft({
+            output = "tubelib:lamp 4",
+            recipe = {
+                {"basic_materials:plastic_sheet", "basic_materials:plastic_sheet", "basic_materials:plastic_sheet"},
+                {"tubelib:wlanchip",              "default:mese_crystal_fragment", ""},
+                {"group:wood",                    "",                              "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib:pusher"})
+        minetest.register_craft({
+            output = "tubelib:pusher 2",
+            recipe = {
+                {"group:wood",    "group:wool",            "group:wood"},
+                {"tubelib:tubeS", "basic_materials:motor", "tubelib:tubeS"},
+                {"group:wood",    "group:wool",            "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib:wlanchip"})
+        minetest.register_craft({
+            output = "tubelib:wlanchip 8",
+            recipe = {
+                {"default:mese_crystal", "default:copper_ingot"},
+                {"default:gold_ingot",   "basic_materials:silicon"},
+            },
+        })
+
+        if minetest.get_modpath("titanium") then
+            minetest.clear_craft({output="tubelib:forceload"})
+            minetest.register_craft({
+                output = "tubelib:forceload",
+                recipe = {
+                    {"group:wood",                            "",                       "group:wood"},
+                    {"basic_materials:energy_crystal_simple", "titanium:titanium_tv_1", "basic_materials:energy_crystal_simple"},
+                    {"group:wood",                            "tubelib:wlanchip",       "group:wood"},
+                },
+            })
+        end
+    end
+end
+
+if minetest.get_modpath("tubelib_addons1") then
+    if minetest.get_modpath("basic_materials") then
+
+        minetest.clear_craft({output="tubelib_addons1:autocrafter"})
+        minetest.register_craft({
+            output = "tubelib_addons1:autocrafter",
+            recipe = {
+                {"group:wood",          "basic_materials:ic",         "group:wood"},
+                {"tubelib:tubeS",       "basic_materials:motor",      "tubelib:tubeS"},
+                {"default:steel_ingot", "basic_materials:gear_steel", "default:steel_ingot"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:fermenter"})
+        minetest.register_craft({
+            output = "tubelib_addons1:fermenter",
+            recipe = {
+                {"basic_materials:steel_strip", "group:soil",            "basic_materials:steel_strip"},
+                {"tubelib:tubeS",               "basic_materials:motor", "tubelib:tubeS"},
+                {"technic:lead_ingot", "bucket:bucket_empty",   "technic:lead_ingot"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:reformer"})
+        minetest.register_craft({
+            output = "tubelib_addons1:reformer",
+            recipe = {
+                {"basic_materials:steel_strip", "default:clay",          "basic_materials:steel_strip"},
+                {"tubelib:tubeS",               "basic_materials:motor", "tubelib:tubeS"},
+                {"technic:lead_ingot", "bucket:bucket_empty",   "technic:lead_ingot"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:funnel"})
+        minetest.register_craft({
+            output = "tubelib_addons1:funnel",
+            recipe = {
+                {"bucket:bucket_empty"},
+                {"tubelib_addons1:chest"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:grinder"})
+        minetest.register_craft({
+            output = "tubelib_addons1:grinder",
+            recipe = {
+                {"group:wood",    "basic_materials:gear_steel", "group:wood"},
+                {"tubelib:tubeS", "basic_materials:motor",      "tubelib:tubeS"},
+                {"group:wood",    "technic:lead_block",         "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:harvester_base"})
+        minetest.register_craft({
+            output = "tubelib_addons1:harvester_base",
+            recipe = {
+                {"default:sword_mese", "default:axe_mese",      "moreores:hoe_silver"},
+                {"group:wood",         "basic_materials:motor", "tubelib:tubeS"},
+                {"group:wood",         "group:wood",            "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:liquidsampler"})
+        minetest.register_craft({
+            output = "tubelib_addons1:liquidsampler",
+            recipe = {
+                {"group:wood",            "technic:lead_ingot",  "group:wood"},
+                {"basic_materials:motor", "bucket:bucket_empty", "tubelib:tubeS"},
+                {"group:wood",            "technic:lead_ingot",  "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons1:quarry"})
+        minetest.register_craft({
+            output = "tubelib_addons1:quarry",
+            recipe = {
+                {"default:pick_mese",   "group:wood",            "group:wood"},
+                {"default:shovel_mese", "basic_materials:motor", "tubelib:tubeS"},
+                {"default:pick_mese",   "group:wood",            "group:wood"},
+            },
+        })
+
+    end
+end
+
+if minetest.get_modpath("tubelib_addons2") then
+    if minetest.get_modpath("basic_materials") then
+
+        minetest.clear_craft({output="tubelib_addons2:sequencer"})
+        minetest.register_craft({
+            output = "tubelib_addons2:sequencer",
+            recipe = {
+                {"group:wood",         "group:wood"},
+                {"basic_materials:ic", "tubelib:wlanchip"},
+                {"group:wood",         "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons2:timer"})
+        minetest.register_craft({
+            output = "tubelib_addons2:timer",
+            recipe = {
+                {"group:wood",                  "group:wood"},
+                {"quartz:quartz_crystal_piece", "tubelib:wlanchip"},
+                {"group:wood",                  "group:wood"},
+            },
+        })
+
+        minetest.clear_craft({output="tubelib_addons2:invisiblelamp"})
+        minetest.register_craft({
+            output = "tubelib_addons2:invisiblelamp",
+            recipe = {
+                {"tubelib:lamp"},
+                {"default:obsidian_glass"},
             },
         })
     end
