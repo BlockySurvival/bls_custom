@@ -529,7 +529,7 @@ if minetest.get_modpath("tnt") and minetest.get_modpath("bonemeal") then
     minetest.register_craft({
         output = "tnt:gunpowder",
         type = "shapeless",
-        recipe = {"default:gravel", "default:coal_lump", "bonemeal:fertiliser"}
+        recipe = {"technic:sulfur_lump", "default:coal_lump", "bonemeal:fertiliser"}
     })
 end
 
