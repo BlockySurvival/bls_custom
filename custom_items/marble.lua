@@ -2,7 +2,7 @@
 local marble = {
     description = "Marble",
     tiles = {"bls_marble.png"},
-    groups = {cracky = 3}
+    groups = {cracky = 3, marble = 1}
 }
 minetest.register_node("bls:marble", marble)
 stairsplus:register_all("bls", "marble", "bls:marble", marble)
