@@ -238,6 +238,13 @@ if minetest.get_modpath("cottages") then
 end
 
 if minetest.get_modpath("default") then
+    -- force alloying bronze
+    minetest.clear_craft({recipe={
+        {"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+        {"default:copper_ingot", "default:tin_ingot",    "default:copper_ingot"},
+        {"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+    }})
+
     -- add some recipes for kinds of dirt
     minetest.register_craft({
         output = "default:dirt_with_snow",
@@ -453,6 +460,31 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
     minetest.register_craft({
             output = "moreblocks:grey_bricks 2",
             recipe = {{"default:stone", "default:brick"}}
+    })
+end
+
+if minetest.get_modpath("quartz") then
+    minetest.register_craft({
+        output="quartz:quartz_crystal 4",
+        type="shapeless",
+        recipe={"quartz:block"}
+    })
+
+    minetest.clear_craft({
+        recipe={
+                {'quartz:quartz_crystal', 'quartz:quartz_crystal', ''},
+                {'quartz:quartz_crystal', 'quartz:quartz_crystal', ''},
+                {'', '', ''}
+        }
+
+    })
+
+    minetest.register_craft({
+        output="quartz:block",
+        recipe={
+            {"quartz:quartz_crystal", "quartz:quartz_crystal"},
+            {"quartz:quartz_crystal", "quartz:quartz_crystal"},
+        }
     })
 end
 
@@ -776,6 +808,60 @@ if minetest.get_modpath("tubelib_addons2") then
             recipe = {
                 {"tubelib:lamp"},
                 {"default:obsidian_glass"},
+            },
+        })
+    end
+end
+
+if minetest.get_modpath("tubelib_addons3") then
+    if minetest.get_modpath("basic_materials") then
+        minetest.clear_craft({output="tubelib_addons3:chest"})
+        minetest.register_craft({
+            output = "tubelib_addons3:chest",
+            recipe = {
+                {"basic_materials:brass_ingot", "tubelib_addons1:chest"},
+                {"tubelib_addons1:chest",       "terumet:ingot_tgol"},
+            },
+        })
+        minetest.clear_craft({output="tubelib_addons3:distributor"})
+        minetest.register_craft({
+            output = "tubelib_addons3:distributor 2",
+            recipe = {
+                {"basic_materials:brass_ingot", "tubelib:distributor"},
+                {"tubelib:distributor",         "terumet:ingot_tgol"},
+            },
+        })
+        minetest.clear_craft({output="tubelib_addons3:funnel"})
+        minetest.register_craft({
+            output = "tubelib_addons3:funnel 2",
+            recipe = {
+                {"basic_materials:brass_ingot", "tubelib_addons1:chest"},
+                {"tubelib_addons1:funnel",      "terumet:ingot_tgol"},
+            },
+        })
+        minetest.clear_craft({output="tubelib_addons3:pusher"})
+        minetest.register_craft({
+            output = "tubelib_addons3:pusher 2",
+            recipe = {
+                {"basic_materials:brass_ingot", "tubelib_addons1:pusher_fast"},
+                {"tubelib_addons1:pusher_fast", "terumet:ingot_tgol"},
+            },
+        })
+        minetest.clear_craft({output="tubelib_addons3:pushing_chest"})
+        minetest.register_craft({
+            output = "tubelib_addons3:pushing_chest 2",
+            recipe = {
+                {"basic_materials:brass_ingot", "tubelib_addons3:pusher"},
+                {"tubelib_addons3:chest",       "terumet:ingot_tgol"},
+            },
+        })
+        minetest.clear_craft({output="tubelib_addons3:teleporter"})
+        minetest.register_craft({
+            output = "tubelib_addons3:teleporter 2",
+            recipe = {
+                {"terumet:item_cryst_uranium", "group:wood",              ""},
+                {"terumet:item_cryst_mese",    "terumet:item_cryst_mese", "tubelib:tubeS"},
+                {"terumet:item_cryst_uranium", "group:wood",              ""},
             },
         })
     end
