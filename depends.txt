@@ -29,6 +29,8 @@ homedecor_gastronomy?
 homedecor_office?
 hot_air_balloons?
 inbox?
+irc?
+irc2?
 itemframes?
 letters?
 locked_travelnet?
