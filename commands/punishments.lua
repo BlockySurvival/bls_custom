@@ -6,6 +6,7 @@ ideas for more punishments:
 3. player can't eat
 4. player rubber-bands randomly (teleports back to an old position)
 5. plague: piles of rats spawn on the player
+6. annoying noises that only that player can hear
 ]]--
 
 
