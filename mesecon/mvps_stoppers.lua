@@ -1,36 +1,37 @@
-if minetest.global_exists('mesecon') and mesecon.register_mvps_stopper then
+if not (minetest.global_exists('mesecon') and mesecon.register_mvps_stopper) then return end
 
-    bls.log('info', '[bad_piston_no_biscuit] initializing')
+bls.log('info', '[bad_piston_no_biscuit] initializing')
 
-    local patterns = {
-        '3d_armor_stand:.*',
-        'areasprotector:.*',
-        'chesttools:shared_chest',
-        'currency:.*',
-        'default:chest.*',
-        'doors:.*prison.*',
-        'doors:.*steel.*',
-        'gravelsieve:.*',
-        'homedecor:.*_locked',
-        'inbox:.*',
-        'locked_travelnet:.*',
-        'mailbox:.*',
-        'maptools:.*',
-        'mesecons_commandblock:.*',
-        'my.*doors:.*_locked',
-        'my_hidden_doors:.*',
-        'nether:bedrock',
-        'smartline:.*',
-        'smartrenting:.*',
-        'smartshop:.*',
-        'technic:.*_locked_chest',
-        'techpack_warehouse:.*',
-        'terumet:mach_.*',
-        'travelnet:.*',
-        'tubelib.*:.*',
-        'xdecor:mailbox',
-    }
+local patterns = {
+    '3d_armor_stand:.*',
+    'areasprotector:.*',
+    'chesttools:shared_chest',
+    'currency:.*',
+    'default:chest.*',
+    'doors:.*prison.*',
+    'doors:.*steel.*',
+    'gravelsieve:.*',
+    'homedecor:.*_locked',
+    'inbox:.*',
+    'locked_travelnet:.*',
+    'mailbox:.*',
+    'maptools:.*',
+    'mesecons_commandblock:.*',
+    'my.*doors:.*_locked',
+    'my_hidden_doors:.*',
+    'nether:bedrock',
+    'smartline:.*',
+    'smartrenting:.*',
+    'smartshop:.*',
+    'technic:.*_locked_chest',
+    'techpack_warehouse:.*',
+    'terumet:mach_.*',
+    'travelnet:.*',
+    'tubelib.*:.*',
+    'xdecor:mailbox',
+}
 
+local function do_it()
     for node_name, _ in bls.util.pairs_by_keys(minetest.registered_nodes) do
         for _, pattern in pairs(patterns) do
             local fullpattern = '^' .. pattern .. '$'
@@ -41,5 +42,7 @@ if minetest.global_exists('mesecon') and mesecon.register_mvps_stopper then
             end
         end
     end
-
 end
+
+-- register after all mods have loaded
+minetest.after(0, do_it)
