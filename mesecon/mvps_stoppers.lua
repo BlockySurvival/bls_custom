@@ -3,32 +3,16 @@ if not (minetest.global_exists('mesecon') and mesecon.register_mvps_stopper) the
 bls.log('info', '[bad_piston_no_biscuit] initializing')
 
 local patterns = {
-    '3d_armor_stand:.*',
     'areasprotector:.*',
-    'chesttools:shared_chest',
-    'currency:.*',
-    'default:chest.*',
-    'doors:.*prison.*',
-    'doors:.*steel.*',
     'gravelsieve:.*',
-    'homedecor:.*_locked',
-    'inbox:.*',
     'locked_travelnet:.*',
-    'mailbox:.*',
     'maptools:.*',
     'mesecons_commandblock:.*',
-    'my.*doors:.*_locked',
-    'my_hidden_doors:.*',
     'nether:bedrock',
-    'smartline:.*',
-    'smartrenting:.*',
-    'smartshop:.*',
-    'technic:.*_locked_chest',
     'techpack_warehouse:.*',
     'terumet:mach_.*',
     'travelnet:.*',
     'tubelib.*:.*',
-    'xdecor:mailbox',
 }
 
 local function do_it()
