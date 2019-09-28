@@ -98,24 +98,24 @@ if get_modpath('other_worlds') then
 end
 
 if get_modpath('caverealms') then
-    register('caverealms:coal_dust')
-    register('caverealms:glow_amethyst')
-    register('caverealms:glow_amethyst_ore')
-    register('caverealms:glow_crystal')
-    register('caverealms:glow_emerald')
-    register('caverealms:glow_emerald_ore')
-    register('caverealms:glow_mese')
-    register('caverealms:glow_obsidian')
+    register('caverealms:coal_dust', nil, false)
+    register('caverealms:glow_amethyst', nil, false)
+    register('caverealms:glow_amethyst_ore', nil, false)
+    register('caverealms:glow_crystal', nil, false)
+    register('caverealms:glow_emerald', nil, false)
+    register('caverealms:glow_emerald_ore', nil, false)
+    register('caverealms:glow_mese', nil, false)
+    register('caverealms:glow_obsidian', nil, false)
     register('caverealms:glow_obsidian_2', nil, false)
-    register('caverealms:glow_ore')
-    register('caverealms:glow_ruby')
-    register('caverealms:glow_ruby_ore')
-    register('caverealms:hot_cobble')
-    register('caverealms:mushroom_cap')
-    register('caverealms:mushroom_stem')
-    register('caverealms:salt_crystal')
-    register('caverealms:stone_with_salt')
-    register('caverealms:thin_ice')
+    register('caverealms:glow_ore', nil, false)
+    register('caverealms:glow_ruby', nil, false)
+    register('caverealms:glow_ruby_ore', nil, false)
+    register('caverealms:hot_cobble', nil, false)
+    register('caverealms:mushroom_cap', nil, false)
+    register('caverealms:mushroom_stem', nil, false)
+    register('caverealms:salt_crystal', nil, false)
+    register('caverealms:stone_with_salt', nil, false)
+    register('caverealms:thin_ice', nil, false)
 end
 
 if get_modpath('cblocks') then
@@ -125,7 +125,7 @@ end
 if get_modpath('cottages') then
     register('cottages:hay', nil, false)
     register('cottages:loam')
-    register('cottages:reet')
+    register('cottages:reet', nil, false)
     register('cottages:slate_vertical', nil, false)
 end
 
@@ -134,13 +134,13 @@ if get_modpath('extra') then
 end
 
 if get_modpath('farming') then
-    register('farming:chocolate_block')
-    register('farming:hemp_block')
+    register('farming:chocolate_block', nil, false)
+    register('farming:hemp_block', nil, false)
 end
 
 if get_modpath('mobs_animal') then
-    register('mobs:cheeseblock')
-    register('mobs:honey_block')
+    register('mobs:cheeseblock', nil, false)
+    register('mobs:honey_block', nil, false)
 end
 
 if get_modpath('moreores') then
@@ -154,46 +154,56 @@ if get_modpath('nether') then
     register('nether:rack')
 end
 
+if get_modpath("redtrees") then
+    register('redtrees:rtree', nil, false)
+    register('redtrees:rwood', nil, false)
+end
+
+if get_modpath("sakuragi") then
+    register("sakuragi:stree", nil, false)
+    register("sakuragi:swood", nil, false)
+end
+
 if get_modpath('terumet') then
-    register('terumet:block_asphalt')
-    register('terumet:block_ceramic')
-    register('terumet:block_cgls')
-    register('terumet:block_coke')
+    register('terumet:block_asphalt', nil, false)
+    register('terumet:block_ceramic', nil, false)
+    register('terumet:block_cgls', nil, false)
+    register('terumet:block_coke', nil, false)
     register_colors('terumet:block_con_%s', nil, false)
-    register('terumet:block_dust_bio')
-    register('terumet:block_entropy')
-    register('terumet:block_pwood')
-    register('terumet:block_raw')
-    register('terumet:block_tar')
-    register('terumet:block_tcha')
-    register('terumet:block_tcop')
-    register('terumet:block_tglass')
-    register('terumet:block_tglassglow')
-    register('terumet:block_tgol')
-    register('terumet:block_thermese')
-    register('terumet:block_tste')
-    register('terumet:block_ttin')
+    register('terumet:block_dust_bio', nil, false)
+    register('terumet:block_entropy', nil, false)
+    register('terumet:block_pwood', nil, false)
+    register('terumet:block_raw', nil, false)
+    register('terumet:block_tar', nil, false)
+    register('terumet:block_tcha', nil, false)
+    register('terumet:block_tcop', nil, false)
+    register('terumet:block_tglass', nil, false)
+    register('terumet:block_tglassglow', nil, false)
+    register('terumet:block_tgol', nil, false)
+    register('terumet:block_thermese', nil, false)
+    register('terumet:block_tste', nil, false)
+    register('terumet:block_ttin', nil, false)
 end
 
 if get_modpath('titanium') then
-    register('titanium:block')
-    register('titanium:glass')
+    register('titanium:block', nil, false)
+    register('titanium:glass', nil, false)
     register('titanium:titanium_plate', nil, false)
 end
 
 if get_modpath('xdecor') then
-    register('xdecor:cactusbrick')
-    register('xdecor:coalstone_tile')
-    register('xdecor:desertstone_tile')
-    register('xdecor:hard_clay')
-    register('xdecor:moonbrick')
-    register('xdecor:packed_ice')
-    register('xdecor:iron_lightbox')
-    register('xdecor:stone_rune')
-    register('xdecor:stone_tile')
-    register('xdecor:wooden_lightbox')
-    register('xdecor:woodframed_glass')
-    register('xdecor:wood_tile')
+    register('xdecor:cactusbrick', nil, false)
+    register('xdecor:coalstone_tile', nil, false)
+    register('xdecor:desertstone_tile', nil, false)
+    register('xdecor:hard_clay', nil, false)
+    register('xdecor:moonbrick', nil, false)
+    register('xdecor:packed_ice', nil, false)
+    register('xdecor:iron_lightbox', nil, false)
+    register('xdecor:stone_rune', nil, false)
+    register('xdecor:stone_tile', nil, false)
+    register('xdecor:wooden_lightbox', nil, false)
+    register('xdecor:woodframed_glass', nil, false)
+    register('xdecor:wood_tile', nil, false)
 end
 
 ---------------------

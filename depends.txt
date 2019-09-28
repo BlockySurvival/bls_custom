@@ -51,6 +51,7 @@ moreores?
 moreplants?
 moretrees?
 nether?
+orienteering?
 other_worlds?
 quartz?
 ropes?
