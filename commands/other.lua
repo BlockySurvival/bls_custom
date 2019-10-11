@@ -17,6 +17,7 @@ minetest.register_chatcommand("sunlight", {
 
 minetest.register_on_joinplayer(function(player)
     local player_name = player:get_player_name()
+    if not minetest.check_player_privs(player_name, {settime=true}) then return end
     local ratio = mod_storage:get_string(player_name .. "_sunlight")
     if ratio == "" then
         return
