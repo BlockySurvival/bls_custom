@@ -34,6 +34,55 @@ minetest.register_alias_force("bls_overrides:door_steel_protected_b", "bls:door_
 minetest.register_alias_force("bls_admin_flair:shield_bls", "bls:shield_bls")
 minetest.register_alias_force("bls_admin_flair:shield_staff", "bls:shield_staff")
 
+---------------
+
+local function fix(mod, kind, prefix)
+    if not prefix then prefix = "" end
+    minetest.register_alias_force("stairs:slab_" .. prefix .. kind, mod .. ":slab_" .. prefix .. kind)
+    minetest.register_alias_force("stairs:stair_" .. prefix .. kind, mod .. ":stair_" .. prefix .. kind)
+    minetest.register_alias_force("stairs:stair_inner_" .. prefix .. kind, mod .. ":stair_" .. prefix .. kind .. "_inner")
+    minetest.register_alias_force("stairs:stair_outer_" .. prefix .. kind, mod .. ":stair_" .. prefix .. kind .. "_outer")
+end
+
+if minetest.get_modpath("bakedclay") then
+    local COLORS = {
+        'black', 'blue', 'brown', 'cyan', 'dark_green', 'dark_grey', 'green', 'grey',
+        'magenta', 'orange', 'pink', 'red', 'violet', 'white', 'yellow', "natural"
+    }
+
+    for _, color in ipairs(COLORS) do
+        fix("bakedclay", color, "baked_clay_")
+    end
+end
+
+for kind in ipairs({"block", "pillar", "chiseled"}) do
+    fix("quartz", kind)
+end
+
+for color in ipairs({"green", "yellow", "red", "steel", "white"}) do
+    fix("bridger", color, "block_")
+end
+
+for kind in ipairs({"rack", "brick", "obsidian_enchanted"}) do
+    fix("nether", kind)
+end
+
+for kind in ipairs({"hardwood", "adobe", "Marble", "Tar", "fakegrass", }) do
+    fix("building_blocks", kind)
+end
+
+local COLORS = {
+    'black', 'blue', 'brown', 'cyan', 'dark_green', 'dark_grey', 'green', 'grey',
+    'magenta', 'orange', 'pink', 'red', 'violet', 'white', 'yellow'
+}
+
+for _, color in ipairs(COLORS) do
+    fix("cblocks", color, "glass_")
+    fix("cblocks", color, "stonebrick_")
+    fix("cblocks", color, "wood_")
+end
+
+
 if minetest.get_modpath('farming') then
     minetest.register_alias_force('default:blueberries', 'farming:blueberries')
 end
