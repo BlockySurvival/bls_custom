@@ -41,7 +41,7 @@ function bls.util.safe(func, rv_on_fail)
             table.remove(rvs, 1)
             return unpack(rvs)
         else
-            verbana.log('error', 'Caught error: %s', rvs[2])
+            verbana.log("error", "Caught error: %s", rvs[2])
             return rv_on_fail
         end
     end

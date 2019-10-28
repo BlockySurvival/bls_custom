@@ -12,10 +12,10 @@ local function can_place_lava(player_name, pointed_thing)
     )
 end
 
-if minetest.get_modpath('bucket') then
+if minetest.get_modpath("bucket") then
     -- Prevent lava being placed over -5m
-    local old_on_place = minetest.registered_items['bucket:bucket_lava'].on_place
-    minetest.override_item('bucket:bucket_lava', {
+    local old_on_place = minetest.registered_items["bucket:bucket_lava"].on_place
+    minetest.override_item("bucket:bucket_lava", {
         on_place = function(itemstack, placer, pointed_thing)
             if not pointed_thing.above then
                 return itemstack

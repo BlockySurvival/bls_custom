@@ -9,7 +9,7 @@ local function add_groups(itemstring, ...)
     minetest.override_item(itemstring, {groups=groups})
 end
 
-if minetest.get_modpath('caverealms') then
+if minetest.get_modpath("caverealms") then
     -- make thin ice slippery
     add_groups("caverealms:thin_ice", "cracky", "slippery")
     add_groups("caverealms:hanging_thin_ice", "cracky", "slippery")
@@ -33,11 +33,11 @@ if minetest.get_modpath("mobs_jellyfish") then
     add_groups("mobs_jellyfish:jellyfish", "food_fish")
 end
 
-if minetest.global_exists('maptools') then
+if minetest.global_exists("maptools") then
     -- Temporarily disable pushers because rats in the trampoline
     for pusher_num = 1, 10 do
         add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
-        minetest.override_item('maptools:pusher_' .. pusher_num, {
+        minetest.override_item("maptools:pusher_" .. pusher_num, {
             groups = {
                 unbreakable = 1,
                 not_in_creative_inventory = maptools.creative,
@@ -46,20 +46,20 @@ if minetest.global_exists('maptools') then
     end
 
     -- Prevent super apples from being placed.
-    minetest.override_item('maptools:superapple', {
+    minetest.override_item("maptools:superapple", {
         on_place = function(itemstack, placer, pointed_thing)
             local name = placer:get_player_name()
             minetest.chat_send_player(name, "[maptools] You can't place this!")
             return itemstack
         end,
 
-        node_placement_prediction = '',
+        node_placement_prediction = "",
     })
 end
 
-if minetest.global_exists('xdecor') then
-    minetest.override_item('xdecor:mailbox', {
-        description='Mailbox (xdecor)',
+if minetest.global_exists("xdecor") then
+    minetest.override_item("xdecor:mailbox", {
+        description="Mailbox (xdecor)",
     })
 end
 

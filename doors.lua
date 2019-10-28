@@ -2,7 +2,7 @@
 -- bls - Doors
 --
 
-if minetest.global_exists('doors') and doors.door_toggle then
+if minetest.global_exists("doors") and doors.door_toggle then
     -- Load doors.lua if minetest_game 5.0.0 or later is installed
     local protected_doors = {}
     local def_overrides = {
@@ -39,32 +39,32 @@ if minetest.global_exists('doors') and doors.door_toggle then
 
     -- Register protected doors
     local function register_protected_door(name, def)
-        if not name:find(':') then
-            name = 'bls:' .. name
+        if not name:find(":") then
+            name = "bls:" .. name
         end
-        protected_doors[name .. '_a'] = true
-        protected_doors[name .. '_b'] = true
+        protected_doors[name .. "_a"] = true
+        protected_doors[name .. "_b"] = true
         def.protected = true
 
         -- Add the door
         doors.register(name, def)
 
         -- Change callbacks
-        def = minetest.registered_items[name .. '_a']
+        def = minetest.registered_items[name .. "_a"]
 
         -- The doors mod is lazy and uses the same table for both door nodes.
-        def.name = name .. '_a'
-        def.mesh = 'door_a.obj'
+        def.name = name .. "_a"
+        def.mesh = "door_a.obj"
 
-        minetest.override_item(name .. '_a', {
+        minetest.override_item(name .. "_a", {
             can_dig = def_overrides.can_dig,
             on_skeleton_key_use = def_overrides.on_skeleton_key_use
         })
 
-        def.name = name .. '_b'
-        def.mesh = 'door_b.obj'
+        def.name = name .. "_b"
+        def.mesh = "door_b.obj"
 
-        minetest.override_item(name .. '_b', {
+        minetest.override_item(name .. "_b", {
             can_dig = def_overrides.can_dig,
             on_skeleton_key_use = def_overrides.on_skeleton_key_use
         })
@@ -82,7 +82,7 @@ if minetest.global_exists('doors') and doors.door_toggle then
     end)
 
     -- Hijack doors.door_toggle
-    local door_toggle = assert(doors.door_toggle, 'minetest_game 5.0+ required.')
+    local door_toggle = assert(doors.door_toggle, "minetest_game 5.0+ required.")
     function doors.door_toggle(pos, node, clicker)
         node = node or minetest.get_node(pos)
 
@@ -116,7 +116,7 @@ if minetest.global_exists('doors') and doors.door_toggle then
     })
 
     -- Alias the old door nodes
-    minetest.register_alias('doors:door_steel_protected', name)
-    minetest.register_alias('doors:door_steel_protected_a', name .. '_a')
-    minetest.register_alias('doors:door_steel_protected_b', name .. '_b')
+    minetest.register_alias("doors:door_steel_protected", name)
+    minetest.register_alias("doors:door_steel_protected_a", name .. "_a")
+    minetest.register_alias("doors:door_steel_protected_b", name .. "_b")
 end

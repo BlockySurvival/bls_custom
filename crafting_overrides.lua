@@ -3,7 +3,7 @@
 
 if minetest.get_modpath("basic_materials") then
     if minetest.get_modpath("quartz") then
-        minetest.clear_craft("silicon")
+        minetest.clear_craft({output="basic_materials:silicon"})
         minetest.register_craft({
             output="basic_materials:silicon",
             type="cooking",
@@ -507,9 +507,9 @@ if minetest.get_modpath("quartz") then
 
     minetest.clear_craft({
         recipe={
-                {'quartz:quartz_crystal', 'quartz:quartz_crystal', ''},
-                {'quartz:quartz_crystal', 'quartz:quartz_crystal', ''},
-                {'', '', ''}
+                {"quartz:quartz_crystal", "quartz:quartz_crystal", ""},
+                {"quartz:quartz_crystal", "quartz:quartz_crystal", ""},
+                {"", "", ""}
         }
 
     })

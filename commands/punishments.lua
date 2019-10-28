@@ -3,7 +3,7 @@ ideas for more punishments:
 
 1. gravity randomly changes for a player
 2. player bounces, sometimes very high
-3. player can't eat
+3. player can"t eat
 4. player rubber-bands randomly (teleports back to an old position)
 5. plague: piles of rats spawn on the player
 6. annoying noises that only that player can hear
@@ -93,7 +93,7 @@ if minetest.global_exists("ChatCmdBuilder") and minetest.global_exists("areas") 
         if bls.punishments[punishment] == nil then
             return false, invalid_punishment
         end
-        if not tStr then tStr = '5m' end
+        if not tStr then tStr = "5m" end
         -- Is there a letter on the end of tStr?
         local mult = 1
         local multStr = tStr:sub(-1)

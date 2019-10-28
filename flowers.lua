@@ -1,4 +1,4 @@
-if minetest.global_exists('flowers') then
+if minetest.global_exists("flowers") then
     -- old flower spread
     function flowers.flower_spread(pos, node)
         pos.y = pos.y - 1

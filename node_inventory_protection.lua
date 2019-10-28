@@ -3,7 +3,7 @@
 local function check(player, pos, item_name, action, node_name)
     local name = player:get_player_name()
     if minetest.is_protected(pos, name) then
-        bls.log('action',
+        bls.log("action",
                 "Denied %s %s %s from %s at %s",
                 name,
                 action,
@@ -18,7 +18,7 @@ end
 local function augment_with_protection(node_name)
     local old_def = minetest.registered_nodes[node_name]
     if not old_def then
-        bls.log("warning", "can't augment %s with protection; no definition", node_name)
+        bls.log("warning", "can\"t augment %s with protection; no definition", node_name)
         return
     end
 
@@ -72,8 +72,8 @@ augment_with_protection("default:bookshelf")
 
 if minetest.get_modpath("technic_chests") then
     local COLORS = {
-        'black', 'blue', 'brown', 'cyan', 'dark_green', 'dark_grey', 'green', 'grey',
-        'magenta', 'orange', 'pink', 'red', 'violet', 'white', 'yellow'
+        "black", "blue", "brown", "cyan", "dark_green", "dark_grey", "green", "grey",
+        "magenta", "orange", "pink", "red", "violet", "white", "yellow"
     }
 
     augment_with_protection("technic:iron_chest")

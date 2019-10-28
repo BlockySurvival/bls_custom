@@ -46,9 +46,9 @@ local function register_sign(material, desc, def)
                         meta:set_string("text", text)
 
                         if #text > 0 then
-                                meta:set_string("infotext", '"' .. text .. '"')
+                                meta:set_string("infotext", "\"" .. text .. "\"")
                         else
-                                meta:set_string("infotext", '')
+                                meta:set_string("infotext", "")
                         end
                 end,
         })
