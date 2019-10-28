@@ -3,7 +3,7 @@
 
 local function add_groups(itemstring, ...)
     local groups = table.copy(minetest.registered_items[itemstring].groups)
-    for group in ipairs(...) do
+    for _, group in ipairs({...}) do
         groups[group] = 1
     end
     minetest.override_item(itemstring, {groups=groups})

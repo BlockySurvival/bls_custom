@@ -3,11 +3,13 @@
 
 if minetest.get_modpath("basic_materials") then
     if minetest.get_modpath("quartz") then
-        minetest.clear_craft({output="basic_materials:silicon"})
+        minetest.clear_craft({
+            output="mesecons_materials:silicon"
+        })
         minetest.register_craft({
             output="basic_materials:silicon",
             type="cooking",
-             recipe="quartz:quartz_crystal_piece",
+            recipe="quartz:quartz_crystal_piece",
         })
     end
     if minetest.get_modpath("technic_worldgen") then
