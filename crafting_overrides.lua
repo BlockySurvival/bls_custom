@@ -2,6 +2,14 @@
 -- ORGANIZE LOGIC BY THE TARGET ITEM
 
 if minetest.get_modpath("basic_materials") then
+    if minetest.get_modpath("quartz") then
+        minetest.clear_craft("silicon")
+        minetest.register_craft({
+            output="basic_materials:silicon",
+            type="cooking",
+             recipe="quartz:quartz_crystal_piece",
+        })
+    end
     if minetest.get_modpath("technic_worldgen") then
         minetest.clear_craft({output="basic_materials:gear_steel"})
         minetest.register_craft({
@@ -237,6 +245,39 @@ if minetest.get_modpath("cottages") then
     end
 end
 
+if minetest.get_modpath("cucina_vegana") then
+    minetest.register_craft({
+        output = "basic_materials:oil_extract",
+        recipe = {
+            {"group:seed",           "group:seed", "group:seed"},
+            {"group:seed",           "group:seed", "group:seed"},
+            {"vessels:glass_bottle", "group:seed", "group:seed"},
+        }
+    })
+
+    minetest.register_craft({
+        output = "cucina_vegana:sunflower_seed 4",
+        type = "shapeless",
+        recipe = {"cucina_vegana:sunflower_seeds"},
+    })
+    minetest.register_craft({
+        output = "cucina_vegana:sunflower_seeds",
+        type = "shapeless",
+        recipe = {"cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed"},
+    })
+
+    minetest.register_craft({
+        output = "cucina_vegana:rice_seed",
+        type = "shapeless",
+        recipe = {"cucina_vegana:rice"},
+    })
+    minetest.register_craft({
+        output = "cucina_vegana:rice",
+        type = "shapeless",
+        recipe = {"cucina_vegana:rice_seed"},
+    })
+end
+
 if minetest.get_modpath("default") then
     -- force alloying bronze
     minetest.clear_craft({recipe={
@@ -283,10 +324,10 @@ if minetest.get_modpath("default") then
     })
     -- smelt tree into coal (but don"t make this a net-gain in heat)
     minetest.register_craft({
-        type="cooking",
         output="default:coal_lump",
-        recipe="default:tree",
+        type="cooking",
         cooktime=80,
+        recipe="default:tree",
     })
 end
 
@@ -330,13 +371,7 @@ if minetest.get_modpath("extra") then
         if minetest.get_modpath("mobs_fish") then
             terumet.register_alloy_recipe({
                 result="extra:fish_sticks",
-                input={"mobs_fish:clownfish", "extra:cottonseed_oil"},
-                flux=0,
-                time=10,
-            })
-            terumet.register_alloy_recipe({
-                result="extra:fish_sticks",
-                input={"mobs_fish:tropical", "extra:cottonseed_oil"},
+                input={"group:food_fish", "extra:cottonseed_oil"},
                 flux=0,
                 time=10,
             })
