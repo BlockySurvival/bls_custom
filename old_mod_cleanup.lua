@@ -6,7 +6,7 @@ minetest.register_lbm({
     },
     run_at_every_load=false,
     action = function(pos, node)
-        minetest.set_node(pos, {name = "air:air"})
+        minetest.set_node(pos, {name = "air"})
     end
 })
 
