@@ -1,6 +1,23 @@
 --[[
 
-default:wood
+We have/had multiple mods adding various kinds of microblocks
+
+1. stairs
+2. moreblocks/stairsplus
+3. xdecor workbench
+
+Each of these registers some nodes on its own. Other mods use the above to register some
+nodes as well. Most of the above have changed naming schemes at some point in time, resulting in a
+big pile of aliases. the load order of some things changed, resulting in aliases loading in a
+different order, causing some nodes w/ old IDs to no longer be properly aliased.
+
+Solution: remove the xdecor workbench, and replace all the relevant node names w/ moreblocks/stairsplus names
+
+---------------------------
+:: translation from xdecor workbench names to moreblocks/stairsplus names ::
+
+sample material: default:wood
+
 * default:wood_nanoslab       -> moreblocks:micro_wood_1
 * default:wood_micropanel     -> moreblocks:panel_wood_1
 * default:wood_microslab      -> moreblocks:slab_wood_1
@@ -15,7 +32,10 @@ default:wood
 * moreblocks:stair_wood       -> moreblocks:stair_wood
 * moreblocks:stair_wood_inner -> moreblocks:stair_wood_inner
 
+:: stuff outside default/moreblocks typically uses its own mod name ::
+
 ------------------------------
+LIST OF KNOWN UNKNOWN NODES
 
 bakedclay:orange_microslab
 bakedclay:white_doublepanel
@@ -113,6 +133,7 @@ local affected_mods = {
     xdecor=1,
 }
 
+-- predicates for filtering
 local function is(...)
     local mods = {...}
     return function(mod_name, node_name)
@@ -128,6 +149,7 @@ local function not_(fun) return function(...) return not fun(...) end end
 local is_default = is("default", "moreblocks")
 local function is_any() return true end
 
+-- param2 tweaks for replacements w/ different meshes
 local function rot_180(param2)
     local axis = math.floor(param2 / 4)
     local rotv = param2 % 4
@@ -143,6 +165,8 @@ local function rot_270(param2)
 end
 
 local variants = {
+    -- {predicate, source_pattern, target_pattern, param2 tweak}
+
     -- nanoslab
     {is_default,       "%(mod_name)s:%(node_name)s_nanoslab", "moreblocks:micro_%(node_name)s_1",   rot_270},
     {not_(is_default), "%(mod_name)s:%(node_name)s_nanoslab", "%(mod_name)s:micro_%(node_name)s_1", rot_270},
@@ -224,22 +248,18 @@ minetest.register_lbm({
     label = "microblocks cleanup 117",
     name = "bls:microblocks_cleanup_117",
     nodenames = source_ids,
+    -- for some reason, this won't work if run_at_every_load = false
     run_at_every_load = true,
     action = function(pos, node)
-        local src = node.name
-        local target = target_by_source[src]
-        if not target then
-            bls.log("error", "microblocks cleanup: unexpected source node %q", src)
-            return
-        end
-
         local spos = minetest.pos_to_string(pos, 0)
-        local tgt, rot = unpack(target)
+        local src = node.name
+        local tgt, rot = unpack(target_by_source[src])
         bls.log("action", "microblocks cleanup: replacing @ %q; %q -> %q", spos, src, tgt)
         local param2 = node.param2
         if rot then
+            local old_param2 = param2
             param2 = rot(param2)
-            bls.log("action", "microblocks cleanup: rotating @ %q %q -> %q", spos, node.param2, param2)
+            bls.log("action", "microblocks cleanup: rotating @ %q %q -> %q", spos, old_param2, param2)
         end
         minetest.swap_node(pos, {name=tgt, param1=node.param1, param2=param2})
     end

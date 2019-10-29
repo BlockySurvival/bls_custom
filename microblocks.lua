@@ -133,6 +133,7 @@ if get_modpath("cottages") then
 end
 
 if get_modpath("default") then
+    -- for some reason, moreblocks doesn't register ice, so do this the "default" way
     stairsplus:register_all("moreblocks", "ice", "default:ice", minetest.registered_nodes["default:ice"])
     stairsplus:register_alias_force_all("default", "ice", "moreblocks", "ice")
 end

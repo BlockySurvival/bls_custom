@@ -1,6 +1,7 @@
 bls.util = {}
 
 function bls.util.pairs_by_keys(t, f)
+    -- iterate a table, sorted on keys
     local a = {}
     for n in pairs(t) do
         table.insert(a, n)
@@ -18,6 +19,7 @@ function bls.util.pairs_by_keys(t, f)
 end
 
 function bls.util.most_common_in_table(t)
+    -- find the mode
     local counts = {}
     for _, item in ipairs(t) do
         counts[item] = (counts[item] or 0) + 1
@@ -48,6 +50,11 @@ function bls.util.safe(func, rv_on_fail)
 end
 
 function bls.util.nformat(s, tab)
+    --[[
+    format a string w/ named parameters
+
+    e.g. nformat("%(foo)s %(bar)s", {bar="dogs", foo="cats"}) == "cats dogs"
+    ]]--
     return (
         s:gsub(
             "%%%(([%a%w_]+)%)([-0-9%.]*[cdeEfgGiouxXsq])",
