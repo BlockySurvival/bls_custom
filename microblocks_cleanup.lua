@@ -103,6 +103,7 @@ local affected_mods = {
     cblocks=1,
     default=1,
     moreblocks=1,
+    moreores=1,
     moretrees=1,
     nether=1,
     quartz=1,
@@ -179,7 +180,9 @@ local variants = {
     -- stairs
     {is_any, "stairs:slab_%(node_name)s",  "%(mod_name)s:slab_%(node_name)s"},
     {is_any, "stairs:stair_%(node_name)s", "%(mod_name)s:stair_%(node_name)s"},
+    {not_(is("bakedclay")), "stairs:stair_outer_%(node_name)s", "%(mod_name)s:stair_%(node_name)s_outer"},
     {is("bakedclay"), "stairs:stair_outer_%(node_name)s", "%(mod_name)s:stair_baked_clay_%(node_name)s_outer"},
+    {not_(is("bakedclay")), "stairs:stair_inner_%(node_name)s", "%(mod_name)s:stair_%(node_name)s_inner"},
     {is("bakedclay"), "stairs:stair_inner_%(node_name)s", "%(mod_name)s:stair_baked_clay_%(node_name)s_inner"},
 }
 
