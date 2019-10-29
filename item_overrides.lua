@@ -28,8 +28,53 @@ if minetest.get_modpath("cucina_vegana") then
 end
 
 if minetest.get_modpath("cottages") then
+    local anvil_whitelist = {}
+    for _, tool in ipairs({"pick", "shovel", "axe", "sword", "hoe"}) do
+        for _, material in ipairs({"bronze", "steel"}) do
+            anvil_whitelist[("default:%s_%s"):format(tool, material)] = 1
+        end
+
+        for _, material in ipairs({"silver", "mithril"}) do
+            anvil_whitelist[("moreores:%s_%s"):format(tool, material)] = 1
+        end
+
+        anvil_whitelist[("titanium:%s"):format(tool)] = 1
+        anvil_whitelist[("goldtools:gold%s"):format(tool)] = 1
+    end
+
+    for _, tool in ipairs({"boots", "chestplate", "helmet", "leggings"}) do
+        for _, material in ipairs({"bronze", "steel", "gold", "mithril"}) do
+            anvil_whitelist[("3d_armor:%s_%s"):format(tool, material)] = 1
+        end
+    end
+    for _, material in ipairs({"bronze", "steel", "gold", "mithril"}) do
+        anvil_whitelist[("sheilds:shield_%s"):format(material)] = 1
+    end
+
+    anvil_whitelist["farming:hoe_steel"] = 1
+    anvil_whitelist["farming:scythe_mithril"] = 1
+    anvil_whitelist["mobs:shears"] = 1
+    anvil_whitelist["screwdriver:screwdriver"] = 1
+
+    local anvil_on_punch_orig = minetest.registered_nodes["cottages:anvil"].on_punch
+    local anvil_allow_metadata_inventory_put_orig = minetest.registered_nodes["cottages:anvil"].allow_metadata_inventory_put
     minetest.override_item("cottages:anvil", {
-        on_punch = function() end
+        on_punch = function(pos, node, puncher)
+            local meta = minetest.get_meta(pos);
+            local inv  = meta:get_inventory();
+            local input = inv:get_stack("input", 1);
+            if anvil_whitelist[input:get_name()] then
+                return anvil_on_punch_orig(pos, node, puncher)
+            end
+        end,
+        allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+            if listname ~= "input" or anvil_whitelist[stack:get_name()] then
+                return anvil_allow_metadata_inventory_put_orig(pos, listname, index, stack, player)
+            end
+            minetest.chat_send_player(player:get_player_name(), "Not repairable on the anvil")
+            return 0
+        end,
+        drop = {},
     })
 end
 
