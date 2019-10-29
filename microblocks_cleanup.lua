@@ -99,6 +99,9 @@ local nformat = bls.util.nformat
 
 local affected_mods = {
     bakedclay=1,
+    basic_materials=1,
+    bls=1,
+    bridger=1,
     building_blocks=1,
     cblocks=1,
     default=1,
