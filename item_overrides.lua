@@ -16,6 +16,21 @@ if minetest.get_modpath("caverealms") then
 end
 
 if minetest.get_modpath("cucina_vegana") then
+    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_meat"].groups)
+    groups.food_meat = nil
+    groups.food_meat_raw = 1
+    minetest.override_item("cucina_vegana:imitation_meat", {groups=groups})
+
+    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_poultry"].groups)
+    groups.food_meat = nil
+    groups.food_meat_raw = 1
+    minetest.override_item("cucina_vegana:imitation_poultry", {groups=groups})
+end
+
+if minetest.get_modpath("cottages") then
+    minetest.override_item("cottages:anvil", {
+        on_punch = function() end
+    })
 end
 
 if minetest.get_modpath("extra") then

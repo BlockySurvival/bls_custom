@@ -46,3 +46,15 @@ function bls.util.safe(func, rv_on_fail)
         end
     end
 end
+
+function bls.util.nformat(s, tab)
+    return (
+        s:gsub(
+            "%%%(([%a%w_]+)%)([-0-9%.]*[cdeEfgGiouxXsq])",
+            function(k, fmt)
+                return tab[k] and ("%" .. fmt):format(tab[k]) or
+                        "%(" .. k .. ")" .. fmt
+            end
+        )
+    )
+end

@@ -31,8 +31,8 @@ dofile(bls.modpath .. "/lava.lua")
 dofile(bls.modpath .. "/login_handling.lua")
 dofile(bls.modpath .. "/mesecon/mvps_stoppers.lua")
 dofile(bls.modpath .. "/microblocks.lua")
---dofile(bls.modpath .. "/microblocks_cleanup.lua")
 dofile(bls.modpath .. "/node_inventory_protection.lua")
+dofile(bls.modpath .. "/old_mod_cleanup.lua")
 dofile(bls.modpath .. "/text_entry_logging.lua")
 dofile(bls.modpath .. "/tnt.lua")
 dofile(bls.modpath .. "/oregen.lua")
@@ -42,6 +42,9 @@ dofile(bls.modpath .. "/techpack/grinder.lua")
 dofile(bls.modpath .. "/terumet/reformer.lua")
 dofile(bls.modpath .. "/tubelib.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
+
+--
+dofile(bls.modpath .. "/microblocks_cleanup.lua")
 
 -- last, because it overrides stuff in this mod even...
 dofile(bls.modpath .. "/hunger_overrides.lua")

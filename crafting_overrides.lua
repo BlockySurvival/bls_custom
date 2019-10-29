@@ -63,6 +63,15 @@ if minetest.get_modpath("basic_materials") then
     end
 end
 
+if minetest.get_modpath("bbq") then
+    minetest.clear_craft({output="bbq:hotdog_raw"})
+    minetest.register_craft({
+        output="bbq:hotdog_raw",
+        type="shapeless",
+        recipe={"group:food_meat_raw", "group:food_meat_raw", "bbq:sawdust"}
+    })
+end
+
 if minetest.get_modpath("bike") then
     if minetest.get_modpath("basic_materials") then
         minetest.clear_craft({output="bike:handles"})

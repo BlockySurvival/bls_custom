@@ -4,6 +4,7 @@ local registered_nodes = minetest.registered_nodes
 
 local has_stairsplus = global_exists("stairsplus")
 local has_facade = global_exists("facade")
+local has_letters = minetest.get_modpath("letters")
 
 local function most_common_in_table(t)
     local counts = {}
@@ -54,7 +55,7 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
     end
     if make_stairs == nil then make_stairs = true end
     if make_facade == nil then make_facade = true end
-    if make_letters == nil then make_letters = true end
+    if make_letters == nil then make_letters = false end
 
     if has_stairsplus and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
@@ -68,6 +69,9 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
     end
 
     -- letter cutter: adding letters increases lag (and load time) hugely
+    if has_letters and make_letters then
+        register_letters(recipe_item)
+    end
 end
 
 local COLORS = {
@@ -81,20 +85,19 @@ local function register_colors(name_pattern, make_stairs, make_facade, make_lett
     end
 end
 
-if get_modpath("bakedclay") then
-    for _, color in ipairs(COLORS) do
-        register_letters("bakedclay:" .. color, nil, false)
-    end
-end
-
-
-if get_modpath("other_worlds") then
+if get_modpath("asteroid") or get_modpath("other_worlds") then
     register("asteroid:cobble")
     register("asteroid:dust")
     register("asteroid:gravel")
     register("asteroid:redcobble")
     register("asteroid:reddust")
     register("asteroid:redgravel")
+end
+
+if get_modpath("bakedclay") then
+    for _, color in ipairs(COLORS) do
+        register_letters("bakedclay:" .. color, nil, false)
+    end
 end
 
 if get_modpath("caverealms") then
@@ -127,6 +130,10 @@ if get_modpath("cottages") then
     register("cottages:loam")
     register("cottages:reet", nil, false)
     register("cottages:slate_vertical", nil, false)
+end
+
+if get_modpath("default") then
+    register("default:ice", nil, false, false)
 end
 
 if get_modpath("extra") then
