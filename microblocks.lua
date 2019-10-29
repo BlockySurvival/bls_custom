@@ -134,6 +134,7 @@ end
 
 if get_modpath("default") then
     register("default:ice", nil, false, false)
+    stairsplus:register_alias_force_all("default", "ice", "moreblocks", "ice")
 end
 
 if get_modpath("extra") then
