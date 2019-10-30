@@ -130,6 +130,7 @@ local affected_mods = {
     moretrees=1,
     nether=1,
     quartz=1,
+    streets=1,
     xdecor=1,
 }
 
