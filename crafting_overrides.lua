@@ -493,6 +493,18 @@ if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minet
     })
 end
 
+if minetest.get_modpath("mobs") and mobs.mod == "redo" then
+    minetest.clear_craft({output="mobs:lasso"})
+    minetest.register_craft({
+        output = "mobs:lasso",
+        recipe = {
+            {"",            "group:vines", "group:vines"},
+            {"",            "group:vines", "group:vines"},
+            {"group:vines", "",            ""},
+        },
+    })
+end
+
 if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
     -- avoid conflict with xdecor cactus brick
     minetest.clear_craft({recipe={"default:cactus", "default:brick"}, type="shapeless"})

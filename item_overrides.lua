@@ -2,7 +2,11 @@
 -- ORGANIZE LOGIC BY THE OVERRIDDEN ITEM
 
 local function add_groups(itemstring, ...)
-    local groups = table.copy(minetest.registered_items[itemstring].groups)
+    local def = minetest.registered_items[itemstring]
+    if not def then
+        bls.log("warning", "trying to add groups to unknown item %q", itemstring)
+    end
+    local groups = table.copy(def.groups)
     for _, group in ipairs({...}) do
         groups[group] = 1
     end
@@ -28,6 +32,9 @@ if minetest.get_modpath("cucina_vegana") then
 end
 
 if minetest.get_modpath("cottages") then
+    add_groups("cottages:rope", "vines")
+
+    -- ANVIL STUFF --
     local anvil_whitelist = {}
     for _, tool in ipairs({"pick", "shovel", "axe", "sword", "hoe"}) do
         for _, material in ipairs({"bronze", "steel"}) do
@@ -53,9 +60,9 @@ if minetest.get_modpath("cottages") then
 
     anvil_whitelist["farming:hoe_steel"] = 1
     anvil_whitelist["farming:scythe_mithril"] = 1
+    anvil_whitelist["fire:flint_and_steel"] = 1
     anvil_whitelist["mobs:shears"] = 1
     anvil_whitelist["screwdriver:screwdriver"] = 1
-    anvil_whitelist["fire:flint_and_steel"] = 1
 
     local anvil_on_punch_orig = minetest.registered_nodes["cottages:anvil"].on_punch
     local anvil_allow_metadata_inventory_put_orig = minetest.registered_nodes["cottages:anvil"].allow_metadata_inventory_put
@@ -83,21 +90,14 @@ if minetest.get_modpath("extra") then
     add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
     add_groups("extra:fish_sticks", "food_fish")
 end
-if minetest.get_modpath("mobs_animal") then
-    add_groups("mobs:rat_cooked", "food_meat")
-end
-if minetest.get_modpath("mobs_fish") then
-    add_groups("mobs_fish:clownfish", "food_fish")
-    add_groups("mobs_fish:tropical", "food_fish")
-end
-if minetest.get_modpath("mobs_jellyfish") then
-    add_groups("mobs_jellyfish:jellyfish", "food_fish")
+
+if minetest.get_modpath("farming") and farming.mod == "redo" then
+    add_groups("farming:hemp_rope", "vines")
 end
 
 if minetest.global_exists("maptools") then
     -- Temporarily disable pushers because rats in the trampoline
     for pusher_num = 1, 10 do
-        add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
         minetest.override_item("maptools:pusher_" .. pusher_num, {
             groups = {
                 unbreakable = 1,
@@ -118,10 +118,29 @@ if minetest.global_exists("maptools") then
     })
 end
 
+if minetest.get_modpath("mobs_animal") then
+    add_groups("mobs:rat_cooked", "food_meat")
+end
+
+if minetest.get_modpath("mobs_fish") then
+    add_groups("mobs_fish:clownfish", "food_fish")
+    add_groups("mobs_fish:tropical", "food_fish")
+end
+
+if minetest.get_modpath("mobs_jellyfish") then
+    add_groups("mobs_jellyfish:jellyfish", "food_fish")
+end
+
+if minetest.get_modpath("moreblocks") then
+    add_groups("moreblocks:rope", "vines")
+end
+
 if minetest.global_exists("xdecor") then
     minetest.override_item("xdecor:mailbox", {
         description="Mailbox (xdecor)",
     })
+
+    add_groups("xdecor:rope", "vines")
 end
 
 if minetest.get_modpath("youngtrees") then
