@@ -468,6 +468,18 @@ if minetest.get_modpath("hangglider") and minetest.get_modpath("terumet") and mi
     })
 end
 
+if minetest.get_modpath("hook") then
+    minetest.clear_craft({output="hook:pchest"})
+    minetest.register_craft({
+        output="hook:pchest",
+        recipe = {
+            {"terumet:block_entropy",      "terumet:reinf_block_stone3", "titanium:block"},
+            {"terumet:reinf_block_stone3", "default:chest",              "terumet:reinf_block_stone3"},
+            {"technic:uranium_block",      "terumet:reinf_block_stone3", "technic:stainless_steel_block"},
+        }
+    })
+end
+
 if minetest.get_modpath("hot_air_balloons") and minetest.get_modpath("farming") and minetest.get_modpath("terumet") and minetest.get_modpath("xdecor") and minetest.get_modpath("moreblocks") then
     minetest.clear_craft({output="hot_air_balloons:item"})
     minetest.register_craft({
