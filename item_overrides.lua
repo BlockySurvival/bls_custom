@@ -55,6 +55,7 @@ if minetest.get_modpath("cottages") then
     anvil_whitelist["farming:scythe_mithril"] = 1
     anvil_whitelist["mobs:shears"] = 1
     anvil_whitelist["screwdriver:screwdriver"] = 1
+    anvil_whitelist["fire:flint_and_steel"] = 1
 
     local anvil_on_punch_orig = minetest.registered_nodes["cottages:anvil"].on_punch
     local anvil_allow_metadata_inventory_put_orig = minetest.registered_nodes["cottages:anvil"].allow_metadata_inventory_put

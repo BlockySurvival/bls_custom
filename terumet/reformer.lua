@@ -7,6 +7,7 @@ local mrv = { -- material repair value
     mithril = 120,
     silver = 40,
     steel = 10,
+    teruchalcum = 60,
     titanium = 150,
 }
 
@@ -25,7 +26,6 @@ local cost = {
 }
 
 terumet.register_repairable_item("shields:shield_bronze", mrv.bronze * cost.shield)
-
 terumet.register_repairable_item("shields:shield_diamond", mrv.diamond * cost.shield)
 
 terumet.register_repairable_item("goldtools:goldaxe", mrv.gold * cost.axe)
@@ -69,3 +69,4 @@ terumet.register_repairable_item("titanium:shovel", mrv.titanium * cost.shovel)
 terumet.register_repairable_item("titanium:sword", mrv.titanium * cost.sword)
 
 terumet.register_repairable_item("titanium:sam_titanium", mrv.titanium * 20)
+terumet.register_repairable_item("hangglider:hangglider", mrv.teruchalcum * 6)
