@@ -123,6 +123,7 @@ local affected_mods = {
     bls=1,
     bridger=1,
     building_blocks=1,
+    caverealms=1,
     cblocks=1,
     default=1,
     moreblocks=1,
