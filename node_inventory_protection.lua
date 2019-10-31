@@ -1,4 +1,5 @@
 -- Make default:chests respect protection
+local protected_nodes = {}
 
 local function check(player, pos, item_name, action, node_name)
     local name = player:get_player_name()
@@ -15,12 +16,27 @@ local function check(player, pos, item_name, action, node_name)
     return true
 end
 
+local default_can_interact_with_node = default.can_interact_with_node
+function default.can_interact_with_node(player, pos)
+    if default_can_interact_with_node(player, pos) then
+        local node_name = minetest.get_node(pos).name
+        if protected_nodes[node_name] then
+            return check(player, pos, "", "interacting", node_name)
+        else
+            return true
+        end
+    else
+        return false
+    end
+end
+
 local function augment_with_protection(node_name)
     local old_def = minetest.registered_nodes[node_name]
     if not old_def then
         bls.log("warning", "can\"t augment %s with protection; no definition", node_name)
         return
     end
+    protected_nodes[node_name] = true
 
     local old_allow_take = old_def.allow_metadata_inventory_take
     local old_allow_put = old_def.allow_metadata_inventory_put
