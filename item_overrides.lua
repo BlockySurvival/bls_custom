@@ -8,15 +8,22 @@ local function add_groups(itemstring, ...)
     end
     local groups = table.copy(def.groups)
     for _, group in ipairs({...}) do
-        groups[group] = 1
+        local g, v = group:match("^([^=]+)=([^=]+)$")
+        if g and v then
+            group = g
+            v = tonumber(v) or 1
+        else
+            v = 1
+        end
+        groups[group] = v
     end
     minetest.override_item(itemstring, {groups=groups})
 end
 
 if minetest.get_modpath("caverealms") then
     -- make thin ice slippery
-    add_groups("caverealms:thin_ice", "cracky", "slippery")
-    add_groups("caverealms:hanging_thin_ice", "cracky", "slippery")
+    add_groups("caverealms:thin_ice", "cracky", "slippery=5")
+    add_groups("caverealms:hanging_thin_ice", "cracky", "slippery=5")
 end
 
 if minetest.get_modpath("cucina_vegana") then
