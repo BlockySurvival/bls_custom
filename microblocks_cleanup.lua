@@ -256,7 +256,10 @@ minetest.register_lbm({
         local spos = minetest.pos_to_string(pos, 0)
         local src = node.name
         local target = target_by_source[src]
-        if not target then return end
+        if not target then
+            bls.log("error", "no target for src %q at node %q", src, node.name)
+            return
+        end
         local tgt, rot = unpack(target)
         bls.log("action", "microblocks cleanup: replacing @ %q; %q -> %q", spos, src, tgt)
         local param2 = node.param2
