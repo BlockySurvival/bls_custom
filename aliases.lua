@@ -36,6 +36,13 @@ minetest.register_alias_force("bls_admin_flair:shield_staff", "bls:shield_staff"
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
 -- ORGANIZE LOGIC BY THE SOURCE ITEM
 
+if minetest.get_modpath("basic_materials") then
+    if minetest.global_exists("stairsplus") then
+        stairsplus:register_alias_force_all("technic", "concrete", "basic_materials", "concrete_block")
+        stairsplus:register_alias_force_all("technic", "brass_block", "basic_materials", "brass_block")
+    end
+end
+
 if minetest.get_modpath("farming") then
     minetest.register_alias_force("default:blueberries", "farming:blueberries")
 end

@@ -64,7 +64,7 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
 
     if has_facade and make_facade then
         if def.drawtype == "normal" and not registered_nodes[("facade:%s_bannerstone"):format(subname)] then
-             facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
+                 facade.register_facade_nodes(modname, subname, recipe_item, def.description or subname)
         end
     end
 
@@ -86,18 +86,24 @@ local function register_colors(name_pattern, make_stairs, make_facade, make_lett
 end
 
 if get_modpath("asteroid") or get_modpath("other_worlds") then
-    register("asteroid:cobble")
-    register("asteroid:dust")
-    register("asteroid:gravel")
-    register("asteroid:redcobble")
-    register("asteroid:reddust")
-    register("asteroid:redgravel")
+    register("asteroid:cobble", nil, false)
+    register("asteroid:dust", nil, false)
+    register("asteroid:gravel", nil, false)
+    register("asteroid:redcobble", nil, false)
+    register("asteroid:reddust", nil, false)
+    register("asteroid:redgravel", nil, false)
 end
 
 if get_modpath("bakedclay") then
     for _, color in ipairs(COLORS) do
         register_letters("bakedclay:" .. color, nil, false)
     end
+end
+
+if get_modpath("basic_materials") then
+    register("basic_materials:brass_block", nil, false)
+    register("basic_materials:cement_block", nil, false)
+    register("basic_materials:concrete_block", nil, false)
 end
 
 if get_modpath("caverealms") then
