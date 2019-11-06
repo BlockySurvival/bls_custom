@@ -255,7 +255,9 @@ minetest.register_lbm({
     action = function(pos, node)
         local spos = minetest.pos_to_string(pos, 0)
         local src = node.name
-        local tgt, rot = unpack(target_by_source[src])
+        local target = target_by_source[src]
+        if not target then return end
+        local tgt, rot = unpack(target)
         bls.log("action", "microblocks cleanup: replacing @ %q; %q -> %q", spos, src, tgt)
         local param2 = node.param2
         if rot then
