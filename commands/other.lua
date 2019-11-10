@@ -2,16 +2,17 @@ local mod_storage = bls.mod_storage
 
 minetest.register_chatcommand("sunlight", {
     -- Give players with "settime" priv the ability to override their day-night ratio
-    params = "<ratio>",
-    description = "Override one\"s day night ratio. (1 = always day, 0 = always night)",
+    params = "[<ratio>]",
+    description = "Override one\"s day night ratio. (1 = always day, 0 = always night). With no argument, reset the default behavior.",
     privs = {settime = true},
     func = function(player_name, param)
         local ratio = tonumber(param)
-        if not ratio or ratio < 0 or ratio > 1 then
-            return false, "Please enter a number between 0 and 1"
-        end
         minetest.get_player_by_name(player_name):override_day_night_ratio(ratio)
-        mod_storage:set_string(player_name .. "_sunlight", tostring(ratio))
+        if ratio then
+            mod_storage:set_string(player_name .. "_sunlight", tostring(ratio))
+        else
+            mod_storage:set_string(player_name .. "_sunlight", "")
+        end
     end
 })
 
