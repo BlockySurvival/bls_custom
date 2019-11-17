@@ -40,8 +40,8 @@ dofile(bls.modpath .. "/oregen.lua")
 dofile(bls.modpath .. "/orienteering.lua")
 dofile(bls.modpath .. "/privs.lua")
 dofile(bls.modpath .. "/techpack/grinder.lua")
+dofile(bls.modpath .. "/techpack/harvester.lua")
 dofile(bls.modpath .. "/terumet/reformer.lua")
-dofile(bls.modpath .. "/tubelib.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 
 --

@@ -75,4 +75,11 @@ if minetest.get_modpath("palm") then
     fn("palm:leaves")
     fn("palm:coconut")
 end
-
+if minetest.get_modpath("redtrees") then
+    tn("redtrees:rtree", "redtrees:rtree", "redtrees:rsapling")
+    fn("redtrees:rleaves")
+end
+if minetest.get_modpath("sakuragi") then
+    tn("sakuragi:stree", "sakuragi:stree", "sakuragi:ssapling")
+    fn("sakuragi:sleaves")
+end

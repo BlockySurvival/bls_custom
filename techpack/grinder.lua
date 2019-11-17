@@ -39,3 +39,9 @@ end
 if minetest.get_modpath("palm") then
     gr({input="palm:trunk", output="palm:leaves 8"})
 end
+if minetest.get_modpath("redtrees") then
+    gr({input="redtrees:rtree", output="redtrees:rleaves 8"})
+end
+if minetest.get_modpath("sakuragi") then
+    gr({input="sakuragi:stree", output="sakuragi:sleaves 8"})
+end
