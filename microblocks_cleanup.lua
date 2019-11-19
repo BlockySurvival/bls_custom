@@ -126,6 +126,7 @@ local affected_mods = {
     caverealms=1,
     cblocks=1,
     default=1,
+    gravelsieve=1,
     moreblocks=1,
     moreores=1,
     moretrees=1,
