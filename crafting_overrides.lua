@@ -533,6 +533,20 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
     })
 end
 
+if minetest.get_modpath("palm") then
+    minetest.register_craft({
+        output="palm:coconut_slice 4",
+        type="shapeless",
+        recipe={"palm:coconut"}
+    })
+
+    minetest.register_craft({
+        output="palm:coconut",
+        type="shapeless",
+        recipe={"palm:coconut_slice", "palm:coconut_slice", "palm:coconut_slice", "palm:coconut_slice"}
+    })
+end
+
 if minetest.get_modpath("quartz") then
     minetest.register_craft({
         output="quartz:quartz_crystal 4",

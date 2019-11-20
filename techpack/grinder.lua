@@ -25,7 +25,7 @@ if minetest.get_modpath("ebony") then
     gr({input="ebony:trunk", output="ebony:leaves 8"})
 end
 if minetest.get_modpath("jacaranda") then
-    gr({input="jacaranda:trunk", output="jacaranda:leaves 8"})
+    gr({input="jacaranda:trunk", output="jacaranda:blossom_leaves 8"})
 end
 if minetest.get_modpath("larch") then
     gr({input="larch:trunk", output="larch:leaves 8"})

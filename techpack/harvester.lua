@@ -34,7 +34,7 @@ end
 if minetest.get_modpath("chestnuttree") then
     tn("chestnuttree:trunk", "chestnuttree:trunk", "chestnuttree:sapling")
     fn("chestnuttree:leaves")
-    fn("chestnuttree:fruit")
+    fn("chestnuttree:bur")
 end
 if minetest.get_modpath("clementinetree") then
     tn("clementinetree:trunk", "clementinetree:trunk", "clementinetree:sapling")
@@ -47,6 +47,9 @@ if minetest.get_modpath("ebony") then
     fn("ebony:creeper")
     fn("ebony:creeper_leaves")
     fn("ebony:liana")
+end
+if minetest.get_modpath("ferns") then
+    
 end
 if minetest.get_modpath("jacaranda") then
     tn("jacaranda:trunk", "jacaranda:trunk", "jacaranda:sapling")
