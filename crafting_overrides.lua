@@ -342,6 +342,17 @@ if minetest.get_modpath("default") then
     })
 end
 
+if minetest.get_modpath("default") then
+    minetest.clear_craft({recipe={
+        {"default:dry_shrub",},
+    }})
+    minetest.register_craft( {
+        type = "shapeless",
+        output = "dye:brown 4",
+        recipe = {"default:dry_shrub"}
+    })
+end
+
 -- TODO digilines:lightsensor
 
 if minetest.get_modpath("extra") then
