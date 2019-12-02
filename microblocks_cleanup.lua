@@ -1,5 +1,7 @@
 --[[
 
+NOTE: this file is mostly to deal w/ the aftermath of a snafu involving microblock node IDs after upgrading to 5.1.
+
 We have/had multiple mods adding various kinds of microblocks
 
 1. stairs
@@ -132,6 +134,8 @@ local affected_mods = {
     moretrees=1,
     nether=1,
     quartz=1,
+    redtrees=1,
+    sakuragi=1,
     streets=1,
     xdecor=1,
 }
