@@ -25,10 +25,10 @@ if minetest.get_modpath("basic_materials") then
 
         minetest.clear_craft({output="basic_materials:motor"})
         minetest.register_craft({
-            output="basic_materials:motor 2",
+            output="basic_materials:motor 4",
             recipe={
                 {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
-                {"default:bronze_ingot",          "technic:cast_iron_ingot",     "basic_materials:gear_steel"},
+                {"basic_materials:steel_bar",     "basic_materials:steel_bar",   "basic_materials:gear_steel"},
                 {"default:mese_crystal_fragment", "basic_materials:copper_wire", "basic_materials:plastic_sheet"},
             }
         })

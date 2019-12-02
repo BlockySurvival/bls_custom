@@ -47,6 +47,7 @@ if minetest.get_modpath("ebony") then
     fn("ebony:creeper")
     fn("ebony:creeper_leaves")
     fn("ebony:liana")
+    fn("ebony:persimmon")
 end
 if minetest.get_modpath("ferns") then
 
