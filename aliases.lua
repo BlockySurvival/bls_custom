@@ -44,6 +44,10 @@ if minetest.get_modpath("basic_materials") then
     end
 end
 
+if minetest.get_modpath("cucina_vegana") then
+    minetest.register_alias_force("cucina_vegana:flax_raw", "cucina_vegana:flax")
+end
+
 if minetest.get_modpath("farming") then
     minetest.register_alias_force("default:blueberries", "farming:blueberries")
 end
