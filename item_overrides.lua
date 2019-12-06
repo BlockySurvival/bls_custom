@@ -93,6 +93,33 @@ if minetest.get_modpath("cottages") then
     })
 end
 
+if minetest.get_modpath("default") and minetest.get_modpath("mobs_snowman") then
+    minetest.override_item("default:snow", {
+        on_use = function (item, player, pointed_thing)
+            local playerpos = player:get_pos()
+            minetest.sound_play("hook_throw", {pos=playerpos, gain = 1.0, max_hear_distance = 5})
+            local obj = minetest.add_entity({x=playerpos.x, y=playerpos.y+1.5, z=playerpos.z}, "mobs_snowman:snowball")
+            local ent = obj:get_luaentity()
+            local dir = player:get_look_dir()
+            ent.velocity = 19
+            ent.switch = 1
+            ent.thrower = player:get_player_name()
+            obj:setvelocity({
+                    x = dir.x * 19,
+                    y = dir.y * 19,
+                    z = dir.z * 19
+            })
+            obj:setacceleration({
+                    x = dir.x * -3,
+                    y = -9,
+                    z = dir.z * -3
+            })
+            item:take_item()
+            return item
+        end,
+    })
+end
+
 if minetest.get_modpath("extra") then
     add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
     add_groups("extra:fish_sticks", "food_fish")
