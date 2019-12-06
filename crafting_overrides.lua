@@ -287,9 +287,28 @@ if minetest.get_modpath("cucina_vegana") then
         type = "shapeless",
         recipe = {"cucina_vegana:rice_seed"},
     })
+
+    minetest.register_craft({
+        output = "cucina_vegana:soy_seed 3",
+        type = "shapeless",
+        recipe = {"cucina_vegana:soy"}
+    })
+    minetest.register_craft({
+        output = "cucina_vegana:soy",
+        type = "shapeless",
+        recipe = {"cucina_vegana:soy_seed", "cucina_vegana:soy_seed", "cucina_vegana:soy_seed"}
+    })
 end
 
 if minetest.get_modpath("default") then
+    minetest.register_craft({
+        output = "bucket:bucket_empty",
+        recipe = {
+            {"default:tin_ingot", "",                  "default:tin_ingot"},
+            {"",                  "default:tin_ingot", ""}
+        }
+    })
+
     -- force alloying bronze
     minetest.clear_craft({recipe={
         {"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
