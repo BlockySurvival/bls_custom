@@ -80,7 +80,7 @@ if minetest.get_modpath("bbq") then
     set_eat_or_poison("bbq:lamb_kebab_raw", 2, -1)
     set_eat("bbq:lamb_kebab", 8)
     set_eat_or_poison("bbq:rack_lamb_raw", 2, -1)
-    set_eat("bbq:rack_lamb", 12)
+    set_eat("bbq:rack_lamb", 8)
     set_eat_or_poison("bbq:leg_lamb_raw", 2, -1)
     set_eat("bbq:leg_lamb", 8)
     set_eat_or_poison("bbq:ham_raw", 2, -1)

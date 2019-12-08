@@ -45,6 +45,7 @@ dofile(bls.modpath .. "/terumet/alloy_smelter.lua")
 dofile(bls.modpath .. "/terumet/ore_saw.lua")
 dofile(bls.modpath .. "/terumet/reformer.lua")
 dofile(bls.modpath .. "/terumet/vulcanizer.lua")
+dofile(bls.modpath .. "/tool_damage_alert.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 
 --
