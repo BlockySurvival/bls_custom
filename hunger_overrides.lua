@@ -38,8 +38,11 @@ local function set_eat_or_poison(name, food_value, damage_value, chance, replace
     groups.food = food_value
     if not damage_value then
         damage_value = 0
-    elseif damage_value > 0 then
-        damage_value = -damage_value
+    else
+        if damage_value > 0 then
+            damage_value = -damage_value
+        end
+        groups.food_poison = -damage_value
     end
     if not chance then
         chance = 3
@@ -62,6 +65,118 @@ local bowl = "farming:bowl"
 local glass = "vessels:drinking_glass"
 local bottle = "vessels:glass_bottle"
 local bucket = "bucket:bucket_empty"
+local plate = "cucina_vegana:plate"
+
+if minetest.get_modpath("bbq") then
+    set_eat("bbq:beer", 4)
+    set_eat_or_poison("bbq:veggie_kebab_raw", 2, -1)
+    set_eat("bbq:veggie_kebab", 8)
+    set_eat_or_poison("bbq:veggie_packet_raw", 2, -1)
+    set_eat("bbq:veggie_packet", 8)
+    set_eat_or_poison("bbq:stuffed_mushroom_raw", 2, -1)
+    set_eat("bbq:stuffed_mushroom", 8)
+    set_eat_or_poison("bbq:portebello_steak_raw", 2, -1)
+    set_eat("bbq:portebello_steak", 6)
+    set_eat_or_poison("bbq:lamb_kebab_raw", 2, -1)
+    set_eat("bbq:lamb_kebab", 8)
+    set_eat_or_poison("bbq:rack_lamb_raw", 2, -1)
+    set_eat("bbq:rack_lamb", 12)
+    set_eat_or_poison("bbq:leg_lamb_raw", 2, -1)
+    set_eat("bbq:leg_lamb", 8)
+    set_eat_or_poison("bbq:ham_raw", 2, -1)
+    set_eat("bbq:ham", 6)
+    set_eat_or_poison("bbq:bbq_chicken_raw", 2, -1)
+    set_eat("bbq:bbq_chicken", 6)
+    set_eat_or_poison("bbq:corned_beef_raw", 2, -1)
+    set_eat("bbq:corned_beef", 8)
+    set_eat_or_poison("bbq:brisket_raw", 2, -1)
+    set_eat("bbq:brisket", 8)
+    set_eat_or_poison("bbq:bbq_beef_ribs_raw", 2, -1)
+    set_eat("bbq:bbq_beef_ribs", 8)
+    set_eat_or_poison("bbq:hot_wings_raw", 2, -1)
+    set_eat("bbq:hot_wings", 6)
+    set_eat_or_poison("bbq:hamburger_patty_raw", 2, -1)
+    set_eat("bbq:hamburger_patty", 6)
+    set_eat_or_poison("bbq:hotdog_raw", 2, -1)
+    set_eat("bbq:hotdog_cooked", 8)
+    set_eat_or_poison("bbq:grilled_pizza_raw", 2, -1)
+    set_eat("bbq:grilled_pizza", 6)
+    set_eat_or_poison("bbq:beef_jerky_raw", 2, -1)
+    set_eat("bbq:beef_jerky", 4)
+    set_eat_or_poison("bbq:pepper_steak_raw", 2, -1)
+    set_eat("bbq:pepper_steak", 10)
+    set_eat_or_poison("bbq:bacon_raw", 2, -1)
+    set_eat("bbq:bacon", 6)
+    set_eat_or_poison("bbq:london_broil_raw", 2, -1)
+    set_eat("bbq:london_broil", 10)
+    set_eat_or_poison("bbq:stuffed_chop_raw", 2, -1)
+    set_eat("bbq:stuffed_chop", 8)
+    set_eat_or_poison("bbq:stuffed_pepper_raw", 2, -1)
+    set_eat("bbq:stuffed_pepper", 6)
+    set_eat_or_poison("bbq:grilled_corn_raw", 2, -1)
+    set_eat("bbq:grilled_corn", 6)
+    set_eat_or_poison("bbq:beef_raw", 2, -1)
+    set_eat("bbq:beef", 8)
+
+    set_eat("bbq:bacon_cheeseburger", 12)
+    set_eat("bbq:cheese_steak", 12)
+    set_eat("bbq:hamburger", 6)
+    set_eat("bbq:hotdog", 6)
+    set_eat("bbq:pulled_pork", 6)
+    set_eat("bbq:smoked_pepper", 4)
+    set_eat("bbq:tomato_sauce", 2)
+    set_eat("bbq:grilled_tomato", 4)
+    set_eat("bbq:pickled_peppers", 4)
+    set_eat("bbq:sugar", 0)
+end
+
+if minetest.get_modpath("cucina_vegana") then
+    set_eat("cucina_vegana:flax_seed_oil", 0)
+    set_eat("cucina_vegana:peanut_oil", 0)
+    set_eat("cucina_vegana:sunflower_seeds_oil", 0)
+    set_eat("cucina_vegana:lettuce_oil", 0)
+    set_eat("cucina_vegana:blueberry_jam", 10, bottle)
+    set_eat("cucina_vegana:ciabatta_bread", 4)
+    set_eat("cucina_vegana:edamame_cooked", 4, plate)
+    set_eat("cucina_vegana:peanut_butter", 10, bottle)
+    set_eat("cucina_vegana:salad_bowl", 4, bowl)
+    set_eat("cucina_vegana:sauce_hollandaise", 2, bottle)
+    set_eat("cucina_vegana:fryer", 12)
+    set_eat("cucina_vegana:salad_hollandaise", 6)
+    set_eat("cucina_vegana:tofu_chives_rosemary", 0)
+    set_eat("cucina_vegana:asparagus_hollandaise_cooked", 8, plate)
+    set_eat("cucina_vegana:asparagus_rice_cooked", 10, plate)
+    set_eat("cucina_vegana:asparagus_soup_cooked", 8, bowl)
+    set_eat("cucina_vegana:bowl_rice_cooked", 4, bowl)
+    set_eat("cucina_vegana:fish_parsley_rosemary_cooked", 10, plate)
+    set_eat("cucina_vegana:kohlrabi_soup_cooked", 6, bowl)
+    set_eat("cucina_vegana:pizza_vegana", 12)
+    set_eat("cucina_vegana:pizza_funghi", 12)
+    set_eat("cucina_vegana:soy_soup_cooked", 6, bowl)
+    set_eat("cucina_vegana:tofu_chives_rosemary_cooked", 6, plate)
+    set_eat("cucina_vegana:blueberry_puree", 4)
+    set_eat("cucina_vegana:dandelion_honey", 0)
+    set_eat("cucina_vegana:soy_milk", 2, glass)
+    set_eat("cucina_vegana:sunflower_seeds_dough", 0)
+    set_eat("cucina_vegana:tofu", 3)
+    set_eat("cucina_vegana:imitation_butter", 2)
+    set_eat("cucina_vegana:imitation_cheese", 3)
+    set_eat("cucina_vegana:imitation_fish", 3)
+    set_eat("cucina_vegana:imitation_meat", 3)
+    set_eat("cucina_vegana:asparagus", 2)
+    set_eat("cucina_vegana:chives", 0)
+    set_eat("cucina_vegana:kohlrabi", 2)
+    set_eat("cucina_vegana:lettuce", 2)
+    set_eat("cucina_vegana:parsley", 0)
+    set_eat("cucina_vegana:peanut", 4)
+    set_eat("cucina_vegana:rosemary", 0)
+    set_eat("cucina_vegana:sunflower_seeds", 2)
+    set_eat("cucina_vegana:kohlrabi_roasted", 4)
+    set_eat("cucina_vegana:sunflower_seeds_roasted", 4)
+    set_eat("cucina_vegana:sunflower_seeds_bread", 6)
+    set_eat("cucina_vegana:tofu_cooked", 4)
+    set_eat("cucina_vegana:vegan_sushi", 10)
+end
 
 if minetest.get_modpath("default") then
     set_eat("default:apple", 2)
@@ -217,17 +332,23 @@ end
 if minetest.global_exists("terumet") then
     for item_id, def in pairs(minetest.registered_items) do
         local mod, item = item_id:match("terumet:vacf_([^_]+)_(.+)")
+        if mod == "cucina" then
+            mod, item = item_id:match("terumet:vacf_([^_]_[^_]+)_(.+)")
+        end
         if mod and item then
             local base_def = minetest.registered_items[("%s:%s"):format(mod, item)]
             if base_def then
-                local groups = table.copy(def.groups or {})
-                groups.food = 1
-                minetest.override_item(item_id, {
-                    groups=groups,
-                    on_use=base_def.on_use
-                })
+                if base_def.on_use and (not base_def.groups or not base_def.groups.poison) then
+                    local groups = table.copy(def.groups or {})
+                    minetest.override_item(item_id, {
+                        groups=groups,
+                        on_use=base_def.on_use
+                    })
+                else
+                    minetest.unregister_item(item_id)
+                end
             else
-                bls.log("error", "could not find base food for vacuumed food %", item_id)
+                bls.log("error", "could not find base food for vacuumed food %s", item_id)
             end
         end
     end

@@ -41,7 +41,10 @@ dofile(bls.modpath .. "/orienteering.lua")
 dofile(bls.modpath .. "/privs.lua")
 dofile(bls.modpath .. "/techpack/grinder.lua")
 dofile(bls.modpath .. "/techpack/harvester.lua")
+dofile(bls.modpath .. "/terumet/alloy_smelter.lua")
+dofile(bls.modpath .. "/terumet/ore_saw.lua")
 dofile(bls.modpath .. "/terumet/reformer.lua")
+dofile(bls.modpath .. "/terumet/vulcanizer.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 
 --

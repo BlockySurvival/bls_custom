@@ -6,6 +6,7 @@ lib_chatcmdbuilder
 areasprotector?
 bakedclay?
 basic_materials?
+bbq?
 bonemeal?
 bucket?
 caverealms?

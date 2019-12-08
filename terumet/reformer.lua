@@ -1,4 +1,14 @@
 if not minetest.global_exists("terumet") then return end
+
+terumet.register_repair_material("technic:uranium_ingot", 2)
+terumet.register_repair_material("technic:lead_ingot", 2)
+terumet.register_repair_material("technic:zinc_ingot", 5)
+terumet.register_repair_material("technic:chromium_ingot", 200)
+terumet.register_repair_material("technic:carbon_steel_ingot", 30)     -- default:steel_ingot + coal
+terumet.register_repair_material("technic:cast_iron_ingot", 60)        -- technic:carbon_steel_ingot + coal
+terumet.register_repair_material("technic:stainless_steel_ingot", 150) -- 3xtechnic:carbon_steel_ingot + technic:chromium_ingot
+
+
 local mrv = { -- material repair value
     bronze = 30,
     diamond = 100,

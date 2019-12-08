@@ -165,6 +165,10 @@ if minetest.get_modpath("mobs_jellyfish") then
     add_groups("mobs_jellyfish:jellyfish", "food_fish")
 end
 
+if minetest.get_modpath("mobs_mr_goat") then
+    add_groups("mobs_mr_goat:goatcheese", "food_cheese")
+end
+
 if minetest.get_modpath("moreblocks") then
     add_groups("moreblocks:rope", "vines")
 end
