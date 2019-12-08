@@ -46,6 +46,7 @@ end
 
 if minetest.get_modpath("cucina_vegana") then
     minetest.register_alias_force("cucina_vegana:flax_raw", "cucina_vegana:flax")
+    minetest.register_alias_force("cucina_vegana:bowl", "farming:bowl")
 end
 
 if minetest.get_modpath("farming") then
