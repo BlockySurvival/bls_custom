@@ -8,6 +8,9 @@ terumet.register_repair_material("technic:carbon_steel_ingot", 30)     -- defaul
 terumet.register_repair_material("technic:cast_iron_ingot", 60)        -- technic:carbon_steel_ingot + coal
 terumet.register_repair_material("technic:stainless_steel_ingot", 150) -- 3xtechnic:carbon_steel_ingot + technic:chromium_ingot
 
+terumet.register_repair_material("moreores:mithril_ingot", 150)
+terumet.register_repair_material("moreores:silver_ingot", 40)
+
 
 local mrv = { -- material repair value
     bronze = 30,
