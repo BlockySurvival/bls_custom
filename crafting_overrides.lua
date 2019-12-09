@@ -70,6 +70,17 @@ if minetest.get_modpath("bbq") then
         type="shapeless",
         recipe={"group:food_meat_raw", "group:food_meat_raw", "bbq:sawdust"}
     })
+
+    minetest.register_craft({
+        output="bbq:yeast 4",
+        type="shapeless",
+        recipe = {"bbq:yeast", "bucket:bucket_water", "group:food_flour"}
+    })
+    minetest.register_craft({
+        output="bbq:yeast 4",
+        type="shapeless",
+        recipe = {"bbq:yeast", "bucket:bucket_river_water", "group:food_flour"}
+    })
 end
 
 if minetest.get_modpath("bike") then
