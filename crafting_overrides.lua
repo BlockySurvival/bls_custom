@@ -194,6 +194,13 @@ if minetest.get_modpath("bones") and minetest.get_modpath("bonemeal") then
     end
 end
 
+if minetest.get_modpath("caverealms") then
+    minetest.register_craft({type="cooking", recipe="caverealms:glow_amethyst_ore", output="caverealms:glow_amethyst", })
+    minetest.register_craft({type="cooking", recipe="caverealms:glow_emerald_ore", output="caverealms:glow_emerald", })
+    minetest.register_craft({type="cooking", recipe="caverealms:glow_ore", output="caverealms:glow_crystal", })
+    minetest.register_craft({type="cooking", recipe="caverealms:glow_ruby_ore", output="caverealms:glow_ruby", })
+end
+
 if minetest.get_modpath("cblocks") then
     -- make colored blocks cheaper, dye-wise
     local colours = {
@@ -363,16 +370,22 @@ if minetest.get_modpath("default") then
         type = "shapeless",
         recipe = {"default:permafrost", "default:gravel"}
     })
-    -- smelt tree into coal (but don"t make this a net-gain in heat)
+    -- smelt tree into coal (but don't make this a net-gain in heat)
     minetest.register_craft({
         output="default:coal_lump",
         type="cooking",
         cooktime=80,
         recipe="default:tree",
     })
-end
 
-if minetest.get_modpath("default") then
+    minetest.register_craft({type="cooking", recipe="default:stone_with_coal", output="default:coal_lump", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_copper", output="default:copper_ingot", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_diamond", output="default:diamond", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_gold", output="default:gold_ingot", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_iron", output="default:iron_ingot", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_mese", output="default:mese_crystal", })
+    minetest.register_craft({type="cooking", recipe="default:stone_with_tin", output="default:tin_ingot", })
+
     minetest.clear_craft({recipe={
         {"default:dry_shrub",},
     }})
@@ -574,6 +587,24 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
     })
 end
 
+if minetest.get_modpath("moreores") then
+    minetest.register_craft({type="cooking", recipe="moreores:mineral_mithril", output="moreores:mithril_ingot", })
+    minetest.register_craft({type="cooking", recipe="moreores:mineral_silver", output="moreores:silver_ingot", })
+end
+
+if minetest.get_modpath("nether") then
+    minetest.register_craft({type="cooking", recipe="nether:sulfur_ore", output="technic:sulfur_lump", })
+    minetest.register_craft({type="cooking", recipe="nether:titanium_ore", output="titanium:titanium", })
+end
+
+if minetest.get_modpath("other_worlds") then
+    minetest.register_craft({type="cooking", recipe="asteroid:copperore", output="default:copper_ingot", })
+    minetest.register_craft({type="cooking", recipe="asteroid:diamondore", output="default:diamond", })
+    minetest.register_craft({type="cooking", recipe="asteroid:goldore", output="default:gold_ingot", })
+    minetest.register_craft({type="cooking", recipe="asteroid:ironore", output="default:iron_ingot", })
+    minetest.register_craft({type="cooking", recipe="asteroid:meseore", output="default:mese_crystal", })
+end
+
 if minetest.get_modpath("palm") then
     minetest.register_craft({
         output="palm:coconut_slice 4",
@@ -611,6 +642,8 @@ if minetest.get_modpath("quartz") then
             {"quartz:quartz_crystal", "quartz:quartz_crystal"},
         }
     })
+
+    minetest.register_craft({type="cooking", recipe="quartz:quartz_ore", output="quartz:quartz_crystal", })
 end
 
 if minetest.get_modpath("ropes") and minetest.get_modpath("default") and minetest.get_modpath("basic_materials") then
@@ -642,6 +675,14 @@ if minetest.get_modpath("soundblocks") then
         output="soundblocks:ironbellitem",
         recipe={{"default:stick", "default:steel_ingot"}}
     })
+end
+
+if minetest.get_modpath("technic_worldgen") then
+    minetest.register_craft({type="cooking", recipe="technic:mineral_chromium", output="technic:chromium_ingot", })
+    minetest.register_craft({type="cooking", recipe="technic:mineral_lead", output="technic:lead_ingot", })
+    minetest.register_craft({type="cooking", recipe="technic:mineral_sulfur", output="technic:sulfur_lump", })
+    minetest.register_craft({type="cooking", recipe="technic:mineral_uranium", output="technic:uranium_ingot", })
+    minetest.register_craft({type="cooking", recipe="technic:mineral_zinc", output="technic:zinc_ingot", })
 end
 
 if minetest.get_modpath("terumet") then
@@ -678,6 +719,11 @@ if minetest.get_modpath("terumet") then
             replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
         })
     end
+
+    minetest.register_craft({type="cooking", recipe="terumet:ore_dense_raw", output="terumet:ingot_raw 5", })
+    minetest.register_craft({type="cooking", recipe="terumet:ore_raw", output="terumet:ingot_raw", })
+    minetest.register_craft({type="cooking", recipe="terumet:ore_raw_desert", output="terumet:ingot_raw 2", })
+    minetest.register_craft({type="cooking", recipe="terumet:ore_raw_desert_dense", output="terumet:ingot_raw 10", })
 end
 
 if minetest.get_modpath("tnt") and minetest.get_modpath("bonemeal") then
@@ -688,6 +734,10 @@ if minetest.get_modpath("tnt") and minetest.get_modpath("bonemeal") then
         type = "shapeless",
         recipe = {"technic:sulfur_lump", "default:coal_lump", "bonemeal:fertiliser"}
     })
+end
+
+if minetest.get_modpath("titanium") then
+    minetest.register_craft({type="cooking", recipe="titanium:titanium_in_ground", output="titanium:titanium", })
 end
 
 if minetest.get_modpath("travelnet") then
