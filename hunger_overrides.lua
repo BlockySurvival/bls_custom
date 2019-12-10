@@ -331,12 +331,13 @@ end
 -- THIS MUST GO LAST HERE
 if minetest.global_exists("terumet") then
     for item_id, def in pairs(minetest.registered_items) do
-        local mod, item = item_id:match("terumet:vacf_([^_]+)_(.+)")
-        if mod == "cucina" then
-            mod, item = item_id:match("terumet:vacf_([^_]_[^_]+)_(.+)")
-        end
-        if mod and item then
-            local base_def = minetest.registered_items[("%s:%s"):format(mod, item)]
+        if def._terumet_vacfood then
+            local mod, item = item_id:match("terumet:vacf_([^_]+)_(.+)")
+            if mod == "cucina" then
+                mod, item = item_id:match("terumet:vacf_([^_]+_[^_]+)_(.+)")
+            end
+            local base_id = ("%s:%s"):format(mod, item)
+            local base_def = minetest.registered_items[base_id]
             if base_def then
                 if base_def.on_use and (not base_def.groups or not base_def.groups.poison) then
                     local groups = table.copy(def.groups or {})
@@ -345,10 +346,11 @@ if minetest.global_exists("terumet") then
                         on_use=base_def.on_use
                     })
                 else
+                    bls.log("action", "unregistering vacuum packed food %q", item_id)
                     minetest.unregister_item(item_id)
                 end
             else
-                bls.log("error", "could not find base food for vacuumed food %s", item_id)
+                bls.log("error", "could not find base food for vacuumed food %s %q", item_id, base_id)
             end
         end
     end
