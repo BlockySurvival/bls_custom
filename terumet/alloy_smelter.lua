@@ -2,7 +2,7 @@ if not minetest.global_exists("terumet") then return end
 
 terumet.register_alloy_recipe({
     result="terumet:item_thermese",
-    input={"default:mese_crystal"},
+    input={"terumet:item_cryst_mese"},
     time=6,
     flux=4,
 })
