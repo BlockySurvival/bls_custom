@@ -522,6 +522,16 @@ if minetest.get_modpath("hangglider") and minetest.get_modpath("terumet") and mi
     })
 end
 
+if minetest.get_modpath("homedecor_furniture_medieval") then
+    minetest.register_craft({
+        output="homedecor:chains",
+        type="shapeless",
+        recipe = {
+            "homedecor:chain_steel_top", "homedecor:chain_steel_top"
+        }
+    })
+end
+
 if minetest.get_modpath("hook") then
     minetest.clear_craft({output="hook:pchest"})
     minetest.register_craft({
@@ -725,10 +735,6 @@ if minetest.get_modpath("terumet") then
     minetest.register_craft({type="cooking", recipe="terumet:ore_raw_desert", output="terumet:ingot_raw 2", })
     minetest.register_craft({type="cooking", recipe="terumet:ore_raw_desert_dense", output="terumet:ingot_raw 10", })
 
-    minetest.clear_craft({output="bonemeal:mulch"})
-    minetest.clear_craft({output="bbq:sawdust"})
-    minetest.register_alias_force("bonemeal:mulch", "terumet:item_dust_wood")
-    minetest.register_alias_force("bbq:sawdust", "terumet:item_dust_wood")
 end
 
 if minetest.get_modpath("tnt") and minetest.get_modpath("bonemeal") then
