@@ -10,4 +10,13 @@ minetest.register_on_joinplayer(function(player)
         player:set_hp(20, "respawn")
         player:set_pos(spawn_pos)
     end
+
+    local pos = player:get_pos()
+    if (
+            -30912 > pos.x or pos.x > 30927 or
+            -30912 > pos.y or pos.y > 30927 or
+            -30912 > pos.z or pos.z > 30927
+    ) then
+        player:set_pos(spawn_pos)
+    end
 end)
