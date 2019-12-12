@@ -44,6 +44,13 @@ if minetest.get_modpath("basic_materials") then
     end
 end
 
+if minetest.get_modpath("bbq") then
+    if minetest.get_modpath("extra") then
+        minetest.clear_craft({output = "bbq:tomato_sauce"})
+        minetest.register_alias_force("bbq:tomato_sauce", "extra:marinara")
+    end
+end
+
 if minetest.get_modpath("cucina_vegana") then
     minetest.register_alias_force("cucina_vegana:flax_raw", "cucina_vegana:flax")
     minetest.register_alias_force("cucina_vegana:bowl", "farming:bowl")
@@ -93,6 +100,15 @@ end
 if minetest.get_modpath("terumet") then
     -- hot thermese was removed; revert to regular thermese
     minetest.register_alias_force("terumet:block_thermese_hot", "terumet:block_thermese")
+
+    if minetest.get_modpath("bonemeal") then
+        minetest.clear_craft({output="bonemeal:mulch"})
+        minetest.register_alias_force("bonemeal:mulch", "terumet:item_dust_wood")
+    end
+    if minetest.get_modpath("bbq") then
+        minetest.clear_craft({output="bbq:sawdust"})
+        minetest.register_alias_force("bbq:sawdust", "terumet:item_dust_wood")
+    end
 end
 
 if minetest.get_modpath("titanium") then
