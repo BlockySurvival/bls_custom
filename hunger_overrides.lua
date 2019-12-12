@@ -68,7 +68,7 @@ local bucket = "bucket:bucket_empty"
 local plate = "cucina_vegana:plate"
 
 if minetest.get_modpath("bbq") then
-    set_eat("bbq:beer", 4)
+    set_eat_or_poison("bbq:beer", 4, -4, 10, glass)
     set_eat_or_poison("bbq:veggie_kebab_raw", 2, -1)
     set_eat("bbq:veggie_kebab", 8)
     set_eat_or_poison("bbq:veggie_packet_raw", 2, -1)
@@ -98,13 +98,13 @@ if minetest.get_modpath("bbq") then
     set_eat_or_poison("bbq:hamburger_patty_raw", 2, -1)
     set_eat("bbq:hamburger_patty", 6)
     set_eat_or_poison("bbq:hotdog_raw", 2, -1)
-    set_eat("bbq:hotdog_cooked", 8)
+    set_eat("bbq:hotdog_cooked", 4)
     set_eat_or_poison("bbq:grilled_pizza_raw", 2, -1)
     set_eat("bbq:grilled_pizza", 6)
     set_eat_or_poison("bbq:beef_jerky_raw", 2, -1)
     set_eat("bbq:beef_jerky", 4)
     set_eat_or_poison("bbq:pepper_steak_raw", 2, -1)
-    set_eat("bbq:pepper_steak", 10)
+    set_eat("bbq:pepper_steak", 8)
     set_eat_or_poison("bbq:bacon_raw", 2, -1)
     set_eat("bbq:bacon", 6)
     set_eat_or_poison("bbq:london_broil_raw", 2, -1)
@@ -154,7 +154,7 @@ if minetest.get_modpath("cucina_vegana") then
     set_eat("cucina_vegana:pizza_funghi", 12)
     set_eat("cucina_vegana:soy_soup_cooked", 6, bowl)
     set_eat("cucina_vegana:tofu_chives_rosemary_cooked", 6, plate)
-    set_eat("cucina_vegana:blueberry_puree", 4)
+    set_eat("cucina_vegana:blueberry_puree", 2)
     set_eat("cucina_vegana:dandelion_honey", 0)
     set_eat("cucina_vegana:soy_milk", 2, glass)
     set_eat("cucina_vegana:sunflower_seeds_dough", 0)
