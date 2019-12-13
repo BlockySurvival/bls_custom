@@ -17,6 +17,7 @@ minetest.register_on_joinplayer(function(player)
             -30912 > pos.y or pos.y > 30927 or
             -30912 > pos.z or pos.z > 30927
     ) then
+        bls.log("action", "%s was outside the map (%s) when they joined, moving them to spawn", player:get_player_name(), minetest.pos_to_string(pos))
         player:set_pos(spawn_pos)
     end
 end)
