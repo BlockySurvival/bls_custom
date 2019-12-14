@@ -53,7 +53,7 @@ end
 
 if minetest.get_modpath("cucina_vegana") then
     minetest.register_alias_force("cucina_vegana:flax_raw", "cucina_vegana:flax")
-    minetest.register_alias_force("cucina_vegana:bowl", "farming:bowl")
+    minetest.register_alias_force("farming:bowl", "cucina_vegana:bowl")
 end
 
 if minetest.get_modpath("farming") then
@@ -123,7 +123,7 @@ end
 
 if minetest.get_modpath("xdecor") and minetest.get_modpath("farming")then
     -- we only want one bowl
-    minetest.register_alias_force("xdecor:bowl", "farming:bowl")
+    minetest.register_alias_force("xdecor:bowl", "cucina_vegana:bowl")
 end
 
 if minetest.get_modpath("trunks") then
