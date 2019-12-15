@@ -11,7 +11,7 @@ if minetest.get_modpath("cucina_vegana") then
     fn("cucina_vegana:asparagus_6", "cucina_vegana:asparagus 4", "cucina_vegana:asparagus_1")
     fn("cucina_vegana:lettuce_5", "cucina_vegana:lettuce 4", "cucina_vegana:lettuce_1")
     fn("cucina_vegana:soy_8", "cucina_vegana:soy 6", "cucina_vegana:soy_1")
-    fn("cucina_vegana:peanut_7", "cucina_vegana:peanut 6", "cucina_vegana:peanut_1")
+    fn("cucina_vegana:peanut_7", "cucina_vegana:peanut_seed 6", "cucina_vegana:peanut_1")
     fn("cucina_vegana:rice_6", "cucina_vegana:rice 6", "cucina_vegana:rice_1")
     fn("cucina_vegana:sunflower_5", "cucina_vegana:sunflower 4", "cucina_vegana:sunflower_1")
 end
