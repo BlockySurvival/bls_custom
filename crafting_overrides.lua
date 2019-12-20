@@ -74,12 +74,14 @@ if minetest.get_modpath("bbq") then
     minetest.register_craft({
         output="bbq:yeast 4",
         type="shapeless",
-        recipe = {"bbq:yeast", "bucket:bucket_water", "group:food_flour"}
+        recipe = {"bbq:yeast", "bucket:bucket_water", "group:food_flour"},
+        replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
     })
     minetest.register_craft({
         output="bbq:yeast 4",
         type="shapeless",
-        recipe = {"bbq:yeast", "bucket:bucket_river_water", "group:food_flour"}
+        recipe = {"bbq:yeast", "bucket:bucket_river_water", "group:food_flour"},
+        replacements = {{"bucket:bucket_river_water", "bucket:bucket_empty"}}
     })
 end
 

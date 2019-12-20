@@ -20,26 +20,31 @@ if minetest.get_modpath("bamboo") then
     tn("bamboo:trunk", "bamboo:trunk", "bamboo:sprout")
     fn("bamboo:leaves")
 end
+
 if minetest.get_modpath("birch") then
     tn("birch:trunk", "birch:trunk", "birch:sapling")
     fn("birch:leaves")
 end
+
 if minetest.get_modpath("cherrytree") then
     tn("cherrytree:trunk", "cherrytree:trunk", "cherrytree:sapling")
     fn("cherrytree:leaves")
     fn("cherrytree:blossom_leaves")
     fn("cherrytree:cherries")
 end
+
 if minetest.get_modpath("chestnuttree") then
     tn("chestnuttree:trunk", "chestnuttree:trunk", "chestnuttree:sapling")
     fn("chestnuttree:leaves")
     fn("chestnuttree:bur")
 end
+
 if minetest.get_modpath("clementinetree") then
     tn("clementinetree:trunk", "clementinetree:trunk", "clementinetree:sapling")
     fn("clementinetree:leaves")
     fn("clementinetree:clementine")
 end
+
 if minetest.get_modpath("ebony") then
     tn("ebony:trunk", "ebony:trunk", "ebony:sapling")
     fn("ebony:leaves")
@@ -48,24 +53,29 @@ if minetest.get_modpath("ebony") then
     fn("ebony:liana")
     fn("ebony:persimmon")
 end
+
 if minetest.get_modpath("ferns") then
 
 end
+
 if minetest.get_modpath("jacaranda") then
     tn("jacaranda:trunk", "jacaranda:trunk", "jacaranda:sapling")
     fn("jacaranda:leaves")
     fn("jacaranda:blossom_leaves")
 end
+
 if minetest.get_modpath("larch") then
     tn("larch:trunk", "larch:trunk", "larch:sapling")
     fn("larch:leaves")
     fn("larch:moss")
 end
+
 if minetest.get_modpath("lemontree") then
     tn("lemontree:trunk", "lemontree:trunk", "lemontree:sapling")
     fn("lemontree:leaves")
     fn("lemontree:lemon")
 end
+
 if minetest.get_modpath("mahogany") then
     tn("mahogany:trunk", "mahogany:trunk", "mahogany:sapling")
     fn("mahogany:leaves")
@@ -73,15 +83,18 @@ if minetest.get_modpath("mahogany") then
     fn("mahogany:flower_creeper")
     fn("mahogany:hanging_creeper")
 end
+
 if minetest.get_modpath("palm") then
     tn("palm:trunk", "palm:trunk", "palm:sapling")
     fn("palm:leaves")
     fn("palm:coconut")
 end
+
 if minetest.get_modpath("redtrees") then
     tn("redtrees:rtree", "redtrees:rtree", "redtrees:rsapling")
     fn("redtrees:rleaves")
 end
+
 if minetest.get_modpath("sakuragi") then
     tn("sakuragi:stree", "sakuragi:stree", "sakuragi:ssapling")
     fn("sakuragi:sleaves")
