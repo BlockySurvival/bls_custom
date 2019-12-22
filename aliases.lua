@@ -53,7 +53,21 @@ end
 
 if minetest.get_modpath("cucina_vegana") then
     minetest.register_alias_force("cucina_vegana:flax_raw", "cucina_vegana:flax")
-    minetest.register_alias_force("farming:bowl", "cucina_vegana:bowl")
+    if minetest.get_modpath("farming") then
+        minetest.register_alias_force("farming:bowl", "cucina_vegana:bowl")
+
+        minetest.register_alias_force("farming:rice", "cucina_vegana:rice")
+        minetest.register_alias_force("farming:seed_rice", "cucina_vegana:rice_seed")
+        minetest.register_alias_force("cucina_vegana:rice_flour", "farming:rice_flour")
+        minetest.register_alias_force("farming:rice_1", "cucina_vegana:rice_1")
+        minetest.register_alias_force("farming:rice_2", "cucina_vegana:rice_2")
+        minetest.register_alias_force("farming:rice_3", "cucina_vegana:rice_3")
+        minetest.register_alias_force("farming:rice_4", "cucina_vegana:rice_4")
+        minetest.register_alias_force("farming:rice_5", "cucina_vegana:rice_5")
+        minetest.register_alias_force("farming:rice_6", "cucina_vegana:rice_6")
+        minetest.register_alias_force("farming:rice_7", "cucina_vegana:rice_6")
+        minetest.register_alias_force("farming:rice_8", "cucina_vegana:rice_6")
+    end
 end
 
 if minetest.get_modpath("farming") then
