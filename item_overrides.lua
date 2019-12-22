@@ -140,6 +140,7 @@ end
 if minetest.get_modpath("extra") then
     add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
     add_groups("extra:fish_sticks", "food_fish")
+    add_groups("extra:marinara", "food_tomato_sauce")
 end
 
 if minetest.get_modpath("farming") and farming.mod == "redo" then
