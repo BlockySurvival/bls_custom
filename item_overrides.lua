@@ -7,7 +7,7 @@ local function add_groups(itemstring, ...)
         bls.log("warning", "trying to add groups to unknown item %q", itemstring)
     end
     local groups = table.copy(def.groups)
-    for _, group in ipairs({...}) do
+    for _, group in ipairs({ ... }) do
         local g, v = group:match("^([^=]+)=([^=]+)$")
         if g and v then
             group = g
@@ -17,7 +17,19 @@ local function add_groups(itemstring, ...)
         end
         groups[group] = v
     end
-    minetest.override_item(itemstring, {groups=groups})
+    minetest.override_item(itemstring, { groups = groups })
+end
+
+local function remove_groups(itemstring, ...)
+    local def = minetest.registered_items[itemstring]
+    if not def then
+        bls.log("warning", "trying to remove groups from unknown item %q", itemstring)
+    end
+    local groups = table.copy(def.groups)
+    for _, group in ipairs({ ... }) do
+        groups[group] = nil
+    end
+    minetest.override_item(itemstring, { groups = groups })
 end
 
 if minetest.get_modpath("caverealms") then
@@ -26,29 +38,17 @@ if minetest.get_modpath("caverealms") then
     add_groups("caverealms:hanging_thin_ice", "cracky", "slippery=5")
 end
 
-if minetest.get_modpath("cucina_vegana") then
-    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_meat"].groups)
-    groups.food_meat = nil
-    groups.food_meat_raw = 1
-    minetest.override_item("cucina_vegana:imitation_meat", {groups=groups})
-
-    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_poultry"].groups)
-    groups.food_meat = nil
-    groups.food_meat_raw = 1
-    minetest.override_item("cucina_vegana:imitation_poultry", {groups=groups})
-end
-
 if minetest.get_modpath("cottages") then
     add_groups("cottages:rope", "vines")
 
     -- ANVIL STUFF --
     local anvil_whitelist = {}
-    for _, tool in ipairs({"pick", "shovel", "axe", "sword", "hoe"}) do
-        for _, material in ipairs({"bronze", "steel"}) do
+    for _, tool in ipairs({ "pick", "shovel", "axe", "sword", "hoe" }) do
+        for _, material in ipairs({ "bronze", "steel" }) do
             anvil_whitelist[("default:%s_%s"):format(tool, material)] = 1
         end
 
-        for _, material in ipairs({"silver", "mithril"}) do
+        for _, material in ipairs({ "silver", "mithril" }) do
             anvil_whitelist[("moreores:%s_%s"):format(tool, material)] = 1
         end
 
@@ -56,12 +56,12 @@ if minetest.get_modpath("cottages") then
         anvil_whitelist[("goldtools:gold%s"):format(tool)] = 1
     end
 
-    for _, tool in ipairs({"boots", "chestplate", "helmet", "leggings"}) do
-        for _, material in ipairs({"bronze", "steel", "gold", "mithril"}) do
+    for _, tool in ipairs({ "boots", "chestplate", "helmet", "leggings" }) do
+        for _, material in ipairs({ "bronze", "steel", "gold", "mithril" }) do
             anvil_whitelist[("3d_armor:%s_%s"):format(tool, material)] = 1
         end
     end
-    for _, material in ipairs({"bronze", "steel", "gold", "mithril"}) do
+    for _, material in ipairs({ "bronze", "steel", "gold", "mithril" }) do
         anvil_whitelist[("sheilds:shield_%s"):format(material)] = 1
     end
 
@@ -76,7 +76,7 @@ if minetest.get_modpath("cottages") then
     minetest.override_item("cottages:anvil", {
         on_punch = function(pos, node, puncher)
             local meta = minetest.get_meta(pos);
-            local inv  = meta:get_inventory();
+            local inv = meta:get_inventory();
             local input = inv:get_stack("input", 1);
             if anvil_whitelist[input:get_name()] then
                 return anvil_on_punch_orig(pos, node, puncher)
@@ -93,26 +93,43 @@ if minetest.get_modpath("cottages") then
     })
 end
 
+if minetest.get_modpath("cucina_vegana") then
+    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_meat"].groups)
+    groups.food_meat = nil
+    groups.food_meat_raw = 1
+    minetest.override_item("cucina_vegana:imitation_meat", { groups = groups })
+
+    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_poultry"].groups)
+    groups.food_meat = nil
+    groups.food_meat_raw = 1
+    minetest.override_item("cucina_vegana:imitation_poultry", { groups = groups })
+
+    remove_groups("cucina_vegana:bowl_rice", "food_rice")
+    add_groups("cucina_vegana:rice", "food_rice_raw")
+    add_groups("cucina_vegana:bowl_rice_cooked", "food_rice")
+
+end
+
 if minetest.get_modpath("default") and minetest.get_modpath("mobs_snowman") then
     minetest.override_item("default:snow", {
-        on_use = function (item, player, pointed_thing)
+        on_use = function(item, player, pointed_thing)
             local playerpos = player:get_pos()
-            minetest.sound_play("hook_throw", {pos=playerpos, gain = 1.0, max_hear_distance = 5})
-            local obj = minetest.add_entity({x=playerpos.x, y=playerpos.y+1.5, z=playerpos.z}, "mobs_snowman:snowball")
+            minetest.sound_play("hook_throw", { pos = playerpos, gain = 1.0, max_hear_distance = 5 })
+            local obj = minetest.add_entity({ x = playerpos.x, y = playerpos.y + 1.5, z = playerpos.z }, "mobs_snowman:snowball")
             local ent = obj:get_luaentity()
             local dir = player:get_look_dir()
             ent.velocity = 19
             ent.switch = 1
             ent.thrower = player:get_player_name()
             obj:setvelocity({
-                    x = dir.x * 19,
-                    y = dir.y * 19,
-                    z = dir.z * 19
+                x = dir.x * 19,
+                y = dir.y * 19,
+                z = dir.z * 19
             })
             obj:setacceleration({
-                    x = dir.x * -3,
-                    y = -9,
-                    z = dir.z * -3
+                x = dir.x * -3,
+                y = -9,
+                z = dir.z * -3
             })
             item:take_item()
             return item
@@ -175,10 +192,37 @@ end
 
 if minetest.global_exists("xdecor") then
     minetest.override_item("xdecor:mailbox", {
-        description="Mailbox (xdecor)",
+        description = "Mailbox (xdecor)",
     })
 
     add_groups("xdecor:rope", "vines")
+
+    minetest.override_item("xdecor:cauldron_soup", {
+        on_rightclick = function(pos, node, clicker, itemstack)
+            local inv = clicker:get_inventory()
+            local wield_item = clicker:get_wielded_item()
+            local item_name = wield_item:get_name()
+
+            if minetest.get_item_group(item_name, "food_bowl") > 0 then
+                if wield_item:get_count() > 1 then
+                    if inv:room_for_item("main", "xdecor:bowl_soup 1") then
+                        itemstack:take_item()
+                        inv:add_item("main", "xdecor:bowl_soup 1")
+                    else
+                        minetest.chat_send_player(clicker:get_player_name(),
+                                "No room in your inventory to add a bowl of soup.")
+                        return itemstack
+                    end
+                else
+                    itemstack:replace("xdecor:bowl_soup 1")
+                end
+
+                minetest.set_node(pos, { name = "xdecor:cauldron_empty", param2 = node.param2 })
+            end
+
+            return itemstack
+        end
+    })
 end
 
 if minetest.get_modpath("youngtrees") then
@@ -186,8 +230,8 @@ if minetest.get_modpath("youngtrees") then
         drop = {
             max_items = 1,
             items = {
-                {rarity = 2, items = {"youngtrees:bamboo"}},
-                {rarity = 2, items = {"default:stick"}},
+                { rarity = 2, items = { "youngtrees:bamboo" } },
+                { rarity = 2, items = { "default:stick" } },
             }
         }
     })
@@ -195,8 +239,8 @@ if minetest.get_modpath("youngtrees") then
         drop = {
             max_items = 1,
             items = {
-                {rarity = 2, items = {"youngtrees:youngtree2_middle"}},
-                {rarity = 2, items = {"default:stick"}},
+                { rarity = 2, items = { "youngtrees:youngtree2_middle" } },
+                { rarity = 2, items = { "default:stick" } },
             }
         }
     })
@@ -204,8 +248,8 @@ if minetest.get_modpath("youngtrees") then
         drop = {
             max_items = 1,
             items = {
-                {rarity = 2, items = {"youngtrees:youngtree_top"}},
-                {rarity = 2, items = {"default:stick"}},
+                { rarity = 2, items = { "youngtrees:youngtree_top" } },
+                { rarity = 2, items = { "default:stick" } },
             }
         }
     })
@@ -213,8 +257,8 @@ if minetest.get_modpath("youngtrees") then
         drop = {
             max_items = 1,
             items = {
-                {rarity = 2, items = {"youngtrees:youngtree_middle"}},
-                {rarity = 2, items = {"default:stick"}},
+                { rarity = 2, items = { "youngtrees:youngtree_middle" } },
+                { rarity = 2, items = { "default:stick" } },
             }
         }
     })
@@ -222,8 +266,8 @@ if minetest.get_modpath("youngtrees") then
         drop = {
             max_items = 1,
             items = {
-                {rarity = 2, items = {"youngtrees:youngtree_bottom"}},
-                {rarity = 2, items = {"default:stick"}},
+                { rarity = 2, items = { "youngtrees:youngtree_bottom" } },
+                { rarity = 2, items = { "default:stick" } },
             }
         }
     })

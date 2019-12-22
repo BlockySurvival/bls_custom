@@ -91,7 +91,7 @@ if minetest.get_modpath("farming") then
     gr({input="farming:seed_barley", output="farming:flour_multigrain"})
     gr({input="farming:seed_oat", output="farming:flour_multigrain"})
     gr({input="farming:seed_rye", output="farming:flour_multigrain"})
-    gr({input="group:food_rice", output="farming:rice_flour"})
+    gr({input="group:food_rice_raw", output="farming:rice_flour"})
 end
 
 if minetest.get_modpath("jacaranda") then

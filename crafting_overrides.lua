@@ -286,16 +286,25 @@ if minetest.get_modpath("cucina_vegana") then
         }
     })
 
+    -- soy
     minetest.register_craft({
-        output = "cucina_vegana:sunflower_seed 4",
+        output = "cucina_vegana:soy_seed 3",
         type = "shapeless",
-        recipe = {"cucina_vegana:sunflower_seeds"},
+        recipe = {"cucina_vegana:soy"}
     })
     minetest.register_craft({
-        output = "cucina_vegana:sunflower_seeds",
+        output = "cucina_vegana:soy",
         type = "shapeless",
-        recipe = {"cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed"},
+        recipe = {"cucina_vegana:soy_seed", "cucina_vegana:soy_seed", "cucina_vegana:soy_seed"}
     })
+
+    -- rice
+    minetest.clear_craft({output="cucina_vegana:rice"})
+    minetest.clear_craft({output="cucina_vegana:rice_seed"})
+    minetest.clear_craft({output="cucina_vegana:rice_flour"})
+    minetest.clear_craft({output="farming:rice"})
+    minetest.clear_craft({output="farming:seed_rice"})
+    minetest.clear_craft({output="farming:rice_flour"})
 
     minetest.register_craft({
         output = "cucina_vegana:rice_seed",
@@ -307,16 +316,59 @@ if minetest.get_modpath("cucina_vegana") then
         type = "shapeless",
         recipe = {"cucina_vegana:rice_seed"},
     })
-
     minetest.register_craft({
-        output = "cucina_vegana:soy_seed 3",
+        output = "farming:rice_flour",
         type = "shapeless",
-        recipe = {"cucina_vegana:soy"}
+        recipe = {
+            "group:food_rice_raw",
+            "group:food_rice_raw",
+            "group:food_rice_raw",
+            "group:food_rice_raw",
+            "farming:mortar_pestle",
+        },
+        replacements = {
+            {"farming:mortar_pestle", "farming:mortar_pestle"}
+        }
+    })
+
+    -- sunflower
+    minetest.register_craft({
+        output = "cucina_vegana:sunflower_seed 4",
+        type = "shapeless",
+        recipe = {"cucina_vegana:sunflower_seeds"},
     })
     minetest.register_craft({
-        output = "cucina_vegana:soy",
+        output = "cucina_vegana:sunflower_seeds",
         type = "shapeless",
-        recipe = {"cucina_vegana:soy_seed", "cucina_vegana:soy_seed", "cucina_vegana:soy_seed"}
+        recipe = {"cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed", "cucina_vegana:sunflower_seed"},
+    })
+
+    minetest.clear_craft({output="cucina_vegana:sunflower_seeds_flour"})
+    minetest.register_craft({
+        output = "cucina_vegana:sunflower_seeds_flour",
+        type = "shapeless",
+        recipe = {
+            "cucina_vegana:sunflower_seeds",
+            "cucina_vegana:sunflower_seeds",
+            "cucina_vegana:sunflower_seeds",
+            "cucina_vegana:sunflower_seeds",
+            "farming:mortar_pestle",
+        },
+        replacements = {
+            {"farming:mortar_pestle", "farming:mortar_pestle"}
+        }
+    })
+
+    -- sushi
+    minetest.clear_craft({output = "cucina_vegana:vegan_sushi"})
+    minetest.register_craft({
+        output = "cucina_vegana:vegan_sushi",
+        type = "shapeless",
+        recipe = {
+            "group:food_fish",
+            "group:food_rice",
+            "default:sand_with_kelp"
+        }
     })
 end
 
