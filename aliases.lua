@@ -124,11 +124,11 @@ if minetest.get_modpath("terumet") then
 
     if minetest.get_modpath("bonemeal") then
         minetest.clear_craft({output="bonemeal:mulch"})
-        minetest.register_alias_force("bonemeal:mulch", "terumet:item_dust_wood")
+        minetest.register_alias_force("bonemeal:mulch", "bbq:sawdust")
     end
     if minetest.get_modpath("bbq") then
         minetest.clear_craft({output="bbq:sawdust"})
-        minetest.register_alias_force("bbq:sawdust", "terumet:item_dust_wood")
+        minetest.register_alias_force("terumet:item_dust_wood", "bbq:sawdust")
     end
 end
 
