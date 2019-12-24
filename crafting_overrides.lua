@@ -33,16 +33,6 @@ if minetest.get_modpath("basic_materials") then
             }
         })
 
-        minetest.clear_craft({output="basic_materials:steel_bar"})
-        minetest.register_craft({
-            output="basic_materials:steel_bar 6",
-            recipe={
-                {"", "", "technic:cast_iron_ingot"},
-                {"", "technic:cast_iron_ingot", ""},
-                {"technic:cast_iron_ingot", "", ""},
-            }
-        })
-
         minetest.clear_craft({output="basic_materials:steel_strip"})
         minetest.register_craft({
             output="basic_materials:steel_strip 12",
