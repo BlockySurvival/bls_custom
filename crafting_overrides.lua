@@ -723,6 +723,33 @@ if minetest.get_modpath("ropes") and minetest.get_modpath("default") and minetes
     })
 end
 
+if minetest.get_modpath("scifi_nodes") then
+    --[[
+
+    blackpipe
+    blackvent
+    blackvnt
+    scifi node builder (probably not)
+    crate
+    doom engine wall
+    doom wall 4
+    engine
+    green wall panel
+
+    metal with holes
+    junk
+    teleporter (probably not)
+    umbrella weed
+    prickly plant
+    wall monitor
+    blocks labeled slopes (we have saw)
+
+    dirty metal block
+    wind tower
+
+    ]]--
+end
+
 if minetest.get_modpath("soundblocks") then
     minetest.clear_craft({output="soundblocks:ironbellitem"})
     minetest.register_craft({

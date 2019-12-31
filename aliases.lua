@@ -137,6 +137,9 @@ if minetest.get_modpath("titanium") then
     minetest.register_alias_force("titanium:light", "air")
 end
 
+if minetest.get_modpath("trunks") then
+    minetest.register_alias_force("trunks:twig_1", "default:stick")
+end
 
 if not minetest.get_modpath("walking_light") then
     minetest.register_alias_force("walking_light:light", "air")
@@ -145,8 +148,4 @@ end
 if minetest.get_modpath("xdecor") and minetest.get_modpath("farming")then
     -- we only want one bowl
     minetest.register_alias_force("xdecor:bowl", "cucina_vegana:bowl")
-end
-
-if minetest.get_modpath("trunks") then
-    minetest.register_alias_force("trunks:twig_1", "default:stick")
 end
