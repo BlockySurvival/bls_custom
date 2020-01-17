@@ -262,7 +262,7 @@ minetest.register_lbm({
         local src = node.name
         local target = target_by_source[src]
         if not target then
-            bls.log("error", "no target for src %q at node %q", src, node.name)
+            bls.log("error", "no target for src %q (node %q) @ %s", src, node.name, spos)
             return
         end
         local tgt, rot = unpack(target)
