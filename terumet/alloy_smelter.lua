@@ -1,11 +1,14 @@
 if not minetest.global_exists("terumet") then return end
 
+--[[
+-- can't use this right now, cuz it interferes w/ the recipe for jump bracer cores
 terumet.register_alloy_recipe({
     result="terumet:item_thermese",
     input={"terumet:item_cryst_mese"},
     time=6,
     flux=4,
 })
+]]--
 
 terumet.register_alloy_recipe({
     result="terumet:block_thermese",
