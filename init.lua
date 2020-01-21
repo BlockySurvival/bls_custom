@@ -31,6 +31,7 @@ dofile(bls.modpath .. "/commands/punishments.lua")
 
 dofile(bls.modpath .. "/fix_dead_on_login.lua")
 dofile(bls.modpath .. "/flowers.lua")
+dofile(bls.modpath .. "/kelp_spread.lua")
 dofile(bls.modpath .. "/lava.lua")
 dofile(bls.modpath .. "/login_handling.lua")
 dofile(bls.modpath .. "/mesecon/mvps_stoppers.lua")
