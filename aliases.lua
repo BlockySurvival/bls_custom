@@ -47,15 +47,15 @@ end
 if minetest.get_modpath("bbq") then
     if minetest.get_modpath("extra") then
         minetest.clear_craft({output = "bbq:tomato_sauce"})
-        minetest.register_alias_force("bbq:tomato_sauce", "extra:marinara")
+        minetest.register_alias_force("extra:marinara", "bbq:tomato_sauce")
     end
-    if minetest.get_modpath("cucina_vegana") then
+    if minetest.get_modpath("farming") and farming.mod == "redo" then
         minetest.clear_craft({output="bbq:sugar"})
         minetest.register_alias_force("bbq:sugar", "farming:sugar")
-        minetest.register_alias_force("bbq:molasses", "cucina_vegana:molasses")
     end
-
-
+    if minetest.get_modpath("cucina_vegana") then
+        minetest.register_alias_force("cucina_vegana:molasses", "bbq:molasses")
+    end
 end
 
 if minetest.get_modpath("cucina_vegana") then
