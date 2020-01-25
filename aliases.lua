@@ -1,6 +1,6 @@
 
 
--- deal with items that have now been moved into this mod
+-- FIRST deal with items that have now been moved into this mod
 minetest.register_alias_force("core:honey_bottle", "bls:honey_bottle")
 minetest.register_alias_force("main:honey_bottle", "bls:honey_bottle")
 minetest.register_alias_force("core:fake_stone", "bls:fake_stone")
@@ -33,6 +33,7 @@ minetest.register_alias_force("bls_overrides:door_steel_protected_b", "bls:door_
 minetest.register_alias_force("bls_admin_flair:shield_bls", "bls:shield_bls")
 minetest.register_alias_force("bls_admin_flair:shield_staff", "bls:shield_staff")
 
+-------------------------------------------------------------------------------
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
 -- ORGANIZE LOGIC BY THE SOURCE ITEM
 
@@ -51,7 +52,7 @@ if minetest.get_modpath("bbq") then
     end
     if minetest.get_modpath("farming") and farming.mod == "redo" then
         minetest.clear_craft({output="bbq:sugar"})
-        minetest.register_alias_force("bbq:sugar", "farming:sugar")
+        minetest.register_alias_force("farming:sugar", "bbq:sugar")
     end
     if minetest.get_modpath("cucina_vegana") then
         minetest.register_alias_force("cucina_vegana:molasses", "bbq:molasses")
