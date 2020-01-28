@@ -148,16 +148,6 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
 end
 
 if minetest.global_exists("maptools") then
-    -- Temporarily disable pushers because rats in the trampoline
-    for pusher_num = 1, 10 do
-        minetest.override_item("maptools:pusher_" .. pusher_num, {
-            groups = {
-                unbreakable = 1,
-                not_in_creative_inventory = maptools.creative,
-            },
-        })
-    end
-
     -- Prevent super apples from being placed.
     minetest.override_item("maptools:superapple", {
         on_place = function(itemstack, placer, pointed_thing)
