@@ -646,6 +646,18 @@ if minetest.get_modpath("moreores") then
     minetest.register_craft({type="cooking", recipe="moreores:mineral_silver", output="moreores:silver_ingot", })
 end
 
+if minetest.get_modpath("my_castle_doors") then
+    minetest.clear_craft({output="my_castle_doors:door11"})
+    minetest.register_craft({
+        output="my_castle_doors:door11",
+        recipe={
+            {"my_door_wood:wood_brown", "default:steel_ingot"},
+            {"my_door_wood:wood_brown", "my_door_wood:wood_dark_grey"},
+            {"my_door_wood:wood_brown", "my_door_wood:wood_brown"},
+        }
+    })
+end
+
 if minetest.get_modpath("nether") then
     minetest.register_craft({type="cooking", recipe="nether:sulfur_ore", output="technic:sulfur_lump", })
     minetest.register_craft({type="cooking", recipe="nether:titanium_ore", output="titanium:titanium", })
