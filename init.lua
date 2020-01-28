@@ -30,6 +30,7 @@ dofile(bls.modpath .. "/commands/other.lua")
 dofile(bls.modpath .. "/commands/punishments.lua")
 
 dofile(bls.modpath .. "/fix_dead_on_login.lua")
+dofile(bls.modpath .. "/fix_paper_posters.lua")
 dofile(bls.modpath .. "/flowers.lua")
 dofile(bls.modpath .. "/kelp_spread.lua")
 dofile(bls.modpath .. "/lava.lua")
