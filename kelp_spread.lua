@@ -169,6 +169,12 @@ minetest.register_abm({
     interval = 53,
     chance = 100,
     action = function(pos, node, active_object_count, active_object_count_wider)
-        minetest.set_node(pos, {name = "default:water_source"})
+        if pos.y > 1 then return end
+        local pos0 = vector.subtract(pos, 1)
+        local pos1 = vector.add(pos, 1)
+        local num_water = #minetest.find_nodes_in_area(pos0, pos1, {"default:water_source"})
+        if num_water > 0 then
+            minetest.set_node(pos, {name = "default:water_source"})
+        end
     end,
 })
