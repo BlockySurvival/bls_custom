@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run luacheck
-        uses: Roang-zero1/factorio-mod-luacheck@master
-        with:
-          luacheckrc_url: https://raw.githubusercontent.com/BlockySurvival/bls_custom/master/.luacheck
+      uses: Roang-zero1/factorio-mod-luacheck@master
+      with:
+        luacheckrc_url: https://raw.githubusercontent.com/BlockySurvival/bls_custom/master/.luacheck
