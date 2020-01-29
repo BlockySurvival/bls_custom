@@ -6,7 +6,7 @@ if minetest.global_exists("tnt") then
         --  useless instead.
         if def and def.disable_entity_effects then
             local f = minetest.get_objects_inside_radius
-            minetest.get_objects_inside_radius = function(pos, radius)
+            minetest.get_objects_inside_radius = function()
                 return {}
             end
             local res = old_boom(pos, def, ...)

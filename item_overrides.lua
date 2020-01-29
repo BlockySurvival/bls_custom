@@ -99,10 +99,10 @@ if minetest.get_modpath("cucina_vegana") then
     groups.food_meat_raw = 1
     minetest.override_item("cucina_vegana:imitation_meat", { groups = groups })
 
-    local groups = table.copy(minetest.registered_items["cucina_vegana:imitation_poultry"].groups)
-    groups.food_meat = nil
-    groups.food_meat_raw = 1
-    minetest.override_item("cucina_vegana:imitation_poultry", { groups = groups })
+    local groups2 = table.copy(minetest.registered_items["cucina_vegana:imitation_poultry"].groups)
+    groups2.food_meat = nil
+    groups2.food_meat_raw = 1
+    minetest.override_item("cucina_vegana:imitation_poultry", { groups = groups2 })
 
     remove_groups("cucina_vegana:bowl_rice", "food_rice")
     add_groups("cucina_vegana:rice", "food_rice_raw")

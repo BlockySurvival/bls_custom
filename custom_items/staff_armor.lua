@@ -33,8 +33,8 @@ if minetest.global_exists("armor") then
             return
         end
         for _, stack in pairs(armor_inv:get_list("armor")) do
-            local name = stack:get_name()
-            if admin_armor_list[name] then
+            local stack_name = stack:get_name()
+            if admin_armor_list[stack_name] then
                 return
             end
         end
