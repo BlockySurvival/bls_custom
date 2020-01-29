@@ -1,13 +1,13 @@
-name: CI
+name: run luacheck
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Run luacheck
-      run: luacheck --config .luacheck  -r .
+        uses: Roang-zero1/factorio-mod-luacheck@master
+        with:
+          luacheckrc_url: https://raw.githubusercontent.com/Panquesito7/cloud_items/master/.luacheckrc
