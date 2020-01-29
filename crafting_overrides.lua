@@ -736,6 +736,7 @@ if minetest.get_modpath("ropes") and minetest.get_modpath("default") and minetes
 end
 
 if minetest.get_modpath("scifi_nodes") then
+    bls.log("debug", "TODO")
     --[[
 
     blackpipe

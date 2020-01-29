@@ -33,7 +33,7 @@ if minetest.global_exists("doors") and doors.door_toggle then
                 meta:set_string("key_lock_secret", secret)
             end
 
-            return secret, "a protected door", owner
+            return secret, "a protected door", pname
         end,
     }
 

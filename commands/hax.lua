@@ -105,7 +105,7 @@ local function find_invs(name, pos1, pos2, tell)
     local poss = {}
     local area = (pos2.x - pos1.x) * (pos2.y - pos1.y) * (pos2.z - pos1.z)
     if area > (128*64*64) then
-        minetest.chat_send_player(tell, ("skipping "%s"; it is too large"):format(name));
+        minetest.chat_send_player(tell, ("skipping %q; it is too large"):format(name));
         return poss
     end
     for x = pos1.x, pos2.x do
