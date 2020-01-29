@@ -1,12 +1,12 @@
 name: run luacheck
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  luacheck:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - name: Run luacheck
       uses: Roang-zero1/factorio-mod-luacheck@master
       with:
