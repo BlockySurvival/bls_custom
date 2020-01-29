@@ -181,6 +181,10 @@ if minetest.get_modpath("moreblocks") then
     add_groups("moreblocks:rope", "vines")
 end
 
+if minetest.get_modpath("scifi_nodes:pot") then
+    remove_groups("scifi_nodes:pot", "sand")
+end
+
 if minetest.global_exists("xdecor") then
     minetest.override_item("xdecor:mailbox", {
         description = "Mailbox (xdecor)",
