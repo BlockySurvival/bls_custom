@@ -1,4 +1,5 @@
 unused_args = false
+allow_defined_top = true
 max_line_length = 999
 
 globals = {
@@ -28,4 +29,9 @@ globals = {
     "tubelib_addons1",
     "vector",
     "xdecor",
+}
+
+read_globals = {
+    string = {fields = {"split", "trim"}},
+    table = {fields = {"copy", "getn"}},
 }

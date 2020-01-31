@@ -1,4 +1,4 @@
-name: run luacheck
+name: luacheck
 
 on: [push, pull_request]
 
@@ -10,4 +10,4 @@ jobs:
     - name: Run luacheck
       uses: Roang-zero1/factorio-mod-luacheck@master
       with:
-        luacheckrc_url: https://raw.githubusercontent.com/BlockySurvival/bls_custom/master/.luacheck
+        luacheckrc_url: https://raw.githubusercontent.com/BlockySurvival/bls_custom/master/.luacheckrc
