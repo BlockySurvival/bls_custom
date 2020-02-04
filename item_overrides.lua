@@ -32,6 +32,11 @@ local function remove_groups(itemstring, ...)
     minetest.override_item(itemstring, { groups = groups })
 end
 
+if minetest.get_modpath("bucket") then
+    add_groups("bucket:bucket_water", "water_bucket")
+    add_groups("bucket:bucket_river_water", "water_bucket")
+end
+
 if minetest.get_modpath("caverealms") then
     -- make thin ice slippery
     add_groups("caverealms:thin_ice", "cracky", "slippery=5")
