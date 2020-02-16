@@ -672,6 +672,17 @@ if minetest.get_modpath("my_castle_doors") then
     })
 end
 
+if minetest.get_modpath("my_garage_door") then
+    minetest.register_craft({
+        output="my_garage_door:garage_door",
+        recipe={
+            {"my_door_wood:wood_white", "my_door_wood:wood_white", "my_door_wood:wood_white"},
+            {"my_door_wood:wood_white", "my_door_wood:wood_white", "my_door_wood:wood_white"},
+            {"my_door_wood:wood_white", "my_door_wood:wood_white", "my_door_wood:wood_white"},
+        }
+    })
+end
+
 if minetest.get_modpath("nether") then
     minetest.register_craft({type="cooking", recipe="nether:sulfur_ore", output="technic:sulfur_lump", })
     minetest.register_craft({type="cooking", recipe="nether:titanium_ore", output="titanium:titanium", })
