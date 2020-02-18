@@ -23,8 +23,14 @@ if minetest.get_modpath("clementinetree") then
 end
 
 if minetest.get_modpath("dye") then
-    gr({input="group:coal", output="dye:black 8"})
-    gr({input="group:horsetail", output="dye:green 2"})
+    --gr({input="group:coal", output="dye:black 8"})
+    gr({input="default:coal_lump", output="dye:black 8"})
+    gr({input="terumet:item_coke", output="dye:black 8"})
+    --gr({input="group:horsetail", output="dye:green 2"})
+    gr({input="ferns:horsetail_01", output="dye:green 2"})
+    gr({input="ferns:horsetail_02", output="dye:green 2"})
+    gr({input="ferns:horsetail_03", output="dye:green 2"})
+    gr({input="ferns:horsetail_04", output="dye:green 2"})
 
     gr({input="default:dry_shrub", output="dye:brown 8"})
     gr({input="default:cactus", output="dye:green 8"})
@@ -46,7 +52,8 @@ if minetest.get_modpath("dye") then
         gr({input="farming:beans", output="dye:green 2"})
         gr({input="farming:chili_pepper", output="dye:red 2"})
         gr({input="farming:beetroot", output="dye:red 2"})
-        gr({input="group:food_blueberries", output="dye:violet 4"})
+        --gr({input="group:food_blueberries", output="dye:violet 4"})
+        gr({input="farming:blueberries", output="dye:violet 4"})
         gr({input="farming:grapes", output="dye:violet 2"})
         gr({input="farming:carrot", output="dye:orange 2"})
         gr({input="farming:onion", output="dye:yellow 2"})
@@ -91,7 +98,8 @@ if minetest.get_modpath("farming") then
     gr({input="farming:seed_barley", output="farming:flour_multigrain"})
     gr({input="farming:seed_oat", output="farming:flour_multigrain"})
     gr({input="farming:seed_rye", output="farming:flour_multigrain"})
-    gr({input="group:food_rice_raw", output="farming:rice_flour"})
+    --gr({input="group:food_rice_raw", output="farming:rice_flour"})
+    gr({input="cucina_vegana:rice", output="farming:rice_flour"})
 end
 
 if minetest.get_modpath("jacaranda") then
