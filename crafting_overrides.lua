@@ -1220,8 +1220,8 @@ if minetest.get_modpath("xdecor") then
     minetest.register_craft({
         output = "xdecor:pressure_wood_off",
         recipe = {
-            {"group:wood", "", "group:wood"},
-            {"",           "", ""},
+            {"group:wood", "", ""},
+            {"group:wood", "", ""},
             {"",           "", ""},
         },
     })
