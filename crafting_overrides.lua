@@ -627,6 +627,46 @@ if minetest.get_modpath("itemframes") and minetest.get_modpath("wool") and minet
     })
 end
 
+
+if minetest.get_modpath("mesecons_pressureplates") and minetest.get_modpath("xdecor") then
+    -- avoid conflict with xdecor pressure plate
+    minetest.clear_craft({output="mesecons_pressureplates:pressure_plate_stone_off"})
+    minetest.register_craft({
+        output = "mesecons_pressureplates:pressure_plate_stone_off",
+        recipe = {
+            {"group:stone", "mesecons:wire_00000000_off", "group:stone"},
+        },
+    })
+    minetest.register_craft({
+        output = "mesecons_pressureplates:pressure_plate_stone_off",
+        type = "shapeless",
+        recipe = {"xdecor:pressure_stone_off", "mesecons:wire_00000000_off"},
+    })
+    minetest.register_craft({
+        output = "xdecor:pressure_stone_off",
+        type = "shapeless",
+        recipe = {"mesecons_pressureplates:pressure_plate_stone_off"},
+    })
+    -- avoid conflict with mesecon pressure plate
+    minetest.clear_craft({output="mesecons_pressureplates:pressure_plate_wood_off"})
+    minetest.register_craft({
+        output = "mesecons_pressureplates:pressure_plate_wood_off",
+        recipe = {
+            {"group:wood", "mesecons:wire_00000000_off", "group:wood"},
+        },
+    })
+    minetest.register_craft({
+        output = "xdecor:pressure_wood_off",
+        type = "shapeless",
+        recipe = {"mesecons_pressureplates:pressure_plate_wood_off"},
+    })
+    minetest.register_craft({
+        output = "mesecons_pressureplates:pressure_plate_wood_off",
+        type = "shapeless",
+        recipe = {"xdecor:pressure_wood_off", "mesecons:wire_00000000_off"},
+    })
+end
+
 if minetest.get_modpath("mobs") and mobs.mod == "redo" then
     minetest.clear_craft({output="mobs:lasso"})
     minetest.register_craft({
@@ -719,9 +759,8 @@ if minetest.get_modpath("quartz") then
 
     minetest.clear_craft({
         recipe={
-                {"quartz:quartz_crystal", "quartz:quartz_crystal", ""},
-                {"quartz:quartz_crystal", "quartz:quartz_crystal", ""},
-                {"", "", ""}
+                {"quartz:quartz_crystal", "quartz:quartz_crystal"},
+                {"quartz:quartz_crystal", "quartz:quartz_crystal"},
         }
 
     })
@@ -1205,27 +1244,6 @@ if minetest.get_modpath("wool") then
 end
 
 if minetest.get_modpath("xdecor") then
-    -- avoid conflict with mesecon pressure plate
-    minetest.clear_craft({output="xdecor:pressure_stone_off"})
-    minetest.register_craft({
-        output = "xdecor:pressure_stone_off",
-        recipe = {
-            {"group:stone", "", ""},
-            {"group:stone", "", ""},
-            {"",            "", ""},
-        },
-    })
-    -- avoid conflict with mesecon pressure plate
-    minetest.clear_craft({output="xdecor:pressure_wood_off"})
-    minetest.register_craft({
-        output = "xdecor:pressure_wood_off",
-        recipe = {
-            {"group:wood", "", ""},
-            {"group:wood", "", ""},
-            {"",           "", ""},
-        },
-    })
-
     if minetest.get_modpath("farming") then
         -- avoid conflict with farming tatami
         minetest.clear_craft({output="xdecor:tatami"})
@@ -1234,7 +1252,6 @@ if minetest.get_modpath("xdecor") then
             recipe = {
                 {"farming:wheat", "",              "farming:wheat"},
                 {"",              "farming:wheat", ""},
-                {"",              "",              ""},
             },
         })
     end
