@@ -667,6 +667,11 @@ if minetest.get_modpath("mesecons_pressureplates") and minetest.get_modpath("xde
     })
 end
 
+if minetest.get_modpath("missions") then
+    minetest.clear_craft({output="missions:wand"})
+    minetest.clear_craft({output="missions:mission"})
+end
+
 if minetest.get_modpath("mobs") and mobs.mod == "redo" then
     minetest.clear_craft({output="mobs:lasso"})
     minetest.register_craft({
