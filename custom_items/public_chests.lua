@@ -100,7 +100,9 @@ local function make_public_chest(name, description, craft_from, width, height)
     end
 
     minetest.register_node(name, def)
-    tubelib.register_node(name, {}, _TUBELIB_CALLBACKS)
+    if minetest.global_exists("tubelib") then
+        tubelib.register_node(name, {}, _TUBELIB_CALLBACKS)
+    end
 
     minetest.register_craft({
         output = name,
