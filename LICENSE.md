@@ -1,3 +1,5 @@
+# License of code
+
 Creative Commons Legal Code
 
 CC0 1.0 Universal
@@ -119,3 +121,35 @@ express Statement of Purpose.
  d. Affirmer understands and acknowledges that Creative Commons is not a
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
+
+# License of media
+
+BillyS (unknown, used with permission):
+ - doors_protector.png
+
+BlockMen modified by Zefram (CC BY-SA 3.0):
+ - corium.png
+
+EnthLojeek (unknown, used with permission):
+ - minegeld.png
+ - minegeld_5.png
+ - minegeld_10.png
+ - minegeld_20.png
+ - minegeld_50.png
+ - minegeld_100.png
+
+fluxionary (CC-0):
+ - bls_pchest.png
+
+RealBadAngel (CC-0):
+ - technic_stainless_steel_ingot.png
+
+xXAguraXx (unknown, used with permission):
+ - bls_admin_flair_shield_*.png
+ - bls_shield_*.png
+
+All other textures are of unknown origin and their origin should be found as
+soon as possible. If you think you know where one of these textures originated
+from, please [open an issue](https://github.com/BlockySurvival/bls_custom/issues/new).
+
+ CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0

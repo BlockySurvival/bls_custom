@@ -14,6 +14,7 @@ dofile(bls.modpath .. "/aliases.lua")
 dofile(bls.modpath .. "/crafting_overrides.lua")
 dofile(bls.modpath .. "/item_overrides.lua")
 
+dofile(bls.modpath .. "/custom_items/currency.lua")
 dofile(bls.modpath .. "/custom_items/doors.lua")
 dofile(bls.modpath .. "/custom_items/fake_atm.lua")
 dofile(bls.modpath .. "/custom_items/fake_nodes.lua")
@@ -56,7 +57,9 @@ dofile(bls.modpath .. "/tool_damage_alert.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 
 --
-dofile(bls.modpath .. "/microblocks_cleanup.lua")
+if minetest.global_exists("xdecor") then
+    dofile(bls.modpath .. "/microblocks_cleanup.lua")
+end
 
 -- last, because it overrides stuff in this mod even...
 dofile(bls.modpath .. "/hunger_overrides.lua")
