@@ -1269,3 +1269,23 @@ if minetest.get_modpath("xdecor") then
         })
     end
 end
+
+if minetest.get_modpath("xpanes") then
+    minetest.clear_craft({output="xpanes:door_steel_bar"})
+    minetest.register_craft({
+        output="xpanes:door_steel_bar",
+        recipe={
+            {"xpanes:bar_flat", "", "xpanes:bar_flat"},
+            {"xpanes:bar_flat", "", "xpanes:bar_flat"},
+            {"xpanes:bar_flat", "", "xpanes:bar_flat"},
+        }
+    })
+    minetest.clear_craft({output="xpanes:trapdoor_steel_bar"})
+    minetest.register_craft({
+        output="xpanes:trapdoor_steel_bar",
+        recipe={
+            {"xpanes:bar_flat", "", "xpanes:bar_flat"},
+            {"xpanes:bar_flat", "", "xpanes:bar_flat"},
+        }
+    })
+end
