@@ -37,3 +37,16 @@ end
 if minetest.get_modpath("titanium") then
     gn("titanium:titanium_in_ground", "titanium:titanium")
 end
+
+if minetest.get_modpath("terumet") then
+    -- Desert and dense ores give more lumps,
+    -- so we don't convert to lumps to not lose lumps.
+    gn("terumet:ore_raw", "terumet:lump_raw")
+    gn("terumet:ore_raw_desert") -- items(lump, 2)
+    gn("terumet:ore_dense_raw") -- items(lump, 5)
+    gn("terumet:ore_raw_desert_dense") -- items(lump, 8)
+end
+
+if minetest.get_modpath("bls") then
+    gn("bls:marble")
+end
