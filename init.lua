@@ -29,6 +29,7 @@ dofile(bls.modpath .. "/commands/antitroll.lua")
 dofile(bls.modpath .. "/commands/hax.lua")
 dofile(bls.modpath .. "/commands/other.lua")
 dofile(bls.modpath .. "/commands/punishments.lua")
+dofile(bls.modpath .. "/commands/rollback_check.lua")
 dofile(bls.modpath .. "/commands/snoop_cheats.lua")
 
 dofile(bls.modpath .. "/fix_dead_on_login.lua")
