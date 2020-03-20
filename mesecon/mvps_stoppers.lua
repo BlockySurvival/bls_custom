@@ -13,6 +13,9 @@ local patterns = {
     "terumet:mach_.*",
     "travelnet:.*",
     "tubelib.*:.*",
+    "default:coral_cyan",  -- weird double node w/ weird logic on break
+    "default:coral_green",  -- same
+    "default:coral_pink",  -- same
 }
 
 local function do_it()
