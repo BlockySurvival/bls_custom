@@ -108,6 +108,7 @@ minetest.register_abm({
 minetest.register_abm({
     label = "coral blobbing",
     nodenames = {"default:coral_green", "default:coral_cyan", "default:coral_pink"},
+    neighbors = {"default:water_source", "default:water_flowing"},
     interval = 49,
     chance = 40,
     action = function(pos, node, active_object_count, active_object_count_wider)
@@ -166,15 +167,10 @@ minetest.register_abm({
 minetest.register_abm({
     label = "coral skeleton erosion",
     nodenames = {"default:coral_skeleton"},
+    neighbors = {"default:water_source", "default:water_flowing"},
     interval = 53,
     chance = 100,
     action = function(pos, node, active_object_count, active_object_count_wider)
-        if pos.y > 1 then return end
-        local pos0 = vector.subtract(pos, 1)
-        local pos1 = vector.add(pos, 1)
-        local num_water = #minetest.find_nodes_in_area(pos0, pos1, {"default:water_source"})
-        if num_water > 0 then
-            minetest.set_node(pos, {name = "default:water_source"})
-        end
+        minetest.set_node(pos, {name = "default:water_source"})
     end,
 })
