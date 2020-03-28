@@ -1,5 +1,5 @@
 minetest.register_node(":maptools:clean_glass", {
-        description = S("Unbreakable Clean Glass"),
+        description = "Unbreakable Clean Glass",
         range = 12,
         stack_max = 10000,
         drawtype = "glasslike_framed_optional",

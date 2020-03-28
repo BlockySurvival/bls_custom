@@ -18,6 +18,7 @@ globals = {
     "irc",
     "irc2",
     "letters",
+    "maptools",
     "mesecon",
     "minetest",
     "mobs",
