@@ -6,6 +6,8 @@ armor:register_armor("bls:shield_bls", {
     description = "BlS Shield",
     inventory_image = "bls_inv_shield_bls.png",
     groups = {armor_shield=1000, armor_heal=100, armor_use=0, not_in_creative_inventory=1},
+    drop = {},
+    on_drop = function(itemstack, dropper, pos) end
 })
 
 armor:register_armor("bls:shield_staff", {
@@ -13,31 +15,86 @@ armor:register_armor("bls:shield_staff", {
     description = "BlS Shield",
     inventory_image = "bls_inv_shield_bls.png",
     groups = {armor_shield=0, armor_heal=0, armor_use=0, not_in_creative_inventory=1},
+    drop = {},
+    on_drop = function(itemstack, dropper, pos) end
 })
 
+local admin_armor_list = {
+    ["3d_armor:helmet_admin"]=true,
+    ["3d_armor:chestplate_admin"]=true,
+    ["3d_armor:leggings_admin"]=true,
+    ["3d_armor:boots_admin"]=true,
+    ["shields:shield_admin"]=true,
+    ["bls:shield_bls"]=true,
+}
+
 if minetest.global_exists("armor") then
-    -- don"t damage other armor if player is wearing admin armor
-    local admin_armor_list = {
-        ["3d_armor:helmet_admin"]=true,
-        ["3d_armor:chestplate_admin"]=true,
-        ["3d_armor:leggings_admin"]=true,
-        ["3d_armor:boots_admin"]=true,
-        ["shields:shield_admin"]=true,
-        ["bls:shield_bls"]=true,
-    }
-    local armor_punch = armor.punch
-    armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabilities)
-        -- when wearing admin armor, don"t damage other armor :\
-        local name, armor_inv = self:get_valid_player(player, "[punch]")
-        if not name then
-            return
+    local function is_wearing_admin_armor(player)
+        local name, armor_inv = armor:get_valid_player(player, "[bls_on_hpchange]]")
+        if not name or not armor_inv then
+            return false
         end
         for _, stack in pairs(armor_inv:get_list("armor")) do
             local stack_name = stack:get_name()
             if admin_armor_list[stack_name] then
-                return
+                return true
             end
         end
-        return armor_punch(self, player, hitter, time_from_last_punch, tool_capabilities)
+        return false
     end
+
+    -- prevent all damage if player is wearing admin armor
+    local old_registered_on_player_hpchange = minetest.registered_on_player_hpchange
+    function minetest.registered_on_player_hpchange(player, hp_change, reason)
+        if is_wearing_admin_armor(player) then
+            return 0
+        else
+            return old_registered_on_player_hpchange(player, hp_change, reason)
+        end
+    end
+
+    -- don't damage other armor if player is wearing admin armor
+    local old_armor_punch = armor.punch
+    armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabilities)
+        if is_wearing_admin_armor(player) then
+            return
+        else
+            return old_armor_punch(self, player, hitter, time_from_last_punch, tool_capabilities)
+        end
+    end
+
+    -- keep admin armor from dropping if the player still somehow dies
+    local old_armor_drop = armor.drop_armor
+    function armor.drop_armor(pos, stack)
+        if admin_armor_list[stack:get_name()] then
+            return
+        else
+            return old_armor_drop(pos, stack)
+        end
+    end
+
+    -- make sure players w/out creative (or give) aren't wearing admin armor
+    local period = 10.3
+    local elapsed = 0
+    minetest.register_globalstep(function(dtime)
+        elapsed = elapsed + dtime
+        if elapsed >= period then
+            elapsed = 0
+            for _, player in ipairs(minetest.get_connected_players()) do
+                local name, armor_inv = armor:get_valid_player(player, "[bls_on_hpchange]]")
+                if not name then name = player:get_player_name() end
+                local privs = minetest.get_player_privs(name) or {}
+                if armor_inv and not (privs.creative or privs.give) then
+                    for i=1, armor_inv:get_size("armor") do
+                        local stack = armor_inv:get_stack("armor", i)
+                        local stack_name = stack:get_name()
+                        if admin_armor_list[stack_name] then
+                            armor:run_callbacks("on_unequip", player, i, stack)
+                            armor_inv:set_stack("armor", i, nil)
+                        end
+                    end
+                end
+            end
+        end
+    end)
 end
