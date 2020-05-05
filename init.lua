@@ -33,6 +33,7 @@ dofile(bls.modpath .. "/commands/punishments.lua")
 dofile(bls.modpath .. "/commands/rollback_check.lua")
 dofile(bls.modpath .. "/commands/snoop_cheats.lua")
 
+dofile(bls.modpath .. "/fighting_overrides.lua")
 dofile(bls.modpath .. "/fix_dead_on_login.lua")
 dofile(bls.modpath .. "/fix_paper_posters.lua")
 dofile(bls.modpath .. "/fix_luacontroller_crash.lua")
