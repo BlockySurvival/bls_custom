@@ -44,7 +44,7 @@ end
 
 local function register(recipe_item, make_stairs, make_facade, make_letters)
     local modname, subname = recipe_item:match("^([^:]+):([^:]+)$")
-    if not (modname or subname) then
+    if not (modname and subname) then
         bls.log("warning", "microblocks: %s is not a valid name", recipe_item)
         return
     end
