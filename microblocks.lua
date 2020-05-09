@@ -153,6 +153,10 @@ if get_modpath("farming") then
     register("farming:hemp_block", nil, false)
 end
 
+if get_modpath("mahogany") then
+    register("mahogany:leaves", nil, false)
+end
+
 if get_modpath("mobs_animal") then
     register("mobs:cheeseblock", nil, false)
     register("mobs:honey_block", nil, false)
