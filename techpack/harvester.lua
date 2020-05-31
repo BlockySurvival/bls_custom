@@ -2,18 +2,9 @@ if not minetest.get_modpath("tubelib_addons1") then return end
 local tn = tubelib_addons1.register_tree_node  -- (name, drop, plant)
 local fn = tubelib_addons1.register_farming_node  -- (name, drop, plant)
 
-if minetest.get_modpath("cucina_vegana") then
-    fn("cucina_vegana:parsley_5", "cucina_vegana:parsley 2", "cucina_vegana:parsley_1")
-    fn("cucina_vegana:rosemary_6", "cucina_vegana:rosemary 2", "cucina_vegana:rosemary_1")
-    fn("cucina_vegana:chives_5", "cucina_vegana:chives 2", "cucina_vegana:chives_1")
-    fn("cucina_vegana:flax_6", "cucina_vegana:flax_raw 2", "cucina_vegana:flax_1")
-    fn("cucina_vegana:kohlrabi_6", "cucina_vegana:kohlrabi 4", "cucina_vegana:kohlrabi_1")
-    fn("cucina_vegana:asparagus_6", "cucina_vegana:asparagus 2", "cucina_vegana:asparagus_1")
-    fn("cucina_vegana:lettuce_5", "cucina_vegana:lettuce 2", "cucina_vegana:lettuce_1")
-    fn("cucina_vegana:soy_8", "cucina_vegana:soy 6", "cucina_vegana:soy_1")
-    fn("cucina_vegana:peanut_7", "cucina_vegana:peanut_seed 6", "cucina_vegana:peanut_1")
-    fn("cucina_vegana:rice_6", "cucina_vegana:rice 6", "cucina_vegana:rice_1")
-    fn("cucina_vegana:sunflower_5", "cucina_vegana:sunflower 4", "cucina_vegana:sunflower_1")
+if minetest.get_modpath("baldcypress") then
+    tn("baldcypress:trunk", "baldcypress:trunk", "baldcypress:sapling")
+    fn("baldcypress:leaves")
 end
 
 if minetest.get_modpath("bamboo") then
@@ -43,6 +34,20 @@ if minetest.get_modpath("clementinetree") then
     tn("clementinetree:trunk", "clementinetree:trunk", "clementinetree:sapling")
     fn("clementinetree:leaves")
     fn("clementinetree:clementine")
+end
+
+if minetest.get_modpath("cucina_vegana") then
+    fn("cucina_vegana:parsley_5", "cucina_vegana:parsley 2", "cucina_vegana:parsley_1")
+    fn("cucina_vegana:rosemary_6", "cucina_vegana:rosemary 2", "cucina_vegana:rosemary_1")
+    fn("cucina_vegana:chives_5", "cucina_vegana:chives 2", "cucina_vegana:chives_1")
+    fn("cucina_vegana:flax_6", "cucina_vegana:flax_raw 2", "cucina_vegana:flax_1")
+    fn("cucina_vegana:kohlrabi_6", "cucina_vegana:kohlrabi 4", "cucina_vegana:kohlrabi_1")
+    fn("cucina_vegana:asparagus_6", "cucina_vegana:asparagus 2", "cucina_vegana:asparagus_1")
+    fn("cucina_vegana:lettuce_5", "cucina_vegana:lettuce 2", "cucina_vegana:lettuce_1")
+    fn("cucina_vegana:soy_8", "cucina_vegana:soy 6", "cucina_vegana:soy_1")
+    fn("cucina_vegana:peanut_7", "cucina_vegana:peanut_seed 6", "cucina_vegana:peanut_1")
+    fn("cucina_vegana:rice_6", "cucina_vegana:rice 6", "cucina_vegana:rice_1")
+    fn("cucina_vegana:sunflower_5", "cucina_vegana:sunflower 4", "cucina_vegana:sunflower_1")
 end
 
 if minetest.get_modpath("ebony") then
@@ -78,6 +83,12 @@ if minetest.get_modpath("mahogany") then
     fn("mahogany:creeper")
     fn("mahogany:flower_creeper")
     fn("mahogany:hanging_creeper")
+end
+
+if minetest.get_modpath("pomegranate") then
+    tn("pomegranate:trunk", "pomegranate:trunk", "pomegranate:sapling")
+    fn("pomegranate:leaves")
+    fn("pomegranate:pomegranate")
 end
 
 if minetest.get_modpath("palm") then
