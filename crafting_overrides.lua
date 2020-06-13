@@ -376,6 +376,32 @@ if minetest.get_modpath("cucina_vegana") then
     })
 end
 
+if minetest.get_modpath("currency") then
+    minetest.clear_craft({output = "currency:minegeld_bundle"})
+    minetest.register_craft({
+        output = "currency:minegeld_bundle",
+        type = "shapeless",
+        recipe = {
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+            "currency:minegeld",
+        }
+    })
+    minetest.register_craft({
+        output = "currency:minegeld 9",
+        type = "shapeless",
+        recipe = {
+            "currency:minegeld_bundle",
+        }
+    })
+end
+
 if minetest.get_modpath("default") then
     minetest.register_craft({
         output = "bucket:bucket_empty",
