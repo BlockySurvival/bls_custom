@@ -150,6 +150,10 @@ end
 
 if minetest.get_modpath("farming") and farming.mod == "redo" then
     add_groups("farming:hemp_rope", "vines")
+
+    add_groups("ethereal:banana", "not_in_creative_inventory")
+    add_groups("ethereal:orange", "not_in_creative_inventory")
+    add_groups("ethereal:strawberry", "not_in_creative_inventory")
 end
 
 if minetest.global_exists("maptools") then
