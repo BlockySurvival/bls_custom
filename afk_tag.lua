@@ -53,51 +53,55 @@ minetest.register_globalstep(function(delta)
     end
 end)
 
+minetest.register_on_placenode(function(pos, newnode, player, oldnode, itemstack, pointed_thing)
+    if player then bls.afk.note_action(player:get_player_name()) end
+end)
+
 minetest.register_on_dignode(function(_, _, player)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_punchnode(function(_, _, player, _)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_punchplayer(function(player, hitter, time_from_last_punch, tool_capabilities, dir, damage)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_joinplayer(function(player, last_login)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_leaveplayer(function(player, timed_out)
-    last_action_by_player[player:get_player_name()] = nil
+    if player then last_action_by_player[player:get_player_name()] = nil end
 end)
 
 minetest.register_on_chat_message(function(name, message)
-    bls.afk.note_action(name)
+    if name then bls.afk.note_action(name) end
 end)
 
 minetest.register_on_player_receive_fields(function(player)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_allow_player_inventory_action(function(player, action, inventory, inventory_info)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_player_inventory_action(function(player, action, inventory, inventory_info)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
 minetest.register_on_protection_violation(function(pos, name)
-    bls.afk.note_action(name)
+    if name then bls.afk.note_action(name) end
 end)
 
 minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, player, pointed_thing)
-    bls.afk.note_action(player:get_player_name())
+    if player then bls.afk.note_action(player:get_player_name()) end
 end)
 
