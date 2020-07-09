@@ -22,6 +22,7 @@ globals = {
     "mesecon",
     "minetest",
     "mobs",
+    "more_monoids",
     "stairsplus",
     "table",
     "terumet",
