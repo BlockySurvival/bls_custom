@@ -18,11 +18,13 @@ function bls.afk.set_afk(player, afk_us)
     end
 end
 
-function bls.afk.note_action(name)
+function bls.afk.note_action(player, name)
+    name = name or player:get_player_name()
     last_action_by_player[name] = minetest.get_us_time()
-    more_monoids.player_tag:del_change(minetest.get_player_by_name(name), "afk")
+    more_monoids.player_tag:del_change(player, "afk")
 end
 
+-- globalstep to update AFK tag
 minetest.register_globalstep(function(delta)
     afk_check_elapsed = afk_check_elapsed + delta
     if afk_check_elapsed > AFK_CHECK_INTERVAL then
@@ -48,29 +50,29 @@ minetest.register_globalstep(function(delta)
         local current_keys = player:get_player_control()
         previous_keys_by_player[player_name] = current_keys
         if not bls.util.tables_equal(current_keys, previous_keys) then
-            bls.afk.note_action(player_name)
+            bls.afk.note_action(player, player_name)
         end
     end
 end)
 
 minetest.register_on_placenode(function(pos, newnode, player, oldnode, itemstack, pointed_thing)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_dignode(function(_, _, player)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_punchnode(function(_, _, player, _)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_punchplayer(function(player, hitter, time_from_last_punch, tool_capabilities, dir, damage)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_joinplayer(function(player, last_login)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_leaveplayer(function(player, timed_out)
@@ -78,30 +80,32 @@ minetest.register_on_leaveplayer(function(player, timed_out)
 end)
 
 minetest.register_on_chat_message(function(name, message)
-    if name then bls.afk.note_action(name) end
+    local player = minetest.get_player_by_name(name)
+    if player then bls.afk.note_action(player, name) end
 end)
 
 minetest.register_on_player_receive_fields(function(player)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_allow_player_inventory_action(function(player, action, inventory, inventory_info)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_player_inventory_action(function(player, action, inventory, inventory_info)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
 minetest.register_on_protection_violation(function(pos, name)
-    if name then bls.afk.note_action(name) end
+    local player = minetest.get_player_by_name(name)
+    if player then bls.afk.note_action(player, name) end
 end)
 
 minetest.register_on_item_eat(function(hp_change, replace_with_item, itemstack, player, pointed_thing)
-    if player then bls.afk.note_action(player:get_player_name()) end
+    if player then bls.afk.note_action(player) end
 end)
 
