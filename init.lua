@@ -10,6 +10,7 @@ end
 
 dofile(bls.modpath .. "/util.lua")
 
+dofile(bls.modpath .. "/afk_tag.lua")
 dofile(bls.modpath .. "/aliases.lua")
 dofile(bls.modpath .. "/crafting_overrides.lua")
 dofile(bls.modpath .. "/item_overrides.lua")

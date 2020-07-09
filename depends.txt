@@ -47,6 +47,7 @@ mesecons_noteblock?
 mesecons_pistons?
 mobs?
 mobs_animal?
+more_monoids?
 moreblocks?
 moreores?
 moreplants?
