@@ -606,6 +606,16 @@ if minetest.get_modpath("hangglider") and minetest.get_modpath("terumet") and mi
     })
 end
 
+if minetest.get_modpath("homedecor_electrical") then
+    minetest.clear_craft({output="homedecor:doorbell"})
+    minetest.register_craft({
+        output="homedecor:doorbell",
+        recipe = {
+            {"homedecor:light_switch_off", "basic_materials:energy_crystal_simple", "homedecor:speaker_driver"}
+        }
+    })
+end
+
 if minetest.get_modpath("homedecor_furniture_medieval") then
     minetest.register_craft({
         output="homedecor:chains",
