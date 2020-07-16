@@ -23,6 +23,7 @@ globals = {
     "minetest",
     "mobs",
     "more_monoids",
+    "player_api",
     "stairsplus",
     "table",
     "terumet",
