@@ -40,6 +40,7 @@ lurkcoin?
 mailbox?
 maptools?
 mesecons?
+mesecons_commandblock?
 mesecons_mvps?
 mesecons_commandblock?
 mesecons_luacontroller?
