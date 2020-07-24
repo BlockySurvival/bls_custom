@@ -17,6 +17,7 @@ globals = {
     "flowers",
     "irc",
     "irc2",
+    "ItemStack",
     "letters",
     "maptools",
     "mesecon",
