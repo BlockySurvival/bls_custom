@@ -65,7 +65,9 @@ end
 -- keep admin armor from dropping if the player still somehow dies
 local old_armor_drop = armor.drop_armor
 function armor.drop_armor(pos, stack)
-    if admin_armor_list[stack:get_name()] then
+    stack = ItemStack(stack)
+    local stack_name = stack and stack:get_name()
+    if stack_name and admin_armor_list[stack_name] then
         return
     else
         return old_armor_drop(pos, stack)
