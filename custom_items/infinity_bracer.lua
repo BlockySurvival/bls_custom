@@ -1,4 +1,4 @@
-armor:register_armor("bls:infinity_bracer_nu_vini", {
+armor:register_armor("bls:infinity_bracer", {
     description = "Infinity Bracer",
     inventory_image = "bls_infinity_bracer_inv.png",
     texture = "bls_infinity_bracer_armor.png",
