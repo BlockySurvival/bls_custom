@@ -26,6 +26,7 @@ local admin_armor_list = {
     ["3d_armor:boots_admin"]=true,
     ["shields:shield_admin"]=true,
     ["bls:shield_bls"]=true,
+    ["bls:infinity_bracer"]=true,
 }
 
 local function is_wearing_admin_armor(player)
