@@ -36,7 +36,7 @@ local function is_wearing_admin_armor(player)
     if not name or not armor_inv then
         return false
     end
-    
+
     local privs = minetest.get_player_privs(name) or {}
     if privs.invincible then
         return true
