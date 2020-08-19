@@ -2,6 +2,8 @@ if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor")) th
     return
 end
 
+minetest.register_privilege("invincible", "Makes a player invincible")
+
 armor:register_armor("bls:shield_bls", {
     description = "BlS Shield",
     inventory_image = "bls_inv_shield_bls.png",
@@ -34,6 +36,12 @@ local function is_wearing_admin_armor(player)
     if not name or not armor_inv then
         return false
     end
+    
+    local privs = minetest.get_player_privs(name) or {}
+    if privs.invincible then
+        return true
+    end
+
     for _, stack in pairs(armor_inv:get_list("armor")) do
         local stack_name = stack:get_name()
         if admin_armor_list[stack_name] then
