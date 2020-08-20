@@ -5,9 +5,11 @@ max_line_length = 999
 globals = {
     "areas",
     "armor",
+    "binoculars",
     "bls",
     "bucket",
     "ChatCmdBuilder",
+    "creative",
     "default",
     "doors",
     "dungeon_loot",
