@@ -4,7 +4,6 @@ local gn = tubelib_addons1.register_ground_node
 
 gn("bls:marble")
 
-
 if minetest.get_modpath("building_blocks") then
     gn("building_blocks:Marble")
 end
@@ -46,6 +45,13 @@ if minetest.get_modpath("technic_worldgen") then
     gn("technic:mineral_sulfur", "technic:sulfur_lump")
     gn("technic:mineral_uranium", "technic:uranium_lump")
     gn("technic:mineral_zinc", "technic:zinc_lump")
+end
+
+if minetest.get_modpath("terumet") then
+    gn("terumet:ore_dense_raw", "terumet:lump_raw 5")
+    gn("terumet:ore_raw", "terumet:lump_raw")
+    gn("terumet:ore_raw_desert", "terumet:lump_raw 2")
+    gn("terumet:ore_raw_desert_dense", "terumet:lump_raw 10")
 end
 
 if minetest.get_modpath("titanium") then
