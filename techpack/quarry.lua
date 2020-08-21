@@ -2,6 +2,17 @@ if not minetest.get_modpath("tubelib_addons1") then return end
 
 local gn = tubelib_addons1.register_ground_node
 
+gn("bls:marble")
+
+
+if minetest.get_modpath("building_blocks") then
+    gn("building_blocks:Marble")
+end
+
+if minetest.get_modpath("default") then
+    gn("default:silver_sandstone")
+end
+
 if minetest.get_modpath("moreores") then
     gn("moreores:mineral_mithril", "moreores:mithril_lump")
     gn("moreores:mineral_silver", "moreores:silver_lump")
@@ -27,6 +38,9 @@ if minetest.get_modpath("quartz") then
 end
 
 if minetest.get_modpath("technic_worldgen") then
+    gn("technic:marble")
+    gn("technic:granite")
+
     gn("technic:mineral_chromium", "technic:chromium_lump")
     gn("technic:mineral_lead", "technic:lead_lump")
     gn("technic:mineral_sulfur", "technic:sulfur_lump")
