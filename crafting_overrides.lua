@@ -884,6 +884,38 @@ if minetest.get_modpath("technic_worldgen") then
     minetest.register_craft({type="cooking", recipe="technic:mineral_zinc", output="technic:zinc_ingot", })
 end
 
+if minetest.get_modpath("techpack_warehouse") then
+    minetest.clear_craft({output="techpack_warehouse:box_steel"})
+    minetest.register_craft({
+        output = "techpack_warehouse:box_steel",
+        recipe = {
+            {"default:steel_ingot", "tubelib_addons3:pusher", "default:steel_ingot"},
+            {"default:steel_ingot", "tubelib_addons1:chest",  "default:steel_ingot"},
+            {"default:steel_ingot", "default:steel_ingot",    "default:steel_ingot"},
+        }
+    })
+
+    minetest.clear_craft({output="techpack_warehouse:box_copper"})
+    minetest.register_craft({
+        output = "techpack_warehouse:box_steel",
+        recipe = {
+            {"default:copper_ingot", "techpack_warehouse:box_steel", "default:copper_ingot"},
+            {"default:copper_ingot", "tubelib_addons3:chest",        "default:copper_ingot"},
+            {"default:copper_ingot", "default:copper_ingot",         "default:copper_ingot"},
+        }
+    })
+
+    minetest.clear_craft({output="techpack_warehouse:box_gold"})
+    minetest.register_craft({
+        output = "techpack_warehouse:box_steel",
+        recipe = {
+            {"default:gold_ingot", "techpack_warehouse:box_copper", "default:gold_ingot"},
+            {"default:gold_ingot", "technic:gold_chest",            "default:gold_ingot"},
+            {"default:gold_ingot", "default:gold_ingot",            "default:gold_ingot"},
+        }
+    })
+end
+
 if minetest.get_modpath("terumet") then
     if minetest.get_modpath("tubelib") then
         -- make tubelib upgrade recipe a little more sensical
