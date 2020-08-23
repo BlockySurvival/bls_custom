@@ -87,6 +87,15 @@ if minetest.get_modpath("bbq") then
         replacements = {{"bucket:bucket_river_water", "bucket:bucket_empty"}}
     })
 
+    minetest.clear_craft({output="bbq:propane"})
+    minetest.register_craft({
+        output="bbq:propane",
+        recipe={
+            {"default:steel_ingot", "default:steel_ingot",    "default:steel_ingot"},
+            {"default:steel_ingot", "tubelib_addons1:biogas", "default:steel_ingot"},
+            {"default:steel_ingot", "default:steel_ingot",    "default:steel_ingot"},
+        }
+    })
 end
 
 if minetest.get_modpath("bike") then
@@ -643,9 +652,9 @@ if minetest.get_modpath("hot_air_balloons") and minetest.get_modpath("farming") 
     minetest.register_craft({
         output="hot_air_balloons:item",
         recipe={
-            {"farming:hemp_block", "farming:hemp_block",       "farming:hemp_block"},
-            {"farming:hemp_block", "terumet:mach_htr_furnace", "farming:hemp_block"},
-            {"moreblocks:rope",    "xdecor:barrel",            "moreblocks:rope"}
+            {"farming:hemp_block", "farming:hemp_block", "farming:hemp_block"},
+            {"farming:hemp_block", "bbq:propane",        "farming:hemp_block"},
+            {"moreblocks:rope",    "xdecor:barrel",      "moreblocks:rope"}
         }
     })
 end
@@ -897,7 +906,7 @@ if minetest.get_modpath("techpack_warehouse") then
 
     minetest.clear_craft({output="techpack_warehouse:box_copper"})
     minetest.register_craft({
-        output = "techpack_warehouse:box_steel",
+        output = "techpack_warehouse:box_copper",
         recipe = {
             {"default:copper_ingot", "techpack_warehouse:box_steel", "default:copper_ingot"},
             {"default:copper_ingot", "tubelib_addons3:chest",        "default:copper_ingot"},
@@ -907,7 +916,7 @@ if minetest.get_modpath("techpack_warehouse") then
 
     minetest.clear_craft({output="techpack_warehouse:box_gold"})
     minetest.register_craft({
-        output = "techpack_warehouse:box_steel",
+        output = "techpack_warehouse:box_gold",
         recipe = {
             {"default:gold_ingot", "techpack_warehouse:box_copper", "default:gold_ingot"},
             {"default:gold_ingot", "technic:gold_chest",            "default:gold_ingot"},
