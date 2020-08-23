@@ -44,6 +44,8 @@ if minetest.global_exists("doors") and doors.door_toggle then
         end
         protected_doors[name .. "_a"] = true
         protected_doors[name .. "_b"] = true
+        protected_doors[name .. "_c"] = true
+        protected_doors[name .. "_d"] = true
         def.protected = true
 
         -- Add the door
@@ -51,23 +53,37 @@ if minetest.global_exists("doors") and doors.door_toggle then
 
         -- Change callbacks
         def = minetest.registered_items[name .. "_a"]
-
-        -- The doors mod is lazy and uses the same table for both door nodes.
         def.name = name .. "_a"
         def.mesh = "door_a.obj"
-
         minetest.override_item(name .. "_a", {
             can_dig = def_overrides.can_dig,
             on_skeleton_key_use = def_overrides.on_skeleton_key_use
         })
 
+        def = minetest.registered_items[name .. "_b"]
         def.name = name .. "_b"
         def.mesh = "door_b.obj"
-
         minetest.override_item(name .. "_b", {
             can_dig = def_overrides.can_dig,
             on_skeleton_key_use = def_overrides.on_skeleton_key_use
         })
+
+        def = minetest.registered_items[name .. "_c"]
+        def.name = name .. "_c"
+        def.mesh = "door_a2.obj"
+        minetest.override_item(name .. "_c", {
+            can_dig = def_overrides.can_dig,
+            on_skeleton_key_use = def_overrides.on_skeleton_key_use
+        })
+
+        def = minetest.registered_items[name .. "_d"]
+        def.name = name .. "_d"
+        def.mesh = "door_b2.obj"
+        minetest.override_item(name .. "_d", {
+            can_dig = def_overrides.can_dig,
+            on_skeleton_key_use = def_overrides.on_skeleton_key_use
+        })
+
         return name
     end
 
