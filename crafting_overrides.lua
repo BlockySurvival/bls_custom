@@ -1251,7 +1251,7 @@ if minetest.get_modpath("tubelib_addons3") then
         minetest.register_craft({
             output = "tubelib_addons3:funnel",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib_addons1:chest"},
+                {"basic_materials:brass_ingot", "tubelib_addons1:funnel"},
                 {"tubelib_addons1:funnel",      "terumet:ingot_tgol"},
             },
         })
