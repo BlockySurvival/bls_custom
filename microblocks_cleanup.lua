@@ -122,17 +122,35 @@ local nformat = bls.util.nformat
 local affected_mods = {
     bakedclay=1,
     basic_materials=1,
+    baldcypress=1,
+    bamboo=1,
+    birch=1,
     bls=1,
     bridger=1,
     building_blocks=1,
     caverealms=1,
     cblocks=1,
+    cherrytree=1,
+    chestnuttree=1,
+    clementinetree=1,
+    cottages=1,
     default=1,
+    ebony=1,
+    farming=1,
     gravelsieve=1,
+    jacaranda=1,
+    larch=1,
+    lemontree=1,
+    mahogany=1,
+    maple=1,
     moreblocks=1,
     moreores=1,
     moretrees=1,
+    my_door_wood=1,
     nether=1,
+    palm=1,
+    pineapple=1,
+    pomegranate=1,
     quartz=1,
     redtrees=1,
     sakuragi=1,
@@ -234,9 +252,7 @@ for node_id, def in pairs(minetest.registered_nodes) do
                 local src = nformat(src_fmt, {mod_name=mod_name, node_name=node_name})
                 local tgt = nformat(tgt_fmt, {mod_name=mod_name, node_name=node_name})
 
-                if minetest.registered_aliases[tgt] then
-                    tgt = minetest.registered_aliases[tgt]
-                end
+                tgt = minetest.registered_aliases[tgt] or tgt
 
                 if tgt and minetest.registered_nodes[tgt] then
                     bls.log("action", "registering alias: %q -> %q", src, tgt)
