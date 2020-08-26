@@ -1235,40 +1235,40 @@ if minetest.get_modpath("tubelib_addons3") then
         minetest.register_craft({
             output = "tubelib_addons3:chest",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib_addons1:chest"},
-                {"tubelib_addons1:chest",       "terumet:ingot_tgol"},
+                {"technic:stainless_steel_ingot", "tubelib_addons1:chest"},
+                {"tubelib_addons1:chest",         "terumet:ingot_tgol"},
             },
         })
         minetest.clear_craft({output="tubelib_addons3:distributor"})
         minetest.register_craft({
             output = "tubelib_addons3:distributor",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib:distributor"},
-                {"tubelib:distributor",         "terumet:ingot_tgol"},
+                {"technic:stainless_steel_ingot", "tubelib:distributor"},
+                {"tubelib:distributor",           "terumet:ingot_tgol"},
             },
         })
         minetest.clear_craft({output="tubelib_addons3:funnel"})
         minetest.register_craft({
             output = "tubelib_addons3:funnel",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib_addons1:funnel"},
-                {"tubelib_addons1:funnel",      "terumet:ingot_tgol"},
+                {"technic:stainless_steel_ingot", "tubelib_addons1:funnel"},
+                {"tubelib_addons1:funnel",        "terumet:ingot_tgol"},
             },
         })
         minetest.clear_craft({output="tubelib_addons3:pusher"})
         minetest.register_craft({
             output = "tubelib_addons3:pusher",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib_addons1:pusher_fast"},
-                {"tubelib_addons1:pusher_fast", "terumet:ingot_tgol"},
+                {"technic:stainless_steel_ingot", "tubelib_addons1:pusher_fast"},
+                {"tubelib_addons1:pusher_fast",   "terumet:ingot_tgol"},
             },
         })
         minetest.clear_craft({output="tubelib_addons3:pushing_chest"})
         minetest.register_craft({
             output = "tubelib_addons3:pushing_chest",
             recipe = {
-                {"basic_materials:brass_ingot", "tubelib_addons3:pusher"},
-                {"tubelib_addons3:chest",       "terumet:ingot_tgol"},
+                {"technic:stainless_steel_ingot", "tubelib_addons3:pusher"},
+                {"tubelib_addons3:chest",         "terumet:ingot_tgol"},
             },
         })
         minetest.clear_craft({output="tubelib_addons3:teleporter"})
