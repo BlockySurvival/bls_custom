@@ -26,7 +26,6 @@ minetest.register_chatcommand("dumpnodes", {
 		local n = 0
 		local ntbl = {}
 		for _, nn in pairs_s(minetest.registered_nodes) do
-			local nd = minetest.registered_nodes[nn]
 			local prefix, name = nn:match('(.*):(.*)')
 			if prefix == nil or name == nil then
 				print("ignored(1): " .. nn)
