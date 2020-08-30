@@ -66,7 +66,7 @@ if minetest.get_modpath("technic_worldgen") then
         flux=0,
     })
     terumet.register_alloy_recipe({
-        result="technic:stainless_steel_block 7",
+        result="technic:stainless_steel_block 8",
         input={"technic:carbon_steel_block 7", "technic:chromium_block"},
         time=100,
         flux=0,

@@ -4,7 +4,9 @@ local fn = tubelib_addons1.register_farming_node  -- (name, drop, plant)
 
 if minetest.get_modpath("baldcypress") then
     tn("baldcypress:trunk", "baldcypress:trunk", "baldcypress:sapling")
+    fn("baldcypress:dry_branches")
     fn("baldcypress:leaves")
+    fn("baldcypress:liana")
 end
 
 if minetest.get_modpath("bamboo") then
