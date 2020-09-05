@@ -33,7 +33,7 @@ end
 local function augment_with_protection(node_name)
     local old_def = minetest.registered_nodes[node_name]
     if not old_def then
-        bls.log("warning", "can\"t augment %s with protection; no definition", node_name)
+        bls.log("warning", "can't augment %s with protection; no definition", node_name)
         return
     end
     protected_nodes[node_name] = true
