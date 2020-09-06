@@ -29,7 +29,5 @@ armor:register_armor("bls:flux_bracer", {
         physics_jump = 0.8,
         physics_gravity = 0.5,
         armor_terumet_brcr = 1
-    },
-    armor_groups = {fleshy = 30},
-    damage_groups = {cracky=3, snappy=3, choppy=3, crumbly=3, level=1}
+    }
 })
