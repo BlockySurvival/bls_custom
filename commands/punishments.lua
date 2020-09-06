@@ -3,7 +3,7 @@ ideas for more punishments:
 
 1. gravity randomly changes for a player
 2. player bounces, sometimes very high
-3. player can"t eat
+3. player can't eat
 4. player rubber-bands randomly (teleports back to an old position)
 5. plague: piles of rats spawn on the player
 6. annoying noises that only that player can hear

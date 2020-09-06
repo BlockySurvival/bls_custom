@@ -517,7 +517,7 @@ if minetest.get_modpath("extra") then
 
     if minetest.global_exists("terumet") then
         if minetest.get_modpath("farming") then
-            -- add a recipe for the blooming onion that doesn"t require techpack
+            -- add a recipe for the blooming onion that doesn't require techpack
             terumet.register_alloy_recipe({
                 result="extra:blooming_onion",
                 input={"farming:onion", "extra:cottonseed_oil"},
