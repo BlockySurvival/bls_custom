@@ -8,7 +8,7 @@ local patterns = {
     "locked_travelnet:.*",
     "maptools:.*",
     "mesecons_commandblock:.*",
-    "nether:bedrock",
+    "nether:.*",
     "techpack_warehouse:.*",
     "terumet:mach_.*",
     "travelnet:.*",
