@@ -7,7 +7,8 @@ minetest.register_privilege("invincible", "Makes a player invincible")
 armor:register_armor("bls:shield_bls", {
     description = "BlS Shield",
     inventory_image = "bls_shield_bls_inv.png",
-    groups = {armor_shield=2.2250738585072014e-308, armor_heal=0, armor_use=0, not_in_creative_inventory=1},
+    groups = {armor_shield=1, armor_heal=0, armor_use=0, not_in_creative_inventory=1},
+    armor_groups = {fleshy = 0},
     drop = {},
     on_drop = function(itemstack, dropper, pos) end
 })
@@ -18,7 +19,8 @@ armor:register_armor("bls:shield_staff", {
     inventory_image = "bls_shield_bls_inv.png",
     texture = "bls_shield_bls.png",
     preview = "bls_shield_bls_preview.png",
-    groups = {armor_shield=2.2250738585072014e-308, armor_heal=0, armor_use=0, not_in_creative_inventory=1},
+    groups = {armor_shield=1, armor_heal=0, armor_use=0, not_in_creative_inventory=1},
+    armor_groups = {fleshy = 0},
     drop = {},
     on_drop = function(itemstack, dropper, pos) end
 })
