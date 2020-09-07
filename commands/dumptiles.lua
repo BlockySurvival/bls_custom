@@ -1,26 +1,17 @@
 -- this code is based on https://github.com/minetest/minetestmapper/blob/master/autogenerating-colors.txt
 
-local function nd_get_tiles(nd)
-	return nd.tiles or nd.tile_images
+local function nd_get_tiles(def)
+	return def.tiles or def.tile_images
 end
 
-local function nd_get_tile(nd, n)
-	local tiles = nd_get_tiles(nd)
+local function nd_get_tile(def, n)
+	local tiles = nd_get_tiles(def)
 	if not tiles then return end
 	local tile = tiles[n]
 	if type(tile) == "table" then
 		tile = tile.name
 	end
 	return tile
-end
-
-local function pairs_s(dict)
-	local keys = {}
-	for k in pairs(dict) do
-		table.insert(keys, k)
-	end
-	table.sort(keys)
-	return ipairs(keys)
 end
 
 minetest.register_chatcommand("dumptiles", {
