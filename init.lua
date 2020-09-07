@@ -30,7 +30,7 @@ dofile(bls.modpath .. "/custom_items/water2.lua")
 
 dofile(bls.modpath .. "/commands/antitroll.lua")
 dofile(bls.modpath .. "/commands/areas_aliases.lua")
-dofile(bls.modpath .. "/commands/dumpnodes.lua")
+dofile(bls.modpath .. "/commands/dumptiles.lua")
 dofile(bls.modpath .. "/commands/hax.lua")
 dofile(bls.modpath .. "/commands/other.lua")
 dofile(bls.modpath .. "/commands/punishments.lua")
