@@ -61,6 +61,11 @@ if minetest.get_modpath("ebony") then
     fn("ebony:persimmon")
 end
 
+if minetest.get_modpath("farming") then
+    fn("farming:cabbage_6", "farming:cabbage 2", "farming:cabbage_1")
+    fn("farming:ming_4", "farming:mint_leaf 4", "farming:mint_1")
+end
+
 if minetest.get_modpath("jacaranda") then
     tn("jacaranda:trunk", "jacaranda:trunk", "jacaranda:sapling")
     fn("jacaranda:leaves")
