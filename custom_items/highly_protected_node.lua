@@ -15,7 +15,7 @@ local image_name = "default_obsidian_glass.png"
 local cube_spec = minetest.inventorycube(image_name, image_name, image_name)
 
 local node_def = {
-    description = "Protection Aid (impassible)",
+    description = "Protection Aid (impassable)",
     inventory_image = cube_spec,
     wield_image = cube_spec,
     range = 8,
