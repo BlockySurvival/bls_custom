@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-optional_depends = (",").join('''
+optional_depends = ','.join(sorted(set('''
 3d_armor
 3d_armor_stand
 areas
@@ -56,7 +56,6 @@ mesecons_noteblock
 mesecons_pistons
 mobs
 mobs_animal
-moreblocks
 more_monoids
 moreplants
 moretrees
@@ -81,10 +80,11 @@ walking_light
 willow
 wool
 xdecor
-'''.strip().split())
+'''.strip().split())))
+
 
 with open('mod.conf', 'w') as fh:
-     print(f'''
+    print(f'''
 name=bls
 description=Glue to hold the Blocky Survival Minetest server together
 depends=default,lib_chatcmdbuilder,moreblocks
