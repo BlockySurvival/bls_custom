@@ -30,7 +30,6 @@ local node_def = {
     climbable = false,
     buildable_to = false,
     floodable = false,
-    walkable = true,
     drowning = 10,
     damage_per_second = 10,
 
