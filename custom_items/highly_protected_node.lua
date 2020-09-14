@@ -14,6 +14,19 @@ if not (minetest.get_modpath("areas") and areas) then return end
 local image_name = "default_obsidian_glass.png"
 local cube_spec = minetest.inventorycube(image_name, image_name, image_name)
 
+local function is_owner(player, pos)
+    if minetest.check_player_privs(player, "areas") then
+        return true
+    end
+    local player_name = player:get_player_name()
+    for _, owner_name in ipairs(areas:getNodeOwners(pos)) do
+        if owner_name == player_name then
+            return true
+        end
+    end
+    return false
+end
+
 local node_def = {
     description = "Protection Aid (impassable)",
     inventory_image = cube_spec,
@@ -39,24 +52,17 @@ local node_def = {
     on_place = function(itemstack, placer, pointed_thing)
         local placer_name = placer:get_player_name()
         local pos = minetest.get_pointed_thing_position(pointed_thing, true)
-        local owns_spot, players_inside = false, false
-        if minetest.check_player_privs(placer, "areas") then
-            owns_spot = true
-        else
-            for _, owner in ipairs(areas:getNodeOwners(pos)) do
-                if owner == placer_name then
-                    owns_spot = true
-                    break
-                end
-            end
+        local owns_spot = is_owner(placer, pos)
+        local players_inside = false
+        if not minetest.check_player_privs(placer, "server") then
             for _, obj in ipairs(minetest.get_objects_inside_radius(pos, 0.75)) do
                 if obj:is_player() then
                     players_inside = true
                     break
                 end
             end
-            -- check position below (player's feet)
             if not players_inside then
+                -- check position below (player's feet)
                 local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
                 for _, obj in ipairs(minetest.get_objects_inside_radius(pos_below, 0.75)) do
                     if obj:is_player() then
@@ -76,17 +82,25 @@ local node_def = {
     end,
 
     on_punch = function(pos, node, puncher, pointed_thing)
-        -- TODO: detect creative/give and if it's already in the inventory, and then don't give
         local puncher_name = puncher:get_player_name()
         if areas:canInteract(pos, puncher_name) then
-            local inv = puncher:get_inventory()
             minetest.remove_node(pos)
-            local remaining = inv:add_item("main", node.name)
 
-            if remaining and not remaining:is_empty() then
-                minetest.item_drop(remaining, puncher, pos)
+            -- only give back item if it's in your area
+            if is_owner(puncher, pos) then
+                local privs = minetest.get_player_privs(puncher_name)
+                local inv = puncher:get_inventory()
+                -- don't give to creative if they already have it
+                if not((privs.creative or privs.give) and inv:contains_item("main", node.name)) then
+                    local remaining = inv:add_item("main", node.name)
+
+                    if remaining and not remaining:is_empty() then
+                        minetest.item_drop(remaining, puncher, pos)
+                    end
+                end
             end
-            minetest.sound_play({name="default_dug_node.ogg"}, {
+
+            minetest.sound_play("default_dug_node", {
                 to_player = puncher_name,
             }, true)
         end
