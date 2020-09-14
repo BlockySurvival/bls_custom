@@ -142,11 +142,20 @@ if minetest.get_modpath("trunks") then
     minetest.register_alias_force("trunks:twig_1", "default:stick")
 end
 
-if not minetest.get_modpath("walking_light") then
-    minetest.register_alias_force("walking_light:light", "air")
-end
-
 if minetest.get_modpath("xdecor") and minetest.get_modpath("farming")then
     -- we only want one bowl
     minetest.register_alias_force("xdecor:bowl", "cucina_vegana:bowl")
+end
+
+------------------------------------
+-- due to mods removed -------------
+------------------------------------
+
+if not minetest.get_modpath("moremesecons_teleporter") then
+    minetest.register_alias_force("moremesecons_teleporter:teleporter", "default:stone_with_diamond")
+end
+
+if not minetest.get_modpath("walking_light") then
+    -- replaced w/ wielded_light
+    minetest.register_alias_force("walking_light:light", "air")
 end
