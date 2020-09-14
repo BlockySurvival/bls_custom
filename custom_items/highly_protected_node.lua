@@ -55,6 +55,16 @@ local node_def = {
                     break
                 end
             end
+            -- check position below (player's feet)
+            if not players_inside then
+                local pos_below = vector.new(pos.x, pos.y - 1, pos.z)
+                for _, obj in ipairs(minetest.get_objects_inside_radius(pos_below, 0.75)) do
+                    if obj:is_player() then
+                        players_inside = true
+                        break
+                    end
+                end
+            end
         end
 
         if owns_spot and not players_inside then
@@ -66,6 +76,7 @@ local node_def = {
     end,
 
     on_punch = function(pos, node, puncher, pointed_thing)
+        -- TODO: detect creative/give and if it's already in the inventory, and then don't give
         local puncher_name = puncher:get_player_name()
         if areas:canInteract(pos, puncher_name) then
             local inv = puncher:get_inventory()
