@@ -142,6 +142,14 @@ if minetest.get_modpath("default") and minetest.get_modpath("mobs_snowman") then
     })
 end
 
+if minetest.get_modpath("digiprinter") then
+    minetest.override_item("digiprinter:printer", {
+        allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+                return (not minetest.get_meta(pos):get_string("infotext"):find("Busy") and stack:get_count() or 0)
+        end,
+    })
+end
+
 if minetest.get_modpath("extra") then
     add_groups("extra:cottonseed_oil", "food_oil", "food_vegan")
     add_groups("extra:fish_sticks", "food_fish")
