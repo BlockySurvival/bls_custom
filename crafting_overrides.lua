@@ -487,6 +487,14 @@ if minetest.get_modpath("default") then
         output = "dye:brown 4",
         recipe = {"default:dry_shrub"}
     })
+
+    if minetest.get_modpath("terumet") then
+        minetest.register_craft({
+            type = "shapeless",
+            output = "default:dirt 4",
+            recipe = {"group:sand", "default:clay", "terumet:block_dust_bio", "group:mushroom"}
+        })
+    end
 end
 
 -- TODO digilines:lightsensor
