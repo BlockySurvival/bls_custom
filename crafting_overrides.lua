@@ -852,28 +852,26 @@ end
 if minetest.get_modpath("scifi_nodes") then
     bls.log("debug", "TODO")
     --[[
+            blackpipe
+            blackvent
+            blackvnt
+            scifi node builder (probably not)
+            crate
+            doom engine wall
+            doom wall 4
+            engine
+            green wall panel
 
-    blackpipe
-    blackvent
-    blackvnt
-    scifi node builder (probably not)
-    crate
-    doom engine wall
-    doom wall 4
-    engine
-    green wall panel
+            metal with holes
+            junk
+            teleporter (probably not)
+            umbrella weed
+            prickly plant
+            wall monitor
+            blocks labeled slopes (we have saw)
 
-    metal with holes
-    junk
-    teleporter (probably not)
-    umbrella weed
-    prickly plant
-    wall monitor
-    blocks labeled slopes (we have saw)
-
-    dirty metal block
-    wind tower
-
+            dirty metal block
+            wind tower
     ]]--
 end
 

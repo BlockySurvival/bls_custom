@@ -69,20 +69,24 @@ if minetest.global_exists("doors") and doors.door_toggle then
         })
 
         def = minetest.registered_items[name .. "_c"]
-        def.name = name .. "_c"
-        def.mesh = "door_a2.obj"
-        minetest.override_item(name .. "_c", {
-            can_dig = def_overrides.can_dig,
-            on_skeleton_key_use = def_overrides.on_skeleton_key_use
-        })
+        if def then
+            def.name = name .. "_c"
+            def.mesh = "door_a2.obj"
+            minetest.override_item(name .. "_c", {
+                can_dig = def_overrides.can_dig,
+                on_skeleton_key_use = def_overrides.on_skeleton_key_use
+            })
+        end
 
         def = minetest.registered_items[name .. "_d"]
-        def.name = name .. "_d"
-        def.mesh = "door_b2.obj"
-        minetest.override_item(name .. "_d", {
-            can_dig = def_overrides.can_dig,
-            on_skeleton_key_use = def_overrides.on_skeleton_key_use
-        })
+        if def then
+            def.name = name .. "_d"
+            def.mesh = "door_b2.obj"
+            minetest.override_item(name .. "_d", {
+                can_dig = def_overrides.can_dig,
+                on_skeleton_key_use = def_overrides.on_skeleton_key_use
+            })
+        end
 
         return name
     end

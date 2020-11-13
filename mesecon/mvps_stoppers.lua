@@ -32,4 +32,4 @@ local function do_it()
 end
 
 -- register after all mods have loaded
-minetest.after(0, do_it)
+minetest.register_on_mods_loaded(do_it)

@@ -145,8 +145,16 @@ RealBadAngel (CC-0):
  - technic_stainless_steel_ingot.png
 
 xXAguraXx (unknown, used with permission):
- - bls_admin_flair_shield_*.png
  - bls_shield_*.png
+
+(From xdecor) Gambit, kilbith, Cisoun (WTFPL)
+ - bls_crafting_table_front.png
+ - bls_crafting_table_sides.png
+ - bls_crafting_table_top.png
+
+Unknown (ViniProTheBro?)
+ - bls_infinity_bracer_*.png
+
 
 All other textures are of unknown origin and their origin should be found as
 soon as possible. If you think you know where one of these textures originated
