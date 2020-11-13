@@ -164,6 +164,36 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
     add_groups("ethereal:strawberry", "not_in_creative_inventory")
 end
 
+if minetest.get_modpath("hook") then
+    tubelib.register_node("hook:pchest_node", {}, {
+        on_pull_item = function(pos, side, player_name)
+            local inv = minetest.get_meta(pos):get_inventory()
+            for _, stack in pairs(inv:get_list("main")) do
+                if not stack:is_empty() then
+                    return inv:remove_item("main", stack:get_name())
+                end
+            end
+            return nil
+        end,
+        on_push_item = function(pos, side, item, player_name)
+            local inv = minetest.get_meta(pos):get_inventory()
+            if inv:room_for_item("main", item) then
+                inv:add_item("main", item)
+                return true
+            end
+            return false
+        end,
+        on_unpull_item = function(pos, side, item, player_name)
+            local inv = minetest.get_meta(pos):get_inventory()
+            if inv:room_for_item("main", item) then
+                inv:add_item("main", item)
+                return true
+            end
+            return false
+        end,
+    })
+end
+
 if minetest.global_exists("maptools") then
     -- Prevent super apples from being placed.
     minetest.override_item("maptools:superapple", {
