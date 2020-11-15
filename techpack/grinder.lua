@@ -102,6 +102,9 @@ if minetest.get_modpath("farming") then
     gr({input="cucina_vegana:rice", output="farming:rice_flour"})
 end
 
+if minetest.get_modpath("hollytree") then
+    gr({input="hollytree:trunk", output="hollytree:leaves 8"})
+end
 if minetest.get_modpath("jacaranda") then
     gr({input="jacaranda:trunk", output="jacaranda:blossom_leaves 8"})
 end
@@ -114,6 +117,9 @@ end
 if minetest.get_modpath("mahogany") then
     gr({input="mahogany:trunk", output="mahogany:leaves 8"})
 end
+if minetest.get_modpath("maple") then
+    gr({input="maple:trunk", output="maple:leaves 8"})
+end
 if minetest.get_modpath("palm") then
     gr({input="palm:trunk", output="palm:leaves 8"})
 end
@@ -122,4 +128,7 @@ if minetest.get_modpath("redtrees") then
 end
 if minetest.get_modpath("sakuragi") then
     gr({input="sakuragi:stree", output="sakuragi:sleaves 8"})
+end
+if minetest.get_modpath("willow") then
+    gr({input="willow:trunk", output="willow:leaves 8"})
 end

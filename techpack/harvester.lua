@@ -66,6 +66,11 @@ if minetest.get_modpath("farming") then
     fn("farming:ming_4", "farming:mint_leaf 4", "farming:mint_1")
 end
 
+if minetest.get_modpath("hollytree") then
+    tn("hollytree:trunk", "hollytree:trunk", "hollytree:sapling")
+    fn("hollytree:leaves")
+end
+
 if minetest.get_modpath("jacaranda") then
     tn("jacaranda:trunk", "jacaranda:trunk", "jacaranda:sapling")
     fn("jacaranda:leaves")
@@ -92,6 +97,11 @@ if minetest.get_modpath("mahogany") then
     fn("mahogany:hanging_creeper")
 end
 
+if minetest.get_modpath("maple") then
+    tn("maple:trunk", "maple:trunk", "maple:sapling")
+    fn("maple:leaves")
+end
+
 if minetest.get_modpath("pomegranate") then
     tn("pomegranate:trunk", "pomegranate:trunk", "pomegranate:sapling")
     fn("pomegranate:leaves")
@@ -112,4 +122,9 @@ end
 if minetest.get_modpath("sakuragi") then
     tn("sakuragi:stree", "sakuragi:stree", "sakuragi:ssapling")
     fn("sakuragi:sleaves")
+end
+
+if minetest.get_modpath("willow") then
+    tn("willow:trunk", "willow:trunk", "willow:sapling")
+    fn("willow:leaves")
 end
