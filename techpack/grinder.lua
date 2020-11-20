@@ -120,6 +120,9 @@ end
 if minetest.get_modpath("maple") then
     gr({input="maple:trunk", output="maple:leaves 8"})
 end
+if minetest.get_modpath("oak") then
+    gr({input="oak:trunk", output="oak:leaves 8"})
+end
 if minetest.get_modpath("palm") then
     gr({input="palm:trunk", output="palm:leaves 8"})
 end

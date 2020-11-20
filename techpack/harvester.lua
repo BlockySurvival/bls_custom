@@ -52,6 +52,13 @@ if minetest.get_modpath("cucina_vegana") then
     fn("cucina_vegana:sunflower_5", "cucina_vegana:sunflower 4", "cucina_vegana:sunflower_1")
 end
 
+if minetest.get_modpath("default") then
+    tn("default:bush_stem", "default:bush_stem", "default:bush_sapling")
+    tn("default:acacia_bush_stem", "default:acacia_bush_stem", "default:acacia_bush_sapling")
+    tn("default:pine_bush_stem", "default:pine_bush_stem", "default:pine_bush_sapling")
+    fn("default:pine_bush_needles")
+end
+
 if minetest.get_modpath("ebony") then
     tn("ebony:trunk", "ebony:trunk", "ebony:sapling")
     fn("ebony:leaves")
@@ -100,6 +107,12 @@ end
 if minetest.get_modpath("maple") then
     tn("maple:trunk", "maple:trunk", "maple:sapling")
     fn("maple:leaves")
+end
+
+if minetest.get_modpath("oak") then
+    tn("oak:trunk", "oak:trunk", "oak:sapling")
+    fn("oak:leaves")
+    fn("oak:acorn")
 end
 
 if minetest.get_modpath("pomegranate") then
