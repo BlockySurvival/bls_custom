@@ -15,6 +15,7 @@ dofile(bls.modpath .. "/aliases.lua")
 dofile(bls.modpath .. "/crafting_overrides.lua")
 dofile(bls.modpath .. "/item_overrides.lua")
 
+dofile(bls.modpath .. "/custom_items/crafting_table.lua")
 dofile(bls.modpath .. "/custom_items/currency.lua")
 dofile(bls.modpath .. "/custom_items/doors.lua")
 dofile(bls.modpath .. "/custom_items/fake_atm.lua")
