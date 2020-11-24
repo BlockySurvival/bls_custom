@@ -34,6 +34,7 @@ local node_def = {
     range = 8,
 
     drawtype = "airlike",
+    paramtype = "light",
 
     is_ground_content = false,
     sunlight_propagates = true,
