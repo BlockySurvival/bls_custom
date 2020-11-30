@@ -265,6 +265,11 @@ if minetest.global_exists("xdecor") then
             return itemstack
         end
     })
+
+    local flower_list = {"dandelion_white","dandelion_yellow","geranium","rose","tulip","viola"}
+    for _, fl in ipairs(flower_list) do
+        remove_groups("xdecor:potted_" .. fl, "flower")
+    end
 end
 
 if minetest.get_modpath("youngtrees") then
