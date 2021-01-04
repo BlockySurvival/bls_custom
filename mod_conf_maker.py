@@ -65,6 +65,7 @@ palm
 pineapple
 pomegranate
 quartz
+replacer
 ropes
 shields
 technic_chests
