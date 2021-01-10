@@ -139,5 +139,6 @@ minetest.register_craft({
 })
 
 if minetest.global_exists("mesecon") and mesecon.register_mvps_stopper then
-    mesecon.register_mvps_stopper("bls:highly_protected")
+    mesecon.register_mvps_stopper("bls:pro_aid_air")
+    mesecon.register_mvps_stopper("bls:pro_aid_wall")
 end
