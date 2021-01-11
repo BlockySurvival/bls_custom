@@ -1,5 +1,12 @@
 if not minetest.global_exists("terumet") then return end
 
+if minetest.get_modpath("caverealms") then
+    terumet.options.ore_saw.VALID_ORES["caverealms:stone_with_algae"] = 1
+    terumet.options.ore_saw.VALID_ORES["caverealms:stone_with_lichen"] = 1
+    terumet.options.ore_saw.VALID_ORES["caverealms:stone_with_moss"] = 1
+    terumet.options.ore_saw.VALID_ORES["caverealms:stone_with_salt"] = 1
+end
+
 if minetest.get_modpath("nether") then
     terumet.options.ore_saw.VALID_ORES["nether:sulfur_ore"] = 1
     terumet.options.ore_saw.VALID_ORES["nether:titanium_ore"] = 1
