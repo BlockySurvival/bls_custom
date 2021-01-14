@@ -70,7 +70,7 @@ end
 
 if minetest.get_modpath("farming") then
     fn("farming:cabbage_6", "farming:cabbage 2", "farming:cabbage_1")
-    fn("farming:ming_4", "farming:mint_leaf 4", "farming:mint_1")
+    fn("farming:mint_4", "farming:mint_leaf 4", "farming:mint_1")
 end
 
 if minetest.get_modpath("hollytree") then
