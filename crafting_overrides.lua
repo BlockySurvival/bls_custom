@@ -1278,15 +1278,14 @@ if minetest.get_modpath("tubelib_addons3") then
             },
         })
         minetest.clear_craft({output="tubelib_addons3:teleporter"})
-        -- disable crafting these as they're buggy and i can't fix them right now
-        --minetest.register_craft({
-        --    output = "tubelib_addons3:teleporter",
-        --    recipe = {
-        --        {"terumet:item_cryst_uranium", "group:wood",              ""},
-        --        {"terumet:item_cryst_mese",    "terumet:item_cryst_mese", "tubelib:tubeS"},
-        --        {"terumet:item_cryst_uranium", "group:wood",              ""},
-        --    },
-        --})
+        minetest.register_craft({
+            output = "tubelib_addons3:teleporter",
+            recipe = {
+                {"terumet:item_cryst_uranium", "group:wood",              "terumet:item_cryst_uranium"},
+                {"terumet:item_cryst_mese",    "terumet:item_cryst_mese", "tubelib:tubeS"},
+                {"terumet:item_cryst_uranium", "group:wood",              "terumet:item_cryst_uranium"},
+            },
+        })
     end
 end
 
