@@ -570,6 +570,26 @@ if minetest.get_modpath("extra") then
     end
 end
 
+if minetest.get_modpath("farming") then
+    local function register_hoe_craft(name, material)
+        minetest.register_craft({
+            output = name,
+            recipe = {
+                {material, material},
+                {"",       "default:stick"},
+                {"",       "default:stick"},
+            }
+        })
+    end
+    register_hoe_craft("farming:hoe_bronze", "default:bronze_ingot")
+    register_hoe_craft("farming:hoe_mese", "default:mese_crystal")
+    register_hoe_craft("farming:hoe_diamond", "default:diamind")
+    if minetest.get_modpath("moreores") then
+        register_hoe_craft("moreores:hoe_silver", "moreores:silver_ingot")
+        register_hoe_craft("moreores:hoe_mithril", "moreores:mithril_ingot")
+    end
+end
+
 if minetest.get_modpath("gravelsieve") then
     -- make gravelsieve expensive
     minetest.clear_craft({output="gravelsieve:sieve"})
