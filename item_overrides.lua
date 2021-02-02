@@ -162,6 +162,10 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
     add_groups("ethereal:banana", "not_in_creative_inventory")
     add_groups("ethereal:orange", "not_in_creative_inventory")
     add_groups("ethereal:strawberry", "not_in_creative_inventory")
+
+    remove_groups("farming:hoe_bronze", "not_in_creative_inventory")
+    remove_groups("farming:hoe_mese", "not_in_creative_inventory")
+    remove_groups("farming:hoe_diamond", "not_in_creative_inventory")
 end
 
 if minetest.global_exists("maptools") then
