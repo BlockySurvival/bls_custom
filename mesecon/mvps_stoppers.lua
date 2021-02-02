@@ -16,6 +16,13 @@ local patterns = {
     "default:coral_cyan",  -- weird double node w/ weird logic on break
     "default:coral_green",  -- same
     "default:coral_pink",  -- same
+    "doors:.*", -- double node isn't handled well
+    "artdeco:estatedoor.*", -- double node isn't handled well
+    "bls:door_steel_protected.*", -- double node isn't handled well
+    "homedecor:door_.*", -- double node isn't handled well
+    "my_.*_doors:.*", -- double node isn't handled well
+    "terumet:door_.*", -- double node isn't handled well
+    "xpanes:door_.*", -- double node isn't handled well
 }
 
 local function do_it()
