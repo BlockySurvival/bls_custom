@@ -23,6 +23,7 @@ gravelsieve.set_probabilities(function ()
 	return {
 		[compressed_gravel] = gravel_probabilities,
 		[normal_gravel] = false,
-		[sand] = { [sand] = 1 }
+		[sand] = { [sand] = 1 },
+		[sieved_gravel] = { [sieved_gravel] = 1 }
 	}
 end)

@@ -17,6 +17,7 @@ globals = {
     "facade",
     "farming",
     "flowers",
+    "gravelsieve",
     "irc",
     "irc2",
     "ItemStack",
