@@ -1,3 +1,8 @@
+if not (
+        minetest.get_modpath("3d_armor")
+    and minetest.global_exists("armor")
+) then return end
+
 armor:register_armor("bls:infinity_bracer", {
     description = "Infinity Bracer",
     inventory_image = "bls_infinity_bracer_inv.png",

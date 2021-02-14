@@ -1,3 +1,8 @@
+if not (
+        minetest.get_modpath("maptools")
+    and minetest.global_exists("maptools")
+) then return end
+
 minetest.register_node(":maptools:clean_glass", {
         description = "Unbreakable Clean Glass",
         range = 12,

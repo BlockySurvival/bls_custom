@@ -222,14 +222,17 @@ if minetest.get_modpath("extra") then
     set_eat("extra:tomato_slice", 0)
 end
 
-if minetest.get_modpath("farming") then
+if minetest.get_modpath("farming") and minetest.global_exists("farming")  then
+
+    set_eat("farming:bread", 4)
+    if farming.mod == "redo" then
+
     set_eat("farming:baked_potato", 4)
     set_eat("farming:beans", 2)
     set_eat("farming:beetroot", 2)
     set_eat("farming:beetroot_soup", 6, bowl) -- TODO make this not just a beet concentrate?
     set_eat("farming:blueberries", 2)
     set_eat("farming:blueberry_pie", 8)
-    set_eat("farming:bread", 4)
     set_eat("farming:bread_multigrain", 8)
     set_eat("farming:bread_slice", 2)
     set_eat("farming:carrot", 2)
@@ -273,6 +276,7 @@ if minetest.get_modpath("farming") then
     set_eat("farming:toast_sandwich", 6)
     set_eat("farming:tomato", 2)
     set_eat("farming:turkish_delight", 12)
+    end
 end
 
 if minetest.get_modpath("homedecor_gastronomy") then
