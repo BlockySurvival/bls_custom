@@ -5,6 +5,7 @@ max_line_length = 999
 globals = {
     "areas",
     "armor",
+    "bigdoors",
     "binoculars",
     "bls",
     "bucket",
