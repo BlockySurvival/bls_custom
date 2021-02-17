@@ -61,6 +61,8 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
         -- TODO: figure out a check to see if these are already registered?
         local def_copy = table.copy(def)
         def_copy.drop = nil
+        def_copy.wield_image = nil
+        def_copy.inventory_image = nil
         stairsplus:register_all(modname, subname, recipe_item, def_copy)
     end
 
