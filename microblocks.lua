@@ -59,7 +59,9 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
 
     if has_stairsplus and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
-        stairsplus:register_all(modname, subname, recipe_item, def)
+        local def_copy = table.copy(def)
+        def_copy.drop = nil
+        stairsplus:register_all(modname, subname, recipe_item, def_copy)
     end
 
     if has_facade and make_facade then
