@@ -59,11 +59,7 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
 
     if has_stairsplus and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
-        local def_copy = table.copy(def)
-        def_copy.drop = nil
-        def_copy.wield_image = nil
-        def_copy.inventory_image = nil
-        stairsplus:register_all(modname, subname, recipe_item, def_copy)
+        stairsplus:register_all(modname, subname, recipe_item, def)
     end
 
     if has_facade and make_facade then
@@ -158,7 +154,13 @@ if get_modpath("farming") then
 end
 
 if get_modpath("mahogany") then
-    register("mahogany:leaves", nil, false)
+    local def = registered_nodes["mahogany:leaves"]
+    local def_copy = table.copy(def)
+    def_copy.drop = nil
+    def_copy.wield_image = nil
+    def_copy.inventory_image = nil
+    def_copy.after_place_node = nil
+    stairsplus:register_all("mahogany", "leaves", "mahogany:leaves", def_copy)
 end
 
 if get_modpath("mobs_animal") then
