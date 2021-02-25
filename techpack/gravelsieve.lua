@@ -6,15 +6,30 @@ local gs_api = gravelsieve.api
 
 gs_api.remove_input("default:gravel")
 
-gs_api.register_input("default:gravel", 1 - (1 / 40), {
-    ["default:silver_sand"] = 1,
-    ["default:sand"] = 1 / 2,
-    ["default:desert_sand"] = 1 / 4,
-    ["default:gravel"] = 1 / 8,
-})
+if minetest.get_modpath("cavestuff") then
+    gs_api.register_input("default:gravel", 1 - (1 / 40), {
+        ["default:silver_sand"] = 1,
+        ["default:sand"] = 1 / 2,
+        ["default:desert_sand"] = 1 / 4,
+        ["default:gravel"] = 1 / 8,
+        ["default:flint"] = 1 / 8,
+        ["cavestuff:pebble_1"] = 1 / 8,
+        ["cavestuff:desert_pebble_1"] = 1 / 8,
+    })
+
+else
+    gs_api.register_input("default:gravel", 1 - (1 / 40), {
+        ["default:silver_sand"] = 1,
+        ["default:sand"] = 1 / 2,
+        ["default:desert_sand"] = 1 / 4,
+        ["default:gravel"] = 1 / 8,
+        ["default:flint"] = 1 / 8,
+    })
+end
 
 gs_api.register_input("gravelsieve:compressed_gravel", 1 - (1 / 10), {
     ["default:gravel"] = 1,
+    ["default:flint"] = 1 / 4,
     ["default:gravel 2"] = 1/2,
     ["default:gravel 3"] = 1/4,
     ["default:gravel 4"] = 1/8,
@@ -22,7 +37,6 @@ gs_api.register_input("gravelsieve:compressed_gravel", 1 - (1 / 10), {
     ["default:gravel 6"] = 1/32,
 })
 
-gs_api.register_output("default:gravel", "default:flint", 1 / 4)
 gs_api.register_output("default:gravel", "default:clay_lump", 1 / 5)
 gs_api.register_output("default:gravel", "default:mese_crystal_fragment", 1 / 15)
 gs_api.register_output("default:gravel", "default:obsidian_shard", 1 / 15)
@@ -31,7 +45,6 @@ gs_api.register_output("default:gravel", "default:iron_lump", 1 / 12)
 gs_api.register_output("default:gravel", "default:copper_lump", 1 / 25)
 gs_api.register_output("default:gravel", "default:tin_lump", 1 / 50)
 
-gs_api.register_output("gravelsieve:compressed_gravel", "default:flint", 1 / 5)
 gs_api.register_output("gravelsieve:compressed_gravel", "default:mese_crystal_fragment", 1 / 5)
 gs_api.register_output("gravelsieve:compressed_gravel", "default:coal_lump", 1 / 3)
 gs_api.register_output("gravelsieve:compressed_gravel", "default:iron_lump", 1 / 3)
@@ -40,11 +53,6 @@ gs_api.register_output("gravelsieve:compressed_gravel", "default:tin_lump", 1 / 
 gs_api.register_output("gravelsieve:compressed_gravel", "default:gold_lump", 1 / 10)
 gs_api.register_output("gravelsieve:compressed_gravel", "default:mese_crystal", 1 / 50)
 gs_api.register_output("gravelsieve:compressed_gravel", "default:diamond", 1 / 500)
-
-if minetest.get_modpath("cavestuff") then
-    gs_api.register_output("default:gravel", "cavestuff:pebble_1", 1 / 4)
-    gs_api.register_output("default:gravel", "cavestuff:desert_pebble_1", 1 / 4)
-end
 
 if minetest.get_modpath("moreores") then
     gs_api.register_output("default:gravel", "moreores:silver_lump", 1 / 1000)
