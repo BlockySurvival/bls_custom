@@ -16,6 +16,7 @@ bonemeal
 bucket
 building_blocks
 caverealms
+cavestuff
 cblocks
 cherrytree
 chestnuttree
