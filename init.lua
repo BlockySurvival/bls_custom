@@ -63,6 +63,7 @@ dofile(bls.modpath .. "/tnt.lua")
 dofile(bls.modpath .. "/privs/caps.lua")
 dofile(bls.modpath .. "/privs/zoom.lua")
 
+dofile(bls.modpath .. "/techpack/gravelsieve.lua")
 dofile(bls.modpath .. "/techpack/grinder.lua")
 dofile(bls.modpath .. "/techpack/harvester.lua")
 dofile(bls.modpath .. "/techpack/quarry.lua")
