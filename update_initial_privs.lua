@@ -3,6 +3,7 @@
 local storage = bls.mod_storage
 local YES_VALUE = "y"
 
+-- update for tp and instruments privs
 local function fix_priv_1(name)
     local key = ("%s_fix_priv_1"):format(name)
     if storage:get_string(key) ~= YES_VALUE then
@@ -16,12 +17,26 @@ local function fix_priv_1(name)
     end
 end
 
+-- update for caps priv
 local function fix_priv_2(name)
     local key = ("%s_fix_priv_2"):format(name)
     if storage:get_string(key) ~= YES_VALUE then
         local privs = minetest.get_player_privs(name) or {}
         if privs.shout then
             privs.caps = true
+            minetest.set_player_privs(name, privs)
+        end
+        storage:set_string(key, YES_VALUE)
+    end
+end
+
+-- update for new smartshop_admin priv
+local function fix_priv_3(name)
+    local key = ("%s_fix_priv_3"):format(name)
+    if storage:get_string(key) ~= YES_VALUE then
+        local privs = minetest.get_player_privs(name) or {}
+        if privs.admin or privs.creative or privs.give then
+            privs.smartshop_admin = true
             minetest.set_player_privs(name, privs)
         end
         storage:set_string(key, YES_VALUE)
@@ -35,5 +50,6 @@ minetest.register_on_joinplayer(function(player)
     local name = player:get_player_name()
     minetest.after(0, fix_priv_1, name)
     minetest.after(0, fix_priv_2, name)
+    minetest.after(0, fix_priv_3, name)
 end)
 
