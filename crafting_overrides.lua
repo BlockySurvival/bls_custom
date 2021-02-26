@@ -606,13 +606,13 @@ if minetest.get_modpath("gravelsieve") then
     minetest.register_craft({
         output = "gravelsieve:auto_sieve",
         recipe = {
-            {"default:diamondblock", "default:diamondblock", "default:diamondblock"},
-            {"default:mese",         "gravelsieve:sieve",    "default:mese"},
-            {"default:diamondblock", "default:mese",         "default:diamondblock"},
+            {"default:diamondblock", "titanium:block",    "default:diamondblock"},
+            {"titanium:block",       "gravelsieve:sieve", "titanium:block"},
+            {"default:diamondblock", "titanium:block",    "default:diamondblock"},
         },
     })
 
-    -- make comopressed gravel behave like other compressed nodes
+    -- make compressed gravel behave like other compressed nodes
     minetest.clear_craft({output="gravelsieve:compressed_gravel"})
     minetest.clear_craft({recipe="gravelsieve:compressed_gravel", type="cooking"})
     minetest.register_craft({
