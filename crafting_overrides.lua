@@ -911,6 +911,29 @@ if minetest.get_modpath("soundblocks") then
     })
 end
 
+if minetest.get_modpath("technic_chests") then
+    minetest.register_craft({
+        output="technic:iron_chest",
+        type="shapeless",
+        recipe={"technic:iron_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:copper_chest",
+        type="shapeless",
+        recipe={"technic:copper_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:silver_chest",
+        type="shapeless",
+        recipe={"technic:silver_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:gold_chest",
+        type="shapeless",
+        recipe={"technic:gold_locked_chest"},
+    })
+end
+
 if minetest.get_modpath("technic_worldgen") then
     minetest.register_craft({type="cooking", recipe="technic:mineral_chromium", output="technic:chromium_ingot", })
     minetest.register_craft({type="cooking", recipe="technic:mineral_lead", output="technic:lead_ingot", })
