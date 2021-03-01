@@ -74,6 +74,11 @@ dofile(bls.modpath .. "/terumet/vulcanizer.lua")
 dofile(bls.modpath .. "/tool_damage_alert.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 
+local http = minetest.request_http_api()
+if http then
+    assert(loadfile(bls.modpath .. "/report_webhook.lua"))(http)
+end
+
 --
 if minetest.global_exists("xdecor") then
     dofile(bls.modpath .. "/microblocks_cleanup.lua")
