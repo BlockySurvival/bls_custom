@@ -56,10 +56,17 @@ local function is_wearing_admin_armor(player)
     return false
 end
 
+-- this doesn't really belong here, but i can't think of a better place for it
+local function safe_noclip(player, reason)
+    return minetest.check_player_privs(player, "noclip") and (reason.type == "node_damage" or reason.type == "drown")
+end
+
 -- prevent all damage if player is wearing admin armor
 local old_registered_on_player_hpchange = minetest.registered_on_player_hpchange
 function minetest.registered_on_player_hpchange(player, hp_change, reason)
     if is_wearing_admin_armor(player) then
+        return 0
+    elseif safe_noclip(player, reason) then
         return 0
     else
         return old_registered_on_player_hpchange(player, hp_change, reason)
