@@ -43,6 +43,14 @@ if minetest.get_modpath("caverealms") then
     add_groups("caverealms:hanging_thin_ice", "cracky", "slippery=5")
 end
 
+if minetest.get_modpath("cavestuff") then
+    add_groups("cavestuff:pebble_1", "pebble")
+    add_groups("cavestuff:pebble_2", "pebble")
+    add_groups("cavestuff:desert_pebble_1", "pebble")
+    add_groups("cavestuff:desert_pebble_2", "pebble")
+    add_groups("default:flint", "pebble")
+end
+
 if minetest.get_modpath("cottages") then
     add_groups("cottages:rope", "vines")
 

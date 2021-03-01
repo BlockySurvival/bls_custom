@@ -209,6 +209,17 @@ if minetest.get_modpath("bones") and minetest.get_modpath("bonemeal") then
     end
 end
 
+if minetest.get_modpath("cavestuff") then
+    minetest.register_craft({
+        output="default:gravel",
+        recipe={
+            {"group:pebble", "group:pebble", "group:pebble"},
+            {"group:pebble", "group:pebble", "group:pebble"},
+            {"group:pebble", "group:pebble", "group:pebble"},
+        }
+    })
+end
+
 if minetest.get_modpath("caverealms") then
     minetest.register_craft({type="cooking", recipe="caverealms:glow_amethyst_ore", output="caverealms:glow_amethyst", })
     minetest.register_craft({type="cooking", recipe="caverealms:glow_emerald_ore", output="caverealms:glow_emerald", })
