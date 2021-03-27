@@ -4,137 +4,82 @@ end
 
 local gs_api = gravelsieve.api
 
-
--------------------
---- let's do gravel
--------------------
-gs_api.remove_input("default:gravel")
-
-if minetest.get_modpath("cavestuff") then
-    gs_api.register_input("default:gravel", 1 - (1 / 40), {
-        ["default:silver_sand"] = 1,
-        ["default:sand"] = 1 / 2,
-        ["default:desert_sand"] = 1 / 4,
-        ["default:gravel"] = 1 / 8,
-        ["default:flint"] = 1 / 8,
-        ["cavestuff:pebble_1"] = 1 / 8,
-        ["cavestuff:desert_pebble_1"] = 1 / 8,
-    })
-
-else
-    gs_api.register_input("default:gravel", 1 - (1 / 40), {
-        ["default:silver_sand"] = 1,
-        ["default:sand"] = 1 / 2,
-        ["default:desert_sand"] = 1 / 4,
-        ["default:gravel"] = 1 / 8,
-        ["default:flint"] = 1 / 8,
-    })
-end
-
-gs_api.register_output("default:gravel", "default:clay_lump", 1 / 5)
-gs_api.register_output("default:gravel", "default:mese_crystal_fragment", 1 / 15)
-gs_api.register_output("default:gravel", "default:obsidian_shard", 1 / 15)
-gs_api.register_output("default:gravel", "default:coal_lump", 1 / 10)
-gs_api.register_output("default:gravel", "default:iron_lump", 1 / 12)
-gs_api.register_output("default:gravel", "default:copper_lump", 1 / 25)
-gs_api.register_output("default:gravel", "default:tin_lump", 1 / 50)
-
-if minetest.get_modpath("moreores") then
-    gs_api.register_output("default:gravel", "moreores:silver_lump", 1 / 1000)
-end
-
-if minetest.get_modpath("quartz") then
-    gs_api.register_output("default:gravel", "quartz:quartz_crystal", 1 / 30)
-    gs_api.register_output("default:gravel", "quartz:quartz_crystal_piece", 1 / 4)
-end
-
-if minetest.get_modpath("technic") then
-    gs_api.register_output("default:gravel", "technic:lead_lump", 1 / 30)
-    gs_api.register_output("default:gravel", "technic:zinc_lump", 1 / 40)
-    gs_api.register_output("default:gravel", "technic:chromium_lump", 1 / 200)
-    gs_api.register_output("default:gravel", "technic:sulfur_lump", 1 / 100)
-end
-
-if minetest.get_modpath("terumet") then
-    gs_api.register_output("default:gravel", "terumet:lump_raw", 1 / 30)
-end
-
---------------------------
---- compressed_gravel: the good stuff
---------------------------
-
-gs_api.register_input("gravelsieve:compressed_gravel", 1 - (1 / 10), {
+local gravel_junk_outputs = {
+    ["default:silver_sand"] = 1 / 4,
+    ["default:sand"] = 1 / 2,
+    ["default:desert_sand"] = 1 / 4,
     ["default:gravel"] = 1,
-    ["default:flint"] = 1 / 4,
-    ["default:gravel 2"] = 1/2,
-    ["default:gravel 3"] = 1/4,
-    ["default:gravel 4"] = 1/8,
-    ["default:gravel 5"] = 1/16,
-    ["default:gravel 6"] = 1/32,
-})
-
-gs_api.register_output("gravelsieve:compressed_gravel", "default:mese_crystal_fragment", 1 / 5)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:coal_lump", 1 / 3)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:iron_lump", 1 / 3)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:copper_lump", 1 / 4)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:tin_lump", 1 / 5)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:gold_lump", 1 / 40)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:mese_crystal", 1 / 160)
-gs_api.register_output("gravelsieve:compressed_gravel", "default:diamond", 1 / 512)
-
-if minetest.get_modpath("moreores") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "moreores:silver_lump", 1 / 20)
-    gs_api.register_output("gravelsieve:compressed_gravel", "moreores:mithril_lump", 1 / 400)
+    ["default:flint"] = 1 / 8,
+}
+if minetest.get_modpath("cavestuff") then
+    gravel_junk_outputs["cavestuff:pebble_1"] = 1 / 8
+    gravel_junk_outputs["cavestuff:desert_pebble_1"] = 1 / 8
 end
 
-if minetest.get_modpath("other_worlds") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:ghost_crystal_1", 1 / 50000)
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:ghost_crystal_2", 1 / 50000)
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:red_crystal_1", 1 / 50000)
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:red_crystal_2", 1 / 50000)
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_1", 1 / 50000)
-    gs_api.register_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_2", 1 / 50000)
-end
+local compressed_junk_outputs = {
+    ["default:flint"] = 1 / 8,
+    ["default:gravel"] = 1,
+    ["default:gravel 2"] = 1 / 2,
+    ["default:gravel 3"] = 1 / 4,
+    ["default:gravel 4"] = 1 / 8,
+    ["default:gravel 5"] = 1 / 16,
+    ["default:gravel 6"] = 1 / 32,
+}
+  
+gs_api.after_ores_calculated(function (ore_probabilities)
 
-if minetest.get_modpath("quartz") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "quartz:quartz_crystal", 1 / 4)
-end
+    -- Average out the probabilities a little to make rare things more common
+    local compressed_probabilities = {}
+    for ore, probability in pairs(ore_probabilities) do
+        compressed_probabilities[ore] = probability^0.8
+    end
 
-if minetest.get_modpath("technic") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "technic:lead_lump", 1 / 8)
-    gs_api.register_output("gravelsieve:compressed_gravel", "technic:zinc_lump", 1 / 10)
-    gs_api.register_output("gravelsieve:compressed_gravel", "technic:chromium_lump", 1 / 100)
-    gs_api.register_output("gravelsieve:compressed_gravel", "technic:uranium_lump", 1 / 300)
-    gs_api.register_output("gravelsieve:compressed_gravel", "technic:sulfur_lump", 1 / 6)
-end
+    -- Scale to appropriate total rate
+    local total_ore_probabiltiy = gs_api.sum_probabilities(ore_probabilities)
+    compressed_probabilities = gs_api.scale_probabilities_to_fill(compressed_probabilities, total_ore_probabiltiy * 9)
 
-if minetest.get_modpath("terumet") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "terumet:lump_raw 4", 1 / 20)
-end
+    gs_api.override_input("default:gravel", {
+        fixed = ore_probabilities,
+        relative = gravel_junk_outputs
+    })
+    gs_api.register_input("gravelsieve:compressed_gravel", {
+        fixed = compressed_probabilities,
+        relative = compressed_junk_outputs
+    })
 
-if minetest.get_modpath("titanium") then
-    gs_api.register_output("gravelsieve:compressed_gravel", "titanium:titanium", 1 / 5000)
-end
+    -- Add a few rare gems to compressed output
+    if minetest.get_modpath("other_worlds") then
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:ghost_crystal_1", 1 / 50000)
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:ghost_crystal_2", 1 / 50000)
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:red_crystal_1", 1 / 50000)
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:red_crystal_2", 1 / 50000)
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_1", 1 / 50000)
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_2", 1 / 50000)
+    end
+    if minetest.get_modpath("technic") then
+        gs_api.register_fixed_output("gravelsieve:compressed_gravel", "technic:sulfur_lump", 1 / 100)
+    end
+end)
 
 --------------------------
 -- dirt --
 --------------------------
 
 if minetest.get_modpath("cavestuff") then
-    gs_api.register_input("default:dirt", 1 - (1 / 5), {
+    gs_api.register_input("default:dirt", {fixed=gs_api.scale_probabilities_to_fill({
         ["default:silver_sand"] = 1,
         ["default:sand"] = 1 / 2,
         ["default:desert_sand"] = 1 / 4,
         ["cavestuff:pebble_1"] = 1 / 8,
         ["cavestuff:desert_pebble_1"] = 1 / 8,
-    })
+    }, 1 - (1 / 5))})
 
 else
-    gs_api.register_input("default:dirt", 1 - (1 / 5), {
+    gs_api.register_input("default:dirt", {fixed=gs_api.scale_probabilities_to_fill({
         ["default:silver_sand"] = 1,
         ["default:sand"] = 1 / 2,
         ["default:desert_sand"] = 1 / 4,
-    })
+    }, 1 - (1 / 5))})
 end
 
 gs_api.register_output("default:dirt", "default:stick", 1)
@@ -163,25 +108,27 @@ if minetest.get_modpath("cucina_vegana") then
 end
 
 if minetest.get_modpath("farming") then
-    gs_api.register_output("default:dirt", "farming:beans", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:beetroot", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:carrot", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:cocoa_beans", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:coffee_beans", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:corn", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:garlic", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:onion", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:peas", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:peppercorn", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:potato", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_barley", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_cotton", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_hemp", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_mint", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_oat", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:seed_rye", 1 / 2)
     gs_api.register_output("default:dirt", "farming:seed_wheat", 1 / 2)
-    gs_api.register_output("default:dirt", "farming:soy_beans", 1 / 2)
+    gs_api.register_output("default:dirt", "farming:seed_cotton", 1 / 2)
+    if farming.mod == "redo" then
+        gs_api.register_output("default:dirt", "farming:beans", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:beetroot", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:carrot", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:cocoa_beans", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:coffee_beans", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:corn", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:garlic", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:onion", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:peas", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:peppercorn", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:potato", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:seed_barley", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:seed_hemp", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:seed_mint", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:seed_oat", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:seed_rye", 1 / 2)
+        gs_api.register_output("default:dirt", "farming:soy_beans", 1 / 2)
+    end
 end
 
 if minetest.get_modpath("ferns") then
@@ -252,12 +199,12 @@ end
 -- dirt_with_grass
 ---------------
 
-gs_api.register_input("default:dirt_with_grass", 1 - (1 / 5), {
+gs_api.register_input("default:dirt_with_grass", {fixed=gs_api.scale_probabilities_to_fill({
     ["default:silver_sand"] = 1,
     ["default:sand"] = 1 / 2,
     ["default:desert_sand"] = 1 / 4,
     ["default:dirt"] = 1 / 8,
-})
+}, 1 - (1 / 5))})
 
 gs_api.register_output("default:dirt_with_grass", "default:apple", 1 / 2)
 gs_api.register_output("default:dirt_with_grass", "default:dry_grass_1", 1 / 2)
@@ -315,26 +262,28 @@ if minetest.get_modpath("ebony") then
 end
 
 if minetest.get_modpath("farming") then
-    gs_api.register_output("default:dirt_with_grass", "farming:barley", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:blackberry", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:blueberries", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:cabbage", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:chili_pepper", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:cucumber", 1 / 2)
     gs_api.register_output("default:dirt_with_grass", "farming:cotton", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:grapes", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:hemp_leaf", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:lettuce", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:mint_leaf", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:oat", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:pepper", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:pepper_red", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:pepper_yellow", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:pineapple", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:raspberries", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:rhubarb", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:rye", 1 / 2)
-    gs_api.register_output("default:dirt_with_grass", "farming:tomato", 1 / 2)
+    if farming.mod == "redo" then
+        gs_api.register_output("default:dirt_with_grass", "farming:barley", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:blackberry", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:blueberries", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:cabbage", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:chili_pepper", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:cucumber", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:grapes", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:hemp_leaf", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:lettuce", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:mint_leaf", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:oat", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:pepper", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:pepper_red", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:pepper_yellow", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:pineapple", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:raspberries", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:rhubarb", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:rye", 1 / 2)
+        gs_api.register_output("default:dirt_with_grass", "farming:tomato", 1 / 2)
+    end
 end
 
 if minetest.get_modpath("ferns") then
@@ -432,9 +381,9 @@ end
 ----------------------
 
 local function register_sapling(leaf, sapling)
-    gs_api.register_input(leaf, 1 - (1 / 5), {
+    gs_api.register_input(leaf, {fixed=gs_api.scale_probabilities_to_fill({
         ["default:stick"] = 1,
-    })
+    }, 1 - (1 / 5))})
     gs_api.register_output(leaf, sapling, 1)
 end
 
