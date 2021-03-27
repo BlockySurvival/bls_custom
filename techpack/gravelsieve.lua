@@ -25,7 +25,7 @@ local compressed_junk_outputs = {
     ["default:gravel 5"] = 1 / 16,
     ["default:gravel 6"] = 1 / 32,
 }
-  
+
 gs_api.after_ores_calculated(function (ore_probabilities)
 
     -- Average out the probabilities a little to make rare things more common
