@@ -5,7 +5,7 @@ local gn = tubelib_addons1.register_ground_node
 gn("bls:marble")
 
 -- This one line breaks the cobblegen > autosieve pathway completely
-gn("default:stone","default:stone")
+-- gn("default:stone","default:stone")
 
 if minetest.get_modpath("building_blocks") then
     gn("building_blocks:Marble")
