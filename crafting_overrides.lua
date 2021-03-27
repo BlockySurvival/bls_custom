@@ -209,6 +209,17 @@ if minetest.get_modpath("bones") and minetest.get_modpath("bonemeal") then
     end
 end
 
+if minetest.get_modpath("cavestuff") then
+    minetest.register_craft({
+        output="default:gravel",
+        recipe={
+            {"group:pebble", "group:pebble", "group:pebble"},
+            {"group:pebble", "group:pebble", "group:pebble"},
+            {"group:pebble", "group:pebble", "group:pebble"},
+        }
+    })
+end
+
 if minetest.get_modpath("caverealms") then
     minetest.register_craft({type="cooking", recipe="caverealms:glow_amethyst_ore", output="caverealms:glow_amethyst", })
     minetest.register_craft({type="cooking", recipe="caverealms:glow_emerald_ore", output="caverealms:glow_emerald", })
@@ -606,13 +617,13 @@ if minetest.get_modpath("gravelsieve") then
     minetest.register_craft({
         output = "gravelsieve:auto_sieve",
         recipe = {
-            {"default:diamondblock", "default:diamondblock", "default:diamondblock"},
-            {"default:mese",         "gravelsieve:sieve",    "default:mese"},
-            {"default:diamondblock", "default:mese",         "default:diamondblock"},
+            {"default:diamondblock", "titanium:block",    "default:diamondblock"},
+            {"titanium:block",       "gravelsieve:sieve", "titanium:block"},
+            {"default:diamondblock", "titanium:block",    "default:diamondblock"},
         },
     })
 
-    -- make comopressed gravel behave like other compressed nodes
+    -- make compressed gravel behave like other compressed nodes
     minetest.clear_craft({output="gravelsieve:compressed_gravel"})
     minetest.clear_craft({recipe="gravelsieve:compressed_gravel", type="cooking"})
     minetest.register_craft({
@@ -908,6 +919,29 @@ if minetest.get_modpath("soundblocks") then
     minetest.register_craft({
         output="soundblocks:ironbellitem",
         recipe={{"default:stick", "default:steel_ingot"}}
+    })
+end
+
+if minetest.get_modpath("technic_chests") then
+    minetest.register_craft({
+        output="technic:iron_chest",
+        type="shapeless",
+        recipe={"technic:iron_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:copper_chest",
+        type="shapeless",
+        recipe={"technic:copper_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:silver_chest",
+        type="shapeless",
+        recipe={"technic:silver_locked_chest"},
+    })
+    minetest.register_craft({
+        output="technic:gold_chest",
+        type="shapeless",
+        recipe={"technic:gold_locked_chest"},
     })
 end
 

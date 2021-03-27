@@ -63,6 +63,7 @@ dofile(bls.modpath .. "/tnt.lua")
 dofile(bls.modpath .. "/privs/caps.lua")
 dofile(bls.modpath .. "/privs/zoom.lua")
 
+dofile(bls.modpath .. "/techpack/gravelsieve.lua")
 dofile(bls.modpath .. "/techpack/grinder.lua")
 dofile(bls.modpath .. "/techpack/harvester.lua")
 dofile(bls.modpath .. "/techpack/quarry.lua")
@@ -73,6 +74,11 @@ dofile(bls.modpath .. "/terumet/vulcanizer.lua")
 dofile(bls.modpath .. "/tool_damage_alert.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
 dofile(bls.modpath .. "/bigdoors/init.lua")
+
+local http = minetest.request_http_api()
+if http then
+    assert(loadfile(bls.modpath .. "/report_webhook.lua"))(http)
+end
 
 --
 if minetest.global_exists("xdecor") then

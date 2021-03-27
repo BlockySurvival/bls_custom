@@ -141,11 +141,17 @@ EnthLojeek (unknown, used with permission):
 fluxionary (CC-0):
  - bls_pchest.png
 
+Oversword (unknown, used with permission):
+ - bls_pro_aid_remover_item.png
+
 RealBadAngel (CC-0):
  - technic_stainless_steel_ingot.png
 
 xXAguraXx (unknown, used with permission):
  - bls_shield_*.png
+
+(From technic) RealBadAngel (WTFPL)
+ - bls_pro_aid_animated.png
 
 (From xdecor) Gambit, kilbith, Cisoun (WTFPL)
  - bls_crafting_table_front.png

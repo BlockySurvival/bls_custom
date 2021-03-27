@@ -43,6 +43,14 @@ if minetest.get_modpath("caverealms") then
     add_groups("caverealms:hanging_thin_ice", "cracky", "slippery=5")
 end
 
+if minetest.get_modpath("cavestuff") then
+    add_groups("cavestuff:pebble_1", "pebble")
+    add_groups("cavestuff:pebble_2", "pebble")
+    add_groups("cavestuff:desert_pebble_1", "pebble")
+    add_groups("cavestuff:desert_pebble_2", "pebble")
+    add_groups("default:flint", "pebble")
+end
+
 if minetest.get_modpath("cottages") then
     add_groups("cottages:rope", "vines")
 
@@ -94,7 +102,17 @@ if minetest.get_modpath("cottages") then
             minetest.chat_send_player(player:get_player_name(), "Not repairable on the anvil")
             return 0
         end,
-        drop = {},
+        drop = {
+            max_items = 1,
+            items = {
+                {rarity=1, items={"default:steel_ingot 6"}},
+                {rarity=1, items={"default:steel_ingot 5"}},
+                {rarity=1, items={"default:steel_ingot 4"}},
+                {rarity=1, items={"default:steel_ingot 3"}},
+                {rarity=1, items={"default:steel_ingot 2"}},
+                {rarity=1, items={"default:steel_ingot"}},
+            }
+        },
     })
 end
 

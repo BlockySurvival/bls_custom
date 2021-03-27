@@ -154,7 +154,32 @@ if get_modpath("farming") then
 end
 
 if get_modpath("mahogany") then
-    register("mahogany:leaves", nil, false)
+    local def = registered_nodes["mahogany:leaves"]
+    local def_copy = table.copy(def)
+    def_copy.drop = nil
+    def_copy.wield_image = nil
+    def_copy.inventory_image = nil
+    def_copy.after_place_node = function(pos, placer, itemstack, pointed_thing)
+        if placer and placer:is_player() then
+            local vertical_correction = {
+                [12]=15,
+                [14]=15,
+                [7]=6,
+                [5]=6,
+                [18]=17,
+                [16]=17,
+                [9]=8,
+                [11]=8
+            }
+            local node = minetest.get_node(pos)
+            local correction = vertical_correction[node.param2]
+            if correction then
+                node.param2 = correction
+                minetest.set_node(pos, node)
+            end
+        end
+    end
+    stairsplus:register_all("mahogany", "leaves", "mahogany:leaves", def_copy)
 end
 
 if get_modpath("mobs_animal") then
