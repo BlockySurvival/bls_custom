@@ -411,6 +411,7 @@ end
 
 if minetest.get_modpath("cherrytree") then
     register_sapling("cherrytree:leaves", "cherrytree:sapling")
+    register_sapling("cherrytree:blossom_leaves", "cherrytree:sapling")
 end
 
 if minetest.get_modpath("chestnuttree") then
