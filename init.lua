@@ -73,6 +73,7 @@ dofile(bls.modpath .. "/terumet/reformer.lua")
 dofile(bls.modpath .. "/terumet/vulcanizer.lua")
 dofile(bls.modpath .. "/tool_damage_alert.lua")
 dofile(bls.modpath .. "/update_initial_privs.lua")
+dofile(bls.modpath .. "/bigdoors/init.lua")
 dofile(bls.modpath .. "/artificial_leather.lua")
 
 local http = minetest.request_http_api()
