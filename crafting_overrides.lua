@@ -297,6 +297,20 @@ if minetest.get_modpath("cottages") then
                 {"cottages:straw_mat"},
             }
         })
+
+        minetest.clear_craft({recipe = {{"farming:straw"}}})
+        minetest.clear_craft({recipe = {{"cottages:straw_bale"}}})
+
+        minetest.register_craft({
+            output = "cottages:straw_bale 2",
+            type = "shapeless",
+            recipe = {"farming:straw"}
+        })
+        minetest.register_craft({
+            output = "farming:straw",
+            type = "shapeless",
+            recipe = {"cottages:straw_bale","cottages:straw_bale"}
+        })
     end
 end
 
