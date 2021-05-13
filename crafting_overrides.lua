@@ -303,13 +303,21 @@ if minetest.get_modpath("cottages") then
 
         minetest.register_craft({
             output = "cottages:straw_bale 2",
-            type = "shapeless",
-            recipe = {"farming:straw"}
+            recipe = {{"farming:straw"}}
         })
         minetest.register_craft({
             output = "farming:straw",
             type = "shapeless",
             recipe = {"cottages:straw_bale","cottages:straw_bale"}
+        })
+        minetest.register_craft({
+            output = "cottages:straw_mat 3",
+            recipe = {{"cottages:straw_bale"}}
+        })
+        minetest.register_craft({
+            output = "farming:wheat 6",
+            type = "shapeless",
+            recipe = {"farming:straw","farming:straw"}
         })
     end
 end
