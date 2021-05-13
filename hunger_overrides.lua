@@ -259,6 +259,8 @@ if minetest.get_modpath("farming") and minetest.global_exists("farming")  then
     set_eat("farming:peas", 2)
     set_eat("farming:pea_soup", 4)
     set_eat("farming:pepper", 2)
+    set_eat("farming:pepper_yellow", 2)
+    set_eat("farming:pepper_red", 2)
     set_eat("farming:pineapple_juice", 6, glass)
     set_eat("farming:pineapple_ring", 2)
     set_eat("farming:porridge", 8, bowl)
