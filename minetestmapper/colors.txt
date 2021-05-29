@@ -2228,6 +2228,8 @@ farming:pepper_2 62 139 9
 farming:pepper_3 57 139 12
 farming:pepper_4 89 143 67
 farming:pepper_5 54 118 14
+farming:pepper_6 210 160 58
+farming:pepper_7 130 36 14
 farming:pepper_ground 154 154 162
 farming:pineapple 130 99 36
 farming:pineapple_1 79 93 44
