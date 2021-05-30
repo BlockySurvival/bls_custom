@@ -297,6 +297,28 @@ if minetest.get_modpath("cottages") then
                 {"cottages:straw_mat"},
             }
         })
+
+        minetest.clear_craft({recipe = {{"farming:straw"}}})
+        minetest.clear_craft({recipe = {{"cottages:straw_bale"}}})
+
+        minetest.register_craft({
+            output = "cottages:straw_bale 2",
+            recipe = {{"farming:straw"}}
+        })
+        minetest.register_craft({
+            output = "farming:straw",
+            type = "shapeless",
+            recipe = {"cottages:straw_bale","cottages:straw_bale"}
+        })
+        minetest.register_craft({
+            output = "cottages:straw_mat 3",
+            recipe = {{"cottages:straw_bale"}}
+        })
+        minetest.register_craft({
+            output = "farming:wheat 6",
+            type = "shapeless",
+            recipe = {"farming:straw","farming:straw"}
+        })
     end
 end
 
@@ -1386,6 +1408,30 @@ if minetest.get_modpath("wool") then
 end
 
 if minetest.get_modpath("xdecor") then
+    minetest.clear_craft({output="xdecor:cobweb"})
+    if minetest.get_modpath("farming") then
+        minetest.register_craft({
+            output = "xdecor:cobweb 5",
+            recipe = {
+                {"",               "farming:string", ""},
+                {"farming:string", "farming:string", "farming:string"},
+                {"",               "farming:string", ""},
+            }
+        })
+        minetest.register_craft({
+            output = "xdecor:cobweb",
+            recipe = {
+                {"homedecor:cobweb_corner"},
+            }
+        })
+        minetest.register_craft({
+            output = "homedecor:cobweb_corner",
+            recipe = {
+                {"xdecor:cobweb"},
+            }
+        })
+    end
+
     if minetest.get_modpath("farming") then
         -- avoid conflict with farming tatami
         minetest.clear_craft({output="xdecor:tatami"})
