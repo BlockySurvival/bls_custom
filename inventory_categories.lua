@@ -3934,7 +3934,7 @@ unified_inventory.add_category_items('automation', {
 	"terumet:repmat_drop",
 })
 
-	
+
 unified_inventory.add_category_items('tools', {
 	"terumet:tool_axe_cgls",
 	"terumet:tool_axe_cgls_updur",
