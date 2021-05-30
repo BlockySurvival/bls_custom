@@ -1,3 +1,5 @@
+if not minetest.global_exists("unified_inventory") then return end
+
 local S = minetest.get_translator("bls")
 
 unified_inventory.register_category('food', {

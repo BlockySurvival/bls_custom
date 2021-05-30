@@ -35,6 +35,7 @@ globals = {
     "tnt",
     "tubelib",
     "tubelib_addons1",
+    "unified_inventory",
     "vector",
     "xdecor",
 }
