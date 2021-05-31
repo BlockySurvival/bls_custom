@@ -22,7 +22,6 @@ if minetest.get_modpath("clementinetree") then
     gr({input="clementinetree:trunk", output="clementinetree:leaves 8"})
 end
 
-
 if minetest.get_modpath("dye") then
     --gr({input="group:coal", output="dye:black 8"})
     gr({input="default:coal_lump", output="dye:black 8"})
