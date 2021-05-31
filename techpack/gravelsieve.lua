@@ -493,3 +493,7 @@ end
 if minetest.get_modpath("sakuragi") then
     register_sapling("sakuragi:sleaves", "sakuragi:ssapling")
 end
+
+if minetest.get_modpath("willow") then
+    register_sapling("willow:leaves", "willow:sapling")
+end
