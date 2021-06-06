@@ -141,3 +141,9 @@ if minetest.get_modpath("willow") then
     tn("willow:trunk", "willow:trunk", "willow:sapling")
     fn("willow:leaves")
 end
+
+if minetest.get_modpath("plumtree") then
+    tn("plumtree:trunk", "plumtree:trunk", "plumtree:sapling")
+    fn("plumtree:leaves")
+    fn("plumtree:plum")
+end
