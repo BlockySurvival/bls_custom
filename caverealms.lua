@@ -16,7 +16,7 @@ minetest.register_abm({
 	action = function(pos, node)
 		-- Only spread in moderate light levels, copied and modified from minetest_game/flowers: flowers.mushroom_spread
 		local light = minetest.get_node_light({x = pos.x, y = pos.y + 1, z = pos.z})
-		if light < 3 or light > 9 then
+		if not light or light < 3 or light > 9 then
 			return
 		end
 		local num = minetest.find_nodes_in_area_under_air(
