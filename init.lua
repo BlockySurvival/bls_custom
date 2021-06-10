@@ -77,6 +77,7 @@ dofile(bls.modpath .. "/caverealms.lua")
 dofile(bls.modpath .. "/bigdoors/init.lua")
 dofile(bls.modpath .. "/artificial_leather.lua")
 dofile(bls.modpath .. "/plantlife_modpack.lua")
+dofile(bls.modpath .. "/mining_helmet.lua")
 
 local http = minetest.request_http_api()
 if http then
