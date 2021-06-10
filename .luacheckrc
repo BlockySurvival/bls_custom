@@ -37,6 +37,7 @@ globals = {
     "tubelib_addons1",
     "vector",
     "xdecor",
+    "wielded_light",
 }
 
 read_globals = {
