@@ -3,7 +3,7 @@ if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor") and
 end
 
 local update_interval = 0.2
-local damage_amount = 50
+local damage_amount = 1
 local helmet_item = "bls:mining_helmet"
 
 local timer = 0
