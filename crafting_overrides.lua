@@ -1500,3 +1500,16 @@ if minetest.get_modpath("bbq") and minetest.get_modpath("cucina_vegana") then
         replacements = {{"bbq:basting_brush", "bbq:basting_brush"}}
     })
 end
+
+
+if minetest.get_modpath("caverealms") and minetest.get_modpath("farming") then
+    minetest.clear_craft({
+        output = "farming:salt",
+    })
+    minetest.register_craft( {
+        output = "farming:salt 2",
+        recipe = {
+            {"caverealms:micro_salt_crystal"},
+        },
+    })
+end
