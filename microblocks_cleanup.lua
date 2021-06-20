@@ -254,7 +254,10 @@ for node_id, def in pairs(minetest.registered_nodes) do
 
                 tgt = minetest.registered_aliases[tgt] or tgt
 
-                if tgt and minetest.registered_nodes[tgt] then
+                if tgt and minetest.registered_nodes[tgt] and
+                    (   not minetest.registered_nodes[src] -- Do not swap nodes from other mods that may have been registered with the same name
+                        or minetest.registered_nodes[src].mod_origin == minetest.registered_nodes[tgt].mod_origin
+                    ) then
                     bls.log("action", "registering alias: %q -> %q", src, tgt)
                     table.insert(source_ids, src)
                     target_by_source[src] = {tgt, rot_func}
