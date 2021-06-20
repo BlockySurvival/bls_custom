@@ -2,35 +2,28 @@ if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor") and
 	return
 end
 
-local update_interval = 0.2
 local damage_amount = 1
 local helmet_item = "bls:mining_helmet"
 
-local timer = 0
-minetest.register_globalstep(function(dtime)
-	timer = timer + dtime;
-	if timer < update_interval then
-		return
-	end
-	timer = 0
-
-	for _, player in pairs(minetest.get_connected_players()) do
-		local player_name = player:get_player_name()
-		local armor_inv = minetest.get_inventory({ type="detached", name=player_name.."_armor" })
-		for index = 1, 6 do
-			local stack = armor_inv:get_stack("armor", index)
-			if stack:get_name() == helmet_item then
-				local pos = vector.add (
-					vector.add({x = 0, y = 1, z = 0}, vector.round(player:get_pos())),
-					vector.round(vector.multiply(player:get_player_velocity(), update_interval * 1.5))
-				)
-				local wear = stack:get_wear()
-				if (65535 - wear) > damage_amount then
-					armor:damage(player, index, stack, damage_amount)
-					wielded_light.update_light_by_item(helmet_item, pos)
-				end
+wielded_light.register_player_lightstep(function (player)
+	local player_name = player:get_player_name()
+	local armor_inv = minetest.get_inventory({ type="detached", name=player_name.."_armor" })
+	local helmet_found = false
+	for index = 1, 6 do
+		local stack = armor_inv:get_stack("armor", index)
+		if stack:get_name() == helmet_item then
+			local wear = stack:get_wear()
+			if (65535 - wear) > damage_amount then
+				armor:damage(player, index, stack, damage_amount)
+				helmet_found = true
 			end
+			break
 		end
+	end
+	if helmet_found then
+		wielded_light.track_user_entity(player, "mining_helmet", helmet_item)
+	else
+		wielded_light.track_user_entity(player, "mining_helmet", false)
 	end
 end)
 
