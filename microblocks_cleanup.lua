@@ -261,7 +261,6 @@ for node_id, def in pairs(minetest.registered_nodes) do
                     bls.log("action", "registering alias: %q -> %q", src, tgt)
                     table.insert(source_ids, src)
                     target_by_source[src] = {tgt, rot_func}
-
                     --minetest.register_alias_force(src, tgt)
                 else
                     bls.log("warning", "FAILED alias: %q -> %q", src, tgt)
