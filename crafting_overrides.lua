@@ -1472,3 +1472,40 @@ if minetest.get_modpath("xpanes") then
         }
     })
 end
+
+if minetest.get_modpath("mobs") then
+    minetest.clear_craft({ output = "mobs:butter" })
+    minetest.register_craft({
+        output = "mobs:butter",
+        type = "shapeless",
+        recipe = {
+            "mobs:bucket_milk", "group:food_salt",
+        }
+    })
+end
+
+if minetest.get_modpath("bbq") and minetest.get_modpath("cucina_vegana") then
+    minetest.clear_craft({
+        output = "bbq:beef_raw",
+    })
+    minetest.register_craft( {
+        output = "bbq:beef_raw",
+        recipe = {
+            {"bbq:basting_brush", "group:dye,color_red", "group:food_salt"},
+            {"cucina_vegana:imitation_meat", "cucina_vegana:imitation_meat", ""},
+        },
+        replacements = {{"bbq:basting_brush", "bbq:basting_brush"}}
+    })
+end
+
+if minetest.get_modpath("caverealms") and minetest.get_modpath("farming") then
+    minetest.clear_craft({
+        output = "farming:salt",
+    })
+    minetest.register_craft( {
+        output = "farming:salt 2",
+        recipe = {
+            {"caverealms:micro_salt_crystal"},
+        },
+    })
+end

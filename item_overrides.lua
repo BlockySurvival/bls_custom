@@ -311,3 +311,7 @@ if minetest.get_modpath("youngtrees") then
         }
     })
 end
+
+if minetest.get_modpath("aqua_farming") then
+    add_groups("aqua_farming:salt", "vessel")
+end
