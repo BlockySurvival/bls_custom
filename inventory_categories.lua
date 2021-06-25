@@ -124,8 +124,6 @@ unified_inventory.register_category('text', {
 	"caverealms:mycena_powder",
 	"chesttools:shared_chest",
 
-	
-
 	"currency:barter",
 	"currency:minegeld",
 	"currency:minegeld_10",
