@@ -137,6 +137,7 @@ minetest.register_chatcommand("afk", {
     func = function(player, reason)
         is_afk(minetest.get_player_by_name(player), time_since_last_action(player))
         assertions_by_player[player] = reason
+        minetest.chat_send_player(player, 'You have been marked as AFK')
     end,
 })
 
