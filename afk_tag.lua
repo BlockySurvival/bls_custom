@@ -3,7 +3,7 @@ if not minetest.get_modpath("more_monoids") then return end
 bls.afk = {}
 
 local AFK_CHECK_INTERVAL = 15  -- seconds
-local AFK_BOUND_PERIOD = 10 * 1 * 1000000 -- microseconds
+local AFK_BOUND_PERIOD = 10 * 60 * 1000000 -- microseconds
 
 local assertions_by_player = {}
 local last_action_by_player = {}
