@@ -107,10 +107,9 @@ function bls.util.get_player_by_name(given_player_name)
     end
 
     local lower_player_name = clean_player_name:lower()
-    for _, player in ipairs(minetest.get_connected_players()) do
-        local player_name = player:get_player_name()
-        if player_name:lower() == lower_player_name then
-            return minetest.get_player_by_name(player_name)
+    for _, connected_player in ipairs(minetest.get_connected_players()) do
+        if connected_player:get_player_name():lower() == lower_player_name then
+            return connected_player
         end
     end
 end
