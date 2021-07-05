@@ -14,6 +14,16 @@ end
 repair_craft("tubelib:distributor")
 repair_craft("tubelib:pusher")
 
+if minetest.get_modpath("gravelsieve") then
+	repair_craft("gravelsieve:auto_sieve", "gravelsieve:sieve_defect")
+end
+
+if minetest.get_modpath("techpack_warehouse") then
+	repair_craft("techpack_warehouse:box_gold")
+	repair_craft("techpack_warehouse:box_steel")
+	repair_craft("techpack_warehouse:box_copper")
+end
+
 if minetest.get_modpath("tubelib_addons1") then
 	repair_craft("tubelib_addons1:autocrafter")
 	repair_craft("tubelib_addons1:fermenter")
@@ -24,6 +34,7 @@ if minetest.get_modpath("tubelib_addons1") then
 	repair_craft("tubelib_addons1:reformer")
 	repair_craft("tubelib_addons1:harvester_base", "tubelib_addons1:harvester_defect")
 end
+
 if minetest.get_modpath("tubelib_addons3") then
 	repair_craft("tubelib_addons3:distributor")
 	repair_craft("tubelib_addons3:pusher")
