@@ -339,7 +339,7 @@ if minetest.global_exists("terumet") then
     for item_id, def in pairs(minetest.registered_items) do
         if def._terumet_vacfood then
             local mod, item = item_id:match("terumet:vacf_([^_]+)_(.+)")
-            if mod == "cucina" then
+            if mod == "cucina" or mod == "aqua" then
                 mod, item = item_id:match("terumet:vacf_([^_]+_[^_]+)_(.+)")
             end
             local base_id = ("%s:%s"):format(mod, item)
