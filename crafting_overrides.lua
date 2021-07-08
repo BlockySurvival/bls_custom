@@ -416,6 +416,10 @@ if minetest.get_modpath("cucina_vegana") then
             "default:sand_with_kelp"
         }
     })
+
+    if minetest.get_modpath("farming") then
+        minetest.clear_craft({output="farming:bowl"})
+    end
 end
 
 if minetest.get_modpath("currency") then
@@ -537,17 +541,17 @@ if minetest.get_modpath("extra") then
     minetest.register_craft({
         output = "extra:french_fries ",
         recipe = {
-             {"extra:cottonseed_oil", "extra:potato_slice", "extra:potato_slice"},
-             {"extra:potato_slice",   "extra:potato_slice", "extra:potato_slice"},
-             {"extra:potato_slice",   "extra:potato_slice", "extra:potato_slice"},
+             {"group:food_oil",     "extra:potato_slice", "extra:potato_slice"},
+             {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
+             {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
           },
        })
     minetest.register_craft({
         output = "extra:onion_rings ",
         recipe = {
-             {"extra:cottonseed_oil", "extra:onion_slice", "extra:onion_slice"},
-             {"extra:onion_slice",    "extra:onion_slice", "extra:onion_slice"},
-             {"extra:onion_slice",    "extra:onion_slice", "extra:onion_slice"},
+             {"group:food_oil",    "extra:onion_slice", "extra:onion_slice"},
+             {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
+             {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
           },
        })
     minetest.register_craft({
@@ -556,12 +560,13 @@ if minetest.get_modpath("extra") then
        recipe = "extra:potato_slice"
     })
 
+
     if minetest.global_exists("terumet") then
         if minetest.get_modpath("farming") then
             -- add a recipe for the blooming onion that doesn't require techpack
             terumet.register_alloy_recipe({
                 result="extra:blooming_onion",
-                input={"farming:onion", "extra:cottonseed_oil"},
+                input={"farming:onion", "group:food_oil"},
                 flux=0,
                 time=10,
             })
@@ -570,7 +575,7 @@ if minetest.get_modpath("extra") then
         if minetest.get_modpath("mobs_fish") then
             terumet.register_alloy_recipe({
                 result="extra:fish_sticks",
-                input={"group:food_fish", "extra:cottonseed_oil"},
+                input={"group:food_fish", "group:food_oil"},
                 flux=0,
                 time=10,
             })
@@ -578,6 +583,34 @@ if minetest.get_modpath("extra") then
     end
 
     if minetest.get_modpath("farming") then
+        minetest.clear_craft({
+            output = "extra:pepperoni"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"terumet:vacf_extra_pepperoni"},
+            output = "extra:pepperoni"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"group:food_meat","farming:chili_pepper"},
+            output = "extra:pepperoni"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"group:food_meat_raw","farming:chili_pepper"},
+            output = "extra:pepperoni"
+        })
+
+        minetest.clear_craft({
+            type = "shapeless",
+            recipe = {"extra:cottonseed_oil","farming:flour"}
+        })
+        minetest.register_craft({
+            output = "extra:flour_tortilla 10",
+            type = "shapeless",
+            recipe = {"group:food_oil","farming:flour"}
+        })
         -- slices should require the cutting board
         minetest.clear_craft({output="extra:onion_slice"})
         minetest.register_craft({
