@@ -561,6 +561,141 @@ if minetest.get_modpath("extra") then
     })
 
 
+    if minetest.get_modpath("mobs") then
+        if extra.pizza_mod then
+            minetest.clear_craft({
+                output = "extra:cheese_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                recipe = {"terumet:vacf_extra_cheese_pizza"},
+                output = "extra:cheese_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                output = 'extra:cheese_pizza 8',
+                recipe = {"farming:flour", "extra:marinara", "group:food_cheese"},
+            })
+
+
+            minetest.clear_craft({
+                output = "extra:pepperoni_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                recipe = {"terumet:vacf_extra_pepperoni_pizza"},
+                output = "extra:pepperoni_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                output = "extra:pepperoni_pizza 8",
+                recipe = {"farming:flour", "extra:marinara", "group:food_cheese",
+                            "extra:pepperoni"},
+            })
+
+
+            minetest.clear_craft({
+                output = "extra:deluxe_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                recipe = {"terumet:vacf_extra_deluxe_pizza"},
+                output = "extra:deluxe_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                output = "extra:deluxe_pizza 8",
+                recipe = {"farming:flour", "extra:marinara", "group:food_cheese",
+                            "extra:pepperoni", "extra:onion_slice",
+                            "extra:tomato_slice", "flowers:mushroom_brown"}
+            })
+
+
+            minetest.clear_craft({
+                output = "extra:pineapple_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                recipe = {"terumet:vacf_extra_pineapple_pizza"},
+                output = "extra:pineapple_pizza"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                output = "extra:pineapple_pizza 8",
+                recipe = {"farming:flour", "extra:marinara", "group:food_cheese",
+                            "extra:ground_meat", "farming:pineapple_ring"},
+            })
+        end
+
+        minetest.clear_craft({
+            output = "extra:taco"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"terumet:vacf_extra_taco"},
+            output = "extra:taco"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            output = 'extra:taco 5',
+            recipe = {'extra:ground_meat', "group:food_cheese", 'extra:flour_tortilla',
+            'extra:flour_tortilla', 'extra:flour_tortilla',
+            'extra:flour_tortilla', 'extra:flour_tortilla'},
+        })
+
+
+        minetest.clear_craft({
+            output = "extra:quesadilla"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"terumet:vacf_extra_quesadilla"},
+            output = "extra:quesadilla"
+        })
+        minetest.register_craft({
+            output = "extra:quesadilla 3",
+            recipe = {
+                {'extra:flour_tortilla', 'extra:flour_tortilla', 'extra:flour_tortilla'},
+                {"extra:salsa", "group:food_cheese",""},
+                {'extra:flour_tortilla', 'extra:flour_tortilla', 'extra:flour_tortilla'},
+            },
+        })
+
+
+        if extra.pasta_mod then
+            minetest.clear_craft({
+                output = 'extra:lasagna'
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                recipe = {"terumet:vacf_extra_lasagna"},
+                output = "extra:lasagna"
+            })
+            minetest.register_craft({
+                type = "shapeless",
+                output = 'extra:lasagna 5',
+                recipe = {"extra:marinara", "extra:pasta", "extra:pasta",
+                "extra:pasta", "extra:pasta", "extra:pasta", "group:food_cheese"},
+            })
+        end
+
+
+        minetest.clear_craft({
+            output = "extra:cheeseburger"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            recipe = {"terumet:vacf_extra_cheeseburger"},
+            output = "extra:cheeseburger"
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            output = "extra:cheeseburger",
+            recipe = {"farming:bread", "extra:grilled_patty", "group:food_cheese",
+                        "extra:grilled_patty", "group:food_cheese"},
+        })
+    end
+
     if minetest.global_exists("terumet") then
         if minetest.get_modpath("farming") then
             -- add a recipe for the blooming onion that doesn't require techpack

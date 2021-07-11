@@ -15,6 +15,7 @@ globals = {
     "doors",
     "dungeon_loot",
     "dump",
+    "extra",
     "facade",
     "farming",
     "flowers",
