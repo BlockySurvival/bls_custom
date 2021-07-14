@@ -56,7 +56,7 @@ gs_api.after_ores_calculated(function (ore_probabilities)
         gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_1", 1 / 50000)
         gs_api.register_fixed_output("gravelsieve:compressed_gravel", "crystals:rose_quartz_2", 1 / 50000)
     end
-    if minetest.get_modpath("technic") then
+    if minetest.get_modpath("technic_worldgen") then
         gs_api.register_fixed_output("gravelsieve:compressed_gravel", "technic:sulfur_lump", 1 / 100)
     end
 end)

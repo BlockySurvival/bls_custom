@@ -147,3 +147,16 @@ if minetest.get_modpath("plumtree") then
     fn("plumtree:leaves")
     fn("plumtree:plum")
 end
+
+if minetest.get_modpath("vines") then
+    fn("vines:jungle_end", "vines:vines")
+    fn("vines:jungle_middle", "vines:vines")
+    fn("vines:root_end", "vines:vines")
+    fn("vines:root_middle", "vines:vines")
+    fn("vines:side_end", "vines:vines")
+    fn("vines:side_middle", "vines:vines")
+    fn("vines:vine_end", "vines:vines")
+    fn("vines:vine_middle", "vines:vines")
+    fn("vines:willow_end", "vines:vines")
+    fn("vines:willow_middle", "vines:vines")
+end

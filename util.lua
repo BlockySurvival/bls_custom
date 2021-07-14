@@ -95,3 +95,21 @@ function bls.util.tables_equal(t1, t2, ignore_mt)
     end
     return true
 end
+
+-- Get player by name, case insensitive, cleans whitespace
+function bls.util.get_player_by_name(given_player_name)
+    local found_player = minetest.get_player_by_name(given_player_name)
+    if found_player then return found_player end
+
+    local clean_player_name = given_player_name:gsub("%s+", "")
+    if clean_player_name == "" then
+        return
+    end
+
+    local lower_player_name = clean_player_name:lower()
+    for _, connected_player in ipairs(minetest.get_connected_players()) do
+        if connected_player:get_player_name():lower() == lower_player_name then
+            return connected_player
+        end
+    end
+end

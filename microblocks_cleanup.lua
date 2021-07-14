@@ -240,6 +240,7 @@ local variants = {
 
 local source_ids = {}
 local target_by_source = {}
+local existing_aliases = {}
 
 bls.log("action", "registering microblock cleanup")
 
@@ -254,7 +255,14 @@ for node_id, def in pairs(minetest.registered_nodes) do
 
                 tgt = minetest.registered_aliases[tgt] or tgt
 
-                if tgt and minetest.registered_nodes[tgt] then
+                if minetest.registered_aliases[src] == tgt then
+                    existing_aliases[tgt] = src
+                end
+
+                if tgt and minetest.registered_nodes[tgt] and
+                    (   not minetest.registered_nodes[src] -- Do not swap nodes from other mods that may have been registered with the same name
+                        or minetest.registered_nodes[src].mod_origin == minetest.registered_nodes[tgt].mod_origin
+                    ) then
                     bls.log("action", "registering alias: %q -> %q", src, tgt)
                     table.insert(source_ids, src)
                     target_by_source[src] = {tgt, rot_func}
@@ -278,7 +286,9 @@ minetest.register_lbm({
         local src = node.name
         local target = target_by_source[src]
         if not target then
-            bls.log("error", "no target for src %q (node %q) @ %s", src, node.name, spos)
+            if not existing_aliases[src] then
+                bls.log("error", "no target for src %q (node %q) @ %s", src, node.name, spos)
+            end
             return
         end
         local tgt, rot = unpack(target)
