@@ -39,6 +39,7 @@ globals = {
     "unified_inventory",
     "vector",
     "xdecor",
+    "wielded_light",
 }
 
 read_globals = {
