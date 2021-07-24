@@ -36,12 +36,12 @@ armor:register_armor(helmet_item, {
 		armor_head = 1,
 		armor_use = 0,
 		armor_heal = 0,
-		physics_speed = 1,
-		physics_jump = 1,
-		physics_gravity = 1,
+		physics_speed = 0,
+		physics_gravity = 0,
+		physics_jump = 0,
 	},
 	armor_groups = {fleshy = 0},
-	damage_groups = {cracky=3, snappy=3, choppy=3, crumbly=3, level=1}
+	damage_groups = {}
 })
 
 wielded_light.register_item_light(helmet_item, 12)
