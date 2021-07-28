@@ -40,9 +40,9 @@ local function formspec(self, pos, meta)
 end
 
 local State = tubelib.NodeStates:new({
-	node_name_passive = "dispenser:dispenser",
-	node_name_active = "dispenser:dispenser_active",
-	node_name_defect = "dispenser:dispenser_defect",
+	node_name_passive = "bls:dispenser",
+	node_name_active = "bls:dispenser_active",
+	node_name_defect = "bls:dispenser_defect",
 	infotext_name = S("Dispenser"),
 	cycle_time = CYCLE_TIME,
 	first_cycle_time = FIRST_CYCLE,
@@ -112,7 +112,7 @@ end
 local function after_place_node(pos, placer)
 	-- orient_dispenser(pos, placer)
 	local meta = M(pos)
-	local number = tubelib.add_node(pos, "dispenser:dispenser")
+	local number = tubelib.add_node(pos, "bls:dispenser")
 	State:node_init(pos, number)
 	meta:set_string("player_name", placer:get_player_name())
 
@@ -396,7 +396,6 @@ local function action_config(action_list)
 		node_required = node_required,
 		action = function (item_stack, dispenser_data, player, node, entity)
 			for _,action_name in ipairs(action_list) do
-				local item_name = item_stack:get_name()
 				local result, reason, failure = dispenser.actions["attempt_"..action_name](item_stack, dispenser_data, player, node, entity)
 				if not failure then
 					return result, reason
@@ -532,11 +531,11 @@ for action_name, action in pairs(actions) do
 	dispenser.actions["attempt_"..action_name] = function (item_stack, dispenser_data, player, node, entity)
 		local things = {}
 		if action.node_required then
-			if not node then return end
+			if not node then return nil, nil, true end
 			table.insert(things, node)
 		end
 		if action.entity_required then
-			if not entity then return end
+			if not entity then return nil, nil, true end
 			table.insert(things, entity)
 		end
 		local valid
@@ -738,7 +737,7 @@ local function on_receive_fields(pos, formname, fields, player)
 end
 
 
-minetest.register_node("dispenser:dispenser", {
+minetest.register_node("bls:dispenser", {
 	description = S("Dispenser"),
 	tiles = {
 		-- up, down, right, left, back, front
@@ -783,7 +782,7 @@ minetest.register_node("dispenser:dispenser", {
 })
 
 
-minetest.register_node("dispenser:dispenser_active", {
+minetest.register_node("bls:dispenser_active", {
 	description = S("Dispenser"),
 	tiles = {
 		-- up, down, right, left, back, front
@@ -815,7 +814,7 @@ minetest.register_node("dispenser:dispenser_active", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("dispenser:dispenser_defect", {
+minetest.register_node("bls:dispenser_defect", {
 	description = S("Dispenser"),
 	tiles = {
 		-- up, down, right, left, back, front
@@ -862,7 +861,7 @@ minetest.register_node("dispenser:dispenser_defect", {
 
 
 minetest.register_craft({
-	output = "dispenser:dispenser",
+	output = "bls:dispenser",
 	recipe = {
 		{"group:wood", "group:wood",      "default:mese_crystal"},
 		{"group:wood", "default:diamond", "default:mese_crystal"},
@@ -870,8 +869,8 @@ minetest.register_craft({
 	},
 })
 
-tubelib.register_node("dispenser:dispenser", 
-	{"dispenser:dispenser_active", "dispenser:dispenser_defect"}, {
+tubelib.register_node("bls:dispenser", 
+	{"bls:dispenser_active", "bls:dispenser_defect"}, {
 	invalid_sides = {"F"},
 	on_push_item = function(pos, side, item_stack)
 		local meta = M(pos)
