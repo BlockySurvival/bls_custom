@@ -1,4 +1,4 @@
--- if not minetest.global_exists("dispenser") then return end
+if not minetest.global_exists("dispenser") then return end
 
 minetest.clear_craft({
 	output = "bls:dispenser",
