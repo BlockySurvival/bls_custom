@@ -42,4 +42,6 @@ if minetest.get_modpath("tubelib_addons3") then
 end
 
 
-repair_craft("bls:dispenser")
+if minetest.get_modpath("dispenser") then
+	repair_craft("dispenser:dispenser")
+end
