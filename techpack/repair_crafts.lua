@@ -41,3 +41,5 @@ if minetest.get_modpath("tubelib_addons3") then
 	repair_craft("tubelib_addons3:pushing_chest")
 end
 
+
+repair_craft("bls:dispenser")
