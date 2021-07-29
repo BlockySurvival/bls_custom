@@ -12,6 +12,7 @@ globals = {
     "ChatCmdBuilder",
     "creative",
     "default",
+    "dispenser",
     "doors",
     "dungeon_loot",
     "dump",

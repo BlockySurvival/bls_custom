@@ -1,11 +1,11 @@
 if not minetest.global_exists("dispenser") then return end
 
 minetest.clear_craft({
-	output = "bls:dispenser",
+	output = "dispenser:dispenser",
 })
 
 minetest.register_craft({
-	output = "bls:dispenser",
+	output = "dispenser:dispenser",
 	recipe = {
 		{"group:wood",    "basic_materials:ic",        "basic_materials:brass_ingot"},
 		{"tubelib:tubeS", "basic_materials:gold_wire", "hook:slingshot"},
