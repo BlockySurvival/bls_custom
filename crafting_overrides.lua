@@ -209,6 +209,29 @@ if minetest.get_modpath("bones") and minetest.get_modpath("bonemeal") then
     end
 end
 
+if minetest.get_modpath("bridger") then
+    minetest.clear_craft({output = "bridger:foundation"})
+    minetest.register_craft({
+        output = "bridger:foundation 6",
+        recipe = {
+            {"",            "default:clay",""},
+            {"default:clay","default:clay","default:clay"},
+            {"default:clay","default:clay","default:clay"},
+        }
+    })
+end
+
+if minetest.get_modpath("building_blocks") then
+    minetest.clear_craft({output = "building_blocks:sticks"})
+    minetest.register_craft({
+        output = "building_blocks:sticks",
+        recipe={
+            {"",             "default:stick",""},
+            {"default:stick","default:stick","default:stick"},
+        }
+    })
+end
+
 if minetest.get_modpath("cavestuff") then
     minetest.register_craft({
         output="default:gravel",
@@ -278,6 +301,14 @@ if minetest.get_modpath("cblocks") then
 end
 
 if minetest.get_modpath("cottages") then
+    minetest.clear_craft({recipe = {{"cottages:hay_bale"}}})
+    minetest.register_craft({
+        output = "cottages:hay_bale 4",
+        recipe = {
+            {"cottages:hay","cottages:hay"},
+            {"cottages:hay","cottages:hay"}
+        }
+    })
     if minetest.get_modpath("xdecor") then
         -- recipe conflict with xdecor wood framed glass
         minetest.clear_craft({output="cottages:glass_pane"})
@@ -844,6 +875,20 @@ if minetest.get_modpath("hangglider") and minetest.get_modpath("terumet") and mi
     })
 end
 
+if minetest.get_modpath("homedecor_bathroom") then
+    minetest.clear_craft({recipe={
+        {"group:marble","group:marble"},
+        {"group:marble","group:marble"},
+    }})
+    minetest.register_craft({
+        output="homedecor:bathroom_tiles_light 6",
+        recipe={
+            {"group:marble","group:marble","group:marble"},
+            {"group:marble","group:marble","group:marble"},
+        }
+    })
+end
+
 if minetest.get_modpath("homedecor_electrical") then
     minetest.clear_craft({output="homedecor:doorbell"})
     minetest.register_craft({
@@ -851,6 +896,55 @@ if minetest.get_modpath("homedecor_electrical") then
         recipe = {
             {"homedecor:light_switch_off", "basic_materials:energy_crystal_simple", "homedecor:speaker_driver"}
         }
+    })
+end
+
+if minetest.get_modpath("homedecor_fences") then
+    minetest.clear_craft( {
+        recipe = {
+            { "group:stick", "group:stick", "group:stick" },
+            { "group:stick", "", "group:stick" },
+            { "group:stick", "group:stick", "group:stick" }
+        },
+    })
+    minetest.register_craft( {
+        output="homedecor:fence_picket 6",
+        recipe = {
+            { "group:stick", "",            "group:stick" },
+            { "group:stick", "group:stick", "group:stick" },
+            { "group:stick", "group:stick", "group:stick" }
+        },
+    })
+    minetest.clear_craft( {
+        recipe = {
+            { "group:stick", "group:stick", "group:stick" },
+            { "group:stick", "dye:white", "group:stick" },
+            { "group:stick", "group:stick", "group:stick" }
+        },
+    })
+
+    minetest.register_craft( {
+        output="homedecor:fence_picket_white 6",
+        recipe = {
+            { "group:stick", "dye:white",   "group:stick" },
+            { "group:stick", "group:stick", "group:stick" },
+            { "group:stick", "group:stick", "group:stick" }
+        },
+    })
+    minetest.register_craft({
+        output="homedecor:fence_picket_white 6",
+        type="shapeless",
+        recipe = {"homedecor:fence_picket", "dye:white"}
+    })
+    minetest.register_craft({
+        output="homedecor:fence_picket_corner_white 6",
+        type="shapeless",
+        recipe = {"homedecor:fence_picket_corner", "dye:white"}
+    })
+    minetest.register_craft({
+        output="homedecor:fence_picket_white_closed 6",
+        type="shapeless",
+        recipe = {"homedecor:fence_picket_closed", "dye:white"}
     })
 end
 
@@ -951,9 +1045,9 @@ if minetest.get_modpath("mobs") and mobs.mod == "redo" then
     minetest.register_craft({
         output = "mobs:lasso",
         recipe = {
-            {"",            "group:vines", "group:vines"},
-            {"",            "group:vines", "group:vines"},
-            {"group:vines", "",            ""},
+            {"",            "group:rope", "group:rope"},
+            {"",            "group:rope", "group:rope"},
+            {"group:rope", "",            ""},
         },
     })
 end
@@ -972,6 +1066,17 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath("xdecor") then
             output = "moreblocks:grey_bricks 2",
             recipe = {{"default:stone", "default:brick"}}
     })
+    minetest.clear_craft({output="xdecor:stone_rune"})
+    minetest.register_craft({
+        output = "xdecor:stone_rune 4",
+        recipe = {
+            {"default:stone", "default:stone",           "default:stone"},
+            {"default:stone", "moreblocks:slab_stone_1", "default:stone"},
+            {"default:stone", "default:stone",           "default:stone"},
+        }
+    })
+
+
 end
 
 if minetest.get_modpath("moreores") then
@@ -989,6 +1094,18 @@ if minetest.get_modpath("my_castle_doors") then
             {"my_door_wood:wood_brown", "my_door_wood:wood_brown"},
         }
     })
+end
+if minetest.get_modpath("my_future_doors") then
+    minetest.clear_craft({output="my_future_doors:door2a"})
+    minetest.register_craft({
+        output="my_future_doors:door2a 2",
+        recipe={
+            {"default:steelblock",  "default:steel_ingot"},
+            {"default:steel_ingot", "default:steel_ingot"},
+            {"default:steelblock",  "default:steel_ingot"},
+        }
+    })
+
 end
 
 if minetest.get_modpath("my_garage_door") then
@@ -1076,6 +1193,47 @@ if minetest.get_modpath("ropes") and minetest.get_modpath("default") and minetes
             {"default:stick", "",                    "default:stick"},
         }
     })
+    minetest.clear_craft({output="ropes:ropeladder_top"})
+    minetest.register_craft({
+        output="ropes:ropeladder_top",
+        recipe={
+            {"",           "default:stick", ""},
+            {"group:rope", "default:stick", "group:rope" },
+            {"",           "default:stick", ""},
+        }
+    })
+    minetest.clear_craft({output="ropes:wood1rope_block"})
+    minetest.register_craft({
+        output="ropes:wood1rope_block",
+        recipe={
+            {"group:wood", ""},
+            {"group:rope", ""},
+        }
+    })
+    minetest.clear_craft({output="ropes:steel1rope_block"})
+    minetest.register_craft({
+        output="ropes:steel1rope_block",
+        recipe={
+            {"default:steel_ingot", ""},
+            {"group:rope", ""},
+        }
+    })
+    minetest.clear_craft({output="ropes:copper1rope_block"})
+    minetest.register_craft({
+        output="ropes:copper1rope_block",
+        recipe={
+            {"default:copper_ingot", ""},
+            {"group:rope", ""},
+        }
+    })
+    minetest.register_craft({
+        output="ropes:ropesegment",
+        recipe={
+            {"group:vines", "group:vines"},
+            {"group:vines", "group:vines"},
+            {"group:vines", "group:vines"},
+        }
+    })
 end
 
 if minetest.get_modpath("scifi_nodes") then
@@ -1102,6 +1260,32 @@ if minetest.get_modpath("scifi_nodes") then
             dirty metal block
             wind tower
     ]]--
+    minetest.clear_craft({output="scifi_nodes:plant8"})
+    minetest.register_craft({
+        output = "scifi_nodes:plant8",
+        recipe = {
+            {"flowers:viola",""},
+            {"default:dirt","default:junglegrass"},
+            {"scifi_nodes:greybolts",""}
+        }
+    })
+
+    minetest.clear_craft({
+        recipe = {
+            {"scifi_nodes:white","dye:black","scifi_nodes:white"},
+            {"scifi_nodes:black","dye:dark_green","scifi_nodes:black"},
+            {"scifi_nodes:white","dye:yellow","scifi_nodes:white"}
+        }
+    })
+
+    minetest.register_craft({
+        output = 'scifi_nodes:doomwall42 6',
+        recipe = {
+            {"scifi_nodes:white","dye:black","scifi_nodes:white"},
+            {"scifi_nodes:black","dye:dark_green","scifi_nodes:black"},
+            {"scifi_nodes:white","dye:yellow","scifi_nodes:white"}
+        }
+    })
 end
 
 if minetest.get_modpath("soundblocks") then

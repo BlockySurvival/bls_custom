@@ -24,6 +24,10 @@ local function remove_groups(itemstring, ...)
     local def = minetest.registered_items[itemstring]
     if not def then
         bls.log("warning", "trying to remove groups from unknown item %q", itemstring)
+        return
+    end
+    if not def.groups then
+        return
     end
     local groups = table.copy(def.groups)
     for _, group in ipairs({ ... }) do
@@ -52,7 +56,7 @@ if minetest.get_modpath("cavestuff") then
 end
 
 if minetest.get_modpath("cottages") then
-    add_groups("cottages:rope", "vines")
+    add_groups("cottages:rope", "rope")
 
     -- ANVIL STUFF --
     local anvil_whitelist = {}
@@ -175,7 +179,7 @@ if minetest.get_modpath("extra") then
 end
 
 if minetest.get_modpath("farming") and farming.mod == "redo" then
-    add_groups("farming:hemp_rope", "vines")
+    add_groups("farming:hemp_rope", "rope")
 
     add_groups("ethereal:banana", "not_in_creative_inventory")
     add_groups("ethereal:orange", "not_in_creative_inventory")
@@ -217,11 +221,26 @@ if minetest.get_modpath("mobs_mr_goat") then
 end
 
 if minetest.get_modpath("moreblocks") then
-    add_groups("moreblocks:rope", "vines")
+    add_groups("moreblocks:rope", "rope")
 end
 
 if minetest.get_modpath("scifi_nodes:pot") then
     remove_groups("scifi_nodes:pot", "sand")
+end
+
+if minetest.get_modpath("swaz") then
+    remove_groups("swaz:adobe", "stone")
+    remove_groups("swaz:adobe_brick", "stone")
+    remove_groups("swaz:mudbrick", "stone")
+    remove_groups("swaz:sandy_brick_wall", "stone")
+end
+
+if minetest.get_modpath("stairs") then
+    for item_name,def in pairs(minetest.registered_items) do
+        if string.sub(item_name, 1, 7) == "stairs:" then
+            remove_groups(item_name, "wood", "stone", "wool", "tree", "marble", "leaves")
+        end
+    end
 end
 
 if minetest.global_exists("xdecor") then
@@ -229,7 +248,7 @@ if minetest.global_exists("xdecor") then
         description = "Mailbox (xdecor)",
     })
 
-    add_groups("xdecor:rope", "vines")
+    add_groups("xdecor:rope", "rope")
 
     minetest.override_item("xdecor:cauldron_soup", {
         on_rightclick = function(pos, node, clicker, itemstack)
