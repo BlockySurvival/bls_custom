@@ -21,8 +21,9 @@ if not minetest.registered_items["currency:minegeld_20"] then
 
     minetest.register_craft({
         type = "shapeless",
-        output = "currency:minegeld_20 5",
+        output = "currency:minegeld_20 10",
         recipe = {
+            "currency:minegeld_100",
             "currency:minegeld_100"
         },
     })
