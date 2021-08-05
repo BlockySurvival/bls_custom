@@ -301,7 +301,7 @@ if minetest.get_modpath("cblocks") then
 end
 
 if minetest.get_modpath("cottages") then
-    minetest.clear_craft({recipe = {{"cottages:hay_bale"}}})
+    minetest.clear_craft({output = "cottages:hay_bale"})
     minetest.register_craft({
         output = "cottages:hay_bale 4",
         recipe = {
