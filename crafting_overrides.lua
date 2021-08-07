@@ -899,6 +899,24 @@ if minetest.get_modpath("homedecor_electrical") then
     })
 end
 
+if minetest.get_modpath("homedecor_exterior") then
+    minetest.clear_craft({
+        recipe = {
+            { "moreblocks:slab_stone","","moreblocks:slab_stone" },
+            { "","moreblocks:slab_stone","" },
+            { "moreblocks:slab_stone","","moreblocks:slab_stone" }
+        },
+    })
+    minetest.register_craft({
+        output = "homedecor:stonepath 16",
+        recipe = {
+            { "moreblocks:slab_stone","","moreblocks:slab_stone" },
+            { "","moreblocks:slab_stone","" },
+            { "moreblocks:slab_stone","","moreblocks:slab_stone" }
+        },
+    })
+end
+
 if minetest.get_modpath("homedecor_fences") then
     minetest.clear_craft( {
         recipe = {
@@ -1286,6 +1304,26 @@ if minetest.get_modpath("scifi_nodes") then
             {"scifi_nodes:white","dye:yellow","scifi_nodes:white"}
         }
     })
+
+
+    -- Clear slopes, they conflict with panels and are duplicated by moreblocks / stairsplus
+
+    minetest.clear_craft({ output = "scifi_nodes:slope_white2" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_white" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_black" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_bluebars" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_mesh2" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_mesh" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_stripes" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_vent" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_purple" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_greenmetal" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_grey" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_bluemetal" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_wall" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_rough" })
+    minetest.clear_craft({ output = "scifi_nodes:slope_blight2" })
+    minetest.register_alias_force("scifi_nodes:slope_blight2", "scifi_nodes:slope_bluwllight")
 end
 
 if minetest.get_modpath("soundblocks") then
