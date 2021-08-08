@@ -976,6 +976,17 @@ if minetest.get_modpath("homedecor_furniture_medieval") then
     })
 end
 
+if minetest.get_modpath("homedecor_seating") then
+    minetest.clear_craft({ output = "homedecor:simple_bench" })
+    minetest.register_craft( {
+        output = "homedecor:simple_bench",
+        recipe = {
+            { "moreblocks:slab_wood", "moreblocks:slab_wood", "moreblocks:slab_wood" },
+            { "moreblocks:slab_wood", "", "moreblocks:slab_wood" }
+        },
+    })
+end
+
 if minetest.get_modpath("hook") then
     minetest.clear_craft({output="hook:pchest"})
     minetest.register_craft({
