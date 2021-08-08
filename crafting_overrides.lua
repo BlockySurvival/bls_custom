@@ -815,7 +815,7 @@ if minetest.get_modpath("farming") then
     end
     register_hoe_craft("farming:hoe_bronze", "default:bronze_ingot")
     register_hoe_craft("farming:hoe_mese", "default:mese_crystal")
-    register_hoe_craft("farming:hoe_diamond", "default:diamind")
+    register_hoe_craft("farming:hoe_diamond", "default:diamond")
     if minetest.get_modpath("moreores") then
         register_hoe_craft("moreores:hoe_silver", "moreores:silver_ingot")
         register_hoe_craft("moreores:hoe_mithril", "moreores:mithril_ingot")
