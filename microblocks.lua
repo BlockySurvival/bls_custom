@@ -42,7 +42,7 @@ local function register_letters(recipe_item)
     end
 end
 
-local function register(recipe_item, make_stairs, make_facade, make_letters)
+local function register(recipe_item, make_stairs, make_facade, make_letters, stairs_subname)
     local modname, subname = recipe_item:match("^([^:]+):([^:]+)$")
     if not (modname and subname) then
         bls.log("warning", "microblocks: %s is not a valid name", recipe_item)
@@ -59,7 +59,7 @@ local function register(recipe_item, make_stairs, make_facade, make_letters)
 
     if has_stairsplus and make_stairs then
         -- TODO: figure out a check to see if these are already registered?
-        stairsplus:register_all(modname, subname, recipe_item, def)
+        stairsplus:register_all(modname, subname, recipe_item, def, stairs_subname)
     end
 
     if has_facade and make_facade then
@@ -79,9 +79,9 @@ local COLORS = {
     "magenta", "orange", "pink", "red", "violet", "white", "yellow"
 }
 
-local function register_colors(name_pattern, make_stairs, make_facade, make_letters)
+local function register_colors(name_pattern, make_stairs, make_facade, make_letters, stairs_subname)
     for _, color in ipairs(COLORS) do
-        register(name_pattern:format(color), make_stairs, make_facade, make_letters)
+        register(name_pattern:format(color), make_stairs, make_facade, make_letters, stairs_subname and stairs_subname:format(color))
     end
 end
 
@@ -114,8 +114,18 @@ if get_modpath("caverealms") then
     register("caverealms:glow_emerald", nil, false)
     register("caverealms:glow_emerald_ore", nil, false)
     register("caverealms:glow_mese", nil, false)
-    register("caverealms:glow_obsidian", nil, false)
-    register("caverealms:glow_obsidian_2", nil, false)
+
+    -- Prevously called glow_obsidian_2, this is bad
+    -- Rename both to allow seamless switchover
+    minetest.register_node(":caverealms:glow_obsidian_hot", minetest.registered_nodes["caverealms:glow_obsidian_2"])
+    minetest.register_alias_force("caverealms:glow_obsidian_2", "caverealms:glow_obsidian_hot")
+    minetest.register_node(":caverealms:glow_obsidian_cold", minetest.registered_nodes["caverealms:glow_obsidian"])
+    minetest.register_alias_force("caverealms:glow_obsidian", "caverealms:glow_obsidian_cold")
+    register("caverealms:glow_obsidian_cold", nil, false)
+    register("caverealms:glow_obsidian_hot", nil, false)
+    stairsplus:register_alias_force_all("caverealms", "glow_obsidian", "caverealms", "glow_obsidian_cold")
+    stairsplus:register_alias_force_all("caverealms", "glow_obsidian_2", "caverealms", "glow_obsidian_hot")
+
     register("caverealms:glow_ore", nil, false)
     register("caverealms:glow_ruby", nil, false)
     register("caverealms:glow_ruby_ore", nil, false)
@@ -140,7 +150,7 @@ end
 
 if get_modpath("default") then
     -- for some reason, moreblocks doesn't register ice, so do this the "default" way
-    stairsplus:register_all("moreblocks", "ice", "default:ice", minetest.registered_nodes["default:ice"])
+    -- stairsplus:register_all("moreblocks", "ice", "default:ice", minetest.registered_nodes["default:ice"])
     stairsplus:register_alias_force_all("default", "ice", "moreblocks", "ice")
 end
 
@@ -209,14 +219,14 @@ if get_modpath("sakuragi") then
 end
 
 if get_modpath("terumet") then
-    register("terumet:block_asphalt", nil, false)
+    register("terumet:block_asphalt", nil, false, nil, "asphalt")
     register("terumet:block_ceramic", nil, false)
     register("terumet:block_cgls", nil, false)
     register("terumet:block_coke", nil, false)
-    register_colors("terumet:block_con_%s", nil, false)
+    register_colors("terumet:block_con_%s", nil, false, nil, "con_%s")
     register("terumet:block_dust_bio", nil, false)
     register("terumet:block_entropy", nil, false)
-    register("terumet:block_pwood", nil, false)
+    register("terumet:block_pwood", nil, false, nil, "terumet_pwood")
     register("terumet:block_raw", nil, false)
     register("terumet:block_tar", nil, false)
     register("terumet:block_tcha", nil, false)
@@ -236,16 +246,18 @@ if get_modpath("titanium") then
 end
 
 if get_modpath("xdecor") then
-    register("xdecor:cactusbrick", nil, false)
-    register("xdecor:coalstone_tile", nil, false)
-    register("xdecor:desertstone_tile", nil, false)
-    register("xdecor:hard_clay", nil, false)
-    register("xdecor:moonbrick", nil, false)
-    register("xdecor:packed_ice", nil, false)
     register("xdecor:iron_lightbox", nil, false)
-    register("xdecor:stone_rune", nil, false)
-    register("xdecor:stone_tile", nil, false)
     register("xdecor:wooden_lightbox", nil, false)
-    register("xdecor:woodframed_glass", nil, false)
-    register("xdecor:wood_tile", nil, false)
+
+    -- Already registered by xdecor:
+    -- register("xdecor:cactusbrick", nil, false)
+    -- register("xdecor:coalstone_tile", nil, false)
+    -- register("xdecor:desertstone_tile", nil, false)
+    -- register("xdecor:hard_clay", nil, false)
+    -- register("xdecor:moonbrick", nil, false)
+    -- register("xdecor:packed_ice", nil, false)
+    -- register("xdecor:stone_tile", nil, false)
+    -- register("xdecor:stone_rune", nil, false)
+    -- register("xdecor:woodframed_glass", nil, false)
+    -- register("xdecor:wood_tile", nil, false)
 end
