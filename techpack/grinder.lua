@@ -3,23 +3,8 @@ local gr = tubelib.add_grinder_recipe
 
 if minetest.get_modpath("bonemeal") then
     gr({input="bonemeal:bone", output="bonemeal:bonemeal 4"})
+    tubelib.remove_grinder_recipe({input="default:coral_skeleton"})
     gr({input="default:coral_skeleton", output="bonemeal:bonemeal 4"})
-end
-
-if minetest.get_modpath("bamboo") then
-    gr({input="bamboo:trunk", output="bamboo:leaves 8"})
-end
-if minetest.get_modpath("birch") then
-    gr({input="birch:trunk", output="birch:leaves 8"})
-end
-if minetest.get_modpath("cherrytree") then
-    gr({input="cherrytree:trunk", output="cherrytree:leaves 8"})
-end
-if minetest.get_modpath("chestnuttree") then
-    gr({input="chestnuttree:trunk", output="chestnuttree:leaves 8"})
-end
-if minetest.get_modpath("clementinetree") then
-    gr({input="clementinetree:trunk", output="clementinetree:leaves 8"})
 end
 
 if minetest.get_modpath("dye") then
@@ -89,10 +74,6 @@ if minetest.get_modpath("dye") then
     end
 end
 
-if minetest.get_modpath("ebony") then
-    gr({input="ebony:trunk", output="ebony:leaves 8"})
-end
-
 if minetest.get_modpath("farming") then
     gr({input="farming:seed_wheat", output="farming:flour"})
     gr({input="farming:seed_barley", output="farming:flour_multigrain"})
@@ -102,45 +83,12 @@ if minetest.get_modpath("farming") then
     gr({input="cucina_vegana:rice", output="farming:rice_flour"})
 end
 
-if minetest.get_modpath("hollytree") then
-    gr({input="hollytree:trunk", output="hollytree:leaves 8"})
-end
-if minetest.get_modpath("jacaranda") then
-    gr({input="jacaranda:trunk", output="jacaranda:blossom_leaves 8"})
-end
-if minetest.get_modpath("larch") then
-    gr({input="larch:trunk", output="larch:leaves 8"})
-end
-if minetest.get_modpath("lemontree") then
-    gr({input="lemontree:trunk", output="lemontree:leaves 8"})
-end
-if minetest.get_modpath("mahogany") then
-    gr({input="mahogany:trunk", output="mahogany:leaves 8"})
-end
-if minetest.get_modpath("maple") then
-    gr({input="maple:trunk", output="maple:leaves 8"})
-end
-if minetest.get_modpath("oak") then
-    gr({input="oak:trunk", output="oak:leaves 8"})
-end
-if minetest.get_modpath("palm") then
-    gr({input="palm:trunk", output="palm:leaves 8"})
-end
 if minetest.get_modpath("redtrees") then
     gr({input="redtrees:rtree", output="redtrees:rleaves 8"})
 end
 if minetest.get_modpath("sakuragi") then
     gr({input="sakuragi:stree", output="sakuragi:sleaves 8"})
 end
-if minetest.get_modpath("willow") then
-    gr({input="willow:trunk", output="willow:leaves 8"})
-end
 if minetest.get_modpath("plumtree") then
     gr({input="plumtree:trunk", output="plumtree:leaves 8"})
-end
-if minetest.get_modpath("pomegranate") then
-    gr({input="pomegranate:trunk", output="pomegranate:leaves 8"})
-end
-if minetest.get_modpath("baldcypress") then
-    gr({input="baldcypress:trunk", output="baldcypress:leaves 8"})
 end
