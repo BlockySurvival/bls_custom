@@ -1,4 +1,4 @@
-if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor") and minetest.global_exists("wielded_light")) then
+if not (minetest.get_modpath("3d_armor") and minetest.global_exists("armor") and minetest.global_exists("wielded_light") and minetest.global_exists("terumet")) then
 	return
 end
 
@@ -61,3 +61,5 @@ minetest.register_craft({
 		{metal, light, metal},
 	}
 })
+
+terumet.register_repairable_item(helmet_item, 500)

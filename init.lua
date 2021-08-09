@@ -29,6 +29,7 @@ dofile(bls.modpath .. "/custom_items/old_signs.lua")
 dofile(bls.modpath .. "/custom_items/public_chests.lua")
 dofile(bls.modpath .. "/custom_items/staff_armor.lua")
 dofile(bls.modpath .. "/custom_items/water2.lua")
+dofile(bls.modpath .. "/custom_items/mining_helmet.lua")
 
 dofile(bls.modpath .. "/commands/antitroll.lua")
 dofile(bls.modpath .. "/commands/areas_aliases.lua")
@@ -80,7 +81,6 @@ dofile(bls.modpath .. "/caverealms.lua")
 dofile(bls.modpath .. "/bigdoors/init.lua")
 dofile(bls.modpath .. "/artificial_leather.lua")
 dofile(bls.modpath .. "/plantlife_modpack.lua")
-dofile(bls.modpath .. "/mining_helmet.lua")
 
 local http = minetest.request_http_api()
 if http then
