@@ -89,6 +89,3 @@ end
 if minetest.get_modpath("sakuragi") then
     gr({input="sakuragi:stree", output="sakuragi:sleaves 8"})
 end
-if minetest.get_modpath("plumtree") then
-    gr({input="plumtree:trunk", output="plumtree:leaves 8"})
-end
