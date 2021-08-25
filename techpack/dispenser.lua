@@ -87,6 +87,7 @@ minetest.register_on_mods_loaded(function ()
 	for _,entity in pairs(minetest.registered_entities) do
 		if entity.type == "animal" then
 			mobs[entity.name] = true
+			mobs[entity.name.."_set"] = true
 		end
 		if entity.follow then
 			if type(entity.follow) == "table" then
@@ -123,8 +124,9 @@ minetest.register_on_mods_loaded(function ()
 end)
 
 dispenser.register_dispensable("mobs:nametag", "rightclick_entity")
-dispenser.register_dispensable("mobs:lasso", "use")
-dispenser.register_dispensable("mobs:net", "use")
+dispenser.register_dispensable("mobs:lasso", "rightclick_entity")
+dispenser.register_dispensable("mobs:net", "rightclick_entity")
+dispenser.register_dispensable("fireflies:bug_net", "rightclick_entity")
 
 dispenser.register_dispensable("mobs:shears", {"rightclick_entity"})
 dispenser.register_dispensable("bucket:bucket_empty", {"use", "rightclick_entity"})
