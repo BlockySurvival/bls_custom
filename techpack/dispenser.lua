@@ -136,6 +136,28 @@ dispenser.register_dispensable("bucket:bucket_water", "place")
 dispenser.register_dispensable("bucket:bucket_river_water", "place")
 dispenser.register_dispensable("bucket:bucket_lava", "place")
 
+-- Place sandcrete mix, to automate solidification
+local sandcrete_mixes = {
+	"terumet:block_conmix_black",
+	"terumet:block_conmix_blue",
+	"terumet:block_conmix_brown",
+	"terumet:block_conmix_cyan",
+	"terumet:block_conmix_dark_green",
+	"terumet:block_conmix_dark_grey",
+	"terumet:block_conmix_green",
+	"terumet:block_conmix_grey",
+	"terumet:block_conmix_magenta",
+	"terumet:block_conmix_orange",
+	"terumet:block_conmix_pink",
+	"terumet:block_conmix_red",
+	"terumet:block_conmix_violet",
+	"terumet:block_conmix_white",
+	"terumet:block_conmix_yellow",
+}
+for _, mix in ipairs(sandcrete_mixes) do
+	dispenser.register_dispensable(mix, "place")
+end
+
 -- Detonate TNT
 dispenser.register_dispensable("default:torch", {"punch_node", "place"})
 dispenser.register_dispensable("tnt:tnt", "place")

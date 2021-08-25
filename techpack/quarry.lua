@@ -55,6 +55,27 @@ if minetest.get_modpath("terumet") then
     gn("terumet:ore_raw", "terumet:lump_raw")
     gn("terumet:ore_raw_desert", "terumet:lump_raw 2")
     gn("terumet:ore_raw_desert_dense", "terumet:lump_raw 10")
+
+    local sandcrete_blocks = {
+        "terumet:block_con_black",
+        "terumet:block_con_blue",
+        "terumet:block_con_brown",
+        "terumet:block_con_cyan",
+        "terumet:block_con_dark_green",
+        "terumet:block_con_dark_grey",
+        "terumet:block_con_green",
+        "terumet:block_con_grey",
+        "terumet:block_con_magenta",
+        "terumet:block_con_orange",
+        "terumet:block_con_pink",
+        "terumet:block_con_red",
+        "terumet:block_con_violet",
+        "terumet:block_con_white",
+        "terumet:block_con_yellow",
+    }
+    for _, sandcrete in ipairs(sandcrete_blocks) do
+        gn(sandcrete)
+    end
 end
 
 if minetest.get_modpath("titanium") then
