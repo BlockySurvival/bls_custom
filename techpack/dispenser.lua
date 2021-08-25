@@ -123,8 +123,9 @@ minetest.register_on_mods_loaded(function ()
 end)
 
 dispenser.register_dispensable("mobs:nametag", "rightclick_entity")
-dispenser.register_dispensable("mobs:lasso", "use")
-dispenser.register_dispensable("mobs:net", "use")
+dispenser.register_dispensable("mobs:lasso", "rightclick_entity")
+dispenser.register_dispensable("mobs:net", "rightclick_entity")
+dispenser.register_dispensable("fireflies:bug_net", "rightclick_entity")
 
 dispenser.register_dispensable("mobs:shears", {"rightclick_entity"})
 dispenser.register_dispensable("bucket:bucket_empty", {"use", "rightclick_entity"})
