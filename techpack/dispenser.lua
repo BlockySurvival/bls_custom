@@ -87,6 +87,7 @@ minetest.register_on_mods_loaded(function ()
 	for _,entity in pairs(minetest.registered_entities) do
 		if entity.type == "animal" then
 			mobs[entity.name] = true
+			mobs[entity.name.."_set"] = true
 		end
 		if entity.follow then
 			if type(entity.follow) == "table" then
