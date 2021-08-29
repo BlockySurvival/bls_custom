@@ -1161,8 +1161,8 @@ end
 
 if minetest.get_modpath("my_saloon_doors") then
     local door_colors = {"white","red","black","brown","grey","dark_grey","yellow"}
-    for _,door_colors in ipairs(door_colors) do
-        local wood = "my_door_wood:wood_"..door_colors
+    for _,door_color in ipairs(door_colors) do
+        local wood = "my_door_wood:wood_"..door_color
         minetest.register_craft({
             output="my_saloon_doors:door1a_"..door_color,
             recipe={
@@ -1176,7 +1176,7 @@ end
 
 if minetest.get_modpath("my_sliding_doors") then
     minetest.register_craft({
-        output=panel,
+        output="my_sliding_doors:jpanel1",
         recipe={
             {"group:wood", "default:paper", "group:wood"},
             {"group:wood", "default:paper", "group:wood"},
@@ -1209,28 +1209,28 @@ if minetest.get_modpath("my_sliding_doors") then
             recipe={panel,panel}
         })
         minetest.register_craft({
-            output=corner,
+            output=corner.." 3",
             recipe={
                 {"",    panel},
                 {panel, panel},
             }
         })
         minetest.register_craft({
-            output=corner,
+            output=corner.." 3",
             recipe={
                 {panel, ""},
                 {panel, panel},
             }
         })
         minetest.register_craft({
-            output=corner,
+            output=corner.." 3",
             recipe={
                 {panel, panel},
                 {"",    panel},
             }
         })
         minetest.register_craft({
-            output=corner,
+            output=corner.." 3",
             recipe={
                 {panel, panel},
                 {panel, ""},
