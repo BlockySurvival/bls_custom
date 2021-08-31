@@ -23,6 +23,7 @@ local patterns = {
     "my_.*_doors:.*", -- double node isn't handled well
     "terumet:door_.*", -- double node isn't handled well
     "xpanes:door_.*", -- double node isn't handled well
+    "scifi_nodes:.*_door_.*", -- double node isn't handled well
     "beds:bed_bottom",
     "beds:bed_top",
     "beds:fancy_bed_bottom",
