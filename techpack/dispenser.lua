@@ -167,6 +167,8 @@ dispenser.register_dispensable("screwdriver:screwdriver", "use")
 dispenser.register_dispensable("tubelib:repairkit", "use")
 dispenser.register_dispensable("hook:pchest", "place")
 dispenser.register_dispensable("default:cobble", "place")
+dispenser.register_dispensable("terumet:tool_ore_saw", "use")
+dispenser.register_dispensable("terumet:tool_ore_saw_adv", "use")
 
 -- Extra Farming Automation
 dispenser.register_dispensable("bonemeal:bonemeal", "use")
