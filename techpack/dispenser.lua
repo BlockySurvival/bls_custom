@@ -18,14 +18,14 @@ dispenser.set_overflow_behaviour("spit")
 dispenser.set_choice_strategy("first")
 
 -- Mob Automation
-dispenser.register_dispensable("mobs:hairball", "use", function (item_stack, dispenser_data, default)
+dispenser.register_dispensable("mobs:hairball", "use", function (player, item_stack, dispenser_data, default)
 	return function (key)
 		if key == "get_pos" then
 			return function ()
 				return vector.add(dispenser_data.pos, {x=0,y=-1.5,z=0})
 			end
 		end
-		return default(item_stack, dispenser_data)(key)
+		return default(player, item_stack, dispenser_data)(key)
 	end
 end)
 
