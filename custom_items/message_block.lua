@@ -1,14 +1,7 @@
 if not minetest.get_modpath("digilines") or not minetest.get_modpath("epic") then return end -- epic needed for the textures
 
 minetest.register_node("bls:digilines_message_block", {
-	tiles={
-		"default_tin_block.png",
-		"default_tin_block.png",
-		"default_tin_block.png^epic_bubble.png",
-		"default_tin_block.png^epic_bubble.png",
-		"default_tin_block.png^epic_bubble.png",
-		"default_tin_block.png^epic_bubble.png",
-	},
+	tiles={"msb3.jpg"},
 	description="Digilines message block\nWARNING: ALWAYS SENDS AS YOU, DO NOT LET OTHERS ACCESS",
 	paramtype="none",
 	paramtype2="none",
