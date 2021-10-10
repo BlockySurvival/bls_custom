@@ -1,5 +1,11 @@
 if not minetest.global_exists("unified_inventory") then return end
-if not unified_inventory.register_craft_sorter then return end
+
+-- Check for new API methods, this is more thorough than it probably needs to be
+if not unified_inventory.register_on_initialized then return end
+if not unified_inventory.register_on_craft_registered then return end
+if not unified_inventory.get_recipe_list then return end
+if not unified_inventory.get_registered_outputs then return end
+
 
 
 local sort_indexes = {}
@@ -96,6 +102,28 @@ local function calculate_sort_index(recipe)
 	return sort_index
 end
 
-unified_inventory.register_craft_sorter(function (a, b)
+local function craft_sorter(a, b)
 	return calculate_sort_index(a) < calculate_sort_index(b)
+end
+
+local function sort_crafts(item_name)
+	local recipes = unified_inventory.get_recipe_list(item_name)
+	table.sort(recipes, craft_sorter)
+end
+
+
+local initialised = false
+
+unified_inventory.register_on_initialized(function ()
+	local outputs = unified_inventory.get_registered_outputs()
+	for _, item_name in ipairs(outputs) do
+		sort_crafts(item_name)
+	end
+	initialised = true
+end)
+
+unified_inventory.register_on_craft_registered(function (item_name)
+	if not initialised then return end
+
+	sort_crafts(item_name)
 end)
