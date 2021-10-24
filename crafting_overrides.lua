@@ -1124,6 +1124,7 @@ if minetest.get_modpath("my_castle_doors") then
         }
     })
 end
+
 if minetest.get_modpath("my_future_doors") then
     minetest.clear_craft({output="my_future_doors:door2a"})
     minetest.register_craft({
@@ -1134,7 +1135,17 @@ if minetest.get_modpath("my_future_doors") then
             {"default:steelblock",  "default:steel_ingot"},
         }
     })
+end
 
+if minetest.get_modpath("my_fancy_doors") then
+    minetest.register_craft({
+        output = "my_fancy_doors:door8_locked 1",
+        recipe = {
+            {"default:glass", "my_door_wood:wood_red", ""},
+            {"my_door_wood:wood_red", "default:glass", "default:steel_ingot"},
+            {"default:glass", "my_door_wood:wood_red", ""}
+        }
+    })
 end
 
 if minetest.get_modpath("my_garage_door") then
@@ -1146,6 +1157,86 @@ if minetest.get_modpath("my_garage_door") then
             {"my_door_wood:wood_white", "my_door_wood:wood_white", "my_door_wood:wood_white"},
         }
     })
+end
+
+if minetest.get_modpath("my_saloon_doors") then
+    local door_colors = {"white","red","black","brown","grey","dark_grey","yellow"}
+    for _,door_color in ipairs(door_colors) do
+        local wood = "my_door_wood:wood_"..door_color
+        minetest.register_craft({
+            output="my_saloon_doors:door1a_"..door_color,
+            recipe={
+                {wood, "", wood},
+                {wood, "", wood},
+                {wood, "", wood},
+            }
+        })
+    end
+end
+
+if minetest.get_modpath("my_sliding_doors") then
+    minetest.register_craft({
+        output="my_sliding_doors:jpanel1",
+        recipe={
+            {"group:wood", "default:paper", "group:wood"},
+            {"group:wood", "default:paper", "group:wood"},
+            {"group:wood", "default:paper", "group:wood"},
+        }
+    })
+    minetest.register_craft({
+        output="my_sliding_doors:jpanel2",
+        recipe={
+            {"group:wood", "default:paper", "group:wood"},
+            {"group:wood", "dye:red",       "group:wood"},
+            {"group:wood", "default:paper", "group:wood"},
+        }
+    })
+    minetest.register_craft({
+        output="my_sliding_doors:jpanel3",
+        recipe={
+            {"group:wood", "default:paper", "group:wood"},
+            {"group:wood", "group:wood",    "group:wood"},
+            {"group:wood", "default:paper", "group:wood"},
+        }
+    })
+    for n=1,3 do
+        local ns = tostring(n)
+        local panel = "my_sliding_doors:jpanel"..ns
+        local corner = "my_sliding_doors:jpanel_corner_"..ns
+        minetest.register_craft({
+            output="my_sliding_doors:door"..ns.."a",
+            type = "shapeless",
+            recipe={panel,panel}
+        })
+        minetest.register_craft({
+            output=corner.." 3",
+            recipe={
+                {"",    panel},
+                {panel, panel},
+            }
+        })
+        minetest.register_craft({
+            output=corner.." 3",
+            recipe={
+                {panel, ""},
+                {panel, panel},
+            }
+        })
+        minetest.register_craft({
+            output=corner.." 3",
+            recipe={
+                {panel, panel},
+                {"",    panel},
+            }
+        })
+        minetest.register_craft({
+            output=corner.." 3",
+            recipe={
+                {panel, panel},
+                {panel, ""},
+            }
+        })
+    end
 end
 
 if minetest.get_modpath("nether") then
