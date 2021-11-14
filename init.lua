@@ -98,4 +98,7 @@ end
 -- last, because it overrides stuff in this mod even...
 dofile(bls.modpath .. "/hunger_overrides.lua")
 
+-- Potential to override any chat
+dofile(bls.modpath .. "/ignore_chat.lua")
+
 bls.mod_storage = nil
