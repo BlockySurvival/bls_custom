@@ -183,6 +183,9 @@ local command_funcs = {
 	ignore_list = function (player)
 		local player_ignores = ignores_by_player[player]
 		if not player_ignores then
+			if not minetest.get_player_by_name(player) then
+				return false, "That player is not logged in right now and their data is not present"
+			end
 			return false, "You are not ignoring anything right now"
 		end
 		local output = ""
@@ -249,7 +252,7 @@ minetest.register_chatcommand("ignore_admin", {
 		if not other_player or not command then
 			return false, "Invalid usage, see /help ignore_admin"
 		end
-		if command ~= ignore_list and not minetest.get_player_by_name(other_player) then
+		if command ~= 'ignore_list' and not minetest.get_player_by_name(other_player) then
 			return false, "The target player is not currently logged on so their data cannot be saved"
 		end
 		local func = command_funcs[command]
@@ -273,7 +276,7 @@ end
 
 -- Ignore general chat messages
 local function ignore_chat (player, message)
-	if 
+	if
 		ignores.players.global[player] or
 		ignores.messages.global[message]
 	then
@@ -311,13 +314,13 @@ local function msg (name, param)
 	minetest.log("action", "DM from " .. name .. " to " .. sendto
 			.. ": " .. message)
 
-	if 
+	if
 		ignores.players.global[name] or
 		ignores.messages.global[message]
 	then
 		return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
 	end
-	if sendto ~= player
+	if sendto ~= name
 		and (
 			(ignores.players.player[name] and ignores.players.player[name][sendto]) or
 			(ignores.messages.player[message] and ignores.messages.player[message][sendto])
