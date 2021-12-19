@@ -101,5 +101,6 @@ dofile(bls.modpath .. "/hunger_overrides.lua")
 
 -- Potential to override any chat
 dofile(bls.modpath .. "/ignore_chat.lua")
+dofile(bls.modpath .. "/color_msg.lua")
 
 bls.mod_storage = nil

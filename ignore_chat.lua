@@ -301,49 +301,54 @@ local function ignore_chat (player, message)
 end
 minetest.register_on_chat_message(ignore_chat)
 
+
 -- Ignore direct messages (/msg)
-local function msg (name, param)
-	local sendto, message = param:match("^(%S+)%s(.+)$")
-	if not sendto then
-		return false, "Invalid usage, see /help msg."
-	end
-	if not minetest.get_player_by_name(sendto) then
-		return false, "The player " .. sendto
-				.. " is not online."
-	end
-	minetest.log("action", "DM from " .. name .. " to " .. sendto
-			.. ": " .. message)
-
-	if
-		ignores.players.global[name] or
-		ignores.messages.global[message]
-	then
-		return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
-	end
-	if sendto ~= name
-		and (
-			(ignores.players.player[name] and ignores.players.player[name][sendto]) or
-			(ignores.messages.player[message] and ignores.messages.player[message][sendto])
-		)
-	then
-		return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
-	end
-
-	minetest.chat_send_player(sendto, minetest.colorize("#bbffbb", "DM from " .. name .. ": "
-			.. message))
-	return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
-end
-
 if minetest.registered_chatcommands["msg"] then
-	minetest.unregister_chatcommand("msg")
+	local old_def = minetest.registered_chatcommands["msg"]
+	local old_func = minetest.registered_chatcommands["msg"].func
+	local function msg (name, param)
+		local sendto, message = param:match("^(%S+)%s(.+)$")
+		if not sendto then
+			return false, "Invalid usage, see /help msg."
+		end
+		if not minetest.get_player_by_name(sendto) then
+			return false, "The player " .. sendto
+					.. " is not online."
+		end
+
+		if
+			ignores.players.global[name] or
+			ignores.messages.global[message] or
+			(
+				sendto ~= name
+				and (
+					(ignores.players.player[name] and ignores.players.player[name][sendto]) or
+					(ignores.messages.player[message] and ignores.messages.player[message][sendto])
+				)
+			)
+		then
+			-- Report the message even though it won't be sent, to sliently log nasties
+			minetest.log("action", "DM from " .. name .. " to " .. sendto
+					.. ": " .. message)
+			return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
+		end
+
+		local res, reason = old_func(name, param)
+		if res == false then
+			return res, reason
+		end
+
+		return true, minetest.colorize("#ffffbb", "Message sent to "..sendto..": "..message)
+	end
+
+	minetest.override_chatcommand("msg", {
+		params = old_def.params,
+		privs = old_def.privs,
+		description = old_def.description,
+		func = msg,
+	})
 end
 
-minetest.register_chatcommand("msg", {
-	params = "<name> <message>",
-	description = "Send a direct message to a player",
-	privs = {shout=true},
-	func = msg,
-})
 
 -- Ignore system messages
 minetest.chat_send_player = function (player, message)
