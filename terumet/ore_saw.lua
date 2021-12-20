@@ -20,3 +20,9 @@ if minetest.get_modpath("technic_worldgen") then
     terumet.options.ore_saw.VALID_ORES["technic:mineral_chromium"] = 1
     terumet.options.ore_saw.VALID_ORES["technic:mineral_sulfur"] = 1
 end
+
+terumet.options.ore_saw.VALID_ORES["default:coral_brown"] = 1
+terumet.options.ore_saw.VALID_ORES["default:coral_cyan"] = 1
+terumet.options.ore_saw.VALID_ORES["default:coral_green"] = 1
+terumet.options.ore_saw.VALID_ORES["default:coral_orange"] = 1
+terumet.options.ore_saw.VALID_ORES["default:coral_pink"] = 1
