@@ -398,7 +398,7 @@ minetest.register_chatcommand('vote', {
 		else
 			local valid = false
 			for _,opt in ipairs(votes[name].options) do
-				if opt == option then 
+				if opt == option then
 					valid = true
 					break
 				end
@@ -439,7 +439,7 @@ minetest.register_chatcommand('vote_reason', {
 		votes[name].votes[player_name].reason = reason
 		save_votes()
 
-		return true, S("You have successfully voted '%s' on this topic.", option)
+		return true, S("You have successfully provided a reason for your vote.")
 	end
 })
 
@@ -471,7 +471,7 @@ minetest.register_chatcommand('vote_options', {
 	params = "<name>",
 	privs = {voter=true},
 	func = function (player_name, param)
-		local name, reason = param:match("^(%S+)$")
+		local name = param:match("^(%S+)$")
 		if not name or name == "" then
 			return false, S("A name must be provided to find the vote.")
 		end
@@ -498,13 +498,13 @@ minetest.register_chatcommand('vote_options', {
 --[[
 Interface outline:
 
-GIVE REASON = 
+GIVE REASON =
 	Would you like to give a reason?
 	Thank you, vote on something else?
 		YES: Choose topic
 		NO: EXIT
 
-MAKE VOTE = 
+MAKE VOTE =
 	List options
 	GIVE REASON
 
@@ -516,7 +516,7 @@ Choose topic
 				MAKE VOTE
 			Change reason
 				GIVE REASON
-		NO: 
+		NO:
 			MAKE VOTE
 ]]
 local function option_buttons(start_y, gen, get_val, render_button)
@@ -704,7 +704,6 @@ local formspecs = {
 	},
 	give_reason = {
 		form = function (player_name)
-			local vote_name = vote_contexts[player_name].vote_name
 			return "size[6,6]"
 					.. ('label[0,0;%s]'):format(minetest.formspec_escape(S("Would you like to give a reason for your vote?")))
 					.. ('textarea[0.3,1;6,4;reason;%s;]'):format(minetest.formspec_escape(S("Reason")))
@@ -737,7 +736,6 @@ local formspecs = {
 	},
 	continue = {
 		form = function (player_name)
-			local vote_name = vote_contexts[player_name].vote_name
 			return "size[6,3]"
 					.. ('label[0,0;%s]'):format(minetest.formspec_escape(S("Thank you for your vote.")))
 					.. ('label[0,0.3;%s]'):format(minetest.formspec_escape(S("Would you like to vote on something else?")))
@@ -793,7 +791,7 @@ local formspecs = {
 				show_formspec(player_name, "edit")
 				return
 			end
-			
+
 			show_formspec(player_name, "error", S("The vote you chose is not valid."))
 		end
 	},
@@ -894,7 +892,7 @@ local formspecs = {
 					save_votes()
 
 					show_formspec(player_name, "confirm_edit", S("The options have been updated."))
-					return 
+					return
 				end
 			elseif fields.extend then
 				local duration, errs = parse_timespans(fields.duration)
@@ -910,7 +908,7 @@ local formspecs = {
 					save_votes()
 
 					show_formspec(player_name, "confirm_edit", S("The vote has been extended."))
-					return 
+					return
 				end
 			end
 			if has_errors then
