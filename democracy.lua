@@ -554,7 +554,7 @@ local formspecs = {
 				if minetest.check_player_privs(player_name, {vote_maker=true}) then
 					show_formspec(player_name, "manage")
 				else
-					show_formspec(player_name, "error", S("You do not have the privilages required to make votes."))
+					show_formspec(player_name, "error", S("You do not have the privileges required to make votes."))
 				end
 				return
 			end
@@ -562,7 +562,7 @@ local formspecs = {
 				if minetest.check_player_privs(player_name, {voter=true}) then
 					show_formspec(player_name, "choose")
 				else
-					show_formspec(player_name, "error", S("You do not have the privilages required to vote."))
+					show_formspec(player_name, "error", S("You do not have the privileges required to vote."))
 				end
 				return
 			end
@@ -658,7 +658,7 @@ local formspecs = {
 				return
 			end
 			if not minetest.check_player_privs(player_name, {voter=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to vote."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to vote."))
 				return
 			end
 			local vote_choice_index = nil
@@ -708,7 +708,7 @@ local formspecs = {
 				return
 			end
 			if not minetest.check_player_privs(player_name, {voter=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to vote."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to vote."))
 				return
 			end
 			if not fields.no and fields.reason ~= "" then
@@ -764,7 +764,7 @@ local formspecs = {
 		handle = function (player_name, fields, formname)
 			if fields.quit then return end
 			if not minetest.check_player_privs(player_name, {vote_maker=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to make votes."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to make votes."))
 				return
 			end
 			if fields.create then
@@ -844,7 +844,7 @@ local formspecs = {
 		handle = function (player_name, fields, formname)
 			if fields.quit then return end
 			if not minetest.check_player_privs(player_name, {vote_maker=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to make votes."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to make votes."))
 				return
 			end
 			local has_errors = false
@@ -949,7 +949,7 @@ local formspecs = {
 		handle = function (player_name, fields, formname)
 			if fields.quit then return end
 			if not minetest.check_player_privs(player_name, {vote_maker=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to make votes."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to make votes."))
 				return
 			end
 			local has_errors = false
@@ -1042,7 +1042,7 @@ local formspecs = {
 		handle = function (player_name, fields, formname)
 			if fields.quit then return end
 			if not minetest.check_player_privs(player_name, {vote_maker=true}) then
-				show_formspec(player_name, "error", S("You do not have the privilages required to make votes."))
+				show_formspec(player_name, "error", S("You do not have the privileges required to make votes."))
 				return
 			end
 			if fields.cancel then
