@@ -7,22 +7,6 @@ local mod_storage = bls.mod_storage
 local stored_votes = mod_storage:get_string('democracy:votes')
 if stored_votes ~= "" then
 	votes = minetest.deserialize(stored_votes)
-
-	votes.test = {
-		creator = "singleplayer",
-		description = "test vote",
-		options = {"a","b","c","d","e","f"},
-		end_time = 1987347,
-		votes = {
-			a = {choice="a",reason="thing"},
-			g = {choice="a",reason="thingsdfsdfg"},
-			h = {choice="a",reason="thgan"},
-			j = {choice="b",reason="thingtht"},
-			k = {choice="f",reason="thingerwerdf"},
-			l = {choice="f",reason="thingrgetg"},
-			m = {choice="b"},
-		}
-	}
 end
 -- votes = {}
 
@@ -612,8 +596,10 @@ local formspecs = {
 			end
 			local vote_name = nil
 			for name,_ in pairs(fields) do
-				vote_name = name:sub(6)
-				break
+				if name:sub(1,5) == 'vote:' then
+					vote_name = name:sub(6)
+					break
+				end
 			end
 			if not vote_name then return end
 
@@ -652,7 +638,10 @@ local formspecs = {
 	make_vote = {
 		form = function (player_name)
 			local vote_name = vote_contexts[player_name].vote_name
-			local vote_options = votes[vote_name].options
+			local vote_options = {}
+			for sys,hum in pairs(votes[vote_name].options) do
+					vote_options['option:'..tostring(sys)] = hum
+			end
 			local buttons, w, h = option_buttons(1, vote_options)
 			return ("size[%f,%f]"):format(w, h+1)
 					.. ('label[0,0;%s]'):format(minetest.formspec_escape(S("Choose one of the options:")))
@@ -675,9 +664,11 @@ local formspecs = {
 			local vote_choice_index = nil
 			local vote_choice = nil
 			for i,opt in pairs(fields) do
-				vote_choice_index = tonumber(i)
-				vote_choice = opt
-				break
+				if i:sub(1,7) == 'option:' then
+					vote_choice_index = tonumber(i:sub(8))
+					vote_choice = opt
+					break
+				end
 			end
 
 			local vote_name = vote_contexts[player_name].vote_name
@@ -782,8 +773,10 @@ local formspecs = {
 			end
 			local vote_name = nil
 			for name,_ in pairs(fields) do
-				vote_name = name:sub(6)
-				break
+				if name:sub(1,5) == 'vote:' then
+					vote_name = name:sub(6)
+					break
+				end
 			end
 
 			if vote_name and votes[vote_name] and (votes[vote_name].creator == player_name or minetest.check_player_privs(player_name, {vote_admin=true})) then
