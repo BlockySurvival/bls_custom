@@ -56,6 +56,19 @@ local function fix_priv_4(name)
     end
 end
 
+-- update for voting privs, see bls_custom/democracy.lua
+local function fix_priv_5(name)
+    local key = ("%s_fix_priv_5"):format(name)
+    if storage:get_string(key) ~= YES_VALUE then
+        local privs = minetest.get_player_privs(name) or {}
+        if privs.interact then
+            privs.voter = true
+            minetest.set_player_privs(name, privs)
+        end
+        storage:set_string(key, YES_VALUE)
+    end
+end
+
 -- NOTE: if privileges change AGAIN then you have to create a new key and function like the above.
 -- NOTE: you can reuse the same on_player_join though.
 
@@ -65,5 +78,5 @@ minetest.register_on_joinplayer(function(player)
     minetest.after(0, fix_priv_2, name)
     minetest.after(0, fix_priv_3, name)
     minetest.after(0, fix_priv_4, name)
+    minetest.after(0, fix_priv_5, name)
 end)
-

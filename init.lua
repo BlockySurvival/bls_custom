@@ -62,6 +62,7 @@ dofile(bls.modpath .. "/orienteering.lua")
 dofile(bls.modpath .. "/remove_smartrenting.lua")
 dofile(bls.modpath .. "/text_entry_logging.lua")
 dofile(bls.modpath .. "/tnt.lua")
+dofile(bls.modpath .. "/democracy.lua")
 
 dofile(bls.modpath .. "/privs/caps.lua")
 dofile(bls.modpath .. "/privs/zoom.lua")
