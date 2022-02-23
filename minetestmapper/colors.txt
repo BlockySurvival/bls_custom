@@ -30604,3 +30604,1239 @@ xpanes:pane_flat 192 192 227
 # warning: tile does not exist xpanes:rusty_bar_flat (xdecor_rusty_bar.png)
 # warning: tile does not exist xpanes:wood_frame (xdecor_wood_frame.png)
 # warning: tile does not exist xpanes:wood_frame_flat (xdecor_wood_frame.png)
+baldcypress:dry_branches 84 60 16
+baldcypress:leaves 38 66 4
+baldcypress:liana 71 101 18
+baldcypress:sapling 64 90 48
+baldcypress:trunk 169 131 85
+baldcypress:wood 210 168 94
+bls:digilines_message_block 94 120 192
+bls:pro_aid_air_visible 0 128 252
+bls:pro_aid_wall_visible 0 128 252
+caverealms:glow_obsidian_cold 1 41 57
+caverealms:glow_obsidian_hot 64 41 64
+caverealms:micro_glow_obsidian_cold 1 41 57
+caverealms:micro_glow_obsidian_cold_1 1 41 57
+caverealms:micro_glow_obsidian_cold_12 1 41 57
+caverealms:micro_glow_obsidian_cold_14 1 41 57
+caverealms:micro_glow_obsidian_cold_15 1 41 57
+caverealms:micro_glow_obsidian_cold_2 1 41 57
+caverealms:micro_glow_obsidian_cold_4 1 41 57
+caverealms:micro_glow_obsidian_hot 64 41 64
+caverealms:micro_glow_obsidian_hot_1 64 41 64
+caverealms:micro_glow_obsidian_hot_12 64 41 64
+caverealms:micro_glow_obsidian_hot_14 64 41 64
+caverealms:micro_glow_obsidian_hot_15 64 41 64
+caverealms:micro_glow_obsidian_hot_2 64 41 64
+caverealms:micro_glow_obsidian_hot_4 64 41 64
+caverealms:panel_glow_obsidian_cold 1 41 57
+caverealms:panel_glow_obsidian_cold_1 1 41 57
+caverealms:panel_glow_obsidian_cold_12 1 41 57
+caverealms:panel_glow_obsidian_cold_14 1 41 57
+caverealms:panel_glow_obsidian_cold_15 1 41 57
+caverealms:panel_glow_obsidian_cold_2 1 41 57
+caverealms:panel_glow_obsidian_cold_4 1 41 57
+caverealms:panel_glow_obsidian_hot 64 41 64
+caverealms:panel_glow_obsidian_hot_1 64 41 64
+caverealms:panel_glow_obsidian_hot_12 64 41 64
+caverealms:panel_glow_obsidian_hot_14 64 41 64
+caverealms:panel_glow_obsidian_hot_15 64 41 64
+caverealms:panel_glow_obsidian_hot_2 64 41 64
+caverealms:panel_glow_obsidian_hot_4 64 41 64
+caverealms:slab_glow_obsidian_cold 1 41 57
+caverealms:slab_glow_obsidian_cold_1 1 41 57
+caverealms:slab_glow_obsidian_cold_14 1 41 57
+caverealms:slab_glow_obsidian_cold_15 1 41 57
+caverealms:slab_glow_obsidian_cold_2 1 41 57
+caverealms:slab_glow_obsidian_cold_quarter 1 41 57
+caverealms:slab_glow_obsidian_cold_three_quarter 1 41 57
+caverealms:slab_glow_obsidian_cold_three_sides 1 41 57
+caverealms:slab_glow_obsidian_cold_three_sides_u 1 41 57
+caverealms:slab_glow_obsidian_cold_two_sides 1 41 57
+caverealms:slab_glow_obsidian_hot 64 41 64
+caverealms:slab_glow_obsidian_hot_1 64 41 64
+caverealms:slab_glow_obsidian_hot_14 64 41 64
+caverealms:slab_glow_obsidian_hot_15 64 41 64
+caverealms:slab_glow_obsidian_hot_2 64 41 64
+caverealms:slab_glow_obsidian_hot_quarter 64 41 64
+caverealms:slab_glow_obsidian_hot_three_quarter 64 41 64
+caverealms:slab_glow_obsidian_hot_three_sides 64 41 64
+caverealms:slab_glow_obsidian_hot_three_sides_u 64 41 64
+caverealms:slab_glow_obsidian_hot_two_sides 64 41 64
+caverealms:slope_glow_obsidian_cold 1 41 57
+caverealms:slope_glow_obsidian_cold_cut 1 41 57
+caverealms:slope_glow_obsidian_cold_half 1 41 57
+caverealms:slope_glow_obsidian_cold_half_raised 1 41 57
+caverealms:slope_glow_obsidian_cold_inner 1 41 57
+caverealms:slope_glow_obsidian_cold_inner_cut 1 41 57
+caverealms:slope_glow_obsidian_cold_inner_cut_half 1 41 57
+caverealms:slope_glow_obsidian_cold_inner_cut_half_raised 1 41 57
+caverealms:slope_glow_obsidian_cold_inner_half 1 41 57
+caverealms:slope_glow_obsidian_cold_inner_half_raised 1 41 57
+caverealms:slope_glow_obsidian_cold_outer 1 41 57
+caverealms:slope_glow_obsidian_cold_outer_cut 1 41 57
+caverealms:slope_glow_obsidian_cold_outer_cut_half 1 41 57
+caverealms:slope_glow_obsidian_cold_outer_cut_half_raised 1 41 57
+caverealms:slope_glow_obsidian_cold_outer_half 1 41 57
+caverealms:slope_glow_obsidian_cold_outer_half_raised 1 41 57
+caverealms:slope_glow_obsidian_hot 64 41 64
+caverealms:slope_glow_obsidian_hot_cut 64 41 64
+caverealms:slope_glow_obsidian_hot_half 64 41 64
+caverealms:slope_glow_obsidian_hot_half_raised 64 41 64
+caverealms:slope_glow_obsidian_hot_inner 64 41 64
+caverealms:slope_glow_obsidian_hot_inner_cut 64 41 64
+caverealms:slope_glow_obsidian_hot_inner_cut_half 64 41 64
+caverealms:slope_glow_obsidian_hot_inner_cut_half_raised 64 41 64
+caverealms:slope_glow_obsidian_hot_inner_half 64 41 64
+caverealms:slope_glow_obsidian_hot_inner_half_raised 64 41 64
+caverealms:slope_glow_obsidian_hot_outer 64 41 64
+caverealms:slope_glow_obsidian_hot_outer_cut 64 41 64
+caverealms:slope_glow_obsidian_hot_outer_cut_half 64 41 64
+caverealms:slope_glow_obsidian_hot_outer_cut_half_raised 64 41 64
+caverealms:slope_glow_obsidian_hot_outer_half 64 41 64
+caverealms:slope_glow_obsidian_hot_outer_half_raised 64 41 64
+caverealms:stair_glow_obsidian_cold 1 41 57
+caverealms:stair_glow_obsidian_cold_alt 1 41 57
+caverealms:stair_glow_obsidian_cold_alt_1 1 41 57
+caverealms:stair_glow_obsidian_cold_alt_2 1 41 57
+caverealms:stair_glow_obsidian_cold_alt_4 1 41 57
+caverealms:stair_glow_obsidian_cold_half 1 41 57
+caverealms:stair_glow_obsidian_cold_inner 1 41 57
+caverealms:stair_glow_obsidian_cold_outer 1 41 57
+caverealms:stair_glow_obsidian_cold_right_half 1 41 57
+caverealms:stair_glow_obsidian_hot 64 41 64
+caverealms:stair_glow_obsidian_hot_alt 64 41 64
+caverealms:stair_glow_obsidian_hot_alt_1 64 41 64
+caverealms:stair_glow_obsidian_hot_alt_2 64 41 64
+caverealms:stair_glow_obsidian_hot_alt_4 64 41 64
+caverealms:stair_glow_obsidian_hot_half 64 41 64
+caverealms:stair_glow_obsidian_hot_inner 64 41 64
+caverealms:stair_glow_obsidian_hot_outer 64 41 64
+caverealms:stair_glow_obsidian_hot_right_half 64 41 64
+default:mese_post_light_acacia_wood 151 62 40
+digilines_weather_sensor:sensor 204 211 204
+digistuff:advtouchscreen 92 92 92
+digistuff:eeprom 156 159 156
+digistuff:gpu 157 159 156
+digistuff:heatsink 195 195 195
+digistuff:heatsink_onic 195 195 195
+digistuff:ram 156 159 156
+doors:door_glass_1020_a 245 245 245
+doors:door_glass_1020_b 245 245 245
+doors:door_glass_1020_c 245 245 245
+doors:door_glass_1020_d 245 245 245
+doors:door_glass_1030_a 245 245 245
+doors:door_glass_1030_b 245 245 245
+doors:door_glass_1030_c 245 245 245
+doors:door_glass_1030_d 245 245 245
+doors:door_glass_1040_a 245 245 245
+doors:door_glass_1040_b 245 245 245
+doors:door_glass_1040_c 245 245 245
+doors:door_glass_1040_d 245 245 245
+doors:door_glass_1520_a 245 245 245
+doors:door_glass_1520_b 245 245 245
+doors:door_glass_1520_c 245 245 245
+doors:door_glass_1520_d 245 245 245
+doors:door_glass_1530_a 245 245 245
+doors:door_glass_1530_b 245 245 245
+doors:door_glass_1530_c 245 245 245
+doors:door_glass_1530_d 245 245 245
+doors:door_glass_1540_a 245 245 245
+doors:door_glass_1540_b 245 245 245
+doors:door_glass_1540_c 245 245 245
+doors:door_glass_1540_d 245 245 245
+doors:door_glass_2020_a 245 245 245
+doors:door_glass_2020_b 245 245 245
+doors:door_glass_2020_c 245 245 245
+doors:door_glass_2020_d 245 245 245
+doors:door_glass_2030_a 245 245 245
+doors:door_glass_2030_b 245 245 245
+doors:door_glass_2030_c 245 245 245
+doors:door_glass_2030_d 245 245 245
+doors:door_glass_2040_a 245 245 245
+doors:door_glass_2040_b 245 245 245
+doors:door_glass_2040_c 245 245 245
+doors:door_glass_2040_d 245 245 245
+doors:door_obsidian_glass_1020_a 49 49 50
+doors:door_obsidian_glass_1020_b 49 49 50
+doors:door_obsidian_glass_1020_c 49 49 50
+doors:door_obsidian_glass_1020_d 49 49 50
+doors:door_obsidian_glass_1030_a 49 49 50
+doors:door_obsidian_glass_1030_b 49 49 50
+doors:door_obsidian_glass_1030_c 49 49 50
+doors:door_obsidian_glass_1030_d 49 49 50
+doors:door_obsidian_glass_1040_a 49 49 50
+doors:door_obsidian_glass_1040_b 49 49 50
+doors:door_obsidian_glass_1040_c 49 49 50
+doors:door_obsidian_glass_1040_d 49 49 50
+doors:door_obsidian_glass_1520_a 49 49 50
+doors:door_obsidian_glass_1520_b 49 49 50
+doors:door_obsidian_glass_1520_c 49 49 50
+doors:door_obsidian_glass_1520_d 49 49 50
+doors:door_obsidian_glass_1530_a 49 49 50
+doors:door_obsidian_glass_1530_b 49 49 50
+doors:door_obsidian_glass_1530_c 49 49 50
+doors:door_obsidian_glass_1530_d 49 49 50
+doors:door_obsidian_glass_1540_a 49 49 50
+doors:door_obsidian_glass_1540_b 49 49 50
+doors:door_obsidian_glass_1540_c 49 49 50
+doors:door_obsidian_glass_1540_d 49 49 50
+doors:door_obsidian_glass_2020_a 49 49 50
+doors:door_obsidian_glass_2020_b 49 49 50
+doors:door_obsidian_glass_2020_c 49 49 50
+doors:door_obsidian_glass_2020_d 49 49 50
+doors:door_obsidian_glass_2030_a 49 49 50
+doors:door_obsidian_glass_2030_b 49 49 50
+doors:door_obsidian_glass_2030_c 49 49 50
+doors:door_obsidian_glass_2030_d 49 49 50
+doors:door_obsidian_glass_2040_a 49 49 50
+doors:door_obsidian_glass_2040_b 49 49 50
+doors:door_obsidian_glass_2040_c 49 49 50
+doors:door_obsidian_glass_2040_d 49 49 50
+doors:door_steel_1020_a 204 204 204
+doors:door_steel_1020_b 204 204 204
+doors:door_steel_1020_c 204 204 204
+doors:door_steel_1020_d 204 204 204
+doors:door_steel_1030_a 204 204 204
+doors:door_steel_1030_b 204 204 204
+doors:door_steel_1030_c 204 204 204
+doors:door_steel_1030_d 204 204 204
+doors:door_steel_1040_a 204 204 204
+doors:door_steel_1040_b 204 204 204
+doors:door_steel_1040_c 204 204 204
+doors:door_steel_1040_d 204 204 204
+doors:door_steel_1520_a 204 204 204
+doors:door_steel_1520_b 204 204 204
+doors:door_steel_1520_c 204 204 204
+doors:door_steel_1520_d 204 204 204
+doors:door_steel_1530_a 204 204 204
+doors:door_steel_1530_b 204 204 204
+doors:door_steel_1530_c 204 204 204
+doors:door_steel_1530_d 204 204 204
+doors:door_steel_1540_a 204 204 204
+doors:door_steel_1540_b 204 204 204
+doors:door_steel_1540_c 204 204 204
+doors:door_steel_1540_d 204 204 204
+doors:door_steel_2020_a 204 204 204
+doors:door_steel_2020_b 204 204 204
+doors:door_steel_2020_c 204 204 204
+doors:door_steel_2020_d 204 204 204
+doors:door_steel_2030_a 204 204 204
+doors:door_steel_2030_b 204 204 204
+doors:door_steel_2030_c 204 204 204
+doors:door_steel_2030_d 204 204 204
+doors:door_steel_2040_a 204 204 204
+doors:door_steel_2040_b 204 204 204
+doors:door_steel_2040_c 204 204 204
+doors:door_steel_2040_d 204 204 204
+doors:door_wood_1020_a 89 69 37
+doors:door_wood_1020_b 89 69 37
+doors:door_wood_1020_c 89 69 37
+doors:door_wood_1020_d 89 69 37
+doors:door_wood_1030_a 89 69 37
+doors:door_wood_1030_b 89 69 37
+doors:door_wood_1030_c 89 69 37
+doors:door_wood_1030_d 89 69 37
+doors:door_wood_1040_a 89 69 37
+doors:door_wood_1040_b 89 69 37
+doors:door_wood_1040_c 89 69 37
+doors:door_wood_1040_d 89 69 37
+doors:door_wood_1520_a 89 69 37
+doors:door_wood_1520_b 89 69 37
+doors:door_wood_1520_c 89 69 37
+doors:door_wood_1520_d 89 69 37
+doors:door_wood_1530_a 89 69 37
+doors:door_wood_1530_b 89 69 37
+doors:door_wood_1530_c 89 69 37
+doors:door_wood_1530_d 89 69 37
+doors:door_wood_1540_a 89 69 37
+doors:door_wood_1540_b 89 69 37
+doors:door_wood_1540_c 89 69 37
+doors:door_wood_1540_d 89 69 37
+doors:door_wood_2020_a 89 69 37
+doors:door_wood_2020_b 89 69 37
+doors:door_wood_2020_c 89 69 37
+doors:door_wood_2020_d 89 69 37
+doors:door_wood_2030_a 89 69 37
+doors:door_wood_2030_b 89 69 37
+doors:door_wood_2030_c 89 69 37
+doors:door_wood_2030_d 89 69 37
+doors:door_wood_2040_a 89 69 37
+doors:door_wood_2040_b 89 69 37
+doors:door_wood_2040_c 89 69 37
+doors:door_wood_2040_d 89 69 37
+dryplants:grass 67 103 33
+dryplants:hay 109 102 68
+dryplants:juncus 71 86 39
+dryplants:juncus_02 66 81 35
+dryplants:reed 106 99 66
+dryplants:reed_roof 106 99 66
+dryplants:reed_roof_corner 106 99 66
+dryplants:reed_roof_corner_2 106 99 66
+dryplants:reed_slab 106 99 66
+dryplants:reedmace 97 119 61
+dryplants:reedmace_bottom 104 119 62
+dryplants:reedmace_height_2 104 120 64
+dryplants:reedmace_height_3 101 119 62
+dryplants:reedmace_height_3_spikes 109 122 70
+dryplants:reedmace_sapling 102 117 65
+dryplants:reedmace_spikes 146 134 102
+dryplants:reedmace_top 105 122 67
+dryplants:reedmace_water 118 111 65
+dryplants:wetreed 71 107 38
+dryplants:wetreed_roof 71 107 38
+dryplants:wetreed_roof_corner 71 107 38
+dryplants:wetreed_roof_corner_2 71 107 38
+dryplants:wetreed_slab 71 107 38
+epic:dialogue 187 111 15
+farming:blackberry_1 145 235 19
+farming:blackberry_2 91 132 7
+farming:blackberry_3 109 147 48
+farming:blackberry_4 85 119 39
+farming:lettuce_1 71 146 35
+farming:lettuce_2 69 143 34
+farming:lettuce_3 79 138 37
+farming:lettuce_4 109 157 44
+farming:lettuce_5 130 174 59
+farming:soy_1 147 178 104
+farming:soy_2 144 178 98
+farming:soy_3 146 186 79
+farming:soy_4 141 182 73
+farming:soy_5 129 175 35
+farming:soy_6 122 151 44
+farming:soy_7 132 144 43
+farming:soy_milk 223 220 213
+farming:vanilla_1 92 136 59
+farming:vanilla_2 108 146 71
+farming:vanilla_3 114 145 61
+farming:vanilla_4 124 151 71
+farming:vanilla_5 129 142 71
+farming:vanilla_6 142 148 82
+farming:vanilla_7 125 120 75
+farming:vanilla_8 128 126 86
+farming:vanilla_extract 175 142 137
+hollytree:leaves 66 81 36
+hollytree:sapling 79 87 45
+hollytree:trunk 165 139 117
+hollytree:wood 206 172 138
+maple:leaves 156 81 52
+maple:sapling 181 125 81
+maple:trunk 153 125 95
+maple:wood 121 72 48
+# warning: no visible pixels in maptools:fullclip_face (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:ignore_like (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:ignore_like_no_clip (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:ignore_like_no_clip_no_point (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:ignore_like_no_point (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:playerclip_bottom (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:playerclip_top (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_1 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_10 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_2 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_3 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_4 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_5 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_6 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_7 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_8 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+# warning: no visible pixels in maptools:pusher_9 (/home/cam/snap/minetest/1744/.minetest/mods/maptools/textures/invisible.png)
+mobs:meatblock 140 73 42
+moreblocks:clean_glow_glass 192 192 227
+moreblocks:clean_super_glow_glass 192 192 227
+moreblocks:micro_clean_glow_glass 192 192 227
+moreblocks:micro_clean_glow_glass_1 192 192 227
+moreblocks:micro_clean_glow_glass_12 192 192 227
+moreblocks:micro_clean_glow_glass_14 192 192 227
+moreblocks:micro_clean_glow_glass_15 192 192 227
+moreblocks:micro_clean_glow_glass_2 192 192 227
+moreblocks:micro_clean_glow_glass_4 192 192 227
+moreblocks:micro_clean_super_glow_glass 192 192 227
+moreblocks:micro_clean_super_glow_glass_1 192 192 227
+moreblocks:micro_clean_super_glow_glass_12 192 192 227
+moreblocks:micro_clean_super_glow_glass_14 192 192 227
+moreblocks:micro_clean_super_glow_glass_15 192 192 227
+moreblocks:micro_clean_super_glow_glass_2 192 192 227
+moreblocks:micro_clean_super_glow_glass_4 192 192 227
+moreblocks:panel_clean_glow_glass 192 192 227
+moreblocks:panel_clean_glow_glass_1 192 192 227
+moreblocks:panel_clean_glow_glass_12 192 192 227
+moreblocks:panel_clean_glow_glass_14 192 192 227
+moreblocks:panel_clean_glow_glass_15 192 192 227
+moreblocks:panel_clean_glow_glass_2 192 192 227
+moreblocks:panel_clean_glow_glass_4 192 192 227
+moreblocks:panel_clean_super_glow_glass 192 192 227
+moreblocks:panel_clean_super_glow_glass_1 192 192 227
+moreblocks:panel_clean_super_glow_glass_12 192 192 227
+moreblocks:panel_clean_super_glow_glass_14 192 192 227
+moreblocks:panel_clean_super_glow_glass_15 192 192 227
+moreblocks:panel_clean_super_glow_glass_2 192 192 227
+moreblocks:panel_clean_super_glow_glass_4 192 192 227
+moreblocks:slab_clean_glow_glass 192 192 227
+moreblocks:slab_clean_glow_glass_1 192 192 227
+moreblocks:slab_clean_glow_glass_14 192 192 227
+moreblocks:slab_clean_glow_glass_15 192 192 227
+moreblocks:slab_clean_glow_glass_2 192 192 227
+moreblocks:slab_clean_glow_glass_quarter 192 192 227
+moreblocks:slab_clean_glow_glass_three_quarter 192 192 227
+moreblocks:slab_clean_glow_glass_three_sides 192 192 227
+moreblocks:slab_clean_glow_glass_three_sides_u 192 192 227
+moreblocks:slab_clean_glow_glass_two_sides 192 192 227
+moreblocks:slab_clean_super_glow_glass 192 192 227
+moreblocks:slab_clean_super_glow_glass_1 192 192 227
+moreblocks:slab_clean_super_glow_glass_14 192 192 227
+moreblocks:slab_clean_super_glow_glass_15 192 192 227
+moreblocks:slab_clean_super_glow_glass_2 192 192 227
+moreblocks:slab_clean_super_glow_glass_quarter 192 192 227
+moreblocks:slab_clean_super_glow_glass_three_quarter 192 192 227
+moreblocks:slab_clean_super_glow_glass_three_sides 192 192 227
+moreblocks:slab_clean_super_glow_glass_three_sides_u 192 192 227
+moreblocks:slab_clean_super_glow_glass_two_sides 192 192 227
+moreblocks:slope_clean_glow_glass 192 192 227
+moreblocks:slope_clean_glow_glass_cut 192 192 227
+moreblocks:slope_clean_glow_glass_half 192 192 227
+moreblocks:slope_clean_glow_glass_half_raised 192 192 227
+moreblocks:slope_clean_glow_glass_inner 192 192 227
+moreblocks:slope_clean_glow_glass_inner_cut 192 192 227
+moreblocks:slope_clean_glow_glass_inner_cut_half 192 192 227
+moreblocks:slope_clean_glow_glass_inner_cut_half_raised 192 192 227
+moreblocks:slope_clean_glow_glass_inner_half 192 192 227
+moreblocks:slope_clean_glow_glass_inner_half_raised 192 192 227
+moreblocks:slope_clean_glow_glass_outer 192 192 227
+moreblocks:slope_clean_glow_glass_outer_cut 192 192 227
+moreblocks:slope_clean_glow_glass_outer_cut_half 192 192 227
+moreblocks:slope_clean_glow_glass_outer_cut_half_raised 192 192 227
+moreblocks:slope_clean_glow_glass_outer_half 192 192 227
+moreblocks:slope_clean_glow_glass_outer_half_raised 192 192 227
+moreblocks:slope_clean_super_glow_glass 192 192 227
+moreblocks:slope_clean_super_glow_glass_cut 192 192 227
+moreblocks:slope_clean_super_glow_glass_half 192 192 227
+moreblocks:slope_clean_super_glow_glass_half_raised 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner_cut 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner_cut_half 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner_cut_half_raised 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner_half 192 192 227
+moreblocks:slope_clean_super_glow_glass_inner_half_raised 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer_cut 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer_cut_half 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer_cut_half_raised 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer_half 192 192 227
+moreblocks:slope_clean_super_glow_glass_outer_half_raised 192 192 227
+moreblocks:stair_clean_glow_glass 192 192 227
+moreblocks:stair_clean_glow_glass_alt 192 192 227
+moreblocks:stair_clean_glow_glass_alt_1 192 192 227
+moreblocks:stair_clean_glow_glass_alt_2 192 192 227
+moreblocks:stair_clean_glow_glass_alt_4 192 192 227
+moreblocks:stair_clean_glow_glass_half 192 192 227
+moreblocks:stair_clean_glow_glass_inner 192 192 227
+moreblocks:stair_clean_glow_glass_outer 192 192 227
+moreblocks:stair_clean_glow_glass_right_half 192 192 227
+moreblocks:stair_clean_super_glow_glass 192 192 227
+moreblocks:stair_clean_super_glow_glass_alt 192 192 227
+moreblocks:stair_clean_super_glow_glass_alt_1 192 192 227
+moreblocks:stair_clean_super_glow_glass_alt_2 192 192 227
+moreblocks:stair_clean_super_glow_glass_alt_4 192 192 227
+moreblocks:stair_clean_super_glow_glass_half 192 192 227
+moreblocks:stair_clean_super_glow_glass_inner 192 192 227
+moreblocks:stair_clean_super_glow_glass_outer 192 192 227
+moreblocks:stair_clean_super_glow_glass_right_half 192 192 227
+moreblocks:trap_clean_glass 192 192 227
+moreblocks:trap_clean_glow_glass 192 192 227
+moreblocks:trap_clean_super_glow_glass 192 192 227
+moremesecons_playerkiller:playerkiller 135 116 135
+moretrees:apple_blossoms 77 105 24
+nether:basalt 21 22 32
+nether:basalt_chiselled 21 23 33
+nether:basalt_hewn 20 21 31
+nether:brick_compressed 72 48 41
+nether:brick_cracked 67 39 39
+nether:brick_deep 49 50 87
+nether:fumarole 72 38 38
+nether:fumarole_corner 72 38 38
+nether:fumarole_slab 72 38 38
+nether:glowstone_deep 219 235 246
+nether:gold_ore 72 38 38
+nether:gold_ore_deep 56 56 88
+nether:heart_ore_deep 56 56 88
+nether:heart_ore_new 72 38 38
+nether:lava_crust 132 63 27
+nether:lava_source 211 116 23
+# warning: no visible pixels in nether:portal (/home/cam/snap/minetest/1744/.minetest/mods/nether/textures/nether_transparent.png)
+# warning: no visible pixels in nether:portal_alt (/home/cam/snap/minetest/1744/.minetest/mods/nether/textures/nether_transparent.png)
+# warning: no visible pixels in nether:portal_new (/home/cam/snap/minetest/1744/.minetest/mods/nether/textures/nether_transparent.png)
+nether:rack_deep 56 56 88
+nether:rack_deep_wall 56 56 88
+nether:rack_new 72 38 38
+nether:rack_wall 72 38 38
+nether:sulfur_ore_new 72 38 38
+nether:titanium_ore_deep 56 56 88
+nether:titanium_ore_new 72 38 38
+oak:acorn 141 86 44
+oak:leaves 65 82 43
+oak:sapling 51 77 15
+oak:trunk 106 82 56
+oak:wood 131 90 49
+pineapple:pineapple 151 119 80
+pineapple:sapling 58 72 52
+plumtree:leaves 54 78 12
+plumtree:plum 81 65 70
+plumtree:sapling 78 81 44
+plumtree:trunk 146 111 70
+plumtree:wood 109 63 40
+pomegranate:leaves 35 99 15
+pomegranate:pomegranate 187 74 61
+pomegranate:sapling 134 95 61
+pomegranate:trunk 169 139 98
+pomegranate:wood 209 151 75
+rainf:aloe_vera 84 97 49
+rainf:blossom_meadow 109 128 88
+rainf:camomille 141 154 141
+rainf:champignon 184 172 156
+rainf:dahlia 157 114 45
+rainf:dirt 118 93 78
+rainf:granite 134 134 134
+rainf:granite_wall 125 124 122
+rainf:grapes 99 98 111
+rainf:grapevine 102 92 100
+rainf:grass 80 96 52
+rainf:hyacinth 129 119 51
+rainf:meadow 80 109 58
+rainf:meadow_with_mud 119 107 84
+rainf:pansy 152 153 173
+rainf:pink_granite 185 160 144
+rainf:pink_granite_with_moss 185 160 144
+rainf:red_daisy 149 108 83
+rainf:soil 118 93 78
+rainf:soil_wet 118 93 78
+rainf:vine 90 122 50
+rainf:weed 78 100 56
+scifi_nodes:greenbar_animated 114 136 76
+# warning: no visible pixels in scifi_nodes:pot_lid (/home/cam/snap/minetest/1744/.minetest/mods/scifi_nodes/textures/scifi_nodes_glass2.png)
+scout_custom:compact_ice 162 182 206
+scout_custom:dirty_snow 177 177 182
+scout_custom:ember_black 17 17 17
+scout_custom:ember_blue 31 41 199
+scout_custom:ember_dark_green 45 131 67
+scout_custom:ember_dark_grey 75 75 75
+scout_custom:ember_grey 127 127 127
+scout_custom:ember_light_grey 219 219 219
+scout_custom:ember_lime 162 239 74
+scout_custom:ember_orange 224 100 16
+scout_custom:ember_purple 152 71 153
+scout_custom:ember_red 175 27 40
+scout_custom:grass_1 182 216 216
+scout_custom:grass_2 187 236 236
+scout_custom:grass_3 199 231 231
+scout_custom:grass_4 181 226 226
+scout_custom:grass_5 155 204 204
+scout_custom:ice_pine_tree 219 221 233
+scout_custom:ice_pine_wood 207 212 216
+scout_custom:slush 109 164 233
+scout_custom:snowy_leaves 205 231 231
+sl_controller:server 24 24 24
+sl_controller:terminal 42 50 50
+sl_controller:terminal2 148 149 142
+smartline:battery 24 120 174
+smartline:battery25 24 120 174
+smartline:battery50 24 120 174
+smartline:battery75 24 120 174
+smartline:battery_empty 24 120 174
+smartline:button 24 120 174
+smartline:button_active 24 120 174
+smartline:collector 24 120 174
+smartline:controller 24 120 174
+smartline:controller2 24 120 174
+smartline:display 146 212 62
+smartline:playerdetector 24 120 174
+smartline:playerdetector_active 24 120 174
+smartline:repeater 24 120 174
+smartline:sequencer 24 120 174
+smartline:signaltower 39 35 34
+smartline:signaltower_amber 39 35 34
+smartline:signaltower_green 39 35 34
+smartline:signaltower_red 39 35 34
+smartline:timer 24 120 174
+stairs:stair_glass 250 250 250
+stairs:stair_inner_glass 250 250 250
+stairs:stair_inner_obsidian_glass 20 23 27
+stairs:stair_obsidian_glass 20 23 27
+stairs:stair_outer_glass 250 250 250
+stairs:stair_outer_obsidian_glass 20 23 27
+swaz:adobe 197 167 123
+swaz:barberry_bush_leaves 86 105 30
+swaz:barberry_bush_leaves_with_berries 86 105 30
+swaz:barberry_bush_sapling 82 98 41
+swaz:brick_wall 153 127 115
+swaz:cemented_brick_wall 130 126 129
+swaz:iris 142 112 85
+swaz:iris_top 174 156 56
+swaz:lavender 120 104 128
+swaz:limestone 195 187 179
+swaz:mixed_brick_wall 129 124 128
+swaz:mud 142 112 85
+swaz:mud_with_moss 109 99 52
+swaz:mudbrick 199 168 123
+swaz:pampas_grass 131 127 88
+swaz:red_roof_corner 162 120 94
+swaz:reed 78 98 39
+swaz:roof_flat_red 130 65 65
+swaz:roof_slope_red 162 120 94
+swaz:sandy_brick_wall 183 162 131
+swaz:silt 166 135 105
+swaz:silt_with_grass 98 105 45
+swaz:soil 166 135 105
+swaz:soil_wet 166 135 105
+swaz:swamp_grass 85 92 37
+swaz:water_flowing 40 79 39
+swaz:water_source 95 117 66
+techpack_stairway:ladder4 112 112 112
+techpack_stairway:micro_lattice 110 110 110
+techpack_stairway:micro_lattice_1 110 110 110
+techpack_stairway:micro_lattice_12 110 110 110
+techpack_stairway:micro_lattice_14 110 110 110
+techpack_stairway:micro_lattice_15 110 110 110
+techpack_stairway:micro_lattice_2 110 110 110
+techpack_stairway:micro_lattice_4 110 110 110
+techpack_stairway:panel_lattice 110 110 110
+techpack_stairway:panel_lattice_1 110 110 110
+techpack_stairway:panel_lattice_12 110 110 110
+techpack_stairway:panel_lattice_14 110 110 110
+techpack_stairway:panel_lattice_15 110 110 110
+techpack_stairway:panel_lattice_2 110 110 110
+techpack_stairway:panel_lattice_4 110 110 110
+techpack_stairway:slab_lattice 110 110 110
+techpack_stairway:slab_lattice_1 110 110 110
+techpack_stairway:slab_lattice_14 110 110 110
+techpack_stairway:slab_lattice_15 110 110 110
+techpack_stairway:slab_lattice_2 110 110 110
+techpack_stairway:slab_lattice_quarter 110 110 110
+techpack_stairway:slab_lattice_three_quarter 110 110 110
+techpack_stairway:slab_lattice_three_sides 110 110 110
+techpack_stairway:slab_lattice_three_sides_u 110 110 110
+techpack_stairway:slab_lattice_two_sides 110 110 110
+techpack_stairway:slope_lattice 110 110 110
+techpack_stairway:slope_lattice_cut 110 110 110
+techpack_stairway:slope_lattice_half 110 110 110
+techpack_stairway:slope_lattice_half_raised 110 110 110
+techpack_stairway:slope_lattice_inner 110 110 110
+techpack_stairway:slope_lattice_inner_cut 110 110 110
+techpack_stairway:slope_lattice_inner_cut_half 110 110 110
+techpack_stairway:slope_lattice_inner_cut_half_raised 110 110 110
+techpack_stairway:slope_lattice_inner_half 110 110 110
+techpack_stairway:slope_lattice_inner_half_raised 110 110 110
+techpack_stairway:slope_lattice_outer 110 110 110
+techpack_stairway:slope_lattice_outer_cut 110 110 110
+techpack_stairway:slope_lattice_outer_cut_half 110 110 110
+techpack_stairway:slope_lattice_outer_cut_half_raised 110 110 110
+techpack_stairway:slope_lattice_outer_half 110 110 110
+techpack_stairway:slope_lattice_outer_half_raised 110 110 110
+techpack_stairway:stair_lattice 110 110 110
+techpack_stairway:stair_lattice_alt 110 110 110
+techpack_stairway:stair_lattice_alt_1 110 110 110
+techpack_stairway:stair_lattice_alt_2 110 110 110
+techpack_stairway:stair_lattice_alt_4 110 110 110
+techpack_stairway:stair_lattice_half 110 110 110
+techpack_stairway:stair_lattice_inner 110 110 110
+techpack_stairway:stair_lattice_outer 110 110 110
+techpack_stairway:stair_lattice_right_half 110 110 110
+trunks:moss 76 102 26
+trunks:moss_fungus 116 117 76
+trunks:twig_10 77 47 25
+trunks:twig_11 68 39 18
+trunks:twig_12 73 43 22
+trunks:twig_13 71 42 21
+trunks:twig_2 73 44 22
+trunks:twig_3 75 45 23
+trunks:twig_4 79 48 25
+trunks:twig_5 75 45 23
+trunks:twig_7 79 47 25
+trunks:twig_8 73 44 22
+trunks:twig_9 79 48 25
+trunks:twigs 81 65 43
+trunks:twigs_roof 81 65 43
+trunks:twigs_roof_corner 82 66 44
+trunks:twigs_roof_corner_2 82 66 44
+trunks:twigs_slab 81 65 43
+# warning: no visible pixels in tubelib_addons2:invisiblelamp (/home/cam/snap/minetest/1744/.minetest/mods/techpack/tubelib_addons2/textures/tubelib_addons2_invisiblelamp.png)
+# warning: no visible pixels in tubelib_addons2:invisiblelamp_on (/home/cam/snap/minetest/1744/.minetest/mods/techpack/tubelib_addons2/textures/tubelib_addons2_invisiblelamp.png)
+willow:leaves 63 106 47
+willow:sapling 65 119 15
+willow:trunk 151 128 104
+willow:wood 210 166 124
+woodsoils:dirt_with_leaves_2 87 73 53
+# warning: tile does not exist 3d_armor_stand:armor_stand (3d_armor_stand.png)
+# warning: tile does not exist 3d_armor_stand:locked_armor_stand (3d_armor_stand_locked.png)
+# warning: tile does not exist 3d_armor_stand:top (3d_armor_trans.png)
+# warning: tile does not exist areasprotector:protector_large (technic_wrought_iron_block.png)
+# warning: tile does not exist areasprotector:protector_small (technic_wrought_iron_block.png)
+# warning: tile does not exist bls:copper_chest_public (technic_copper_chest_top.png)
+# warning: tile does not exist bls:fake_glowstone (nether_glowstone.png)
+# warning: tile does not exist bls:gold_chest_public (technic_gold_chest_top.png)
+# warning: tile does not exist bls:iron_chest_public (technic_iron_chest_top.png)
+# warning: tile does not exist bls:mithril_chest_public (technic_mithril_chest_top.png)
+# warning: tile does not exist bls:silver_chest_public (technic_silver_chest_top.png)
+# warning: tile does not exist bushes:basket_blackberry (bushes_basket_pie_blackberry.png)
+# warning: tile does not exist bushes:basket_blueberry (bushes_basket_pie_blueberry.png)
+# warning: tile does not exist bushes:basket_empty (bushes_basket.png)
+# warning: tile does not exist bushes:basket_gooseberry (bushes_basket_pie_gooseberry.png)
+# warning: tile does not exist bushes:basket_mixed_berry (bushes_basket_pie_mixed_berry.png)
+# warning: tile does not exist bushes:basket_raspberry (bushes_basket_pie_raspberry.png)
+# warning: tile does not exist bushes:basket_strawberry (bushes_basket_pie_strawberry.png)
+# warning: tile does not exist bushes:blackberry_bush (bushes_bush_blackberry.png)
+# warning: tile does not exist bushes:blueberry_bush (bushes_bush_blueberry.png)
+# warning: tile does not exist bushes:fruitless_bush (bushes_bush_fruitless.png)
+# warning: tile does not exist bushes:gooseberry_bush (bushes_bush_gooseberry.png)
+# warning: tile does not exist bushes:raspberry_bush (bushes_bush_raspberry.png)
+# warning: tile does not exist bushes:strawberry_bush (bushes_bush_strawberry.png)
+# warning: tile does not exist caverealms:s_chest (default_chest_front.png)
+# warning: tile does not exist default:steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist digistuff:movestone (jeija_movestone_side.png)
+# warning: tile does not exist dispenser:dispenser (tubelib_front.png)
+# warning: tile does not exist dispenser:dispenser_active (tubelib_front.png)
+# warning: tile does not exist dispenser:dispenser_defect (tubelib_front.png)
+# warning: tile does not exist doors:door_birch_wood_a (birch_door_wood.png)
+# warning: tile does not exist doors:door_birch_wood_b (birch_door_wood.png)
+# warning: tile does not exist doors:door_birch_wood_c (birch_door_wood.png)
+# warning: tile does not exist doors:door_birch_wood_d (birch_door_wood.png)
+# warning: tile does not exist doors:door_chestnut_wood_a (chesnuttree_door_wood.png)
+# warning: tile does not exist doors:door_chestnut_wood_b (chesnuttree_door_wood.png)
+# warning: tile does not exist doors:door_chestnut_wood_c (chesnuttree_door_wood.png)
+# warning: tile does not exist doors:door_chestnut_wood_d (chesnuttree_door_wood.png)
+# warning: tile does not exist doors:door_clementinetree_wood_a (clementinetree_door_wood.png)
+# warning: tile does not exist doors:door_clementinetree_wood_b (clementinetree_door_wood.png)
+# warning: tile does not exist doors:door_clementinetree_wood_c (clementinetree_door_wood.png)
+# warning: tile does not exist doors:door_clementinetree_wood_d (clementinetree_door_wood.png)
+# warning: tile does not exist doors:door_larch_wood_a (larch_door_wood.png)
+# warning: tile does not exist doors:door_larch_wood_b (larch_door_wood.png)
+# warning: tile does not exist doors:door_larch_wood_c (larch_door_wood.png)
+# warning: tile does not exist doors:door_larch_wood_d (larch_door_wood.png)
+# warning: tile does not exist doors:door_maple_wood_a (maple_door_wood.png)
+# warning: tile does not exist doors:door_maple_wood_b (maple_door_wood.png)
+# warning: tile does not exist doors:door_maple_wood_c (maple_door_wood.png)
+# warning: tile does not exist doors:door_maple_wood_d (maple_door_wood.png)
+# warning: tile does not exist doors:door_oak_wood_a (oak_door_wood.png)
+# warning: tile does not exist doors:door_oak_wood_b (oak_door_wood.png)
+# warning: tile does not exist doors:door_oak_wood_c (oak_door_wood.png)
+# warning: tile does not exist doors:door_oak_wood_d (oak_door_wood.png)
+# warning: tile does not exist doors:door_palm_a (palm_door_wood.png)
+# warning: tile does not exist doors:door_palm_b (palm_door_wood.png)
+# warning: tile does not exist doors:door_palm_c (palm_door_wood.png)
+# warning: tile does not exist doors:door_palm_d (palm_door_wood.png)
+# warning: tile does not exist doors:homedecor_basic_panel_a (homedecor_door_basic_panel.png)
+# warning: tile does not exist doors:homedecor_basic_panel_b (homedecor_door_basic_panel.png)
+# warning: tile does not exist doors:homedecor_basic_panel_c (homedecor_door_basic_panel.png)
+# warning: tile does not exist doors:homedecor_basic_panel_d (homedecor_door_basic_panel.png)
+# warning: tile does not exist doors:homedecor_carolina_a (homedecor_door_carolina.png)
+# warning: tile does not exist doors:homedecor_carolina_b (homedecor_door_carolina.png)
+# warning: tile does not exist doors:homedecor_carolina_c (homedecor_door_carolina.png)
+# warning: tile does not exist doors:homedecor_carolina_d (homedecor_door_carolina.png)
+# warning: tile does not exist doors:homedecor_closet_mahogany_a (homedecor_door_closet_mahogany.png)
+# warning: tile does not exist doors:homedecor_closet_mahogany_b (homedecor_door_closet_mahogany.png)
+# warning: tile does not exist doors:homedecor_closet_mahogany_c (homedecor_door_closet_mahogany.png)
+# warning: tile does not exist doors:homedecor_closet_mahogany_d (homedecor_door_closet_mahogany.png)
+# warning: tile does not exist doors:homedecor_closet_oak_a (homedecor_door_closet_oak.png)
+# warning: tile does not exist doors:homedecor_closet_oak_b (homedecor_door_closet_oak.png)
+# warning: tile does not exist doors:homedecor_closet_oak_c (homedecor_door_closet_oak.png)
+# warning: tile does not exist doors:homedecor_closet_oak_d (homedecor_door_closet_oak.png)
+# warning: tile does not exist doors:homedecor_exterior_fancy_a (homedecor_door_exterior_fancy.png)
+# warning: tile does not exist doors:homedecor_exterior_fancy_b (homedecor_door_exterior_fancy.png)
+# warning: tile does not exist doors:homedecor_exterior_fancy_c (homedecor_door_exterior_fancy.png)
+# warning: tile does not exist doors:homedecor_exterior_fancy_d (homedecor_door_exterior_fancy.png)
+# warning: tile does not exist doors:homedecor_french_mahogany_a (homedecor_door_french_mahogany.png)
+# warning: tile does not exist doors:homedecor_french_mahogany_b (homedecor_door_french_mahogany.png)
+# warning: tile does not exist doors:homedecor_french_mahogany_c (homedecor_door_french_mahogany.png)
+# warning: tile does not exist doors:homedecor_french_mahogany_d (homedecor_door_french_mahogany.png)
+# warning: tile does not exist doors:homedecor_french_oak_a (homedecor_door_french_oak.png)
+# warning: tile does not exist doors:homedecor_french_oak_b (homedecor_door_french_oak.png)
+# warning: tile does not exist doors:homedecor_french_oak_c (homedecor_door_french_oak.png)
+# warning: tile does not exist doors:homedecor_french_oak_d (homedecor_door_french_oak.png)
+# warning: tile does not exist doors:homedecor_french_white_a (homedecor_door_french_white.png)
+# warning: tile does not exist doors:homedecor_french_white_b (homedecor_door_french_white.png)
+# warning: tile does not exist doors:homedecor_french_white_c (homedecor_door_french_white.png)
+# warning: tile does not exist doors:homedecor_french_white_d (homedecor_door_french_white.png)
+# warning: tile does not exist doors:homedecor_wood_plain_a (homedecor_door_wood_plain.png)
+# warning: tile does not exist doors:homedecor_wood_plain_b (homedecor_door_wood_plain.png)
+# warning: tile does not exist doors:homedecor_wood_plain_c (homedecor_door_wood_plain.png)
+# warning: tile does not exist doors:homedecor_wood_plain_d (homedecor_door_wood_plain.png)
+# warning: tile does not exist doors:homedecor_woodglass_a (homedecor_door_woodglass.png)
+# warning: tile does not exist doors:homedecor_woodglass_b (homedecor_door_woodglass.png)
+# warning: tile does not exist doors:homedecor_woodglass_c (homedecor_door_woodglass.png)
+# warning: tile does not exist doors:homedecor_woodglass_d (homedecor_door_woodglass.png)
+# warning: tile does not exist doors:homedecor_wrought_iron_a (homedecor_door_wrought_iron.png)
+# warning: tile does not exist doors:homedecor_wrought_iron_b (homedecor_door_wrought_iron.png)
+# warning: tile does not exist doors:homedecor_wrought_iron_c (homedecor_door_wrought_iron.png)
+# warning: tile does not exist doors:homedecor_wrought_iron_d (homedecor_door_wrought_iron.png)
+# warning: tile does not exist doors:japanese_door_a (xdecor_japanese_door.png)
+# warning: tile does not exist doors:japanese_door_b (xdecor_japanese_door.png)
+# warning: tile does not exist doors:japanese_door_c (xdecor_japanese_door.png)
+# warning: tile does not exist doors:japanese_door_d (xdecor_japanese_door.png)
+# warning: tile does not exist doors:prison_door_a (xdecor_prison_door.png)
+# warning: tile does not exist doors:prison_door_b (xdecor_prison_door.png)
+# warning: tile does not exist doors:prison_door_c (xdecor_prison_door.png)
+# warning: tile does not exist doors:prison_door_d (xdecor_prison_door.png)
+# warning: tile does not exist doors:rusty_prison_door_a (xdecor_rusty_prison_door.png)
+# warning: tile does not exist doors:rusty_prison_door_b (xdecor_rusty_prison_door.png)
+# warning: tile does not exist doors:rusty_prison_door_c (xdecor_rusty_prison_door.png)
+# warning: tile does not exist doors:rusty_prison_door_d (xdecor_rusty_prison_door.png)
+# warning: tile does not exist doors:screen_door_a (xdecor_screen_door.png)
+# warning: tile does not exist doors:screen_door_b (xdecor_screen_door.png)
+# warning: tile does not exist doors:screen_door_c (xdecor_screen_door.png)
+# warning: tile does not exist doors:screen_door_d (xdecor_screen_door.png)
+# warning: tile does not exist doors:slide_door_a (xdecor_slide_door.png)
+# warning: tile does not exist doors:slide_door_b (xdecor_slide_door.png)
+# warning: tile does not exist doors:slide_door_c (xdecor_slide_door.png)
+# warning: tile does not exist doors:slide_door_d (xdecor_slide_door.png)
+# warning: tile does not exist doors:woodglass_door_a (xdecor_woodglass_door.png)
+# warning: tile does not exist doors:woodglass_door_b (xdecor_woodglass_door.png)
+# warning: tile does not exist doors:woodglass_door_c (xdecor_woodglass_door.png)
+# warning: tile does not exist doors:woodglass_door_d (xdecor_woodglass_door.png)
+# warning: tile does not exist dryplants:grass_short (default_grass.png)
+# warning: tile does not exist facade:artdeco_1e_bannerstone (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_bannerstone_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_carved_stone_a (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_carved_stone_a_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_centerstone (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_column (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_column_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_corbel (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_corbel_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_corbel_corner_inner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_rgspro (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_rgspro_inner_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_1e_rgspro_outer_corner (artdeco_1e.png)
+# warning: tile does not exist facade:artdeco_2d_bannerstone (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_bannerstone_corner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_carved_stone_a (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_carved_stone_a_corner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_centerstone (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_column (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_column_corner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_corbel (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_corbel_corner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_corbel_corner_inner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_rgspro (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_rgspro_inner_corner (artdeco_2d.png)
+# warning: tile does not exist facade:artdeco_2d_rgspro_outer_corner (artdeco_2d.png)
+# warning: tile does not exist flowers:mushroom_brown (3dmushrooms_brown.png)
+# warning: tile does not exist flowers:mushroom_red (3dmushrooms_red.png)
+# warning: tile does not exist flowers:seaweed (flowers_seaweed.png)
+# warning: tile does not exist flowers:seaweed_2 (flowers_seaweed_2.png)
+# warning: tile does not exist flowers:seaweed_3 (flowers_seaweed_3.png)
+# warning: tile does not exist flowers:seaweed_4 (flowers_seaweed_4.png)
+# warning: tile does not exist flowers:sunflower (flowers_sunflower.png)
+# warning: tile does not exist flowers:waterlily_225 (flowers_waterlily_22.5.png)
+# warning: tile does not exist flowers:waterlily_45 (flowers_waterlily_45.png)
+# warning: tile does not exist flowers:waterlily_675 (flowers_waterlily_67.5.png)
+# warning: tile does not exist flowers:waterlily_s1 (flowers_waterlily_small_1.png)
+# warning: tile does not exist flowers:waterlily_s2 (flowers_waterlily_small_2.png)
+# warning: tile does not exist flowers:waterlily_s3 (flowers_waterlily_small_3.png)
+# warning: tile does not exist flowers:waterlily_s4 (flowers_waterlily_small_4.png)
+# warning: tile does not exist glass_stained:pane_bar_top_pane_offset (blank.png)
+# warning: tile does not exist glass_stained:pane_bar_top_pane_single (blank.png)
+# warning: tile does not exist maptools:desert_sand_soil_wet (farming_desert_sand_soil_wet.png)
+# warning: tile does not exist maptools:fullclip_face (invisible.png)
+# warning: tile does not exist maptools:ignore_like (invisible.png)
+# warning: tile does not exist maptools:ignore_like_no_clip (invisible.png)
+# warning: tile does not exist maptools:ignore_like_no_clip_no_point (invisible.png)
+# warning: tile does not exist maptools:ignore_like_no_point (invisible.png)
+# warning: tile does not exist maptools:playerclip_bottom (invisible.png)
+# warning: tile does not exist maptools:playerclip_top (invisible.png)
+# warning: tile does not exist maptools:pusher_1 (invisible.png)
+# warning: tile does not exist maptools:pusher_10 (invisible.png)
+# warning: tile does not exist maptools:pusher_2 (invisible.png)
+# warning: tile does not exist maptools:pusher_3 (invisible.png)
+# warning: tile does not exist maptools:pusher_4 (invisible.png)
+# warning: tile does not exist maptools:pusher_5 (invisible.png)
+# warning: tile does not exist maptools:pusher_6 (invisible.png)
+# warning: tile does not exist maptools:pusher_7 (invisible.png)
+# warning: tile does not exist maptools:pusher_8 (invisible.png)
+# warning: tile does not exist maptools:pusher_9 (invisible.png)
+# warning: tile does not exist maptools:steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist memorandum:message (vessels_glass_bottle.png)
+# warning: tile does not exist mesecons_detector:node_detector_off (technic_wrought_iron_block.png)
+# warning: tile does not exist mesecons_detector:node_detector_on (technic_wrought_iron_block.png)
+# warning: tile does not exist mesecons_detector:object_detector_off (technic_wrought_iron_block.png)
+# warning: tile does not exist mesecons_detector:object_detector_on (technic_wrought_iron_block.png)
+# warning: tile does not exist mesecons_extrawires:corner_off (jeija_insulated_wire_sides_off.png)
+# warning: tile does not exist mesecons_extrawires:corner_on (jeija_insulated_wire_sides_on.png)
+# warning: tile does not exist mesecons_extrawires:crossover_01 (jeija_insulated_wire_ends_on.png)
+# warning: tile does not exist mesecons_extrawires:crossover_10 (jeija_insulated_wire_ends_off.png)
+# warning: tile does not exist mesecons_extrawires:crossover_off (jeija_insulated_wire_ends_off.png)
+# warning: tile does not exist mesecons_extrawires:crossover_on (jeija_insulated_wire_ends_on.png)
+# warning: tile does not exist mesecons_extrawires:doublecorner_00 (jeija_insulated_wire_sides_off.png)
+# warning: tile does not exist mesecons_extrawires:doublecorner_01 (jeija_insulated_wire_sides_off.png)
+# warning: tile does not exist mesecons_extrawires:doublecorner_10 (jeija_insulated_wire_sides_on.png)
+# warning: tile does not exist mesecons_extrawires:doublecorner_11 (jeija_insulated_wire_sides_on.png)
+# warning: tile does not exist mesecons_extrawires:tjunction_off (jeija_insulated_wire_tjunction_tb_off.png)
+# warning: tile does not exist mesecons_extrawires:tjunction_on (jeija_insulated_wire_tjunction_tb_on.png)
+# warning: tile does not exist mesecons_gates:and_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:and_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:diode_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:diode_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:nand_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:nand_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:nor_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:nor_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:not_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:not_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:or_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:or_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:xor_off (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mesecons_gates:xor_on (jeija_microcontroller_bottom.png)
+# warning: tile does not exist mobs:beehive (mobs_beehive.png)
+# warning: tile does not exist mobs:cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_1 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_12 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_14 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_15 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_2 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_cheeseblock_4 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:micro_honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_1 (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_12 (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_14 (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_15 (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_2 (mobs_honey_block.png)
+# warning: tile does not exist mobs:micro_honey_block_4 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_1 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_12 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_14 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_15 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_2 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_cheeseblock_4 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:panel_honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_1 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_12 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_14 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_15 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_2 (mobs_honey_block.png)
+# warning: tile does not exist mobs:panel_honey_block_4 (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_1 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_14 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_15 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_2 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_quarter (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_three_quarter (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_three_sides (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_three_sides_u (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_cheeseblock_two_sides (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slab_honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_1 (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_14 (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_15 (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_2 (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_quarter (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_three_quarter (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_three_sides (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_three_sides_u (mobs_honey_block.png)
+# warning: tile does not exist mobs:slab_honey_block_two_sides (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_cut (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_half_raised (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner_cut (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner_cut_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner_cut_half_raised (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_inner_half_raised (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer_cut (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer_cut_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer_cut_half_raised (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_cheeseblock_outer_half_raised (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:slope_honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_cut (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_half_raised (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner_cut (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner_cut_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner_cut_half_raised (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_inner_half_raised (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer_cut (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer_cut_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer_cut_half_raised (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:slope_honey_block_outer_half_raised (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_cheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_alt (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_alt_1 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_alt_2 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_alt_4 (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_inner (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_outer (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_cheeseblock_right_half (mobs_cheeseblock.png)
+# warning: tile does not exist mobs:stair_honey_block (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_alt (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_alt_1 (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_alt_2 (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_alt_4 (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_half (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_inner (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_outer (mobs_honey_block.png)
+# warning: tile does not exist mobs:stair_honey_block_right_half (mobs_honey_block.png)
+# warning: tile does not exist mobs_mr_goat:goatcheeseblock (mobs_cheeseblock.png)
+# warning: tile does not exist moreblocks:micro_steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_1 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_12 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_14 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_15 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_2 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:micro_steelblock_4 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_1 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_12 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_14 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_15 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_2 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:panel_steelblock_4 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_1 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_14 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_15 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_2 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_quarter (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_three_quarter (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_three_sides (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_three_sides_u (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slab_steelblock_two_sides (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_cut (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_half_raised (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner_cut (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner_cut_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner_cut_half_raised (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_inner_half_raised (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer_cut (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer_cut_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer_cut_half_raised (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:slope_steelblock_outer_half_raised (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_alt (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_alt_1 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_alt_2 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_alt_4 (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_half (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_inner (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_outer (technic_wrought_iron_block.png)
+# warning: tile does not exist moreblocks:stair_steelblock_right_half (technic_wrought_iron_block.png)
+# warning: tile does not exist morelights_extras:stairlight (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:barlight_c (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:barlight_s (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:block (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:canlight_d (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:canlight_l (morelights_metal_light.png)
+# warning: tile does not exist morelights_modern:ceilinglight (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:post_d (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:post_l (morelights_metal_light.png)
+# warning: tile does not exist morelights_modern:smallblock (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:streetpost_d (morelights_metal_dark.png)
+# warning: tile does not exist morelights_modern:streetpost_l (morelights_metal_light.png)
+# warning: tile does not exist moremesecons_adjustable_player_detector:player_detector_off (technic_wrought_iron_block.png)
+# warning: tile does not exist moremesecons_adjustable_player_detector:player_detector_on (technic_wrought_iron_block.png)
+# warning: tile does not exist moremesecons_entity_detector:entity_detector_off (technic_wrought_iron_block.png)
+# warning: tile does not exist moremesecons_entity_detector:entity_detector_on (technic_wrought_iron_block.png)
+# warning: tile does not exist moremesecons_sayer:sayer (mesecons_noteblock.png)
+# warning: tile does not exist nether:blackstone (mcl_blackstone.png)
+# warning: tile does not exist nether:blackstone_brick_polished (mcl_blackstone_polished_bricks.png)
+# warning: tile does not exist nether:blackstone_chiseled_polished (mcl_blackstone_chiseled_polished.png)
+# warning: tile does not exist nether:blackstone_polished (mcl_blackstone_polished.png)
+# warning: tile does not exist nether:deep_nether_crystal_big (nether_crystal_large.png)
+# warning: tile does not exist nether:deep_nether_crystal_big_30 (nether_crystal_large.png)
+# warning: tile does not exist nether:deep_nether_crystal_big_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:deep_nether_crystal_med (nether_crystal_med.png)
+# warning: tile does not exist nether:deep_nether_crystal_med_30 (nether_crystal_med.png)
+# warning: tile does not exist nether:deep_nether_crystal_med_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:gold_ore_blackstone (mcl_blackstone.png)
+# warning: tile does not exist nether:large_tooth (default_coral_skeleton.png)
+# warning: tile does not exist nether:life_crystal_big (nether_crystal_large.png)
+# warning: tile does not exist nether:life_crystal_big_30 (nether_crystal_large.png)
+# warning: tile does not exist nether:life_crystal_big_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:life_crystal_med (nether_crystal_med.png)
+# warning: tile does not exist nether:life_crystal_med_30 (nether_crystal_med.png)
+# warning: tile does not exist nether:life_crystal_med_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:nether_crystal_big (nether_crystal_large.png)
+# warning: tile does not exist nether:nether_crystal_big_30 (nether_crystal_large.png)
+# warning: tile does not exist nether:nether_crystal_big_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:nether_crystal_med (nether_crystal_med.png)
+# warning: tile does not exist nether:nether_crystal_med_30 (nether_crystal_med.png)
+# warning: tile does not exist nether:nether_crystal_med_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:portal (nether_transparent.png)
+# warning: tile does not exist nether:portal_alt (nether_transparent.png)
+# warning: tile does not exist nether:portal_new (nether_transparent.png)
+# warning: tile does not exist nether:shadow_crystal_big (nether_crystal_large.png)
+# warning: tile does not exist nether:shadow_crystal_big_30 (nether_crystal_large.png)
+# warning: tile does not exist nether:shadow_crystal_big_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:shadow_crystal_med (nether_crystal_med.png)
+# warning: tile does not exist nether:shadow_crystal_med_30 (nether_crystal_med.png)
+# warning: tile does not exist nether:shadow_crystal_med_30_45 (nether_crystal_large.png)
+# warning: tile does not exist nether:small_tooth (default_coral_skeleton.png)
+# warning: tile does not exist ropes:ladder_steel (technic_wrought_iron_block.png)
+# warning: tile does not exist scifi_nodes:pot_lid (scifi_nodes_glass2.png)
+# warning: multiple possibilities for sl_controller:battery (smartline.png); using first
+sl_controller:battery 24 120 174
+# warning: multiple possibilities for sl_controller:battery25 (smartline.png); using first
+sl_controller:battery25 24 120 174
+# warning: multiple possibilities for sl_controller:battery50 (smartline.png); using first
+sl_controller:battery50 24 120 174
+# warning: multiple possibilities for sl_controller:battery75 (smartline.png); using first
+sl_controller:battery75 24 120 174
+# warning: multiple possibilities for sl_controller:battery_empty (smartline.png); using first
+sl_controller:battery_empty 24 120 174
+# warning: multiple possibilities for sl_controller:controller (smartline.png); using first
+sl_controller:controller 24 120 174
+# warning: tile does not exist smartshop:shop ((default_chest_top.png)
+# warning: tile does not exist smartshop:shop_admin ((default_chest_top.png)
+# warning: tile does not exist smartshop:shop_empty ((default_chest_top.png)
+# warning: tile does not exist smartshop:shop_full ((default_chest_top.png)
+# warning: tile does not exist smartshop:shop_used ((default_chest_top.png)
+# warning: tile does not exist snippets:button (technic_wrought_iron_block.png)
+stairs:slab_adobe 197 167 123
+stairs:slab_adobe_brick 153 127 115
+stairs:slab_baldcypress_trunk 210 168 94
+# warning: tile does not exist stairs:slab_brick (default_brick.png)
+# warning: tile does not exist stairs:slab_feldweg (cottages_feldweg.png)
+stairs:slab_granite 134 134 134
+stairs:slab_hollytree_trunk 206 172 138
+stairs:slab_maple_trunk 121 72 48
+# warning: tile does not exist stairs:slab_nether_brick (nether_brick.png)
+stairs:slab_nether_brick_deep 49 50 87
+# warning: multiple possibilities for stairs:slab_netherrack (nether_rack_new.png); using first
+stairs:slab_netherrack 72 38 38
+# warning: multiple possibilities for stairs:slab_netherrack_deep (nether_rack_deep.png); using first
+stairs:slab_netherrack_deep 56 56 88
+stairs:slab_oak_trunk 131 90 49
+# warning: multiple possibilities for stairs:slab_pink_granite (rainf_pink_granite.png); using first
+stairs:slab_pink_granite 185 160 144
+stairs:slab_plumtree_trunk 109 63 40
+stairs:slab_pomegranate_trunk 209 151 75
+stairs:slab_willow_trunk 210 166 124
+stairs:stair_adobe 197 167 123
+stairs:stair_adobe_brick 153 127 115
+stairs:stair_baldcypress_trunk 210 168 94
+# warning: tile does not exist stairs:stair_brick (default_brick.png)
+# warning: tile does not exist stairs:stair_feldweg (cottages_feldweg.png)
+stairs:stair_granite 134 134 134
+stairs:stair_hollytree_trunk 206 172 138
+stairs:stair_inner_adobe 197 167 123
+stairs:stair_inner_adobe_brick 153 127 115
+stairs:stair_inner_baldcypress_trunk 210 168 94
+# warning: tile does not exist stairs:stair_inner_brick (default_brick.png)
+# warning: tile does not exist stairs:stair_inner_feldweg (cottages_feldweg.png)
+stairs:stair_inner_granite 134 134 134
+stairs:stair_inner_hollytree_trunk 206 172 138
+stairs:stair_inner_maple_trunk 121 72 48
+# warning: tile does not exist stairs:stair_inner_nether_brick (nether_brick.png)
+stairs:stair_inner_nether_brick_deep 49 50 87
+stairs:stair_inner_oak_trunk 131 90 49
+# warning: multiple possibilities for stairs:stair_inner_pink_granite (rainf_pink_granite.png); using first
+stairs:stair_inner_pink_granite 185 160 144
+stairs:stair_inner_plumtree_trunk 109 63 40
+stairs:stair_inner_pomegranate_trunk 209 151 75
+stairs:stair_inner_willow_trunk 210 166 124
+stairs:stair_maple_trunk 121 72 48
+# warning: tile does not exist stairs:stair_nether_brick (nether_brick.png)
+stairs:stair_nether_brick_deep 49 50 87
+# warning: multiple possibilities for stairs:stair_netherrack (nether_rack_new.png); using first
+stairs:stair_netherrack 72 38 38
+# warning: multiple possibilities for stairs:stair_netherrack_deep (nether_rack_deep.png); using first
+stairs:stair_netherrack_deep 56 56 88
+stairs:stair_oak_trunk 131 90 49
+stairs:stair_outer_adobe 197 167 123
+stairs:stair_outer_adobe_brick 153 127 115
+stairs:stair_outer_baldcypress_trunk 210 168 94
+# warning: tile does not exist stairs:stair_outer_brick (default_brick.png)
+# warning: tile does not exist stairs:stair_outer_feldweg (cottages_feldweg.png)
+stairs:stair_outer_granite 134 134 134
+stairs:stair_outer_hollytree_trunk 206 172 138
+stairs:stair_outer_maple_trunk 121 72 48
+# warning: tile does not exist stairs:stair_outer_nether_brick (nether_brick.png)
+stairs:stair_outer_nether_brick_deep 49 50 87
+stairs:stair_outer_oak_trunk 131 90 49
+# warning: multiple possibilities for stairs:stair_outer_pink_granite (rainf_pink_granite.png); using first
+stairs:stair_outer_pink_granite 185 160 144
+stairs:stair_outer_plumtree_trunk 109 63 40
+stairs:stair_outer_pomegranate_trunk 209 151 75
+stairs:stair_outer_willow_trunk 210 166 124
+# warning: multiple possibilities for stairs:stair_pink_granite (rainf_pink_granite.png); using first
+stairs:stair_pink_granite 185 160 144
+stairs:stair_plumtree_trunk 109 63 40
+stairs:stair_pomegranate_trunk 209 151 75
+stairs:stair_willow_trunk 210 166 124
+# warning: tile does not exist trunks:apple_tree_trunkroot (moretrees_apple_tree_trunk.png)
+# warning: tile does not exist trunks:beech_trunkroot (moretrees_beech_trunk.png)
+# warning: tile does not exist trunks:birch_trunkroot (moretrees_birch_trunk.png)
+# warning: tile does not exist trunks:fir_trunkroot (moretrees_fir_trunk.png)
+# warning: tile does not exist trunks:jungletreeroot (default_jungletree.png)
+# warning: tile does not exist trunks:oak_trunkroot (moretrees_oak_trunk.png)
+# warning: tile does not exist trunks:palm_trunkroot (moretrees_palm_trunk.png)
+# warning: tile does not exist trunks:pine_treeroot (default_pine_tree.png)
+# warning: tile does not exist trunks:rubber_tree_trunk_emptyroot (moretrees_rubber_tree_trunk_empty.png)
+# warning: tile does not exist trunks:rubber_tree_trunkroot (moretrees_rubber_tree_trunk.png)
+# warning: tile does not exist trunks:sequoia_trunkroot (moretrees_sequoia_trunk.png)
+# warning: tile does not exist trunks:spruce_trunkroot (moretrees_spruce_trunk.png)
+# warning: tile does not exist trunks:treeroot (default_tree.png)
+# warning: tile does not exist trunks:willow_trunkroot (moretrees_willow_trunk.png)
+# warning: tile does not exist tubelib_addons2:accesscontrol (technic_wrought_iron_block.png)
+# warning: tile does not exist tubelib_addons2:gateblock14 (technic_wrought_iron_block.png)
+# warning: tile does not exist tubelib_addons2:invisiblelamp (tubelib_addons2_invisiblelamp.png)
+# warning: tile does not exist tubelib_addons2:invisiblelamp_on (tubelib_addons2_invisiblelamp.png)
+# warning: tile does not exist vessels:drinking_glass (homedecor_3d_vessels_shelf_glass.png)
+# warning: tile does not exist vessels:glass_bottle (homedecor_3d_vessels_shelf_glass.png)
+# warning: tile does not exist vessels:steel_bottle (homedecor_3d_bottle_metal_bright.png)
+# warning: tile does not exist wielded_light:river_water_1 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_10 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_11 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_12 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_13 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_14 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_2 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_3 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_4 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_5 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_6 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_7 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_8 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:river_water_9 (default_river_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_1 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_10 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_11 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_12 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_13 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_14 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_2 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_3 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_4 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_5 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_6 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_7 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_8 (default_water_source_animated.png)
+# warning: tile does not exist wielded_light:water_9 (default_water_source_animated.png)
+# warning: tile does not exist woodsoils:dirt_with_leaves_1 (default_dirt.png)
+# warning: tile does not exist woodsoils:grass_with_leaves_1 (default_grass.png)
+# warning: tile does not exist woodsoils:grass_with_leaves_2 (default_grass.png)
+# warning: tile does not exist xpanes:bamboo_frame (xdecor_bamboo_frame.png)
+# warning: tile does not exist xpanes:bamboo_frame_flat (xdecor_bamboo_frame.png)
+# warning: tile does not exist xpanes:bar_top (default_glass_detail.png)
+# warning: tile does not exist xpanes:bar_top_flat (default_glass_detail.png)
+# warning: tile does not exist xpanes:chainlink (xdecor_chainlink.png)
+# warning: tile does not exist xpanes:chainlink_flat (xdecor_chainlink.png)
+# warning: tile does not exist xpanes:rusty_bar (xdecor_rusty_bar.png)
+# warning: tile does not exist xpanes:rusty_bar_flat (xdecor_rusty_bar.png)
+# warning: tile does not exist xpanes:wood_frame (xdecor_wood_frame.png)
+# warning: tile does not exist xpanes:wood_frame_flat (xdecor_wood_frame.png)
