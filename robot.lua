@@ -2,7 +2,7 @@
 
 Frame:
 digiterms:cathodic_beige_monitor
-technic:silver_chest
+hook:pchest
 tubelib:tubeS
 terumet:frame_cgls
 
@@ -28,19 +28,19 @@ mesecons_switch:mesecon_switch_off
 "robot:norm_robot"
 { "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen",                 "scifi_nodes:block_lights"  },
 { "digiterms:cathodic_beige_monitor",         "terumet:frame_cgls",                    "digilines_memory:memory_7" },
-{ "tubelib_addons3:distributor",              "basic_materials:energy_crystal_simple", "technic:silver_chest"      },
+{ "tubelib_addons3:distributor",              "basic_materials:energy_crystal_simple", "hook:pchest"               },
 
 
 "robot:norm_robot_body"
 { "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen",       "scifi_nodes:block_lights"      },
 { "unified_inventory:bag_small",              "terumet:frame_cgls",          "technic:stainless_steel_block" },
-{ "tubelib_addons3:distributor",              "unified_inventory:bag_small", "technic:silver_chest"          },
+{ "tubelib_addons3:distributor",              "unified_inventory:bag_small", "hook:pchest"                   },
 
 
 "robot:norm_robot_legs"
 { "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen", "scifi_nodes:block_lights" },
 { "rhotator:screwdriver",                     "terumet:frame_cgls",    "bike:wheel"               },
-{ "tubelib_addons3:distributor",              "carts:cart",            "technic:silver_chest"     },
+{ "tubelib_addons3:distributor",              "carts:cart",            "hook:pchest"              },
 
 
 "robot:dark_robot*"
@@ -63,7 +63,7 @@ minetest.register_craft({
 	recipe={
 		{ "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen",                 "scifi_nodes:black_lights"  },
 		{ "digiterms:cathodic_beige_monitor",         "terumet:frame_cgls",                    "digilines_memory:memory_7" },
-		{ "tubelib_addons3:distributor",              "basic_materials:energy_crystal_simple", "technic:silver_chest"      },
+		{ "tubelib_addons3:distributor",              "basic_materials:energy_crystal_simple", "hook:pchest"               },
 	},
 })
 
@@ -73,7 +73,7 @@ minetest.register_craft({
 	recipe={
 		{ "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen",       "scifi_nodes:black_lights"      },
 		{ "unified_inventory:bag_small",              "terumet:frame_cgls",          "technic:stainless_steel_block" },
-		{ "tubelib_addons3:distributor",              "unified_inventory:bag_large", "technic:silver_chest"          },
+		{ "tubelib_addons3:distributor",              "unified_inventory:bag_large", "hook:pchest"                   },
 	}
 })
 
@@ -83,7 +83,7 @@ minetest.register_craft({
 	recipe={
 		{ "mesecons_luacontroller:luacontroller0000", "digistuff:touchscreen", "scifi_nodes:black_lights" },
 		{ "rhotator:screwdriver",                     "terumet:frame_cgls",    "bike:wheel"               },
-		{ "tubelib_addons3:distributor",              "carts:cart",            "technic:silver_chest"     },
+		{ "tubelib_addons3:distributor",              "carts:cart",            "hook:pchest"              },
 	}
 })
 
