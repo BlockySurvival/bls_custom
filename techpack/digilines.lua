@@ -1,9 +1,14 @@
-local digiline = {
+if not minetest.global_exists("digiline") then return end
+if not minetest.global_exists("tubelib") then return end
+
+
+local digiline_conf = {
 	receptor = {},
 	effector = {
 		action = function(pos, node, channel, msg)
 			local tubelib_number = tubelib.get_node_number(pos)
 			if tubelib_number ~= channel then return end
+
 			local topic, payload
 			if type(msg) == 'table' then
 				topic = msg.topic
@@ -11,17 +16,18 @@ local digiline = {
 			else
 				topic = msg
 			end
+
 			local success, result = pcall(tubelib.send_request, tubelib_number, topic, payload)
-			if success then
-				digiline:receptor_send(pos, digiline.rules.default, tubelib_number, result)
-			else
-				digiline:receptor_send(pos, digiline.rules.default, tubelib_number, "error")
-			end
+			local response = (not success and "error") or result
+
+			digiline:receptor_send(pos, digiline.rules.default, tubelib_number, response)
 		end
 	}
 }
+
 local function digiline_compat(node_name)
-	minetest.override_item(node_name, {digiline=digiline})
+	if not minetest.registered_nodes[node_name] then return end
+	minetest.override_item(node_name, {digiline=digiline_conf})
 end
 
 
