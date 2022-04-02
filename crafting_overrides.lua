@@ -87,6 +87,20 @@ if minetest.get_modpath("bbq") then
         replacements = {{"bucket:bucket_river_water", "bucket:bucket_empty"}}
     })
 
+    minetest.clear_craft({output="bbq:vinegar"})
+    minetest.register_craft({
+        output="bbq:vinegar",
+        type="shapeless",
+        recipe = {"group:vinegar_mother", "group:food_sugar", "bucket:bucket_water", "farming:grapes" },
+        replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
+    })
+    minetest.register_craft({
+        output="bbq:vinegar",
+        type="shapeless",
+        recipe = {"group:vinegar_mother", "group:food_sugar", "bucket:bucket_river_water", "farming:grapes" },
+        replacements = {{"bucket:bucket_river_water", "bucket:bucket_empty"}}
+    })
+
     minetest.clear_craft({output="bbq:propane"})
     minetest.register_craft({
         output="bbq:propane",
