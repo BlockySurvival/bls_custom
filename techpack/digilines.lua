@@ -7,20 +7,24 @@ local digiline_conf = {
 	effector = {
 		action = function(pos, node, channel, msg)
 			local tubelib_number = tubelib.get_node_number(pos)
-			if tubelib_number ~= channel then return end
+			local request_channel = "tubelib_"..tubelib_number
+			if request_channel ~= channel then return end
 
-			local topic, payload
-			if type(msg) == 'table' then
-				topic = msg.topic
-				payload = msg.payload
+			if type(msg) == 'table' and msg.cmd then
+				local success, result = pcall(tubelib.send_request, tubelib_number, string.lower(msg.prop), msg.val)
+				if string.lower(msg.cmd) == 'get' then
+					local response_channel = msg.response_channel or request_channel
+					local response = {
+						prop = msg.prop,
+						val = (not success and "error") or result,
+						request_id = msg.request_id
+					}
+					digiline:receptor_send(pos, digiline.rules.default, response_channel, response)
+				end
 			else
-				topic = msg
+				local success, result = pcall(tubelib.send_request, tubelib_number, msg)
+				digiline:receptor_send(pos, digiline.rules.default, request_channel, (not success and "error") or result)
 			end
-
-			local success, result = pcall(tubelib.send_request, tubelib_number, topic, payload)
-			local response = (not success and "error") or result
-
-			digiline:receptor_send(pos, digiline.rules.default, tubelib_number, response)
 		end
 	}
 }
