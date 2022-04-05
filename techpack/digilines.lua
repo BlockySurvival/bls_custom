@@ -10,24 +10,21 @@ local digiline_conf = {
 			local request_channel = "tubelib_"..tubelib_number
 			if request_channel ~= channel then return end
 
-			local response_channel = request_channel
-			local cmd, topic, payload, request_id
 			if type(msg) == 'table' and msg.cmd then
-				cmd = string.lower(msg.cmd)
-				topic = string.lower(msg.prop)
-				payload = msg.val
-				response_channel = msg.response_channel or response_channel
-				request_id = msg.request_id
+				local topic = string.lower(msg.prop)
+				local success, result = pcall(tubelib.send_request, tubelib_number, topic, msg.val)
+				if string.lower(msg.cmd) == 'get' then
+					local response_channel = msg.response_channel or request_channel
+					local response = {
+						prop = topic,
+						val = (not success and "error") or result,
+						request_id = msg.request_id
+					}
+					digiline:receptor_send(pos, digiline.rules.default, response_channel, response)
+				end
 			else
-				cmd = 'set'
-				topic = msg
-			end
-
-			local success, result = pcall(tubelib.send_request, tubelib_number, topic, payload)
-			if cmd == 'get' then
-				local response = (not success and "error") or result
-
-				digiline:receptor_send(pos, digiline.rules.default, response_channel, {prop=topic,val=response,request_id=request_id})
+				local success, result = pcall(tubelib.send_request, tubelib_number, msg)
+				digiline:receptor_send(pos, digiline.rules.default, request_channel, (not success and "error") or result)
 			end
 		end
 	}
