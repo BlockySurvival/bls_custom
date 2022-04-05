@@ -11,12 +11,11 @@ local digiline_conf = {
 			if request_channel ~= channel then return end
 
 			if type(msg) == 'table' and msg.cmd then
-				local topic = string.lower(msg.prop)
-				local success, result = pcall(tubelib.send_request, tubelib_number, topic, msg.val)
+				local success, result = pcall(tubelib.send_request, tubelib_number, string.lower(msg.prop), msg.val)
 				if string.lower(msg.cmd) == 'get' then
 					local response_channel = msg.response_channel or request_channel
 					local response = {
-						prop = topic,
+						prop = msg.prop,
 						val = (not success and "error") or result,
 						request_id = msg.request_id
 					}
