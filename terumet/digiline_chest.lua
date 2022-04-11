@@ -39,7 +39,7 @@ local function send_message(pos, action, stack, from_slot, to_slot, side)
 		-- Duplicate the vector in case the caller expects it not to change.
 		side = side and vector.new(side)
 	}
-	digilines.receptor_send(pos, digilines.rules.default, channel, msg)
+	digiline.receptor_send(pos, digiline.rules.default, channel, msg)
 end
 
 
