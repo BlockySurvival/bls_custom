@@ -112,6 +112,9 @@ if minetest.get_modpath("homedecor_doors_and_gates") and minetest.get_modpath("d
     minetest.register_alias_force("doors:wrought_iron", "doors:homedecor_wrought_iron")
     minetest.register_alias_force("homedecor:door_wrought_iron_left", "doors:homedecor_wrought_iron")
 end
+if minetest.get_modpath("mesecons_materials") and minetest.get_modpath("basic_materials") then
+    minetest.register_alias_force("mesecons_materials:silicon", "basic_materials:silicon")
+end
 
 if minetest.get_modpath("homedecor_lighting") then
     -- fix renamed nodes
