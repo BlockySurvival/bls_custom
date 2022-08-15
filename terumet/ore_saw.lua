@@ -18,7 +18,7 @@ if minetest.get_modpath("nether") then
     terumet.options.ore_saw.VALID_ORES["nether:heart_ore"] = 1
     terumet.options.ore_saw.VALID_ORES["nether:heart_ore_deep"] = 1
     terumet.options.ore_saw.VALID_ORES["nether:heart_ore_new"] = 1
-    
+
     terumet.options.ore_saw.VALID_ORES["nether:gold_ore"] = 1
     terumet.options.ore_saw.VALID_ORES["nether:gold_ore_blackstone"] = 1
     terumet.options.ore_saw.VALID_ORES["nether:gold_ore_deep"] = 1
