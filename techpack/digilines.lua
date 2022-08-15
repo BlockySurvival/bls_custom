@@ -1,13 +1,18 @@
 if not minetest.global_exists("digiline") then return end
 if not minetest.global_exists("tubelib") then return end
 
-
+local channel_prefix = 'tubelib_'
+local channel_prefix_l = #channel_prefix
 local digiline_conf = {
 	receptor = {},
 	effector = {
 		action = function(pos, node, channel, msg)
+			if #channel < channel_prefix_l+1
+			or string.sub(channel, 1, channel_prefix_l) ~= channel_prefix
+			then return end
+
 			local tubelib_number = tubelib.get_node_number(pos)
-			local request_channel = "tubelib_"..tubelib_number
+			local request_channel = channel_prefix..tubelib_number
 			if request_channel ~= channel then return end
 
 			if type(msg) == 'table' and msg.cmd then
