@@ -7,6 +7,7 @@ local digiline_conf = {
 	effector = {
 		action = function(pos, node, channel, msg)
 			local tubelib_number = tubelib.get_node_number(pos)
+			if tubelib_number == nil then return end
 			local request_channel = "tubelib_"..tubelib_number
 			if request_channel ~= channel then return end
 
