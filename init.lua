@@ -65,6 +65,7 @@ dofile(bls.modpath .. "/tnt.lua")
 dofile(bls.modpath .. "/democracy.lua")
 
 dofile(bls.modpath .. "/privs/caps.lua")
+dofile(bls.modpath .. "/privs/nic.lua")
 dofile(bls.modpath .. "/privs/zoom.lua")
 
 dofile(bls.modpath .. "/techpack/gravelsieve.lua")
