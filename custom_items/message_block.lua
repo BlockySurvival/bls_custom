@@ -41,7 +41,7 @@ minetest.register_node("bls:digilines_message_block", {
 				if channel ~= meta:get_string("channel") then return end
 				if type(msg) ~= "table" or type(msg.name) ~= "string" or type(msg.msg) ~= "string" then return end
 				if not minetest.check_player_privs(owner, {shout=true}) then return end
-				minetest.registered_chatcommands.msg.func(owner, msg.name.." "..msg.msg)
+				minetest.registered_chatcommands.msg.func(owner, msg.name.." "..msg.msg:gsub("[\r\n]", " "))
 			end,
 		},
 	},
