@@ -2015,3 +2015,17 @@ if minetest.get_modpath("caverealms") and minetest.get_modpath("farming") then
         },
     })
 end
+
+if minetest.get_modpath("digiscreen") then
+    minetest.clear_craft({
+        output = "digiscreen:digiscreen",
+    })
+    minetest.register_craft({
+        output = "digiscreen:digiscreen",
+        recipe = {
+            {"mesecons_luacontroller:luacontroller0000", "default:mese", "default:mese"},
+            {"digilines:lcd", "digilines:lcd", "digilines:lcd"},
+            {"mesecons_lightstone:lightstone_red_off", "mesecons_lightstone:lightstone_green_off", "mesecons_lightstone:lightstone_blue_off"},
+        },
+    })
+end
