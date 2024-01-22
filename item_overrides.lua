@@ -106,17 +106,18 @@ if minetest.get_modpath("cottages") then
             minetest.chat_send_player(player:get_player_name(), "Not repairable on the anvil")
             return 0
         end,
-        drop = {
-            max_items = 1,
-            items = {
-                {rarity=1, items={"default:steel_ingot 6"}},
-                {rarity=1, items={"default:steel_ingot 5"}},
-                {rarity=1, items={"default:steel_ingot 4"}},
-                {rarity=1, items={"default:steel_ingot 3"}},
-                {rarity=1, items={"default:steel_ingot 2"}},
-                {rarity=1, items={"default:steel_ingot"}},
-            }
-        },
+        -- Remove the behaviour that the Anvil is to be Mined about to 6 Wrought Iron Ingots and gets Mined as an Anvil
+        -- drop = {
+            -- max_items = 1,
+            -- items = {
+                -- {rarity=1, items={"default:steel_ingot 6"}},
+                -- {rarity=1, items={"default:steel_ingot 5"}},
+                -- {rarity=1, items={"default:steel_ingot 4"}},
+                -- {rarity=1, items={"default:steel_ingot 3"}},
+                -- {rarity=1, items={"default:steel_ingot 2"}},
+                -- {rarity=1, items={"default:steel_ingot"}},
+            -- }
+        -- },
     })
 end
 
