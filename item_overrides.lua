@@ -74,11 +74,11 @@ if minetest.get_modpath("cottages") then
     end
 
     for _, tool in ipairs({ "boots", "chestplate", "helmet", "leggings" }) do
-        for _, material in ipairs({ "bronze", "steel", "gold", "mithril" }) do
+        for _, material in ipairs({ "bronze", "steel", "gold", "mithril", "crystal" }) do
             anvil_whitelist[("3d_armor:%s_%s"):format(tool, material)] = 1
         end
     end
-    for _, material in ipairs({ "bronze", "steel", "gold", "mithril" }) do
+    for _, material in ipairs({ "bronze", "steel", "gold", "mithril", "crystal" }) do
         anvil_whitelist[("sheilds:shield_%s"):format(material)] = 1
     end
 
