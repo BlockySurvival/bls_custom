@@ -584,25 +584,25 @@ end
 if minetest.get_modpath("extra") then
     -- EDGY1"S ADDITION
     minetest.register_craft({
-        output = "extra:french_fries ",
+        output = "extra:french_fries",
         recipe = {
-             {"group:food_oil",     "extra:potato_slice", "extra:potato_slice"},
-             {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
-             {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
-          },
-       })
+            {"group:food_oil",     "extra:potato_slice", "extra:potato_slice"},
+            {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
+            {"extra:potato_slice", "extra:potato_slice", "extra:potato_slice"},
+        },
+    })
     minetest.register_craft({
-        output = "extra:onion_rings ",
+        output = "extra:onion_rings",
         recipe = {
-             {"group:food_oil",    "extra:onion_slice", "extra:onion_slice"},
-             {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
-             {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
-          },
-       })
+            {"group:food_oil",    "extra:onion_slice", "extra:onion_slice"},
+            {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
+            {"extra:onion_slice", "extra:onion_slice", "extra:onion_slice"},
+        },
+    })
     minetest.register_craft({
-       type = "cooking",
-       output = "extra:potato_crisps",
-       recipe = "extra:potato_slice"
+        type = "cooking",
+        output = "extra:potato_crisps",
+        recipe = "extra:potato_slice"
     })
 
 
@@ -741,12 +741,14 @@ if minetest.get_modpath("extra") then
         })
     end
 
-    if minetest.global_exists("terumet") then
+    -- TODO: we want to use group:food_oil here, but terumet does not allow for groups
+    -- https://github.com/BlockySurvival/bls_mods/issues/141
+    if minetest.global_exists("terumet") and minetest.get_modpath("cucina_vegana") then
         if minetest.get_modpath("farming") then
             -- add a recipe for the blooming onion that doesn't require techpack
             terumet.register_alloy_recipe({
                 result="extra:blooming_onion",
-                input={"farming:onion", "group:food_oil"},
+                input={"farming:onion", "cucina_vegana:peanut_oil"},
                 flux=0,
                 time=10,
             })
@@ -755,7 +757,7 @@ if minetest.get_modpath("extra") then
         if minetest.get_modpath("mobs_fish") then
             terumet.register_alloy_recipe({
                 result="extra:fish_sticks",
-                input={"group:food_fish", "group:food_oil"},
+                input={"group:food_fish", "cucina_vegana:peanut_oil"},
                 flux=0,
                 time=10,
             })
@@ -834,6 +836,17 @@ if minetest.get_modpath("farming") then
         register_hoe_craft("moreores:hoe_silver", "moreores:silver_ingot")
         register_hoe_craft("moreores:hoe_mithril", "moreores:mithril_ingot")
     end
+
+    minetest.clear_craft({output="farming:smoothie_berry"})
+    minetest.register_craft({
+        output = "farming:smoothie_berry",
+        type = "shapeless",
+        recipe = {
+            "group:food_raspberries", "group:food_blackberries",
+            "group:food_strawberry", "farming:blueberries",
+            "vessels:drinking_glass"
+        }
+    })
 end
 
 if minetest.get_modpath("gravelsieve") then
