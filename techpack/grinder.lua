@@ -7,6 +7,10 @@ if minetest.get_modpath("bonemeal") then
     gr({input="default:coral_skeleton", output="bonemeal:bonemeal 4"})
 end
 
+if minetest.get_modpath("default") then
+    gr({input="default:ice",output="default:snowblock"})
+end
+
 if minetest.get_modpath("dye") then
     --gr({input="group:coal", output="dye:black 8"})
     gr({input="default:coal_lump", output="dye:black 8"})
