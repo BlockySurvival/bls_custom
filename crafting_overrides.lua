@@ -2062,24 +2062,25 @@ if minetest.get_modpath("digiscreen") then
     })
 end
 
+if minetest.get_modpath("swaz") then
+    minetest.clear_craft({
+        output = "swaz:mudbrick",
+    })
+    minetest.register_craft({
+        output = "swaz:mudbrick 4",
+        type = "shapeless",
+        recipe = {"swaz:adobe", "swaz:adobe", "swaz:adobe", "swaz:adobe"},
+    })
 
-minetest.clear_craft({
-    output = "swaz:mudbrick",
-})
-minetest.register_craft({
-	output = "swaz:mudbrick 4",
-	type = "shapeless",
-	recipe = {"swaz:adobe", "swaz:adobe", "swaz:adobe", "swaz:adobe"},
-})
-
-minetest.clear_craft({
-    output = "swaz:adobe",
-})
-minetest.register_craft({
-	output = "swaz:adobe",
-	type = "shapeless",
-	recipe = {"swaz:mud", "farming:straw"},
-})
+    minetest.clear_craft({
+        output = "swaz:adobe",
+    })
+    minetest.register_craft({
+        output = "swaz:adobe",
+        type = "shapeless",
+        recipe = {"swaz:mud", "farming:straw"},
+    })
+end
 
 if minetest.get_modpath("unified_inventory") then
     unified_inventory.register_craft_type("submerge", {
