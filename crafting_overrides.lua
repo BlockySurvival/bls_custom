@@ -2042,3 +2042,90 @@ if minetest.get_modpath("digiscreen") then
         },
     })
 end
+
+if minetest.get_modpath("unified_inventory") then
+    unified_inventory.register_craft_type("submerge", {
+        description = F(S("Submerge")),
+        icon = "default_water.png",
+        width = 1,
+        height = 1,
+        uses_crafting_grid = false,
+    })
+    if minetest.get_modpath("terumet") then
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_black",
+            items = {"terumet:block_conmix_black"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_blue",
+            items = {"terumet:block_conmix_blue"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_brown",
+            items = {"terumet:block_conmix_brown"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_cyan",
+            items = {"terumet:block_conmix_cyan"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_dark_green",
+            items = {"terumet:block_conmix_dark_green"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_dark_grey",
+            items = {"terumet:block_conmix_dark_grey"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_green",
+            items = {"terumet:block_conmix_green"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_grey",
+            items = {"terumet:block_conmix_grey"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_magenta",
+            items = {"terumet:block_conmix_magenta"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_orange",
+            items = {"terumet:block_conmix_orange"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_pink",
+            items = {"terumet:block_conmix_pink"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_red",
+            items = {"terumet:block_conmix_red"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_violet",
+            items = {"terumet:block_conmix_violet"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_white",
+            items = {"terumet:block_conmix_white"}
+        }
+        unified_inventory.register_craft{
+            type = 'submerge',
+            output = "terumet:block_con_yellow",
+            items = {"terumet:block_conmix_yellow"}
+        }
+    end
+end
