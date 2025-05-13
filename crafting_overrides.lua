@@ -1,5 +1,7 @@
 -- PLEASE KEEP MOD SECTIONS IN ALPHABETICAL ORDER
 -- ORGANIZE LOGIC BY THE TARGET ITEM
+local S = minetest.get_translator("unified_inventory")
+local F = minetest.formspec_escape
 
 if minetest.get_modpath("basic_materials") then
     if minetest.get_modpath("quartz") then
