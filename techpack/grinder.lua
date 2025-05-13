@@ -8,7 +8,7 @@ if minetest.get_modpath("bonemeal") then
 end
 
 if minetest.get_modpath("default") then
-	gr({input="default:ice",output="default:snowblock"})
+    gr({input="default:ice",output="default:snowblock"})
 end
 
 if minetest.get_modpath("dye") then
