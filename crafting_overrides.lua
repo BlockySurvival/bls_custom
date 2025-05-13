@@ -743,26 +743,43 @@ if minetest.get_modpath("extra") then
         })
     end
 
-    -- TODO: we want to use group:food_oil here, but terumet does not allow for groups
-    -- https://github.com/BlockySurvival/bls_mods/issues/141
-    if minetest.global_exists("terumet") and minetest.get_modpath("cucina_vegana") then
-        if minetest.get_modpath("farming") then
-            -- add a recipe for the blooming onion that doesn't require techpack
-            terumet.register_alloy_recipe({
-                result="extra:blooming_onion",
-                input={"farming:onion", "cucina_vegana:peanut_oil"},
-                flux=0,
-                time=10,
-            })
-        end
+    if minetest.global_exists("terumet") then
+        if minetest.get_modpath("unified_inventory") then
+            if minetest.get_modpath("farming") then
+                -- add a recipe for the blooming onion that doesn't require techpack
+                terumet.register_alloy_recipe({
+                    result="extra:blooming_onion",
+                    input={"farming:onion", "group:food_oil"},
+                    flux=0,
+                    time=10,
+                })
+            end
 
-        if minetest.get_modpath("mobs_fish") then
             terumet.register_alloy_recipe({
                 result="extra:fish_sticks",
-                input={"group:food_fish", "cucina_vegana:peanut_oil"},
+                input={"group:food_fish", "group:food_oil"},
                 flux=0,
                 time=10,
             })
+        elseif minetest.get_modpath("cucina_vegana") then
+            if minetest.get_modpath("farming") then
+                -- add a recipe for the blooming onion that doesn't require techpack
+                terumet.register_alloy_recipe({
+                    result="extra:blooming_onion",
+                    input={"farming:onion", "cucina_vegana:peanut_oil"},
+                    flux=0,
+                    time=10,
+                })
+            end
+
+            if minetest.get_modpath("mobs_fish") then
+                terumet.register_alloy_recipe({
+                    result="extra:fish_sticks",
+                    input={"mobs_fish:clownfish", "cucina_vegana:peanut_oil"},
+                    flux=0,
+                    time=10,
+                })
+            end
         end
     end
 
