@@ -131,6 +131,8 @@ if minetest.get_modpath("cucina_vegana") then
     groups2.food_meat_raw = 1
     minetest.override_item("cucina_vegana:imitation_poultry", { groups = groups2 })
 
+    add_groups("cucina_vegana:tofu", "food_meat_raw")
+    add_groups("cucina_vegana:tofu_cooked", "food_meat")
     remove_groups("cucina_vegana:bowl_rice", "food_rice")
     add_groups("cucina_vegana:rice", "food_rice_raw")
     add_groups("cucina_vegana:bowl_rice_cooked", "food_rice")
