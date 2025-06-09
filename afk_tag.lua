@@ -28,8 +28,17 @@ local function is_not_afk(player)
     assertions_by_player[player:get_player_name()] = nil
 end
 
+function bls.afk.is_afk(player_name, afk_us)
+    if not afk_us then
+        afk_us = time_since_last_action(player_name)
+    end
+    local reason = assertions_by_player[player_name]
+
+    return reason or afk_us > AFK_BOUND_PERIOD, reason, afk_us
+end
+
 function bls.afk.set_afk(player, afk_us)
-    if assertions_by_player[player:get_player_name()] or afk_us > AFK_BOUND_PERIOD then
+    if bls.afk.is_afk(player:get_player_name(), afk_us) then
         is_afk(player, afk_us)
     else
         is_not_afk(player)
@@ -153,10 +162,9 @@ minetest.register_chatcommand("is_afk", {
         end
 
         local cannon_player_name = target_player:get_player_name()
-        local afk_us = time_since_last_action(cannon_player_name)
-        local reason = assertions_by_player[cannon_player_name]
+        local player_is_afk, reason, afk_us = bls.afk.is_afk(cannon_player_name)
 
-        if reason or afk_us > AFK_BOUND_PERIOD then
+        if player_is_afk then
             minetest.chat_send_player(player, ('Player "%s" has been AFK for %im%s'):format(
                 cannon_player_name,
                 afk_us / (60 * 1000000),
@@ -167,3 +175,25 @@ minetest.register_chatcommand("is_afk", {
         end
     end,
 })
+
+if minetest.global_exists("irc") then
+    minetest.register_chatcommand("who", {
+        description = "Tell who is currently on the channel",
+        privs = {},
+        func = function()
+            local out, afk = { }, { }
+            for plname in pairs(irc.joined_players) do
+                if bls.afk.is_afk(plname) then
+                    table.insert(afk, plname)
+                else
+                    table.insert(out, plname)
+                end
+            end
+            table.sort(out)
+            table.sort(afk)
+            return true, tostring(#out + #afk).." player(s) in channel."..
+                " Active: "..table.concat(out, ", ")..
+                " AFK: "..table.concat(afk, ", ")
+        end
+    })
+end
